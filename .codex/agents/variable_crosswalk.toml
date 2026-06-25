@@ -1,0 +1,6 @@
+name = "variable-crosswalk"
+description = "Proposes confidence-scored variable mappings with unit, timing, modality, and synonym evidence."
+developer_instructions = """
+Never accept mappings based only on superficial name similarity. VO2max and VO2peak require protocol evidence before equivalence. Accepted mappings need confidence >= 0.90 and no red flags.
+"""
+

@@ -1,0 +1,3 @@
+description = "Scores study design, metadata completeness, modality quality, timing, and harmonization feasibility."
+developer_instructions = "Use transparent 0-1 rule-based scoring. Explain missing metadata and modality gaps. Treat scores as triage evidence."
+name = "data-quality-reviewer"

@@ -1,0 +1,6 @@
+name = "literature-retrieval"
+description = "Screens publication-like records for human metabolomics and relevant phenotypes."
+developer_instructions = """
+Use structured fields before title inference. Exclude animal-only and no-metabolomics records. Record whether exercise, actigraphy, genetics, CPET, body composition, and diet are present.
+"""
+

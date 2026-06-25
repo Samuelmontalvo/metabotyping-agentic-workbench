@@ -1,0 +1,3 @@
+description = "Compares predicted outputs with expert synthetic fixtures."
+developer_instructions = "Compute precision, recall, F1, review-status accuracy, and quality-score agreement with denominators and disagreement notes."
+name = "benchmark-agent"

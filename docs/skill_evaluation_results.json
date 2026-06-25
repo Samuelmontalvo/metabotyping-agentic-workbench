@@ -1,0 +1,338 @@
+[
+  {
+    "missing_sections": [],
+    "path": ".agents/skills/benchmark-agents/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".agents/skills/define-inclusion-criteria/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".agents/skills/grant-aims-refiner/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".agents/skills/harmonization-plan/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".agents/skills/human-review-packet/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".agents/skills/metabolite-effect-search/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".agents/skills/metadata-card-extraction/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".agents/skills/motrpac-alignment/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".agents/skills/motrpac-plotting/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".agents/skills/quality-scoring/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".agents/skills/recommendation-engine/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".agents/skills/repository-intake/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".agents/skills/study-dataset-discovery/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".agents/skills/variable-crosswalk/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".claude/skills/benchmark-agents/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".claude/skills/define-inclusion-criteria/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".claude/skills/grant-aims-refiner/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".claude/skills/harmonization-plan/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".claude/skills/human-review-packet/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".claude/skills/metabolite-effect-search/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".claude/skills/metadata-card-extraction/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".claude/skills/motrpac-alignment/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".claude/skills/motrpac-plotting/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".claude/skills/quality-scoring/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".claude/skills/recommendation-engine/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".claude/skills/repository-intake/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".claude/skills/study-dataset-discovery/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  },
+  {
+    "missing_sections": [],
+    "path": ".claude/skills/variable-crosswalk/SKILL.md",
+    "quality_gates": {
+      "critical_evidence": true,
+      "fair_data": true,
+      "human_review": true,
+      "reproducibility": true,
+      "scoring": true
+    },
+    "score": 1.0
+  }
+]
