@@ -37,3 +37,6 @@ Separate accepted transformations from review-required and rejected mappings bef
 - Reproducibility: deterministic ETL must be regenerated only from declared accepted mappings and approved transforms.
 - Critical evidence: distinguish approved transformations from proposals; do not implement unreviewed or rejected harmonizations.
 - Skill quality rubric: pass only if inputs, outputs, validation checks, failure conditions, and human decisions are all explicit.
+
+# Implementation
+- Deterministic implementation: `src/metabotyping_agentic/harmonization/harmonization_plan.py`.

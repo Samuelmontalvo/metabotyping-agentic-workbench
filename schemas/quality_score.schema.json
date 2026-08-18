@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QualityScore",
+  "type": "object",
+  "required": ["study_id", "study_design_rigor", "metadata_completeness", "metabolomics_quality", "overall_score"],
+  "properties": {
+    "study_id": { "type": "string" },
+    "study_design_rigor": { "type": "number", "minimum": 0, "maximum": 1 },
+    "metadata_completeness": { "type": "number", "minimum": 0, "maximum": 1 },
+    "metabolomics_quality": { "type": "number", "minimum": 0, "maximum": 1 },
+    "genetics_quality": { "type": "number", "minimum": 0, "maximum": 1 },
+    "activity_quality": { "type": "number", "minimum": 0, "maximum": 1 },
+    "cpet_quality": { "type": "number", "minimum": 0, "maximum": 1 },
+    "body_composition_quality": { "type": "number", "minimum": 0, "maximum": 1 },
+    "diet_quality": { "type": "number", "minimum": 0, "maximum": 1 },
+    "temporal_alignment": { "type": "number", "minimum": 0, "maximum": 1 },
+    "harmonization_feasibility": { "type": "number", "minimum": 0, "maximum": 1 },
+    "overall_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "weights": { "type": "object" },
+    "rationale": { "type": "array", "items": { "type": "string" } }
+  }
+}
+

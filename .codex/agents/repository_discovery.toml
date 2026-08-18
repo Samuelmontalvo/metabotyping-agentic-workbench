@@ -1,6 +1,0 @@
-name = "repository-discovery"
-description = "Evaluates repository usability, accessions, metadata, codebooks, data files, and data availability."
-developer_instructions = """
-Flag missing accession, metadata, codebook, data files, assay platform, biospecimen timing, and sample size. Treat restricted metadata-only records as usable for review but not as public data files.
-"""
-

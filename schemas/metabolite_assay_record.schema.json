@@ -1,0 +1,304 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/metabolite_assay_record.schema.json",
+  "title": "MetaboliteAssayRecord",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["study_id", "feature_id", "identity", "assay", "quantitative", "provenance"],
+  "properties": {
+    "study_id": { "type": "string", "minLength": 1 },
+    "feature_id": { "type": "string", "minLength": 1 },
+    "identity": { "$ref": "#/$defs/identity" },
+    "assay": { "$ref": "#/$defs/assay" },
+    "quantitative": { "$ref": "#/$defs/quantitative" },
+    "provenance": { "$ref": "#/$defs/provenance" }
+  },
+  "$defs": {
+    "resolution": {
+      "type": "string",
+      "enum": [
+        "exact_structure",
+        "stereochemistry_unresolved",
+        "positional_isomer_unresolved",
+        "lipid_species",
+        "chemical_class",
+        "feature_only"
+      ]
+    },
+    "standardIdentifier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scheme", "value", "resolution", "provenance_ref"],
+      "properties": {
+        "scheme": {
+          "type": "string",
+          "enum": ["inchikey", "hmdb", "chebi", "pubchem_cid", "lipidmaps", "refmet", "kegg"]
+        },
+        "value": { "type": "string", "minLength": 1 },
+        "resolution": { "$ref": "#/$defs/resolution" },
+        "provenance_ref": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "scheme": { "const": "inchikey" } }, "required": ["scheme"] },
+          "then": { "properties": { "value": { "pattern": "^[A-Z]{14}-[A-Z]{10}-[A-Z]$" } } }
+        }
+      ]
+    },
+    "identityEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_type", "description", "provenance_ref"],
+      "properties": {
+        "evidence_type": {
+          "type": "string",
+          "enum": [
+            "authentic_standard",
+            "orthogonal_standard",
+            "msms_library",
+            "retention_index",
+            "accurate_mass",
+            "vendor_panel",
+            "database_annotation",
+            "manual_curation"
+          ]
+        },
+        "description": { "type": "string", "minLength": 1 },
+        "provenance_ref": { "type": "string", "minLength": 1 }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reported_name",
+        "standard_identifiers",
+        "identification_level",
+        "resolution",
+        "evidence",
+        "formula",
+        "adduct",
+        "ion_mode",
+        "mz",
+        "retention_time_seconds"
+      ],
+      "properties": {
+        "reported_name": { "type": "string", "minLength": 1 },
+        "standard_identifiers": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/standardIdentifier" }
+        },
+        "identification_level": {
+          "type": "string",
+          "enum": ["msi_level_1", "msi_level_2", "msi_level_3", "msi_level_4"]
+        },
+        "resolution": { "$ref": "#/$defs/resolution" },
+        "evidence": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/identityEvidence" }
+        },
+        "formula": { "type": "string" },
+        "adduct": { "type": "string" },
+        "ion_mode": { "type": "string" },
+        "mz": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "retention_time_seconds": { "type": ["number", "null"], "minimum": 0 }
+      }
+    },
+    "batch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "batch_count",
+        "batch_id_variable",
+        "run_order_variable",
+        "run_order_randomized",
+        "pooled_qc_present",
+        "pooled_qc_frequency",
+        "reference_material",
+        "blank_types",
+        "blank_acceptance_documented",
+        "drift_evaluated",
+        "drift_correction_method",
+        "batch_correction_method",
+        "correction_scope",
+        "qc_cv_percent"
+      ],
+      "properties": {
+        "batch_count": { "type": "integer", "minimum": 1 },
+        "batch_id_variable": { "type": "string" },
+        "run_order_variable": { "type": "string" },
+        "run_order_randomized": { "type": ["boolean", "null"] },
+        "pooled_qc_present": { "type": "boolean" },
+        "pooled_qc_frequency": { "type": "string" },
+        "reference_material": { "type": "string" },
+        "blank_types": { "type": "array", "items": { "type": "string" } },
+        "blank_acceptance_documented": { "type": "boolean" },
+        "drift_evaluated": { "type": "boolean" },
+        "drift_correction_method": { "type": "string" },
+        "batch_correction_method": { "type": "string" },
+        "correction_scope": {
+          "type": "string",
+          "enum": ["within_study", "cross_study", "none", "unknown"]
+        },
+        "qc_cv_percent": { "type": ["number", "null"], "minimum": 0 }
+      }
+    },
+    "assay": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assay_id",
+        "method_id",
+        "assay_version",
+        "platform_family",
+        "instrument_vendor",
+        "instrument_model",
+        "chromatography",
+        "acquisition_mode",
+        "laboratory",
+        "sample_matrix",
+        "extraction_protocol_id",
+        "validated_bridge_ids",
+        "batch"
+      ],
+      "properties": {
+        "assay_id": { "type": "string", "minLength": 1 },
+        "method_id": { "type": "string", "minLength": 1 },
+        "assay_version": { "type": "string", "minLength": 1 },
+        "platform_family": {
+          "type": "string",
+          "enum": [
+            "lc_ms_targeted",
+            "lc_ms_untargeted",
+            "gc_ms",
+            "nmr",
+            "direct_infusion_ms",
+            "commercial_kit",
+            "other"
+          ]
+        },
+        "instrument_vendor": { "type": "string" },
+        "instrument_model": { "type": "string" },
+        "chromatography": { "type": "string" },
+        "acquisition_mode": { "type": "string" },
+        "laboratory": { "type": "string" },
+        "sample_matrix": { "type": "string", "minLength": 1 },
+        "extraction_protocol_id": { "type": "string" },
+        "validated_bridge_ids": { "type": "array", "items": { "type": "string" } },
+        "batch": { "$ref": "#/$defs/batch" }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lod",
+        "loq",
+        "unit",
+        "censoring_policy",
+        "below_limit_code",
+        "raw_censoring_flags_available"
+      ],
+      "properties": {
+        "lod": { "type": ["number", "null"], "minimum": 0 },
+        "loq": { "type": ["number", "null"], "minimum": 0 },
+        "unit": { "type": "string", "minLength": 1 },
+        "censoring_policy": {
+          "type": "string",
+          "enum": [
+            "explicit_left_censoring",
+            "set_missing",
+            "half_limit_imputed",
+            "zero_imputed",
+            "minimum_value_imputed",
+            "none_expected",
+            "unknown"
+          ]
+        },
+        "below_limit_code": { "type": "string" },
+        "raw_censoring_flags_available": { "type": "boolean" }
+      }
+    },
+    "missingness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "feature_missing_fraction",
+        "encoded_missing_values",
+        "missing_reason_variable",
+        "imputation_method",
+        "unimputed_values_available",
+        "biological_zero_distinguished"
+      ],
+      "properties": {
+        "feature_missing_fraction": { "type": "number", "minimum": 0, "maximum": 1 },
+        "encoded_missing_values": { "type": "array", "items": { "type": "string" } },
+        "missing_reason_variable": { "type": "string" },
+        "imputation_method": { "type": "string" },
+        "unimputed_values_available": { "type": "boolean" },
+        "biological_zero_distinguished": { "type": "boolean" }
+      }
+    },
+    "quantitative": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "quantitation_type",
+        "unit",
+        "scale",
+        "calibration_model",
+        "calibration_traceability",
+        "internal_standard",
+        "normalization_method",
+        "molecular_weight_g_mol",
+        "limits",
+        "missingness"
+      ],
+      "properties": {
+        "quantitation_type": {
+          "type": "string",
+          "enum": [
+            "absolute_concentration",
+            "semi_quantitative",
+            "normalized_relative_abundance",
+            "feature_intensity",
+            "internal_standard_ratio"
+          ]
+        },
+        "unit": { "type": "string", "minLength": 1 },
+        "scale": {
+          "type": "string",
+          "enum": ["linear", "log2", "log10", "natural_log", "z_score", "rank", "unknown"]
+        },
+        "calibration_model": { "type": "string" },
+        "calibration_traceability": { "type": "string" },
+        "internal_standard": { "type": "string" },
+        "normalization_method": { "type": "string" },
+        "molecular_weight_g_mol": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+        "limits": { "$ref": "#/$defs/limits" },
+        "missingness": { "$ref": "#/$defs/missingness" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_artifact",
+        "source_record_locator",
+        "source_sha256",
+        "extraction_method",
+        "evidence_locators"
+      ],
+      "properties": {
+        "source_artifact": { "type": "string", "minLength": 1 },
+        "source_record_locator": { "type": "string", "minLength": 1 },
+        "source_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "extraction_method": { "type": "string", "minLength": 1 },
+        "evidence_locators": {
+          "type": "object",
+          "additionalProperties": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

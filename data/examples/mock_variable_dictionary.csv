@@ -1,0 +1,28 @@
+study_id,source_variable,label,unit,timing,modality,description
+SYN-METEX-GEN,vo2max,VO2max,mL/kg/min,baseline,cpet,Maximal oxygen uptake from graded treadmill test
+SYN-METEX-GEN,age,Participant age,years,baseline,demographics,Age at enrollment
+SYN-METEX-GEN,sex,Biological sex,category,baseline,demographics,Self-reported biological sex
+SYN-METEX-GEN,bmi,Body mass index,kg/m^2,baseline,body_composition,BMI from measured height and mass
+SYN-METEX-GEN,fasting_glucose,Fasting glucose,mg/dL,baseline,metabolomics,Clinical fasting glucose
+SYN-ACTI-MET,daily_steps,Daily steps,steps/day,7-day average,actigraphy,Mean daily steps from wrist actigraphy
+SYN-ACTI-MET,mvpa_min,MVPA minutes,min/day,7-day average,actigraphy,Moderate to vigorous physical activity minutes
+SYN-ACTI-MET,total_fat_mass,DXA fat mass,kg,baseline,body_composition,Whole body DXA fat mass
+SYN-OMICS-GEN,participant_age,Age,years,baseline,demographics,Age at biospecimen draw
+SYN-OMICS-GEN,glucose_fasting,Fasting glucose,mmol/L,baseline,clinical,Fasting glucose in mmol per liter
+SYN-OMICS-GEN,fasting_insulin,Fasting insulin,uIU/mL,baseline,clinical,Fasting insulin
+SYN-EXER-NODATA,peak_vo2,Peak VO2,mL/kg/min,unknown,cpet,Peak oxygen uptake from abstract
+SYN-MET-NOCODEBOOK,metab_feature_001,Unknown metabolite intensity,unknown,unknown,metabolomics,Feature table lacks codebook metadata
+SYN-CPET-RICH,vo2peak,VO2peak,mL/kg/min,baseline,cpet,Peak oxygen uptake from ramp cycling test
+SYN-CPET-RICH,total_lean_mass,Total lean mass,kg,baseline,body_composition,DXA-derived lean mass
+SYN-CPET-RICH,insulin,Insulin,uIU/mL,baseline,clinical,Fasting insulin
+SYN-MOTRPAC-LIKE,vo2max,VO2max,mL/kg/min,baseline,cpet,Confirmed maximal test endpoint
+SYN-MOTRPAC-LIKE,steps_per_day,Steps per day,steps/day,7-day average,actigraphy,Daily activity average
+SYN-MOTRPAC-LIKE,mvpa_minutes,MVPA minutes,min/day,7-day average,actigraphy,Daily MVPA
+SYN-MOTRPAC-LIKE,lean_mass,Lean mass,kg,baseline,body_composition,DXA lean mass
+SYN-MOTRPAC-LIKE,fat_mass,Fat mass,kg,baseline,body_composition,DXA fat mass
+SYN-DIET-BODY,body_mass_index,BMI,kg/m^2,baseline,body_composition,Body mass index
+SYN-DIET-BODY,dxa_lean_mass,DXA lean mass,kg,baseline,body_composition,Lean mass by DXA
+SYN-DIET-BODY,diet_score,Diet quality score,points,baseline,diet,Synthetic diet quality index
+SYN-RESTRICTED-META,age,Age,years,baseline,demographics,Age at baseline
+SYN-RESTRICTED-META,gender,Gender,category,baseline,demographics,Reported gender variable
+

@@ -1,0 +1,11 @@
+study_id,repository,accession,public_status,has_metadata,has_codebook,has_data_files,assay_platform,sample_matrix,biospecimen_timing,sample_size,modalities,documented_absent_modalities
+SYN-METEX-GEN,Metabolomics Workbench,MWB-SYN-001,public,true,true,true,LC-MS plasma metabolomics,plasma,pre and post 12-week training,180,metabolomics;exercise;genetics;cpet;body_composition;diet,
+SYN-ACTI-MET,Metabolomics Workbench,MWB-SYN-002,public,true,true,true,untargeted LC-MS,plasma,fasting morning draw linked to 7-day actigraphy,240,metabolomics;actigraphy;body_composition,genetics
+SYN-OMICS-GEN,dbGaP,DBGAP-SYN-003,restricted_metadata_only,true,true,false,NMR metabolomics,serum,baseline fasting,1200,metabolomics;genetics;diet,
+SYN-EXER-NODATA,unknown,not_available,not_available,false,false,false,unknown,unknown,unknown,64,metabolomics;exercise;cpet,
+SYN-ANIMAL-MET,Metabolomics Workbench,MWB-SYN-005,public,true,true,true,LC-MS muscle metabolomics,muscle,post exercise,40,metabolomics;exercise,genetics
+SYN-MET-NOCODEBOOK,Metabolomics Workbench,MWB-SYN-006,public,true,false,true,GC-MS serum metabolomics,serum,baseline fasting,95,metabolomics,genetics
+SYN-CPET-RICH,Metabolomics Workbench,MWB-SYN-007,public,true,true,true,targeted LC-MS,plasma,pre and post acute cycling,150,metabolomics;exercise;cpet;body_composition,genetics
+SYN-MOTRPAC-LIKE,Metabolomics Workbench,MWB-SYN-008,public,true,true,true,multi-platform LC-MS,plasma and muscle,baseline acute exercise and training follow-up,320,metabolomics;exercise;actigraphy;genetics;cpet;body_composition;diet,
+SYN-DIET-BODY,Metabolomics Workbench,MWB-SYN-009,public,true,true,true,LC-MS lipidomics,plasma,baseline fasting,410,metabolomics;body_composition;diet,genetics
+SYN-RESTRICTED-META,dbGaP,DBGAP-SYN-010,restricted_metadata_only,true,true,false,LC-MS metabolomics,serum,baseline fasting,860,metabolomics;genetics,

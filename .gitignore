@@ -1,7 +1,19 @@
 .DS_Store
-.Rhistory
+*.Rhistory
 .claude/settings.local.json
-.venv/
-tmp/
+
+# Python
 __pycache__/
 *.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+
+# Local scratch and third-party inputs.
+tmp/
+data/external/*

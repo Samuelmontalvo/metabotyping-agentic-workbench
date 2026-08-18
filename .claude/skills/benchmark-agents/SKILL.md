@@ -13,18 +13,20 @@ Benchmark mapping and scoring outputs against local gold standards.
 - `data/examples/expert_quality_scores.csv`
 
 # Steps
-1. Compare predicted positive mappings with expert positives.
-2. Compute precision, recall, and F1.
-3. Compute review-status accuracy.
-4. Compute quality-score agreement within tolerance.
-5. Render benchmark report.
+1. Compare predicted candidate mappings with expert non-rejected candidates.
+2. Compute candidate precision, recall, and F1 with explicit denominators.
+3. Separately compute automatic-accept precision/recall and unsafe-auto-accept rate.
+4. Compute review-required capture and exact review-status accuracy.
+5. Compute quality-score agreement within tolerance.
+6. Render benchmark report.
 
 # Outputs
 - `data/extracted/benchmark_results.json`
 - `reports/benchmark_report.md`
 
 # Validation Checks
-- Metrics define their denominator.
+- Candidate and automatic-accept metrics define distinct denominators.
+- Unsafe automatic accepts are counted even when the proposed mapping is a plausible review candidate.
 - Rejected expert mappings are not counted as positives.
 
 # Failure Modes
@@ -39,4 +41,7 @@ Benchmark mapping and scoring outputs against local gold standards.
 - FAIR: benchmark artifacts must preserve predicted source, expert source, metric definitions, and reusable denominators.
 - Reproducibility: metrics must be regenerated from declared predicted and gold-standard files without hidden state.
 - Critical evidence: distinguish model error, missing evidence, and fixture ambiguity; do not report aggregate scores without denominator context.
-- Skill quality rubric: pass only if precision, recall, F1, accuracy, quality agreement, and disagreement review are documented.
+- Skill quality rubric: pass only if candidate precision/recall/F1, auto-accept precision/recall, unsafe-accept rate, review capture, status accuracy, quality agreement, and disagreement review are documented.
+
+# Implementation
+- Deterministic implementation: `src/metabotyping_agentic/evaluation/benchmark.py`.

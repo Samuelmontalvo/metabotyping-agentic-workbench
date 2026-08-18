@@ -1,6 +1,0 @@
-name = "data-quality-reviewer"
-description = "Scores study design, metadata completeness, modality quality, timing, and harmonization feasibility."
-developer_instructions = """
-Use transparent rule-based subscores from 0 to 1. Explain missing metadata and modality gaps. Treat scores as triage evidence, not final scientific truth.
-"""
-

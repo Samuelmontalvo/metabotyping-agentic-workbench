@@ -1,0 +1,12 @@
+study_id,title,doi,pmid,human,exercise,actigraphy,metabolomics,genetics,cpet,body_composition,diet,repository_accession,notes
+SYN-METEX-GEN,Synthetic training metabolome and genotype cohort,10.0000/syn.metex.gen,900001,true,true,false,true,true,true,true,true,MWB-SYN-001,Direct match with exercise metabolomics genetics CPET and diet
+SYN-ACTI-MET,Synthetic actigraphy linked plasma metabolomics study,10.0000/syn.acti.met,900002,true,false,true,true,false,false,true,false,MWB-SYN-002,Direct match with actigraphy and metabolomics
+SYN-OMICS-GEN,Synthetic nonexercise metabolomics genetics reference,10.0000/syn.omics.gen,900003,true,false,false,true,true,false,false,true,DBGAP-SYN-003,Complementary genetics and diet metadata without exercise
+SYN-EXER-NODATA,Synthetic exercise metabolomics abstract without repository,10.0000/syn.exer.nodata,900004,true,true,false,true,false,true,false,false,not_available,Looks relevant but lacks deposited repository data
+SYN-ANIMAL-MET,Synthetic mouse endurance metabolomics experiment,10.0000/syn.animal.met,900005,false,true,false,true,false,false,false,false,MWB-SYN-005,Animal-only exclusion
+SYN-MET-NOCODEBOOK,Synthetic public metabolomics study without codebook,10.0000/syn.met.nocodebook,900006,true,false,false,true,false,false,false,false,MWB-SYN-006,Metabolomics available but variable dictionary missing
+SYN-CPET-RICH,Synthetic CPET and targeted metabolomics training study,10.0000/syn.cpet.rich,900007,true,true,false,true,false,true,true,false,MWB-SYN-007,CPET rich direct match
+SYN-MOTRPAC-LIKE,Synthetic MoTrPAC-like multi-domain exercise trial,10.0000/syn.motrpac.like,900008,true,true,true,true,true,true,true,true,MWB-SYN-008,Best synthetic MoTrPAC-style alignment
+SYN-DIET-BODY,Synthetic diet body composition metabolomics cohort,10.0000/syn.diet.body,900009,true,false,false,true,false,false,true,true,MWB-SYN-009,Enrichment candidate for diet and body composition
+SYN-RESTRICTED-META,Synthetic restricted metabolomics genetics cohort,10.0000/syn.restricted.meta,900010,true,false,false,true,true,false,false,false,DBGAP-SYN-010,Restricted data with metadata only
+

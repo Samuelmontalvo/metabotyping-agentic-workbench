@@ -37,3 +37,6 @@ Normalize repository metadata from public, restricted, or local CSV sources into
 - Reproducibility: cards must be regenerated from declared repository rows with explicit unknown values.
 - Critical evidence: distinguish unavailable data from restricted metadata-only access; do not infer data files from accessions alone.
 - Skill quality rubric: pass only if accession, access status, codebook, data files, platform, timing, and sample size checks are complete.
+
+# Implementation
+- Deterministic implementation: `src/metabotyping_agentic/discovery/repositories.py`.

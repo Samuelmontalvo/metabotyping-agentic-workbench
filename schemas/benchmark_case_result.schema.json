@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BenchmarkCaseResult",
+  "type": "object",
+  "required": [
+    "case_type",
+    "source_study",
+    "source_variable",
+    "common_variable",
+    "outcome",
+    "reason_codes",
+    "gold",
+    "predicted",
+    "absolute_difference",
+    "within_tolerance"
+  ],
+  "properties": {
+    "case_type": {
+      "type": "string",
+      "enum": ["mapping", "quality"]
+    },
+    "source_study": { "type": "string", "minLength": 1 },
+    "source_variable": { "type": ["string", "null"] },
+    "common_variable": { "type": ["string", "null"] },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "correct",
+        "missing_prediction",
+        "unexpected_prediction",
+        "common_variable_mismatch",
+        "review_status_mismatch",
+        "unsafe_auto_accept",
+        "quality_score_outside_tolerance"
+      ]
+    },
+    "reason_codes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "missing_prediction",
+          "unexpected_prediction",
+          "common_variable_mismatch",
+          "review_status_mismatch",
+          "unsafe_auto_accept",
+          "quality_score_outside_tolerance"
+        ]
+      }
+    },
+    "gold": { "type": ["object", "null"] },
+    "predicted": { "type": ["object", "null"] },
+    "absolute_difference": {
+      "type": ["number", "null"],
+      "minimum": 0
+    },
+    "within_tolerance": { "type": ["boolean", "null"] }
+  },
+  "additionalProperties": false
+}

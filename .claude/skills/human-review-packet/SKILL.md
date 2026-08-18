@@ -36,3 +36,6 @@ Create a concise packet for expert review of uncertain mappings, mirages, and mi
 - Reproducibility: queue contents must be regenerated from declared crosswalk statuses and mirage flags.
 - Critical evidence: distinguish overrideable uncertainty from hard incompatibility; do not ask reviewers vague questions.
 - Skill quality rubric: pass only if every item has a concrete decision, evidence, risk, and expected reviewer action.
+
+# Implementation
+- Deterministic implementation: `src/metabotyping_agentic/reports/render.py`.

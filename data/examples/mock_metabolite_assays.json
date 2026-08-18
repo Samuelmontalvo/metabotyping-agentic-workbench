@@ -1,0 +1,587 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Synthetic assay records for deterministic offline harmonization tests; no record describes a real participant dataset.",
+  "candidate_pairs": [
+    ["SYN-A:citrate", "SYN-B:citrate"],
+    ["SYN-A:citrate", "SYN-C:citrate-name-only"],
+    ["SYN-A:citrate", "SYN-D:different-structure"],
+    ["SYN-A:citrate", "SYN-E:citrate-nmr"],
+    ["SYN-A:citrate", "SYN-F:citrate-relative"]
+  ],
+  "records": [
+    {
+      "study_id": "SYN-A",
+      "feature_id": "SYN-A:citrate",
+      "identity": {
+        "reported_name": "Citrate",
+        "standard_identifiers": [
+          {
+            "scheme": "inchikey",
+            "value": "KRKNYBCHXYNGOX-UHFFFAOYSA-N",
+            "resolution": "exact_structure",
+            "provenance_ref": "syn-a-id"
+          },
+          {
+            "scheme": "hmdb",
+            "value": "HMDB0000094",
+            "resolution": "exact_structure",
+            "provenance_ref": "syn-a-id"
+          }
+        ],
+        "identification_level": "msi_level_1",
+        "resolution": "exact_structure",
+        "evidence": [
+          {
+            "evidence_type": "authentic_standard",
+            "description": "Synthetic codebook declares two orthogonal transitions and retention-time match to an authentic standard.",
+            "provenance_ref": "syn-a-standard"
+          }
+        ],
+        "formula": "C6H8O7",
+        "adduct": "[M-H]-",
+        "ion_mode": "negative",
+        "mz": 191.0197,
+        "retention_time_seconds": 132.0
+      },
+      "assay": {
+        "assay_id": "SYN-TARGETED-PANEL-A",
+        "method_id": "SYN-CITRATE-METHOD-1",
+        "assay_version": "1.0",
+        "platform_family": "lc_ms_targeted",
+        "instrument_vendor": "Synthetic Vendor",
+        "instrument_model": "Triple Quadrupole A",
+        "chromatography": "HILIC",
+        "acquisition_mode": "MRM",
+        "laboratory": "Synthetic Laboratory A",
+        "sample_matrix": "EDTA plasma",
+        "extraction_protocol_id": "SYN-EXTRACT-1",
+        "validated_bridge_ids": [],
+        "batch": {
+          "batch_count": 2,
+          "batch_id_variable": "analytical_batch_id",
+          "run_order_variable": "injection_order",
+          "run_order_randomized": true,
+          "pooled_qc_present": true,
+          "pooled_qc_frequency": "one pooled QC every 10 study injections",
+          "reference_material": "synthetic SRM-like plasma reference",
+          "blank_types": ["extraction_blank", "solvent_blank"],
+          "blank_acceptance_documented": true,
+          "drift_evaluated": true,
+          "drift_correction_method": "within-batch QC robust spline",
+          "batch_correction_method": "within-study reference-QC alignment",
+          "correction_scope": "within_study",
+          "qc_cv_percent": 8.0
+        }
+      },
+      "quantitative": {
+        "quantitation_type": "absolute_concentration",
+        "unit": "umol/L",
+        "scale": "linear",
+        "calibration_model": "seven-point isotope-dilution curve",
+        "calibration_traceability": "synthetic certified neat standard reference",
+        "internal_standard": "citrate-d4",
+        "normalization_method": "isotope dilution",
+        "molecular_weight_g_mol": 192.123,
+        "limits": {
+          "lod": 0.2,
+          "loq": 0.5,
+          "unit": "umol/L",
+          "censoring_policy": "explicit_left_censoring",
+          "below_limit_code": "BLQ",
+          "raw_censoring_flags_available": true
+        },
+        "missingness": {
+          "feature_missing_fraction": 0.03,
+          "encoded_missing_values": ["NA"],
+          "missing_reason_variable": "missing_reason",
+          "imputation_method": "not_applied",
+          "unimputed_values_available": true,
+          "biological_zero_distinguished": true
+        }
+      },
+      "provenance": {
+        "source_artifact": "data/examples/synthetic_assay_a_codebook.csv",
+        "source_record_locator": "row=2",
+        "source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "extraction_method": "deterministic synthetic fixture parser v1",
+        "evidence_locators": {
+          "syn-a-id": "synthetic codebook row 2 identifier columns",
+          "syn-a-standard": "synthetic SOP section 4.2"
+        }
+      }
+    },
+    {
+      "study_id": "SYN-B",
+      "feature_id": "SYN-B:citrate",
+      "identity": {
+        "reported_name": "Citric acid",
+        "standard_identifiers": [
+          {
+            "scheme": "inchikey",
+            "value": "KRKNYBCHXYNGOX-UHFFFAOYSA-N",
+            "resolution": "exact_structure",
+            "provenance_ref": "syn-b-id"
+          },
+          {
+            "scheme": "hmdb",
+            "value": "HMDB0000094",
+            "resolution": "exact_structure",
+            "provenance_ref": "syn-b-id"
+          }
+        ],
+        "identification_level": "msi_level_1",
+        "resolution": "exact_structure",
+        "evidence": [
+          {
+            "evidence_type": "authentic_standard",
+            "description": "Synthetic codebook declares authentic-standard transition ratios and retention time.",
+            "provenance_ref": "syn-b-standard"
+          }
+        ],
+        "formula": "C6H8O7",
+        "adduct": "[M-H]-",
+        "ion_mode": "negative",
+        "mz": 191.0197,
+        "retention_time_seconds": 132.4
+      },
+      "assay": {
+        "assay_id": "SYN-TARGETED-PANEL-B",
+        "method_id": "SYN-CITRATE-METHOD-1",
+        "assay_version": "1.0",
+        "platform_family": "lc_ms_targeted",
+        "instrument_vendor": "Synthetic Vendor",
+        "instrument_model": "Triple Quadrupole B",
+        "chromatography": "HILIC",
+        "acquisition_mode": "MRM",
+        "laboratory": "Synthetic Laboratory B",
+        "sample_matrix": "EDTA plasma",
+        "extraction_protocol_id": "SYN-EXTRACT-1",
+        "validated_bridge_ids": [],
+        "batch": {
+          "batch_count": 1,
+          "batch_id_variable": "not_applicable",
+          "run_order_variable": "injection_order",
+          "run_order_randomized": true,
+          "pooled_qc_present": true,
+          "pooled_qc_frequency": "one pooled QC every 10 study injections",
+          "reference_material": "synthetic SRM-like plasma reference",
+          "blank_types": ["extraction_blank", "solvent_blank"],
+          "blank_acceptance_documented": true,
+          "drift_evaluated": true,
+          "drift_correction_method": "none needed after QC trend check",
+          "batch_correction_method": "not_applicable",
+          "correction_scope": "none",
+          "qc_cv_percent": 10.0
+        }
+      },
+      "quantitative": {
+        "quantitation_type": "absolute_concentration",
+        "unit": "mmol/L",
+        "scale": "linear",
+        "calibration_model": "seven-point isotope-dilution curve",
+        "calibration_traceability": "synthetic certified neat standard reference",
+        "internal_standard": "citrate-d4",
+        "normalization_method": "isotope dilution",
+        "molecular_weight_g_mol": 192.123,
+        "limits": {
+          "lod": 0.0004,
+          "loq": 0.001,
+          "unit": "mmol/L",
+          "censoring_policy": "explicit_left_censoring",
+          "below_limit_code": "BELOW_LOQ",
+          "raw_censoring_flags_available": true
+        },
+        "missingness": {
+          "feature_missing_fraction": 0.02,
+          "encoded_missing_values": ["NA"],
+          "missing_reason_variable": "missing_reason",
+          "imputation_method": "not_applied",
+          "unimputed_values_available": true,
+          "biological_zero_distinguished": true
+        }
+      },
+      "provenance": {
+        "source_artifact": "data/examples/synthetic_assay_b_codebook.csv",
+        "source_record_locator": "row=7",
+        "source_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+        "extraction_method": "deterministic synthetic fixture parser v1",
+        "evidence_locators": {
+          "syn-b-id": "synthetic codebook row 7 identifier columns",
+          "syn-b-standard": "synthetic SOP section 5.1"
+        }
+      }
+    },
+    {
+      "study_id": "SYN-C",
+      "feature_id": "SYN-C:citrate-name-only",
+      "identity": {
+        "reported_name": "Citrate",
+        "standard_identifiers": [],
+        "identification_level": "msi_level_4",
+        "resolution": "feature_only",
+        "evidence": [
+          {
+            "evidence_type": "accurate_mass",
+            "description": "Synthetic feature has accurate mass only; no standard identifier is asserted.",
+            "provenance_ref": "syn-c-feature"
+          }
+        ],
+        "formula": "not_reported",
+        "adduct": "unknown",
+        "ion_mode": "negative",
+        "mz": 191.02,
+        "retention_time_seconds": 127.0
+      },
+      "assay": {
+        "assay_id": "SYN-UNTARGETED-C",
+        "method_id": "SYN-UNTARGETED-METHOD-C",
+        "assay_version": "1.0",
+        "platform_family": "lc_ms_untargeted",
+        "instrument_vendor": "Synthetic Vendor",
+        "instrument_model": "High Resolution MS C",
+        "chromatography": "reversed phase",
+        "acquisition_mode": "data dependent acquisition",
+        "laboratory": "Synthetic Laboratory C",
+        "sample_matrix": "EDTA plasma",
+        "extraction_protocol_id": "SYN-EXTRACT-C",
+        "validated_bridge_ids": [],
+        "batch": {
+          "batch_count": 1,
+          "batch_id_variable": "not_applicable",
+          "run_order_variable": "injection_order",
+          "run_order_randomized": true,
+          "pooled_qc_present": true,
+          "pooled_qc_frequency": "one pooled QC every 10 study injections",
+          "reference_material": "synthetic pooled study QC",
+          "blank_types": ["extraction_blank"],
+          "blank_acceptance_documented": true,
+          "drift_evaluated": true,
+          "drift_correction_method": "QC robust spline",
+          "batch_correction_method": "not_applicable",
+          "correction_scope": "none",
+          "qc_cv_percent": 18.0
+        }
+      },
+      "quantitative": {
+        "quantitation_type": "feature_intensity",
+        "unit": "arbitrary_unit",
+        "scale": "log2",
+        "calibration_model": "not_applicable",
+        "calibration_traceability": "not_applicable",
+        "internal_standard": "not_reported",
+        "normalization_method": "pooled-QC robust spline then median scaling",
+        "molecular_weight_g_mol": null,
+        "limits": {
+          "lod": null,
+          "loq": null,
+          "unit": "arbitrary_unit",
+          "censoring_policy": "unknown",
+          "below_limit_code": "not_reported",
+          "raw_censoring_flags_available": false
+        },
+        "missingness": {
+          "feature_missing_fraction": 0.12,
+          "encoded_missing_values": ["NA"],
+          "missing_reason_variable": "missing_reason",
+          "imputation_method": "not_applied",
+          "unimputed_values_available": true,
+          "biological_zero_distinguished": true
+        }
+      },
+      "provenance": {
+        "source_artifact": "data/examples/synthetic_assay_c_features.csv",
+        "source_record_locator": "feature=191.020@127s",
+        "source_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+        "extraction_method": "deterministic synthetic fixture parser v1",
+        "evidence_locators": {
+          "syn-c-feature": "synthetic feature table row 18"
+        }
+      }
+    },
+    {
+      "study_id": "SYN-D",
+      "feature_id": "SYN-D:different-structure",
+      "identity": {
+        "reported_name": "Citrate",
+        "standard_identifiers": [
+          {
+            "scheme": "inchikey",
+            "value": "ABCDEFGHIJKLMN-ABCDEFGHIJ-A",
+            "resolution": "exact_structure",
+            "provenance_ref": "syn-d-id"
+          }
+        ],
+        "identification_level": "msi_level_1",
+        "resolution": "exact_structure",
+        "evidence": [
+          {
+            "evidence_type": "authentic_standard",
+            "description": "Synthetic fixture intentionally assigns a conflicting exact structure despite the same reported name.",
+            "provenance_ref": "syn-d-standard"
+          }
+        ],
+        "formula": "C6H8O7",
+        "adduct": "[M-H]-",
+        "ion_mode": "negative",
+        "mz": 191.0197,
+        "retention_time_seconds": 145.0
+      },
+      "assay": {
+        "assay_id": "SYN-TARGETED-PANEL-D",
+        "method_id": "SYN-CITRATE-METHOD-1",
+        "assay_version": "1.0",
+        "platform_family": "lc_ms_targeted",
+        "instrument_vendor": "Synthetic Vendor",
+        "instrument_model": "Triple Quadrupole D",
+        "chromatography": "HILIC",
+        "acquisition_mode": "MRM",
+        "laboratory": "Synthetic Laboratory D",
+        "sample_matrix": "EDTA plasma",
+        "extraction_protocol_id": "SYN-EXTRACT-1",
+        "validated_bridge_ids": [],
+        "batch": {
+          "batch_count": 1,
+          "batch_id_variable": "not_applicable",
+          "run_order_variable": "injection_order",
+          "run_order_randomized": true,
+          "pooled_qc_present": true,
+          "pooled_qc_frequency": "one pooled QC every 10 study injections",
+          "reference_material": "synthetic SRM-like plasma reference",
+          "blank_types": ["extraction_blank", "solvent_blank"],
+          "blank_acceptance_documented": true,
+          "drift_evaluated": true,
+          "drift_correction_method": "none needed after QC trend check",
+          "batch_correction_method": "not_applicable",
+          "correction_scope": "none",
+          "qc_cv_percent": 9.0
+        }
+      },
+      "quantitative": {
+        "quantitation_type": "absolute_concentration",
+        "unit": "umol/L",
+        "scale": "linear",
+        "calibration_model": "seven-point isotope-dilution curve",
+        "calibration_traceability": "synthetic certified standard",
+        "internal_standard": "citrate-d4",
+        "normalization_method": "isotope dilution",
+        "molecular_weight_g_mol": 192.123,
+        "limits": {
+          "lod": 0.2,
+          "loq": 0.5,
+          "unit": "umol/L",
+          "censoring_policy": "explicit_left_censoring",
+          "below_limit_code": "BLQ",
+          "raw_censoring_flags_available": true
+        },
+        "missingness": {
+          "feature_missing_fraction": 0.01,
+          "encoded_missing_values": ["NA"],
+          "missing_reason_variable": "missing_reason",
+          "imputation_method": "not_applied",
+          "unimputed_values_available": true,
+          "biological_zero_distinguished": true
+        }
+      },
+      "provenance": {
+        "source_artifact": "data/examples/synthetic_assay_d_codebook.csv",
+        "source_record_locator": "row=3",
+        "source_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+        "extraction_method": "deterministic synthetic fixture parser v1",
+        "evidence_locators": {
+          "syn-d-id": "synthetic codebook row 3 identifier columns",
+          "syn-d-standard": "synthetic SOP section 3"
+        }
+      }
+    },
+    {
+      "study_id": "SYN-E",
+      "feature_id": "SYN-E:citrate-nmr",
+      "identity": {
+        "reported_name": "Citrate",
+        "standard_identifiers": [
+          {
+            "scheme": "inchikey",
+            "value": "KRKNYBCHXYNGOX-UHFFFAOYSA-N",
+            "resolution": "exact_structure",
+            "provenance_ref": "syn-e-id"
+          }
+        ],
+        "identification_level": "msi_level_1",
+        "resolution": "exact_structure",
+        "evidence": [
+          {
+            "evidence_type": "orthogonal_standard",
+            "description": "Synthetic NMR record declares chemical shift and spike-in confirmation.",
+            "provenance_ref": "syn-e-standard"
+          }
+        ],
+        "formula": "C6H8O7",
+        "adduct": "not_applicable",
+        "ion_mode": "not_applicable",
+        "mz": null,
+        "retention_time_seconds": null
+      },
+      "assay": {
+        "assay_id": "SYN-NMR-PANEL-E",
+        "method_id": "SYN-NMR-METHOD-E",
+        "assay_version": "2.0",
+        "platform_family": "nmr",
+        "instrument_vendor": "Synthetic Vendor",
+        "instrument_model": "600 MHz NMR E",
+        "chromatography": "not_applicable",
+        "acquisition_mode": "1D proton NMR",
+        "laboratory": "Synthetic Laboratory E",
+        "sample_matrix": "EDTA plasma",
+        "extraction_protocol_id": "SYN-NMR-PREP-E",
+        "validated_bridge_ids": [],
+        "batch": {
+          "batch_count": 1,
+          "batch_id_variable": "not_applicable",
+          "run_order_variable": "acquisition_order",
+          "run_order_randomized": true,
+          "pooled_qc_present": true,
+          "pooled_qc_frequency": "one pooled QC every 12 spectra",
+          "reference_material": "synthetic NMR plasma reference",
+          "blank_types": ["buffer_blank"],
+          "blank_acceptance_documented": true,
+          "drift_evaluated": true,
+          "drift_correction_method": "chemical-shift and line-width trend check",
+          "batch_correction_method": "not_applicable",
+          "correction_scope": "none",
+          "qc_cv_percent": 12.0
+        }
+      },
+      "quantitative": {
+        "quantitation_type": "absolute_concentration",
+        "unit": "umol/L",
+        "scale": "linear",
+        "calibration_model": "quantitative NMR internal reference",
+        "calibration_traceability": "synthetic traceable NMR reference solution",
+        "internal_standard": "TSP reference",
+        "normalization_method": "quantitative internal reference",
+        "molecular_weight_g_mol": 192.123,
+        "limits": {
+          "lod": 1.0,
+          "loq": 2.0,
+          "unit": "umol/L",
+          "censoring_policy": "explicit_left_censoring",
+          "below_limit_code": "BLQ",
+          "raw_censoring_flags_available": true
+        },
+        "missingness": {
+          "feature_missing_fraction": 0.04,
+          "encoded_missing_values": ["NA"],
+          "missing_reason_variable": "missing_reason",
+          "imputation_method": "not_applied",
+          "unimputed_values_available": true,
+          "biological_zero_distinguished": true
+        }
+      },
+      "provenance": {
+        "source_artifact": "data/examples/synthetic_assay_e_nmr_codebook.csv",
+        "source_record_locator": "row=11",
+        "source_sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+        "extraction_method": "deterministic synthetic fixture parser v1",
+        "evidence_locators": {
+          "syn-e-id": "synthetic NMR codebook row 11",
+          "syn-e-standard": "synthetic NMR SOP section 6"
+        }
+      }
+    },
+    {
+      "study_id": "SYN-F",
+      "feature_id": "SYN-F:citrate-relative",
+      "identity": {
+        "reported_name": "Citrate",
+        "standard_identifiers": [
+          {
+            "scheme": "inchikey",
+            "value": "KRKNYBCHXYNGOX-UHFFFAOYSA-N",
+            "resolution": "exact_structure",
+            "provenance_ref": "syn-f-id"
+          }
+        ],
+        "identification_level": "msi_level_1",
+        "resolution": "exact_structure",
+        "evidence": [
+          {
+            "evidence_type": "authentic_standard",
+            "description": "Synthetic annotation has an authentic-standard identity but non-quantitative intensity values.",
+            "provenance_ref": "syn-f-standard"
+          }
+        ],
+        "formula": "C6H8O7",
+        "adduct": "[M-H]-",
+        "ion_mode": "negative",
+        "mz": 191.0197,
+        "retention_time_seconds": 130.0
+      },
+      "assay": {
+        "assay_id": "SYN-RELATIVE-F",
+        "method_id": "SYN-RELATIVE-METHOD-F",
+        "assay_version": "1.0",
+        "platform_family": "lc_ms_untargeted",
+        "instrument_vendor": "Synthetic Vendor",
+        "instrument_model": "High Resolution MS F",
+        "chromatography": "HILIC",
+        "acquisition_mode": "full scan plus MS/MS",
+        "laboratory": "Synthetic Laboratory F",
+        "sample_matrix": "EDTA plasma",
+        "extraction_protocol_id": "SYN-EXTRACT-F",
+        "validated_bridge_ids": [],
+        "batch": {
+          "batch_count": 1,
+          "batch_id_variable": "not_applicable",
+          "run_order_variable": "injection_order",
+          "run_order_randomized": true,
+          "pooled_qc_present": true,
+          "pooled_qc_frequency": "one pooled QC every 10 study injections",
+          "reference_material": "synthetic pooled study QC",
+          "blank_types": ["extraction_blank", "solvent_blank"],
+          "blank_acceptance_documented": true,
+          "drift_evaluated": true,
+          "drift_correction_method": "QC robust spline",
+          "batch_correction_method": "not_applicable",
+          "correction_scope": "none",
+          "qc_cv_percent": 15.0
+        }
+      },
+      "quantitative": {
+        "quantitation_type": "normalized_relative_abundance",
+        "unit": "arbitrary_unit",
+        "scale": "log2",
+        "calibration_model": "not_applicable",
+        "calibration_traceability": "not_applicable",
+        "internal_standard": "citrate-d4 monitoring standard",
+        "normalization_method": "within-study pooled-QC robust spline and median scaling",
+        "molecular_weight_g_mol": 192.123,
+        "limits": {
+          "lod": null,
+          "loq": null,
+          "unit": "arbitrary_unit",
+          "censoring_policy": "none_expected",
+          "below_limit_code": "not_applicable",
+          "raw_censoring_flags_available": true
+        },
+        "missingness": {
+          "feature_missing_fraction": 0.08,
+          "encoded_missing_values": ["NA"],
+          "missing_reason_variable": "missing_reason",
+          "imputation_method": "not_applied",
+          "unimputed_values_available": true,
+          "biological_zero_distinguished": true
+        }
+      },
+      "provenance": {
+        "source_artifact": "data/examples/synthetic_assay_f_relative.csv",
+        "source_record_locator": "feature=citrate",
+        "source_sha256": "6666666666666666666666666666666666666666666666666666666666666666",
+        "extraction_method": "deterministic synthetic fixture parser v1",
+        "evidence_locators": {
+          "syn-f-id": "synthetic annotation table row 4",
+          "syn-f-standard": "synthetic SOP section 7"
+        }
+      }
+    }
+  ]
+}

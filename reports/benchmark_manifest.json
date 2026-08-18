@@ -1,0 +1,180 @@
+{
+  "benchmark_rule_set_version": "0.2.0",
+  "case_counts": {
+    "agreements": 34,
+    "correct": 34,
+    "disagreements": 2,
+    "mapping": 26,
+    "quality": 10,
+    "total": 36
+  },
+  "human_readable_output": "benchmark_report.md",
+  "inputs": [
+    {
+      "columns": [
+        "source_study",
+        "source_variable",
+        "source_label",
+        "source_unit",
+        "source_timing",
+        "source_modality",
+        "proposed_common_variable",
+        "proposed_common_unit",
+        "transform",
+        "confidence",
+        "evidence",
+        "review_status"
+      ],
+      "path": "crosswalk.csv",
+      "role": "predicted_crosswalk",
+      "row_count": 26,
+      "sha256": "41a4cc2840a2bc2fe5e931721d5917a32236591a257836abb0f8fae4c3eaab3a",
+      "state": "present"
+    },
+    {
+      "columns": [
+        "activity_quality",
+        "body_composition_quality",
+        "cpet_quality",
+        "diet_quality",
+        "genetics_quality",
+        "harmonization_feasibility",
+        "metabolomics_quality",
+        "metadata_completeness",
+        "overall_score",
+        "rationale",
+        "study_design_rigor",
+        "study_id",
+        "temporal_alignment",
+        "weights"
+      ],
+      "path": "quality_scores.json",
+      "role": "predicted_quality_scores",
+      "row_count": 10,
+      "sha256": "cb7bd2b24d813b09e9bc2db752d170b2b5b381e029af400efb7a2720f80ebb8f",
+      "state": "present"
+    },
+    {
+      "columns": [
+        "source_study",
+        "source_variable",
+        "common_variable",
+        "review_status"
+      ],
+      "path": "expert_variable_mappings.csv",
+      "role": "gold_variable_mappings",
+      "row_count": 26,
+      "sha256": "c79917770842e8f55985491d186132cb774854b0670f7efa293fb7b1c54ef0bf",
+      "state": "present"
+    },
+    {
+      "columns": [
+        "study_id",
+        "overall_score"
+      ],
+      "path": "expert_quality_scores.csv",
+      "role": "gold_quality_scores",
+      "row_count": 10,
+      "sha256": "fcc3c8e94432d16d25a359b4c86ad2b7f4c31c1546d7e841ec7b5f5896977c65",
+      "state": "present"
+    }
+  ],
+  "manifest_version": "1.0.0",
+  "metric_names": [
+    "candidate_precision",
+    "candidate_recall",
+    "candidate_f1",
+    "auto_accept_precision",
+    "auto_accept_recall",
+    "unsafe_auto_accept_rate",
+    "review_capture_rate",
+    "review_status_accuracy",
+    "quality_score_agreement_within_0.15"
+  ],
+  "outputs": [
+    {
+      "columns": [
+        "metric_name",
+        "value",
+        "details"
+      ],
+      "path": "benchmark_results.json",
+      "role": "benchmark_results",
+      "row_count": 9,
+      "sha256": "5c28cedcf6422c3506635ebbf8a77e2cce875a828ba376d0b1f5018338297719",
+      "state": "present"
+    },
+    {
+      "columns": [
+        "case_type",
+        "source_study",
+        "source_variable",
+        "common_variable",
+        "outcome",
+        "reason_codes",
+        "gold",
+        "predicted",
+        "absolute_difference",
+        "within_tolerance"
+      ],
+      "path": "benchmark_case_results.json",
+      "role": "benchmark_case_results",
+      "row_count": 36,
+      "sha256": "ef2cc4f795c0a1b8cdba2a91ea1d09affcd3feba99584a6c32947ece5228c51a",
+      "state": "present"
+    },
+    {
+      "columns": [
+        "case_type",
+        "source_study",
+        "source_variable",
+        "common_variable",
+        "outcome",
+        "reason_codes",
+        "gold_common_variable",
+        "predicted_common_variable",
+        "gold_review_status",
+        "predicted_review_status",
+        "gold_overall_score",
+        "predicted_overall_score",
+        "absolute_difference",
+        "within_tolerance"
+      ],
+      "path": "benchmark_disagreements.csv",
+      "role": "benchmark_disagreements",
+      "row_count": 2,
+      "sha256": "cbc5fcb3ccbb1be10f5abf0036697592ced40a8839f80855f0b21e6946a4df54",
+      "state": "present"
+    },
+    {
+      "columns": [],
+      "path": "benchmark_report.md",
+      "role": "benchmark_report",
+      "row_count": null,
+      "sha256": "d577acbae73635774d50993613bb21e02d2184ec530de5909a5ab7cbc6414632",
+      "state": "present"
+    }
+  ],
+  "parameters": {
+    "case_outcome_precedence": [
+      "missing_prediction",
+      "unexpected_prediction",
+      "common_variable_mismatch",
+      "review_status_mismatch",
+      "quality_score_outside_tolerance",
+      "unsafe_auto_accept"
+    ],
+    "confidence_interval_method": "wilson_score",
+    "confidence_level": 0.95,
+    "mapping_entity_key": [
+      "source_study",
+      "source_variable"
+    ],
+    "quality_inputs_present": true,
+    "quality_metric_denominator": "all_gold_studies",
+    "quality_score_tolerance": "0.15",
+    "quality_score_tolerance_comparison": "inclusive"
+  },
+  "rule_set_version": "0.2.0",
+  "software_version": "0.2.0"
+}

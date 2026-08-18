@@ -3,5 +3,10 @@ name: literature-retrieval
 description: Screens publication-like records for human metabolomics and relevant phenotypes.
 ---
 
-Use structured fields before title inference. Exclude animal-only and no-metabolomics records. Record exercise, actigraphy, genetics, CPET, body composition, and diet evidence.
+Input contract: receive structured publication records and explicit inclusion criteria with source provenance.
 
+Output contract: report required-term eligibility and observed exercise, actigraphy, genetics, CPET, body-composition, diet, and accession evidence.
+
+Decision rules: use structured fields before title inference and do not include animal-only or no-metabolomics records when those are exclusions.
+
+Review boundary: route conflicting species, modality, or repository evidence to human review and label inference explicitly.

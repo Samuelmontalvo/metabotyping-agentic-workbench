@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0.0",
+  "contract_version": "1.0.0",
+  "packet_id": "synthetic-study-context-review-001",
+  "scope_version": "1.0.0",
+  "role": "study-design-population-context-reviewer",
+  "research_question": "How well is the synthetic training cohort's design and population context documented for a planned comparison?",
+  "intended_use": "Prepare an evidence-coverage ledger and questions for human scientific adjudication.",
+  "referenced_entities": {
+    "study_ids": [
+      "SYN-STUDY-01"
+    ],
+    "dataset_ids": [
+      "SYN-DATASET-01"
+    ],
+    "variable_ids": [],
+    "effect_ids": []
+  },
+  "provenance": [
+    {
+      "provenance_id": "sd-p01",
+      "source_artifact": "synthetic/study_card.json",
+      "record_locator": "$.study_id:SYN-STUDY-01",
+      "source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "extraction_method": "deterministic synthetic fixture lookup"
+    },
+    {
+      "provenance_id": "sd-p02",
+      "source_artifact": "synthetic/protocol_excerpt.txt",
+      "record_locator": "sections:design,population,intervention",
+      "source_sha256": "1212121212121212121212121212121212121212121212121212121212121212",
+      "extraction_method": "human-authored synthetic fixture"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "sd-e01",
+      "dimension": "study_design",
+      "state": "reported",
+      "detail": "The synthetic protocol labels the study as a two-arm parallel training study.",
+      "provenance_ids": [
+        "sd-p02"
+      ]
+    },
+    {
+      "evidence_id": "sd-e02",
+      "dimension": "recruitment",
+      "state": "not_reported",
+      "detail": "Recruitment sources and sampling frame are not reported in the submitted artifacts.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "sd-e03",
+      "dimension": "eligibility",
+      "state": "reported",
+      "detail": "The protocol lists synthetic age and health eligibility criteria.",
+      "provenance_ids": [
+        "sd-p02"
+      ]
+    },
+    {
+      "evidence_id": "sd-e04",
+      "dimension": "population",
+      "state": "reported",
+      "detail": "The study card describes sedentary adults in a synthetic single-site cohort.",
+      "provenance_ids": [
+        "sd-p01"
+      ]
+    },
+    {
+      "evidence_id": "sd-e05",
+      "dimension": "intervention",
+      "state": "reported",
+      "detail": "A supervised endurance-training program is described.",
+      "provenance_ids": [
+        "sd-p02"
+      ]
+    },
+    {
+      "evidence_id": "sd-e06",
+      "dimension": "arms_or_comparator",
+      "state": "reported",
+      "detail": "A synthetic usual-activity comparator arm is named.",
+      "provenance_ids": [
+        "sd-p02"
+      ]
+    },
+    {
+      "evidence_id": "sd-e07",
+      "dimension": "participant_flow",
+      "state": "not_available",
+      "detail": "A participant-flow artifact was not included in the review packet.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "sd-e08",
+      "dimension": "attrition",
+      "state": "unresolved",
+      "detail": "The study card and protocol do not establish arm-specific attrition.",
+      "provenance_ids": [
+        "sd-p01",
+        "sd-p02"
+      ]
+    },
+    {
+      "evidence_id": "sd-e09",
+      "dimension": "analysis_set",
+      "state": "not_reported",
+      "detail": "No intention-to-treat, per-protocol, or other analysis-set definition is reported.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "sd-e10",
+      "dimension": "allocation_and_blinding",
+      "state": "not_reported",
+      "detail": "Allocation generation, concealment, and measured confounders are not reported.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "sd-e11",
+      "dimension": "site_context",
+      "state": "reported",
+      "detail": "The study card identifies one synthetic research site.",
+      "provenance_ids": [
+        "sd-p01"
+      ]
+    },
+    {
+      "evidence_id": "sd-e12",
+      "dimension": "calendar_context",
+      "state": "not_reported",
+      "detail": "Enrollment and intervention calendar periods are not reported.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "sd-e13",
+      "dimension": "exposure",
+      "state": "not_applicable",
+      "detail": "No distinct observational exposure is defined for this intervention-focused question.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "sd-e14",
+      "dimension": "confounding",
+      "state": "not_reported",
+      "detail": "Measured confounders and the planned confounding-control strategy are not reported.",
+      "provenance_ids": []
+    }
+  ],
+  "limitations": [
+    {
+      "limitation_id": "sd-l01",
+      "description": "Recruitment, flow, attrition, and calendar context are incomplete.",
+      "evidence_ids": [
+        "sd-e02",
+        "sd-e07",
+        "sd-e08",
+        "sd-e12"
+      ]
+    }
+  ],
+  "blockers": [
+    {
+      "blocker_id": "sd-b01",
+      "description": "The submitted evidence cannot establish which participant analysis set produced downstream effects.",
+      "evidence_ids": [
+        "sd-e09"
+      ]
+    }
+  ],
+  "human_review_questions": [
+    {
+      "question_id": "sd-q01",
+      "question": "Which analysis set and attrition accounting should govern interpretation of downstream effect summaries?",
+      "evidence_ids": [
+        "sd-e07",
+        "sd-e08",
+        "sd-e09"
+      ]
+    }
+  ],
+  "decision_authority": "advisory_only",
+  "human_adjudication_status": "required",
+  "executable_actions": [],
+  "packet_digest": "07b8f199e9ec6074b8946b713bb43e403854d33a7040556cbf72c91ab0c5b723"
+}

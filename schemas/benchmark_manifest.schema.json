@@ -1,0 +1,275 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BenchmarkManifest",
+  "type": "object",
+  "required": [
+    "manifest_version",
+    "rule_set_version",
+    "benchmark_rule_set_version",
+    "software_version",
+    "parameters",
+    "metric_names",
+    "case_counts",
+    "inputs",
+    "outputs",
+    "human_readable_output"
+  ],
+  "properties": {
+    "manifest_version": { "const": "1.0.0" },
+    "rule_set_version": { "const": "0.2.0" },
+    "benchmark_rule_set_version": { "const": "0.2.0" },
+    "software_version": { "const": "0.2.0" },
+    "parameters": {
+      "type": "object",
+      "required": [
+        "quality_score_tolerance",
+        "quality_score_tolerance_comparison",
+        "confidence_level",
+        "confidence_interval_method",
+        "mapping_entity_key",
+        "quality_metric_denominator",
+        "quality_inputs_present",
+        "case_outcome_precedence"
+      ],
+      "properties": {
+        "quality_score_tolerance": { "const": "0.15" },
+        "quality_score_tolerance_comparison": { "const": "inclusive" },
+        "confidence_level": { "const": 0.95 },
+        "confidence_interval_method": { "const": "wilson_score" },
+        "mapping_entity_key": {
+          "type": "array",
+          "minItems": 2,
+          "prefixItems": [
+            { "const": "source_study" },
+            { "const": "source_variable" }
+          ],
+          "items": false
+        },
+        "quality_metric_denominator": { "const": "all_gold_studies" },
+        "quality_inputs_present": { "type": "boolean" },
+        "case_outcome_precedence": {
+          "type": "array",
+          "minItems": 6,
+          "prefixItems": [
+            { "const": "missing_prediction" },
+            { "const": "unexpected_prediction" },
+            { "const": "common_variable_mismatch" },
+            { "const": "review_status_mismatch" },
+            { "const": "quality_score_outside_tolerance" },
+            { "const": "unsafe_auto_accept" }
+          ],
+          "items": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "metric_names": {
+      "type": "array",
+      "minItems": 9,
+      "prefixItems": [
+        { "const": "candidate_precision" },
+        { "const": "candidate_recall" },
+        { "const": "candidate_f1" },
+        { "const": "auto_accept_precision" },
+        { "const": "auto_accept_recall" },
+        { "const": "unsafe_auto_accept_rate" },
+        { "const": "review_capture_rate" },
+        { "const": "review_status_accuracy" },
+        { "const": "quality_score_agreement_within_0.15" }
+      ],
+      "items": false
+    },
+    "case_counts": {
+      "type": "object",
+      "required": [
+        "total",
+        "mapping",
+        "quality",
+        "correct",
+        "agreements",
+        "disagreements"
+      ],
+      "properties": {
+        "total": { "$ref": "#/$defs/nonnegativeInteger" },
+        "mapping": { "$ref": "#/$defs/nonnegativeInteger" },
+        "quality": { "$ref": "#/$defs/nonnegativeInteger" },
+        "correct": { "$ref": "#/$defs/nonnegativeInteger" },
+        "agreements": { "$ref": "#/$defs/nonnegativeInteger" },
+        "disagreements": { "$ref": "#/$defs/nonnegativeInteger" }
+      },
+      "additionalProperties": false
+    },
+    "inputs": {
+      "type": "array",
+      "minItems": 4,
+      "prefixItems": [
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifactDigest" },
+            {
+              "properties": {
+                "role": { "const": "predicted_crosswalk" },
+                "path": { "const": "crosswalk.csv" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifactDigest" },
+            {
+              "properties": {
+                "role": { "const": "predicted_quality_scores" },
+                "path": { "const": "quality_scores.json" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifactDigest" },
+            {
+              "properties": {
+                "role": { "const": "gold_variable_mappings" },
+                "path": { "const": "expert_variable_mappings.csv" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifactDigest" },
+            {
+              "properties": {
+                "role": { "const": "gold_quality_scores" },
+                "path": { "const": "expert_quality_scores.csv" }
+              }
+            }
+          ]
+        }
+      ],
+      "items": false
+    },
+    "outputs": {
+      "type": "array",
+      "minItems": 4,
+      "prefixItems": [
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifactDigest" },
+            {
+              "properties": {
+                "role": { "const": "benchmark_results" },
+                "path": { "const": "benchmark_results.json" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifactDigest" },
+            {
+              "properties": {
+                "role": { "const": "benchmark_case_results" },
+                "path": { "const": "benchmark_case_results.json" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifactDigest" },
+            {
+              "properties": {
+                "role": { "const": "benchmark_disagreements" },
+                "path": { "const": "benchmark_disagreements.csv" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifactDigest" },
+            {
+              "properties": {
+                "role": { "const": "benchmark_report" },
+                "path": { "const": "benchmark_report.md" }
+              }
+            }
+          ]
+        }
+      ],
+      "items": false
+    },
+    "human_readable_output": { "const": "benchmark_report.md" }
+  },
+  "$defs": {
+    "nonnegativeInteger": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "artifactDigest": {
+      "type": "object",
+      "required": [
+        "role",
+        "path",
+        "state",
+        "row_count",
+        "columns",
+        "sha256"
+      ],
+      "properties": {
+        "role": { "type": "string", "minLength": 1 },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*\\\\).+$"
+        },
+        "state": {
+          "type": "string",
+          "enum": ["present", "not_provided"]
+        },
+        "row_count": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "columns": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string" }
+        },
+        "sha256": {
+          "type": ["string", "null"],
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": { "const": "present" }
+            },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "row_count": { "type": "null" },
+              "columns": { "maxItems": 0 },
+              "sha256": { "type": "null" }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

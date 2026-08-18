@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HarmonizationDecision",
+  "type": "object",
+  "required": ["source_study", "source_variable", "proposed_common_variable", "review_status", "decision_rationale"],
+  "properties": {
+    "source_study": { "type": "string" },
+    "source_variable": { "type": "string" },
+    "proposed_common_variable": { "type": "string" },
+    "review_status": { "type": "string", "enum": ["accepted", "rejected", "requires_human_review"] },
+    "decision_rationale": { "type": "string" },
+    "approved_transform": { "type": "string" },
+    "required_human_decision": { "type": "string" }
+  }
+}
+

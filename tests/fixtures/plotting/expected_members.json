@@ -1,0 +1,20 @@
+{
+  "pathway": {
+    "branched-chain amino acid metabolism": ["RM0136379", "RM0134975"],
+    "tryptophan metabolism": ["RM0136024"],
+    "fatty acid metabolism": ["RM0153571", "RM0151650", "RM0149976"]
+  },
+  "sub_class": {
+    "Amino acids": ["RM0136379", "RM0134975", "RM0136024"],
+    "Saturated FA": ["RM0153571"],
+    "Unsaturated FA": ["RM0151650", "RM0149976"]
+  },
+  "main_class": {
+    "Amino acids and peptides": ["RM0136379", "RM0134975", "RM0136024"],
+    "Fatty acids": ["RM0153571", "RM0151650", "RM0149976"]
+  },
+  "super_class": {
+    "Organic acids": ["RM0136379", "RM0134975", "RM0136024"],
+    "Fatty Acyls": ["RM0153571", "RM0151650", "RM0149976"]
+  }
+}

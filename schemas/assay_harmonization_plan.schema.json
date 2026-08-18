@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/assay_harmonization_plan.schema.json",
+  "title": "AssayHarmonizationPlan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "rule_set_version",
+    "input_digest",
+    "policy",
+    "summary",
+    "decisions",
+    "approved_transform_registry",
+    "validation_checks",
+    "failure_conditions"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "rule_set_version": { "type": "string", "minLength": 1 },
+    "input_digest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "policy": { "type": "object" },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_count",
+        "candidate_pair_count",
+        "accepted_count",
+        "requires_human_review_count",
+        "non_combinable_count"
+      ],
+      "properties": {
+        "record_count": { "type": "integer", "minimum": 0 },
+        "candidate_pair_count": { "type": "integer", "minimum": 0 },
+        "accepted_count": { "type": "integer", "minimum": 0 },
+        "requires_human_review_count": { "type": "integer", "minimum": 0 },
+        "non_combinable_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "decisions": { "type": "array", "items": { "$ref": "#/$defs/decision" } },
+    "approved_transform_registry": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string" }
+    },
+    "validation_checks": { "type": "array", "items": { "type": "string" } },
+    "failure_conditions": { "type": "array", "items": { "type": "string" } }
+  },
+  "$defs": {
+    "status": {
+      "type": "string",
+      "enum": ["accepted", "requires_human_review", "non_combinable"]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "conclusion", "detail", "provenance_refs"],
+      "properties": {
+        "code": { "type": "string", "minLength": 1 },
+        "conclusion": { "type": "string", "minLength": 1 },
+        "detail": { "type": "string", "minLength": 1 },
+        "provenance_refs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "transform": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["order", "registry_key", "applies_to", "parameters", "rationale"],
+      "properties": {
+        "order": { "type": "integer", "minimum": 1 },
+        "registry_key": { "type": "string", "minLength": 1 },
+        "applies_to": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "parameters": { "type": "object" },
+        "rationale": { "type": "string", "minLength": 1 }
+      }
+    },
+    "heterogeneity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["analysis_level", "stratify_by", "required_diagnostics", "interpretation_rule"],
+      "properties": {
+        "analysis_level": { "type": "string", "minLength": 1 },
+        "stratify_by": { "type": "array", "items": { "type": "string" } },
+        "required_diagnostics": { "type": "array", "items": { "type": "string" } },
+        "interpretation_rule": { "type": "string", "minLength": 1 }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_feature_ids",
+        "source_artifacts",
+        "source_sha256",
+        "rule_set_version",
+        "pair_input_digest"
+      ],
+      "properties": {
+        "source_feature_ids": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "string" } },
+        "source_artifacts": { "type": "array", "items": { "type": "string" } },
+        "source_sha256": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        },
+        "rule_set_version": { "type": "string", "minLength": 1 },
+        "pair_input_digest": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "left_feature_id",
+        "right_feature_id",
+        "status",
+        "identity_status",
+        "quantitative_status",
+        "qa_qc_status",
+        "confidence",
+        "raw_values_combinable",
+        "permitted_analysis",
+        "canonical_identity",
+        "common_unit",
+        "evidence",
+        "transforms",
+        "blockers",
+        "review_questions",
+        "heterogeneity_plan",
+        "provenance"
+      ],
+      "properties": {
+        "left_feature_id": { "type": "string", "minLength": 1 },
+        "right_feature_id": { "type": "string", "minLength": 1 },
+        "status": { "$ref": "#/$defs/status" },
+        "identity_status": { "$ref": "#/$defs/status" },
+        "quantitative_status": { "$ref": "#/$defs/status" },
+        "qa_qc_status": { "$ref": "#/$defs/status" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "raw_values_combinable": { "type": "boolean" },
+        "permitted_analysis": {
+          "type": "string",
+          "enum": [
+            "pooled_individual_values",
+            "study_specific_effects_meta_analysis",
+            "none_pending_review",
+            "none"
+          ]
+        },
+        "canonical_identity": { "type": "string" },
+        "common_unit": { "type": "string" },
+        "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
+        "transforms": { "type": "array", "items": { "$ref": "#/$defs/transform" } },
+        "blockers": { "type": "array", "items": { "type": "string" } },
+        "review_questions": { "type": "array", "items": { "type": "string" } },
+        "heterogeneity_plan": { "$ref": "#/$defs/heterogeneity" },
+        "provenance": { "$ref": "#/$defs/provenance" }
+      }
+    }
+  }
+}

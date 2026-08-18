@@ -1,0 +1,202 @@
+{
+  "counts": {
+    "error": 0,
+    "expected_failure": 0,
+    "failed": 0,
+    "passed": 124,
+    "skipped": 0,
+    "unexpected_success": 0
+  },
+  "gate_configuration_issues": [],
+  "gates": [
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
+        "passed": 13,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_assay_harmonization"
+      ],
+      "name": "identity_and_assay_harmonization",
+      "observed_modules": [
+        "test_assay_harmonization"
+      ],
+      "purpose": "Blocks name-only identity, unresolved isomers, unsafe pooling, cross-study batch correction, and irreversible imputation.",
+      "status": "pass",
+      "tests": 13
+    },
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
+        "passed": 24,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_metadata_extraction",
+        "test_motrpac_volcano_compare",
+        "test_source_registry"
+      ],
+      "name": "provenance_and_multi_repository_safety",
+      "observed_modules": [
+        "test_metadata_extraction",
+        "test_motrpac_volcano_compare",
+        "test_source_registry"
+      ],
+      "purpose": "Retains one-to-many repository records and prevents duplicate normalized keys from silently overwriting evidence.",
+      "status": "pass",
+      "tests": 24
+    },
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
+        "passed": 10,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_variable_crosswalk",
+        "test_metabolite_effect_search"
+      ],
+      "name": "statistical_and_review_safety",
+      "observed_modules": [
+        "test_metabolite_effect_search",
+        "test_variable_crosswalk"
+      ],
+      "purpose": "Keeps uncertain mappings or annotations review-gated and validates effect-search multiplicity semantics.",
+      "status": "pass",
+      "tests": 10
+    },
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
+        "passed": 10,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_metabolomics_plotting"
+      ],
+      "name": "motrpac_style_plotting",
+      "observed_modules": [
+        "test_metabolomics_plotting"
+      ],
+      "purpose": "Validates contrast/FDR semantics, mapping and coverage gates, hierarchy views, deterministic exports, and optional renderers.",
+      "status": "pass",
+      "tests": 10
+    },
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
+        "passed": 10,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_skill_agent_evaluation"
+      ],
+      "name": "skill_and_agent_contracts",
+      "observed_modules": [
+        "test_skill_agent_evaluation"
+      ],
+      "purpose": "Checks paired Codex/Claude skill contracts, implementation links, and agent review boundaries.",
+      "status": "pass",
+      "tests": 10
+    },
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
+        "passed": 14,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_benchmark",
+        "test_pilot_reproducibility"
+      ],
+      "name": "benchmark_integrity_and_reproducibility",
+      "observed_modules": [
+        "test_benchmark",
+        "test_pilot_reproducibility"
+      ],
+      "purpose": "Validates explicit benchmark denominators, disagreement accounting, provenance, and byte-reproducible pilot outputs.",
+      "status": "pass",
+      "tests": 14
+    },
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
+        "passed": 14,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_domain_review_foundation"
+      ],
+      "name": "domain_review_contract_safety",
+      "observed_modules": [
+        "test_domain_review_foundation"
+      ],
+      "purpose": "Validates advisory-only domain review packets, complete evidence-state coverage, and non-executable review boundaries.",
+      "status": "pass",
+      "tests": 14
+    },
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
+        "passed": 9,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_scientific_readiness"
+      ],
+      "name": "scientific_readiness_gate_integrity",
+      "observed_modules": [
+        "test_scientific_readiness"
+      ],
+      "purpose": "Validates required-module collection, import-error attribution, and unique gate ownership.",
+      "status": "pass",
+      "tests": 9
+    }
+  ],
+  "independent_external_validation": false,
+  "limitations": [
+    "Passing does not validate performance on independent real studies, assay platforms, species, or cohorts.",
+    "Database routing tests do not execute optional or planned external connectors.",
+    "Hierarchy plots are descriptive; dedicated pathway enrichment and cross-platform meta-analysis models remain separate work.",
+    "Skill contract scores measure structure and linkage, not empirical scientific validity."
+  ],
+  "nonpassing_tests": [],
+  "schema_version": "1.0",
+  "strict_release_gate_status": "pass",
+  "tests_run": 124,
+  "unmapped_nonpassing_tests": [],
+  "validation_scope": "offline synthetic and deterministic repository regression tests"
+}

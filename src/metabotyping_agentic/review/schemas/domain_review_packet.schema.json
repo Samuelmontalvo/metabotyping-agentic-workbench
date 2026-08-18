@@ -1,0 +1,352 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/domain_review_packet.schema.json",
+  "title": "DomainReviewPacket",
+  "description": "Deterministic, advisory-only evidence packet requiring human adjudication.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contract_version",
+    "packet_id",
+    "scope_version",
+    "role",
+    "research_question",
+    "intended_use",
+    "referenced_entities",
+    "provenance",
+    "evidence",
+    "limitations",
+    "blockers",
+    "human_review_questions",
+    "decision_authority",
+    "human_adjudication_status",
+    "executable_actions",
+    "packet_digest"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "contract_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "packet_id": {
+      "$ref": "#/$defs/nonemptyString"
+    },
+    "scope_version": {
+      "$ref": "#/$defs/nonemptyString"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "study-design-population-context-reviewer",
+        "exercise-phenotype-harmonization-reviewer",
+        "biospecimen-preanalytics-reviewer",
+        "statistical-estimand-and-synthesis-skeptic"
+      ]
+    },
+    "research_question": {
+      "$ref": "#/$defs/nonemptyString"
+    },
+    "intended_use": {
+      "$ref": "#/$defs/nonemptyString"
+    },
+    "referenced_entities": {
+      "$ref": "#/$defs/referencedEntities"
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/provenanceRecord"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/evidenceItem"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/limitation"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/blocker"
+      }
+    },
+    "human_review_questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/humanReviewQuestion"
+      }
+    },
+    "decision_authority": {
+      "type": "string",
+      "const": "advisory_only"
+    },
+    "human_adjudication_status": {
+      "type": "string",
+      "const": "required"
+    },
+    "executable_actions": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "packet_digest": {
+      "$ref": "#/$defs/sha256"
+    }
+  },
+  "$defs": {
+    "nonemptyString": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": ".*\\S.*"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "idList": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/nonemptyString"
+      }
+    },
+    "referencedEntities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "study_ids",
+        "dataset_ids",
+        "variable_ids",
+        "effect_ids"
+      ],
+      "properties": {
+        "study_ids": {
+          "$ref": "#/$defs/idList"
+        },
+        "dataset_ids": {
+          "$ref": "#/$defs/idList"
+        },
+        "variable_ids": {
+          "$ref": "#/$defs/idList"
+        },
+        "effect_ids": {
+          "$ref": "#/$defs/idList"
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "study_ids": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "dataset_ids": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "variable_ids": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "effect_ids": {
+              "minItems": 1
+            }
+          }
+        }
+      ]
+    },
+    "provenanceRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provenance_id",
+        "source_artifact",
+        "record_locator",
+        "source_sha256",
+        "extraction_method"
+      ],
+      "properties": {
+        "provenance_id": {
+          "$ref": "#/$defs/nonemptyString"
+        },
+        "source_artifact": {
+          "$ref": "#/$defs/nonemptyString"
+        },
+        "record_locator": {
+          "$ref": "#/$defs/nonemptyString"
+        },
+        "source_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "extraction_method": {
+          "$ref": "#/$defs/nonemptyString"
+        }
+      }
+    },
+    "evidenceItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_id",
+        "dimension",
+        "state",
+        "detail",
+        "provenance_ids"
+      ],
+      "properties": {
+        "evidence_id": {
+          "$ref": "#/$defs/nonemptyString"
+        },
+        "dimension": {
+          "$ref": "#/$defs/nonemptyString"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "reported",
+            "documented_absent",
+            "not_reported",
+            "not_available",
+            "conflicting",
+            "unresolved",
+            "not_applicable"
+          ]
+        },
+        "detail": {
+          "$ref": "#/$defs/nonemptyString"
+        },
+        "provenance_ids": {
+          "$ref": "#/$defs/idList"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "reported",
+                  "documented_absent",
+                  "conflicting"
+                ]
+              }
+            },
+            "required": [
+              "state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "provenance_ids": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "limitation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "limitation_id",
+        "description",
+        "evidence_ids"
+      ],
+      "properties": {
+        "limitation_id": {
+          "$ref": "#/$defs/nonemptyString"
+        },
+        "description": {
+          "$ref": "#/$defs/nonemptyString"
+        },
+        "evidence_ids": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/idList"
+            },
+            {
+              "minItems": 1
+            }
+          ]
+        }
+      }
+    },
+    "blocker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "blocker_id",
+        "description",
+        "evidence_ids"
+      ],
+      "properties": {
+        "blocker_id": {
+          "$ref": "#/$defs/nonemptyString"
+        },
+        "description": {
+          "$ref": "#/$defs/nonemptyString"
+        },
+        "evidence_ids": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/idList"
+            },
+            {
+              "minItems": 1
+            }
+          ]
+        }
+      }
+    },
+    "humanReviewQuestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "question_id",
+        "question",
+        "evidence_ids"
+      ],
+      "properties": {
+        "question_id": {
+          "$ref": "#/$defs/nonemptyString"
+        },
+        "question": {
+          "$ref": "#/$defs/nonemptyString"
+        },
+        "evidence_ids": {
+          "allOf": [
+            {
+              "$ref": "#/$defs/idList"
+            },
+            {
+              "minItems": 1
+            }
+          ]
+        }
+      }
+    }
+  }
+}

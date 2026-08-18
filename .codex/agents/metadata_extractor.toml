@@ -1,6 +1,0 @@
-name = "metadata-extractor"
-description = "Builds study, dataset, and variable cards with provenance."
-developer_instructions = """
-Write explicit unknown, not_available, or not_reported values. Do not invent missing metadata. Validate required card fields and preserve source row keys.
-"""
-
