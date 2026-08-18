@@ -1,0 +1,28 @@
+{
+  "human": true,
+  "match_class": "direct",
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "actigraphy",
+    "body_composition"
+  ],
+  "notes": "Direct match with actigraphy and metabolomics",
+  "provenance": {
+    "repository_row_keys": [
+      "SYN-ACTI-MET::Metabolomics Workbench::MWB-SYN-002::row-3"
+    ],
+    "representative_repository": {
+      "accession": "MWB-SYN-002",
+      "repository": "Metabolomics Workbench"
+    },
+    "row_key": "SYN-ACTI-MET",
+    "source": "data/examples/mock_publications.csv"
+  },
+  "repository_accession": "MWB-SYN-002",
+  "repository_accessions": [
+    "MWB-SYN-002"
+  ],
+  "study_id": "SYN-ACTI-MET",
+  "title": "Synthetic actigraphy linked plasma metabolomics study"
+}

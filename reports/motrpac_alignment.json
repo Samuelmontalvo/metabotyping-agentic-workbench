@@ -1,0 +1,210 @@
+[
+  {
+    "met_criteria": [
+      "human participants",
+      "metabolomics available",
+      "exercise/activity phenotype available",
+      "biospecimen timing available",
+      "sample matrix available",
+      "assay platform available",
+      "genetics available or documented absent",
+      "CPET/cardiorespiratory fitness phenotype available",
+      "body composition available",
+      "diet metadata available",
+      "variable dictionary available"
+    ],
+    "missing_elements": [],
+    "rationale": "11 of 11 MoTrPAC-style metadata-readiness criteria are documented.",
+    "score": 1.0,
+    "study_id": "SYN-METEX-GEN",
+    "tier": "high"
+  },
+  {
+    "met_criteria": [
+      "human participants",
+      "metabolomics available",
+      "exercise/activity phenotype available",
+      "biospecimen timing available",
+      "sample matrix available",
+      "assay platform available",
+      "genetics available or documented absent",
+      "body composition available",
+      "variable dictionary available"
+    ],
+    "missing_elements": [
+      "CPET/cardiorespiratory fitness phenotype available",
+      "diet metadata available"
+    ],
+    "rationale": "9 of 11 MoTrPAC-style metadata-readiness criteria are documented.",
+    "score": 0.818,
+    "study_id": "SYN-ACTI-MET",
+    "tier": "moderate"
+  },
+  {
+    "met_criteria": [
+      "human participants",
+      "metabolomics available",
+      "biospecimen timing available",
+      "sample matrix available",
+      "assay platform available",
+      "genetics available or documented absent",
+      "diet metadata available",
+      "variable dictionary available"
+    ],
+    "missing_elements": [
+      "exercise/activity phenotype available",
+      "CPET/cardiorespiratory fitness phenotype available",
+      "body composition available"
+    ],
+    "rationale": "8 of 11 MoTrPAC-style metadata-readiness criteria are documented.",
+    "score": 0.727,
+    "study_id": "SYN-OMICS-GEN",
+    "tier": "moderate"
+  },
+  {
+    "met_criteria": [
+      "human participants",
+      "metabolomics available",
+      "exercise/activity phenotype available",
+      "CPET/cardiorespiratory fitness phenotype available"
+    ],
+    "missing_elements": [
+      "biospecimen timing available",
+      "sample matrix available",
+      "assay platform available",
+      "genetics available or documented absent",
+      "body composition available",
+      "diet metadata available",
+      "variable dictionary available"
+    ],
+    "rationale": "4 of 11 MoTrPAC-style metadata-readiness criteria are documented.",
+    "score": 0.364,
+    "study_id": "SYN-EXER-NODATA",
+    "tier": "not_feasible"
+  },
+  {
+    "met_criteria": [
+      "metabolomics available",
+      "exercise/activity phenotype available",
+      "biospecimen timing available",
+      "sample matrix available",
+      "assay platform available",
+      "genetics available or documented absent",
+      "variable dictionary available"
+    ],
+    "missing_elements": [
+      "human participants",
+      "CPET/cardiorespiratory fitness phenotype available",
+      "body composition available",
+      "diet metadata available"
+    ],
+    "rationale": "7 of 11 MoTrPAC-style metadata-readiness criteria are documented. Human-participant evidence is a hard gate, so the comparison-planning tier remains not feasible.",
+    "score": 0.636,
+    "study_id": "SYN-ANIMAL-MET",
+    "tier": "not_feasible"
+  },
+  {
+    "met_criteria": [
+      "human participants",
+      "metabolomics available",
+      "biospecimen timing available",
+      "sample matrix available",
+      "assay platform available",
+      "genetics available or documented absent"
+    ],
+    "missing_elements": [
+      "exercise/activity phenotype available",
+      "CPET/cardiorespiratory fitness phenotype available",
+      "body composition available",
+      "diet metadata available",
+      "variable dictionary available"
+    ],
+    "rationale": "6 of 11 MoTrPAC-style metadata-readiness criteria are documented.",
+    "score": 0.545,
+    "study_id": "SYN-MET-NOCODEBOOK",
+    "tier": "low"
+  },
+  {
+    "met_criteria": [
+      "human participants",
+      "metabolomics available",
+      "exercise/activity phenotype available",
+      "biospecimen timing available",
+      "sample matrix available",
+      "assay platform available",
+      "genetics available or documented absent",
+      "CPET/cardiorespiratory fitness phenotype available",
+      "body composition available",
+      "variable dictionary available"
+    ],
+    "missing_elements": [
+      "diet metadata available"
+    ],
+    "rationale": "10 of 11 MoTrPAC-style metadata-readiness criteria are documented.",
+    "score": 0.909,
+    "study_id": "SYN-CPET-RICH",
+    "tier": "high"
+  },
+  {
+    "met_criteria": [
+      "human participants",
+      "metabolomics available",
+      "exercise/activity phenotype available",
+      "biospecimen timing available",
+      "sample matrix available",
+      "assay platform available",
+      "genetics available or documented absent",
+      "CPET/cardiorespiratory fitness phenotype available",
+      "body composition available",
+      "diet metadata available",
+      "variable dictionary available"
+    ],
+    "missing_elements": [],
+    "rationale": "11 of 11 MoTrPAC-style metadata-readiness criteria are documented.",
+    "score": 1.0,
+    "study_id": "SYN-MOTRPAC-LIKE",
+    "tier": "high"
+  },
+  {
+    "met_criteria": [
+      "human participants",
+      "metabolomics available",
+      "biospecimen timing available",
+      "sample matrix available",
+      "assay platform available",
+      "genetics available or documented absent",
+      "body composition available",
+      "diet metadata available",
+      "variable dictionary available"
+    ],
+    "missing_elements": [
+      "exercise/activity phenotype available",
+      "CPET/cardiorespiratory fitness phenotype available"
+    ],
+    "rationale": "9 of 11 MoTrPAC-style metadata-readiness criteria are documented.",
+    "score": 0.818,
+    "study_id": "SYN-DIET-BODY",
+    "tier": "moderate"
+  },
+  {
+    "met_criteria": [
+      "human participants",
+      "metabolomics available",
+      "biospecimen timing available",
+      "sample matrix available",
+      "assay platform available",
+      "genetics available or documented absent",
+      "variable dictionary available"
+    ],
+    "missing_elements": [
+      "exercise/activity phenotype available",
+      "CPET/cardiorespiratory fitness phenotype available",
+      "body composition available",
+      "diet metadata available"
+    ],
+    "rationale": "7 of 11 MoTrPAC-style metadata-readiness criteria are documented.",
+    "score": 0.636,
+    "study_id": "SYN-RESTRICTED-META",
+    "tier": "low"
+  }
+]

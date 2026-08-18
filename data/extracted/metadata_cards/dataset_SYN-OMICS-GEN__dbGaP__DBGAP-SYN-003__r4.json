@@ -1,0 +1,27 @@
+{
+  "accession": "DBGAP-SYN-003",
+  "assay_platform": "NMR metabolomics",
+  "biospecimen_timing": "baseline fasting",
+  "data_availability": "restricted_metadata_only",
+  "documented_absent_modalities": [],
+  "has_codebook": true,
+  "has_data_files": false,
+  "has_metadata": true,
+  "mirage_flags": [
+    "no_data_files"
+  ],
+  "modalities": [
+    "metabolomics",
+    "genetics",
+    "diet"
+  ],
+  "provenance": {
+    "row_key": "SYN-OMICS-GEN::dbGaP::DBGAP-SYN-003::row-4",
+    "source": "data/examples/mock_repository_records.csv",
+    "source_row_number": 4
+  },
+  "repository": "dbGaP",
+  "sample_matrix": "serum",
+  "sample_size": 1200,
+  "study_id": "SYN-OMICS-GEN"
+}

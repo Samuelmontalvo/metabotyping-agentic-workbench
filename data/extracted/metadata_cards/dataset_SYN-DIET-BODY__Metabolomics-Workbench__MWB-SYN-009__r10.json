@@ -1,0 +1,27 @@
+{
+  "accession": "MWB-SYN-009",
+  "assay_platform": "LC-MS lipidomics",
+  "biospecimen_timing": "baseline fasting",
+  "data_availability": "public",
+  "documented_absent_modalities": [
+    "genetics"
+  ],
+  "has_codebook": true,
+  "has_data_files": true,
+  "has_metadata": true,
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "body_composition",
+    "diet"
+  ],
+  "provenance": {
+    "row_key": "SYN-DIET-BODY::Metabolomics Workbench::MWB-SYN-009::row-10",
+    "source": "data/examples/mock_repository_records.csv",
+    "source_row_number": 10
+  },
+  "repository": "Metabolomics Workbench",
+  "sample_matrix": "plasma",
+  "sample_size": 410,
+  "study_id": "SYN-DIET-BODY"
+}

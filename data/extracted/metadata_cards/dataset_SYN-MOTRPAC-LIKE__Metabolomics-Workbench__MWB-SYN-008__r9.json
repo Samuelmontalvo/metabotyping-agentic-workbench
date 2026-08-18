@@ -1,0 +1,29 @@
+{
+  "accession": "MWB-SYN-008",
+  "assay_platform": "multi-platform LC-MS",
+  "biospecimen_timing": "baseline acute exercise and training follow-up",
+  "data_availability": "public",
+  "documented_absent_modalities": [],
+  "has_codebook": true,
+  "has_data_files": true,
+  "has_metadata": true,
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "exercise",
+    "actigraphy",
+    "genetics",
+    "cpet",
+    "body_composition",
+    "diet"
+  ],
+  "provenance": {
+    "row_key": "SYN-MOTRPAC-LIKE::Metabolomics Workbench::MWB-SYN-008::row-9",
+    "source": "data/examples/mock_repository_records.csv",
+    "source_row_number": 9
+  },
+  "repository": "Metabolomics Workbench",
+  "sample_matrix": "plasma and muscle",
+  "sample_size": 320,
+  "study_id": "SYN-MOTRPAC-LIKE"
+}

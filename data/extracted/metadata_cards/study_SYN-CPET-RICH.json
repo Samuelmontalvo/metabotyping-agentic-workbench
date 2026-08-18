@@ -1,0 +1,29 @@
+{
+  "human": true,
+  "match_class": "direct",
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "exercise",
+    "cpet",
+    "body_composition"
+  ],
+  "notes": "CPET rich direct match",
+  "provenance": {
+    "repository_row_keys": [
+      "SYN-CPET-RICH::Metabolomics Workbench::MWB-SYN-007::row-8"
+    ],
+    "representative_repository": {
+      "accession": "MWB-SYN-007",
+      "repository": "Metabolomics Workbench"
+    },
+    "row_key": "SYN-CPET-RICH",
+    "source": "data/examples/mock_publications.csv"
+  },
+  "repository_accession": "MWB-SYN-007",
+  "repository_accessions": [
+    "MWB-SYN-007"
+  ],
+  "study_id": "SYN-CPET-RICH",
+  "title": "Synthetic CPET and targeted metabolomics training study"
+}

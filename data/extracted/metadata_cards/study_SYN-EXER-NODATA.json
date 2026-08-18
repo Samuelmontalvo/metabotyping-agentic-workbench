@@ -1,0 +1,34 @@
+{
+  "human": true,
+  "match_class": "mirage",
+  "mirage_flags": [
+    "no_repository_accession",
+    "repository_data_not_available",
+    "no_downloadable_metadata",
+    "no_variable_dictionary_or_codebook",
+    "no_data_files",
+    "unclear_assay_platform",
+    "unclear_biospecimen_timing"
+  ],
+  "modalities": [
+    "metabolomics",
+    "exercise",
+    "cpet"
+  ],
+  "notes": "Looks relevant but lacks deposited repository data",
+  "provenance": {
+    "repository_row_keys": [
+      "SYN-EXER-NODATA::unknown::not_available::row-5"
+    ],
+    "representative_repository": {
+      "accession": "not_available",
+      "repository": "unknown"
+    },
+    "row_key": "SYN-EXER-NODATA",
+    "source": "data/examples/mock_publications.csv"
+  },
+  "repository_accession": "not_available",
+  "repository_accessions": [],
+  "study_id": "SYN-EXER-NODATA",
+  "title": "Synthetic exercise metabolomics abstract without repository"
+}

@@ -1,0 +1,29 @@
+{
+  "human": true,
+  "match_class": "enrichment",
+  "mirage_flags": [
+    "no_data_files"
+  ],
+  "modalities": [
+    "metabolomics",
+    "genetics"
+  ],
+  "notes": "Restricted data with metadata only",
+  "provenance": {
+    "repository_row_keys": [
+      "SYN-RESTRICTED-META::dbGaP::DBGAP-SYN-010::row-11"
+    ],
+    "representative_repository": {
+      "accession": "DBGAP-SYN-010",
+      "repository": "dbGaP"
+    },
+    "row_key": "SYN-RESTRICTED-META",
+    "source": "data/examples/mock_publications.csv"
+  },
+  "repository_accession": "DBGAP-SYN-010",
+  "repository_accessions": [
+    "DBGAP-SYN-010"
+  ],
+  "study_id": "SYN-RESTRICTED-META",
+  "title": "Synthetic restricted metabolomics genetics cohort"
+}

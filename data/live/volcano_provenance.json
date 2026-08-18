@@ -1,0 +1,73 @@
+{
+  "generated_utc": "2026-05-21T18:59:42.853875+00:00",
+  "source_mode": "human",
+  "human_mw": {
+    "study": "ST004303",
+    "contrast": "4P vs 1P",
+    "stat": "paired t-test on log2 abundance",
+    "n_metabolites": 266
+  },
+  "motrpac": {
+    "mode": "human",
+    "n_metabolites": 1657,
+    "human_contrast": "group_timepointADUEndur.post_3.5_4_hr - group_timepointADUEndur.pre_exercise"
+  },
+  "thresholds": {
+    "p": 0.05,
+    "abs_log2fc": 1.0
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST004303/data"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST004303/factors"
+    },
+    {
+      "method": "GET",
+      "url": "https://services.motrpac-data.org/v1/signedurl?bucket=motrpac-data-hub&object=analysis/human-precovid-sed-adu/v1.3/metabolomics-targeted/da/human-precovid-sed-adu_t02-plasma_metab-t-amines_da_dream-acute_v1.3.txt&key=<key>"
+    },
+    {
+      "method": "GET",
+      "url": "https://services.motrpac-data.org/v1/signedurl?bucket=motrpac-data-hub&object=analysis/human-precovid-sed-adu/v1.3/metabolomics-targeted/da/human-precovid-sed-adu_t02-plasma_metab-t-conv_da_dream-acute_v1.3.txt&key=<key>"
+    },
+    {
+      "method": "GET",
+      "url": "https://services.motrpac-data.org/v1/signedurl?bucket=motrpac-data-hub&object=analysis/human-precovid-sed-adu/v1.3/metabolomics-targeted/da/human-precovid-sed-adu_t02-plasma_metab-t-imm-crt_da_dream-acute_v1.3.txt&key=<key>"
+    },
+    {
+      "method": "GET",
+      "url": "https://services.motrpac-data.org/v1/signedurl?bucket=motrpac-data-hub&object=analysis/human-precovid-sed-adu/v1.3/metabolomics-targeted/da/human-precovid-sed-adu_t02-plasma_metab-t-oxylipneg_da_dream-acute_v1.3.txt&key=<key>"
+    },
+    {
+      "method": "GET",
+      "url": "https://services.motrpac-data.org/v1/signedurl?bucket=motrpac-data-hub&object=analysis/human-precovid-sed-adu/v1.3/metabolomics-targeted/da/human-precovid-sed-adu_t02-plasma_metab-t-tca_da_dream-acute_v1.3.txt&key=<key>"
+    },
+    {
+      "method": "GET",
+      "url": "https://services.motrpac-data.org/v1/signedurl?bucket=motrpac-data-hub&object=analysis/human-precovid-sed-adu/v1.3/metabolomics-untargeted/da/human-precovid-sed-adu_t02-plasma_metab-u-hilicpos_da_dream-acute_v1.3.txt&key=<key>"
+    },
+    {
+      "method": "GET",
+      "url": "https://services.motrpac-data.org/v1/signedurl?bucket=motrpac-data-hub&object=analysis/human-precovid-sed-adu/v1.3/metabolomics-untargeted/da/human-precovid-sed-adu_t02-plasma_metab-u-ionpneg_da_dream-acute_v1.3.txt&key=<key>"
+    },
+    {
+      "method": "GET",
+      "url": "https://services.motrpac-data.org/v1/signedurl?bucket=motrpac-data-hub&object=analysis/human-precovid-sed-adu/v1.3/metabolomics-untargeted/da/human-precovid-sed-adu_t02-plasma_metab-u-lrpneg_da_dream-acute_v1.3.txt&key=<key>"
+    },
+    {
+      "method": "GET",
+      "url": "https://services.motrpac-data.org/v1/signedurl?bucket=motrpac-data-hub&object=analysis/human-precovid-sed-adu/v1.3/metabolomics-untargeted/da/human-precovid-sed-adu_t02-plasma_metab-u-lrppos_da_dream-acute_v1.3.txt&key=<key>"
+    },
+    {
+      "method": "GET",
+      "url": "https://services.motrpac-data.org/v1/signedurl?bucket=motrpac-data-hub&object=analysis/human-precovid-sed-adu/v1.3/metabolomics-untargeted/da/human-precovid-sed-adu_t02-plasma_metab-u-rpneg_da_dream-acute_v1.3.txt&key=<key>"
+    },
+    {
+      "method": "GET",
+      "url": "https://services.motrpac-data.org/v1/signedurl?bucket=motrpac-data-hub&object=analysis/human-precovid-sed-adu/v1.3/metabolomics-untargeted/da/human-precovid-sed-adu_t02-plasma_metab-u-rppos_da_dream-acute_v1.3.txt&key=<key>"
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+[
+  {
+    "description": "Maximal oxygen uptake from graded treadmill test",
+    "label": "VO2max",
+    "modality": "cpet",
+    "provenance": {
+      "row_key": "SYN-METEX-GEN::vo2max",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "vo2max",
+    "study_id": "SYN-METEX-GEN",
+    "timing": "baseline",
+    "unit": "mL/kg/min"
+  },
+  {
+    "description": "Age at enrollment",
+    "label": "Participant age",
+    "modality": "demographics",
+    "provenance": {
+      "row_key": "SYN-METEX-GEN::age",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "age",
+    "study_id": "SYN-METEX-GEN",
+    "timing": "baseline",
+    "unit": "years"
+  },
+  {
+    "description": "Self-reported biological sex",
+    "label": "Biological sex",
+    "modality": "demographics",
+    "provenance": {
+      "row_key": "SYN-METEX-GEN::sex",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "sex",
+    "study_id": "SYN-METEX-GEN",
+    "timing": "baseline",
+    "unit": "category"
+  },
+  {
+    "description": "BMI from measured height and mass",
+    "label": "Body mass index",
+    "modality": "body_composition",
+    "provenance": {
+      "row_key": "SYN-METEX-GEN::bmi",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "bmi",
+    "study_id": "SYN-METEX-GEN",
+    "timing": "baseline",
+    "unit": "kg/m^2"
+  },
+  {
+    "description": "Clinical fasting glucose",
+    "label": "Fasting glucose",
+    "modality": "metabolomics",
+    "provenance": {
+      "row_key": "SYN-METEX-GEN::fasting_glucose",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "fasting_glucose",
+    "study_id": "SYN-METEX-GEN",
+    "timing": "baseline",
+    "unit": "mg/dL"
+  },
+  {
+    "description": "Mean daily steps from wrist actigraphy",
+    "label": "Daily steps",
+    "modality": "actigraphy",
+    "provenance": {
+      "row_key": "SYN-ACTI-MET::daily_steps",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "daily_steps",
+    "study_id": "SYN-ACTI-MET",
+    "timing": "7-day average",
+    "unit": "steps/day"
+  },
+  {
+    "description": "Moderate to vigorous physical activity minutes",
+    "label": "MVPA minutes",
+    "modality": "actigraphy",
+    "provenance": {
+      "row_key": "SYN-ACTI-MET::mvpa_min",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "mvpa_min",
+    "study_id": "SYN-ACTI-MET",
+    "timing": "7-day average",
+    "unit": "min/day"
+  },
+  {
+    "description": "Whole body DXA fat mass",
+    "label": "DXA fat mass",
+    "modality": "body_composition",
+    "provenance": {
+      "row_key": "SYN-ACTI-MET::total_fat_mass",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "total_fat_mass",
+    "study_id": "SYN-ACTI-MET",
+    "timing": "baseline",
+    "unit": "kg"
+  },
+  {
+    "description": "Age at biospecimen draw",
+    "label": "Age",
+    "modality": "demographics",
+    "provenance": {
+      "row_key": "SYN-OMICS-GEN::participant_age",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "participant_age",
+    "study_id": "SYN-OMICS-GEN",
+    "timing": "baseline",
+    "unit": "years"
+  },
+  {
+    "description": "Fasting glucose in mmol per liter",
+    "label": "Fasting glucose",
+    "modality": "clinical",
+    "provenance": {
+      "row_key": "SYN-OMICS-GEN::glucose_fasting",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "glucose_fasting",
+    "study_id": "SYN-OMICS-GEN",
+    "timing": "baseline",
+    "unit": "mmol/L"
+  },
+  {
+    "description": "Fasting insulin",
+    "label": "Fasting insulin",
+    "modality": "clinical",
+    "provenance": {
+      "row_key": "SYN-OMICS-GEN::fasting_insulin",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "fasting_insulin",
+    "study_id": "SYN-OMICS-GEN",
+    "timing": "baseline",
+    "unit": "uIU/mL"
+  },
+  {
+    "description": "Peak oxygen uptake from abstract",
+    "label": "Peak VO2",
+    "modality": "cpet",
+    "provenance": {
+      "row_key": "SYN-EXER-NODATA::peak_vo2",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "peak_vo2",
+    "study_id": "SYN-EXER-NODATA",
+    "timing": "unknown",
+    "unit": "mL/kg/min"
+  },
+  {
+    "description": "Feature table lacks codebook metadata",
+    "label": "Unknown metabolite intensity",
+    "modality": "metabolomics",
+    "provenance": {
+      "row_key": "SYN-MET-NOCODEBOOK::metab_feature_001",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "metab_feature_001",
+    "study_id": "SYN-MET-NOCODEBOOK",
+    "timing": "unknown",
+    "unit": "unknown"
+  },
+  {
+    "description": "Peak oxygen uptake from ramp cycling test",
+    "label": "VO2peak",
+    "modality": "cpet",
+    "provenance": {
+      "row_key": "SYN-CPET-RICH::vo2peak",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "vo2peak",
+    "study_id": "SYN-CPET-RICH",
+    "timing": "baseline",
+    "unit": "mL/kg/min"
+  },
+  {
+    "description": "DXA-derived lean mass",
+    "label": "Total lean mass",
+    "modality": "body_composition",
+    "provenance": {
+      "row_key": "SYN-CPET-RICH::total_lean_mass",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "total_lean_mass",
+    "study_id": "SYN-CPET-RICH",
+    "timing": "baseline",
+    "unit": "kg"
+  },
+  {
+    "description": "Fasting insulin",
+    "label": "Insulin",
+    "modality": "clinical",
+    "provenance": {
+      "row_key": "SYN-CPET-RICH::insulin",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "insulin",
+    "study_id": "SYN-CPET-RICH",
+    "timing": "baseline",
+    "unit": "uIU/mL"
+  },
+  {
+    "description": "Confirmed maximal test endpoint",
+    "label": "VO2max",
+    "modality": "cpet",
+    "provenance": {
+      "row_key": "SYN-MOTRPAC-LIKE::vo2max",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "vo2max",
+    "study_id": "SYN-MOTRPAC-LIKE",
+    "timing": "baseline",
+    "unit": "mL/kg/min"
+  },
+  {
+    "description": "Daily activity average",
+    "label": "Steps per day",
+    "modality": "actigraphy",
+    "provenance": {
+      "row_key": "SYN-MOTRPAC-LIKE::steps_per_day",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "steps_per_day",
+    "study_id": "SYN-MOTRPAC-LIKE",
+    "timing": "7-day average",
+    "unit": "steps/day"
+  },
+  {
+    "description": "Daily MVPA",
+    "label": "MVPA minutes",
+    "modality": "actigraphy",
+    "provenance": {
+      "row_key": "SYN-MOTRPAC-LIKE::mvpa_minutes",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "mvpa_minutes",
+    "study_id": "SYN-MOTRPAC-LIKE",
+    "timing": "7-day average",
+    "unit": "min/day"
+  },
+  {
+    "description": "DXA lean mass",
+    "label": "Lean mass",
+    "modality": "body_composition",
+    "provenance": {
+      "row_key": "SYN-MOTRPAC-LIKE::lean_mass",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "lean_mass",
+    "study_id": "SYN-MOTRPAC-LIKE",
+    "timing": "baseline",
+    "unit": "kg"
+  },
+  {
+    "description": "DXA fat mass",
+    "label": "Fat mass",
+    "modality": "body_composition",
+    "provenance": {
+      "row_key": "SYN-MOTRPAC-LIKE::fat_mass",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "fat_mass",
+    "study_id": "SYN-MOTRPAC-LIKE",
+    "timing": "baseline",
+    "unit": "kg"
+  },
+  {
+    "description": "Body mass index",
+    "label": "BMI",
+    "modality": "body_composition",
+    "provenance": {
+      "row_key": "SYN-DIET-BODY::body_mass_index",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "body_mass_index",
+    "study_id": "SYN-DIET-BODY",
+    "timing": "baseline",
+    "unit": "kg/m^2"
+  },
+  {
+    "description": "Lean mass by DXA",
+    "label": "DXA lean mass",
+    "modality": "body_composition",
+    "provenance": {
+      "row_key": "SYN-DIET-BODY::dxa_lean_mass",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "dxa_lean_mass",
+    "study_id": "SYN-DIET-BODY",
+    "timing": "baseline",
+    "unit": "kg"
+  },
+  {
+    "description": "Synthetic diet quality index",
+    "label": "Diet quality score",
+    "modality": "diet",
+    "provenance": {
+      "row_key": "SYN-DIET-BODY::diet_score",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "diet_score",
+    "study_id": "SYN-DIET-BODY",
+    "timing": "baseline",
+    "unit": "points"
+  },
+  {
+    "description": "Age at baseline",
+    "label": "Age",
+    "modality": "demographics",
+    "provenance": {
+      "row_key": "SYN-RESTRICTED-META::age",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "age",
+    "study_id": "SYN-RESTRICTED-META",
+    "timing": "baseline",
+    "unit": "years"
+  },
+  {
+    "description": "Reported gender variable",
+    "label": "Gender",
+    "modality": "demographics",
+    "provenance": {
+      "row_key": "SYN-RESTRICTED-META::gender",
+      "source": "data/examples/mock_variable_dictionary.csv"
+    },
+    "source_variable": "gender",
+    "study_id": "SYN-RESTRICTED-META",
+    "timing": "baseline",
+    "unit": "category"
+  }
+]

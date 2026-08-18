@@ -1,0 +1,17 @@
+{
+  "human": true,
+  "match_class": "direct",
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "exercise"
+  ],
+  "notes": "Live MW record. Species=Homo sapiens. The Rockefeller University.",
+  "provenance": {
+    "row_key": "ST004303",
+    "source": "data/live/publications.csv"
+  },
+  "repository_accession": "ST004303",
+  "study_id": "ST004303",
+  "title": "Exercise intensity modulates the human plasma secretome and interorgan communication"
+}

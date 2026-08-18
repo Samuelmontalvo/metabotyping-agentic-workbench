@@ -1,0 +1,21 @@
+{
+  "human": true,
+  "match_class": "mirage",
+  "mirage_flags": [
+    "no_variable_dictionary_or_codebook",
+    "unclear_biospecimen_timing"
+  ],
+  "modalities": [
+    "metabolomics",
+    "exercise",
+    "diet"
+  ],
+  "notes": "Live MW record. Species=Homo sapiens. University CEU San Pablo.",
+  "provenance": {
+    "row_key": "ST003807",
+    "source": "data/live/publications.csv"
+  },
+  "repository_accession": "ST003807",
+  "study_id": "ST003807",
+  "title": "A lipidomic exploration of the effects of high-intensity interval exercise in healthy men after metformin intake"
+}

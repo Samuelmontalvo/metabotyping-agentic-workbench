@@ -1,0 +1,96 @@
+[
+  {
+    "match_class": "direct",
+    "mirage_flags": [],
+    "rationale": "Required inclusion criteria satisfied. Requested exercise phenotype present. Requested actigraphy phenotype present. Both intervention exercise and actigraphy are present. Requested genetics evidence present. Repository accession reported.",
+    "recommendation_class": "direct_match",
+    "score": 0.95,
+    "study_id": "SYN-MOTRPAC-LIKE"
+  },
+  {
+    "match_class": "direct",
+    "mirage_flags": [],
+    "rationale": "Required inclusion criteria satisfied. Requested exercise phenotype present. Requested genetics evidence present. Repository accession reported.",
+    "recommendation_class": "direct_match",
+    "score": 0.79,
+    "study_id": "SYN-METEX-GEN"
+  },
+  {
+    "match_class": "direct",
+    "mirage_flags": [],
+    "rationale": "Required inclusion criteria satisfied. Requested exercise phenotype present. Repository accession reported.",
+    "recommendation_class": "direct_match",
+    "score": 0.69,
+    "study_id": "SYN-CPET-RICH"
+  },
+  {
+    "match_class": "direct",
+    "mirage_flags": [],
+    "rationale": "Required inclusion criteria satisfied. Requested actigraphy phenotype present. Repository accession reported.",
+    "recommendation_class": "direct_match",
+    "score": 0.69,
+    "study_id": "SYN-ACTI-MET"
+  },
+  {
+    "match_class": "enrichment",
+    "mirage_flags": [
+      "no_data_files"
+    ],
+    "rationale": "Required inclusion criteria satisfied. Requested genetics evidence present. Repository accession reported.",
+    "recommendation_class": "enrichment_candidate",
+    "score": 0.65,
+    "study_id": "SYN-OMICS-GEN"
+  },
+  {
+    "match_class": "enrichment",
+    "mirage_flags": [
+      "no_data_files"
+    ],
+    "rationale": "Required inclusion criteria satisfied. Requested genetics evidence present. Repository accession reported.",
+    "recommendation_class": "enrichment_candidate",
+    "score": 0.65,
+    "study_id": "SYN-RESTRICTED-META"
+  },
+  {
+    "match_class": "enrichment",
+    "mirage_flags": [],
+    "rationale": "Required inclusion criteria satisfied. Repository accession reported.",
+    "recommendation_class": "enrichment_candidate",
+    "score": 0.57,
+    "study_id": "SYN-DIET-BODY"
+  },
+  {
+    "match_class": "mirage",
+    "mirage_flags": [
+      "no_repository_accession",
+      "repository_data_not_available",
+      "no_downloadable_metadata",
+      "no_variable_dictionary_or_codebook",
+      "no_data_files",
+      "unclear_assay_platform",
+      "unclear_biospecimen_timing"
+    ],
+    "rationale": "Required inclusion criteria satisfied. Requested exercise phenotype present. Flagged as a mirage risk because usable repository assets are incomplete.",
+    "recommendation_class": "mirage",
+    "score": 0.54,
+    "study_id": "SYN-EXER-NODATA"
+  },
+  {
+    "match_class": "mirage",
+    "mirage_flags": [
+      "no_variable_dictionary_or_codebook"
+    ],
+    "rationale": "Required inclusion criteria satisfied. Repository accession reported. Flagged as a mirage risk because usable repository assets are incomplete.",
+    "recommendation_class": "mirage",
+    "score": 0.54,
+    "study_id": "SYN-MET-NOCODEBOOK"
+  },
+  {
+    "match_class": "excluded",
+    "mirage_flags": [],
+    "rationale": "Excluded because required criteria were not satisfied: human.",
+    "recommendation_class": "excluded",
+    "score": 0.0,
+    "study_id": "SYN-ANIMAL-MET"
+  }
+]

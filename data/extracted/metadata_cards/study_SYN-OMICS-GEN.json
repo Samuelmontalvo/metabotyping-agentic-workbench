@@ -1,0 +1,30 @@
+{
+  "human": true,
+  "match_class": "enrichment",
+  "mirage_flags": [
+    "no_data_files"
+  ],
+  "modalities": [
+    "metabolomics",
+    "genetics",
+    "diet"
+  ],
+  "notes": "Complementary genetics and diet metadata without exercise",
+  "provenance": {
+    "repository_row_keys": [
+      "SYN-OMICS-GEN::dbGaP::DBGAP-SYN-003::row-4"
+    ],
+    "representative_repository": {
+      "accession": "DBGAP-SYN-003",
+      "repository": "dbGaP"
+    },
+    "row_key": "SYN-OMICS-GEN",
+    "source": "data/examples/mock_publications.csv"
+  },
+  "repository_accession": "DBGAP-SYN-003",
+  "repository_accessions": [
+    "DBGAP-SYN-003"
+  ],
+  "study_id": "SYN-OMICS-GEN",
+  "title": "Synthetic nonexercise metabolomics genetics reference"
+}

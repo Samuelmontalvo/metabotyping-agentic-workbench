@@ -1,0 +1,5 @@
+.DS_Store
+.Rhistory
+.claude/settings.local.json
+.venv/
+tmp/

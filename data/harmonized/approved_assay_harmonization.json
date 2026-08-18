@@ -1,0 +1,197 @@
+{
+  "decisions": [
+    {
+      "blockers": [],
+      "canonical_identity": "inchikey:KRKNYBCHXYNGOX-UHFFFAOYSA-N",
+      "common_unit": "umol/L",
+      "confidence": 0.94,
+      "evidence": [
+        {
+          "code": "absolute_scale_unit_gate_passed",
+          "conclusion": "compatible",
+          "detail": "Linear absolute concentrations can be expressed in umol/L.",
+          "provenance_refs": []
+        },
+        {
+          "code": "common_quantifiable_range_defined",
+          "conclusion": "compatible",
+          "detail": "Common LOQ is 1 umol/L; values below remain left-censored.",
+          "provenance_refs": []
+        },
+        {
+          "code": "lod_missingness_gate_passed",
+          "conclusion": "compatible",
+          "detail": "Missingness and left-censoring can be represented without zero/half-limit imputation.",
+          "provenance_refs": []
+        },
+        {
+          "code": "mqacc_qaqc_gate_passed",
+          "conclusion": "compatible",
+          "detail": "QC precision, batches/run order, drift, blanks, internal/reference standards are sufficiently documented for deterministic planning.",
+          "provenance_refs": []
+        },
+        {
+          "code": "msi_level_1_exact_identity",
+          "conclusion": "compatible",
+          "detail": "Exact identity passed the MSI level 1 evidence gate.",
+          "provenance_refs": [
+            "syn-a-id",
+            "syn-b-id"
+          ]
+        },
+        {
+          "code": "qc_precision_acceptable",
+          "conclusion": "compatible",
+          "detail": "SYN-A:citrate QC CV is 8.0% (threshold 20.0%).",
+          "provenance_refs": []
+        },
+        {
+          "code": "qc_precision_acceptable",
+          "conclusion": "compatible",
+          "detail": "SYN-B:citrate QC CV is 10.0% (threshold 20.0%).",
+          "provenance_refs": []
+        },
+        {
+          "code": "shared_standard_identifier",
+          "conclusion": "compatible",
+          "detail": "Both records declare inchikey:KRKNYBCHXYNGOX-UHFFFAOYSA-N at exact structural resolution.",
+          "provenance_refs": [
+            "syn-a-id",
+            "syn-b-id"
+          ]
+        }
+      ],
+      "heterogeneity_plan": {
+        "analysis_level": "pooled_values_with_study_and_platform_sensitivity_analysis",
+        "interpretation_rule": "Report direction and heterogeneity, retain platform/study strata, and do not convert a heterogeneous or scale-incompatible result into a pooled concentration.",
+        "required_diagnostics": [
+          "Cochran_Q",
+          "I2",
+          "tau2",
+          "platform_moderator_meta_regression",
+          "leave_one_study_out",
+          "leave_one_platform_out"
+        ],
+        "stratify_by": [
+          "study_id",
+          "platform_family",
+          "assay_id",
+          "sample_matrix"
+        ]
+      },
+      "identity_status": "accepted",
+      "left_feature_id": "SYN-A:citrate",
+      "permitted_analysis": "pooled_individual_values",
+      "provenance": {
+        "pair_input_digest": "4dc8332d1dd81d73145acbf8aba76b79b73c16bed737e6f2d0b8c860c3e6f075",
+        "rule_set_version": "metabolite-assay-harmonization-1.0.0",
+        "source_artifacts": [
+          "data/examples/synthetic_assay_a_codebook.csv",
+          "data/examples/synthetic_assay_b_codebook.csv"
+        ],
+        "source_feature_ids": [
+          "SYN-A:citrate",
+          "SYN-B:citrate"
+        ],
+        "source_sha256": [
+          "1111111111111111111111111111111111111111111111111111111111111111",
+          "2222222222222222222222222222222222222222222222222222222222222222"
+        ]
+      },
+      "qa_qc_status": "accepted",
+      "quantitative_status": "accepted",
+      "raw_values_combinable": true,
+      "review_questions": [],
+      "right_feature_id": "SYN-B:citrate",
+      "status": "accepted",
+      "transforms": [
+        {
+          "applies_to": [
+            "SYN-A:citrate",
+            "SYN-B:citrate"
+          ],
+          "order": 1,
+          "parameters": {
+            "common_loq": 1.0,
+            "unit": "umol/L"
+          },
+          "rationale": "Use the more conservative compatible LOQ without numeric substitution.",
+          "registry_key": "censor_below_common_loq"
+        },
+        {
+          "applies_to": [
+            "SYN-A:citrate"
+          ],
+          "order": 2,
+          "parameters": {
+            "multiplier": 1.0,
+            "source_unit": "umol/L",
+            "target_unit": "umol/L"
+          },
+          "rationale": "Convert only within the same concentration dimension.",
+          "registry_key": "convert_compatible_concentration_unit"
+        },
+        {
+          "applies_to": [
+            "SYN-B:citrate"
+          ],
+          "order": 3,
+          "parameters": {
+            "multiplier": 1000.0,
+            "source_unit": "mmol/L",
+            "target_unit": "umol/L"
+          },
+          "rationale": "Convert only within the same concentration dimension.",
+          "registry_key": "convert_compatible_concentration_unit"
+        },
+        {
+          "applies_to": [
+            "SYN-A:citrate"
+          ],
+          "order": 4,
+          "parameters": {
+            "below_limit_code": "BLQ",
+            "missing_codes": [
+              "NA"
+            ],
+            "missing_reason_variable": "missing_reason"
+          },
+          "rationale": "Retain missing, below-limit, and biological-zero semantics separately.",
+          "registry_key": "preserve_missing_reason_codes"
+        },
+        {
+          "applies_to": [
+            "SYN-B:citrate"
+          ],
+          "order": 5,
+          "parameters": {
+            "below_limit_code": "BELOW_LOQ",
+            "missing_codes": [
+              "NA"
+            ],
+            "missing_reason_variable": "missing_reason"
+          },
+          "rationale": "Retain missing, below-limit, and biological-zero semantics separately.",
+          "registry_key": "preserve_missing_reason_codes"
+        },
+        {
+          "applies_to": [
+            "SYN-A:citrate"
+          ],
+          "order": 6,
+          "parameters": {
+            "batch_method": "within-study reference-QC alignment",
+            "batch_variable": "analytical_batch_id",
+            "drift_method": "within-batch QC robust spline",
+            "run_order_variable": "injection_order"
+          },
+          "rationale": "Correct analytical drift/batch within each study before combination.",
+          "registry_key": "within_study_batch_processing_only"
+        }
+      ]
+    }
+  ],
+  "input_digest": "08064db4c289c9d3378c4e73c78b91d72657b3ccd44198a3824992728cabbf32",
+  "rule_set_version": "metabolite-assay-harmonization-1.0.0",
+  "schema_version": "1.0.0"
+}

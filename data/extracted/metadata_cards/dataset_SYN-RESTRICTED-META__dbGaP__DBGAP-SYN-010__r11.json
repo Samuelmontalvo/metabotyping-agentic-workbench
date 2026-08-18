@@ -1,0 +1,26 @@
+{
+  "accession": "DBGAP-SYN-010",
+  "assay_platform": "LC-MS metabolomics",
+  "biospecimen_timing": "baseline fasting",
+  "data_availability": "restricted_metadata_only",
+  "documented_absent_modalities": [],
+  "has_codebook": true,
+  "has_data_files": false,
+  "has_metadata": true,
+  "mirage_flags": [
+    "no_data_files"
+  ],
+  "modalities": [
+    "metabolomics",
+    "genetics"
+  ],
+  "provenance": {
+    "row_key": "SYN-RESTRICTED-META::dbGaP::DBGAP-SYN-010::row-11",
+    "source": "data/examples/mock_repository_records.csv",
+    "source_row_number": 11
+  },
+  "repository": "dbGaP",
+  "sample_matrix": "serum",
+  "sample_size": 860,
+  "study_id": "SYN-RESTRICTED-META"
+}

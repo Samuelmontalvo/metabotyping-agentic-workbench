@@ -1,0 +1,25 @@
+{
+  "accession": "MWB-SYN-005",
+  "assay_platform": "LC-MS muscle metabolomics",
+  "biospecimen_timing": "post exercise",
+  "data_availability": "public",
+  "documented_absent_modalities": [
+    "genetics"
+  ],
+  "has_codebook": true,
+  "has_data_files": true,
+  "has_metadata": true,
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "exercise"
+  ],
+  "provenance": {
+    "row_key": "SYN-ANIMAL-MET",
+    "source": "data/examples/mock_repository_records.csv"
+  },
+  "repository": "Metabolomics Workbench",
+  "sample_matrix": "muscle",
+  "sample_size": 40,
+  "study_id": "SYN-ANIMAL-MET"
+}

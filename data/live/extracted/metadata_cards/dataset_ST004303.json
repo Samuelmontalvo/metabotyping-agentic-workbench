@@ -1,0 +1,22 @@
+{
+  "accession": "ST004303",
+  "assay_platform": "HILIC MS Orbitrap blood",
+  "biospecimen_timing": "arms: MIE, SIE; timepoints: 1P, 2P, 4P",
+  "data_availability": "public",
+  "has_codebook": true,
+  "has_data_files": true,
+  "has_metadata": true,
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "exercise"
+  ],
+  "provenance": {
+    "row_key": "ST004303",
+    "source": "data/live/repository_records.csv"
+  },
+  "repository": "Metabolomics Workbench",
+  "sample_matrix": "blood",
+  "sample_size": 19,
+  "study_id": "ST004303"
+}

@@ -1,0 +1,26 @@
+{
+  "accession": "ST003807",
+  "assay_platform": "Reversed phase MS QTOF plasma",
+  "biospecimen_timing": "unknown",
+  "data_availability": "public",
+  "has_codebook": false,
+  "has_data_files": true,
+  "has_metadata": true,
+  "mirage_flags": [
+    "no_variable_dictionary_or_codebook",
+    "unclear_biospecimen_timing"
+  ],
+  "modalities": [
+    "metabolomics",
+    "exercise",
+    "diet"
+  ],
+  "provenance": {
+    "row_key": "ST003807",
+    "source": "data/live/repository_records.csv"
+  },
+  "repository": "Metabolomics Workbench",
+  "sample_matrix": "plasma",
+  "sample_size": 217,
+  "study_id": "ST003807"
+}

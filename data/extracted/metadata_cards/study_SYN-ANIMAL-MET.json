@@ -1,0 +1,27 @@
+{
+  "human": false,
+  "match_class": "excluded",
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "exercise"
+  ],
+  "notes": "Animal-only exclusion",
+  "provenance": {
+    "repository_row_keys": [
+      "SYN-ANIMAL-MET::Metabolomics Workbench::MWB-SYN-005::row-6"
+    ],
+    "representative_repository": {
+      "accession": "MWB-SYN-005",
+      "repository": "Metabolomics Workbench"
+    },
+    "row_key": "SYN-ANIMAL-MET",
+    "source": "data/examples/mock_publications.csv"
+  },
+  "repository_accession": "MWB-SYN-005",
+  "repository_accessions": [
+    "MWB-SYN-005"
+  ],
+  "study_id": "SYN-ANIMAL-MET",
+  "title": "Synthetic mouse endurance metabolomics experiment"
+}

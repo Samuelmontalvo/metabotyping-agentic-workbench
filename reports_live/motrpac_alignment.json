@@ -1,0 +1,44 @@
+[
+  {
+    "met_criteria": [
+      "human participants",
+      "metabolomics available",
+      "exercise/activity phenotype available",
+      "biospecimen timing available",
+      "sample matrix available",
+      "assay platform available",
+      "genetics available or documented absent",
+      "variable dictionary available"
+    ],
+    "missing_elements": [
+      "CPET/cardiorespiratory fitness phenotype available",
+      "body composition available",
+      "diet metadata available"
+    ],
+    "rationale": "8 of 11 MoTrPAC-style replication criteria satisfied.",
+    "score": 0.727,
+    "study_id": "ST004303",
+    "tier": "moderate"
+  },
+  {
+    "met_criteria": [
+      "human participants",
+      "metabolomics available",
+      "exercise/activity phenotype available",
+      "sample matrix available",
+      "assay platform available",
+      "genetics available or documented absent",
+      "diet metadata available"
+    ],
+    "missing_elements": [
+      "biospecimen timing available",
+      "CPET/cardiorespiratory fitness phenotype available",
+      "body composition available",
+      "variable dictionary available"
+    ],
+    "rationale": "7 of 11 MoTrPAC-style replication criteria satisfied.",
+    "score": 0.636,
+    "study_id": "ST003807",
+    "tier": "low"
+  }
+]

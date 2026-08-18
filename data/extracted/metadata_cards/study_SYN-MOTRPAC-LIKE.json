@@ -1,0 +1,32 @@
+{
+  "human": true,
+  "match_class": "direct",
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "exercise",
+    "actigraphy",
+    "genetics",
+    "cpet",
+    "body_composition",
+    "diet"
+  ],
+  "notes": "Best synthetic MoTrPAC-style alignment",
+  "provenance": {
+    "repository_row_keys": [
+      "SYN-MOTRPAC-LIKE::Metabolomics Workbench::MWB-SYN-008::row-9"
+    ],
+    "representative_repository": {
+      "accession": "MWB-SYN-008",
+      "repository": "Metabolomics Workbench"
+    },
+    "row_key": "SYN-MOTRPAC-LIKE",
+    "source": "data/examples/mock_publications.csv"
+  },
+  "repository_accession": "MWB-SYN-008",
+  "repository_accessions": [
+    "MWB-SYN-008"
+  ],
+  "study_id": "SYN-MOTRPAC-LIKE",
+  "title": "Synthetic MoTrPAC-like multi-domain exercise trial"
+}

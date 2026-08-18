@@ -1,0 +1,298 @@
+[
+  {
+    "human": true,
+    "match_class": "direct",
+    "mirage_flags": [],
+    "modalities": [
+      "metabolomics",
+      "exercise",
+      "genetics",
+      "cpet",
+      "body_composition",
+      "diet"
+    ],
+    "notes": "Direct match with exercise metabolomics genetics CPET and diet",
+    "provenance": {
+      "repository_row_keys": [
+        "SYN-METEX-GEN::Metabolomics Workbench::MWB-SYN-001::row-2"
+      ],
+      "representative_repository": {
+        "accession": "MWB-SYN-001",
+        "repository": "Metabolomics Workbench"
+      },
+      "row_key": "SYN-METEX-GEN",
+      "source": "data/examples/mock_publications.csv"
+    },
+    "repository_accession": "MWB-SYN-001",
+    "repository_accessions": [
+      "MWB-SYN-001"
+    ],
+    "study_id": "SYN-METEX-GEN",
+    "title": "Synthetic training metabolome and genotype cohort"
+  },
+  {
+    "human": true,
+    "match_class": "direct",
+    "mirage_flags": [],
+    "modalities": [
+      "metabolomics",
+      "actigraphy",
+      "body_composition"
+    ],
+    "notes": "Direct match with actigraphy and metabolomics",
+    "provenance": {
+      "repository_row_keys": [
+        "SYN-ACTI-MET::Metabolomics Workbench::MWB-SYN-002::row-3"
+      ],
+      "representative_repository": {
+        "accession": "MWB-SYN-002",
+        "repository": "Metabolomics Workbench"
+      },
+      "row_key": "SYN-ACTI-MET",
+      "source": "data/examples/mock_publications.csv"
+    },
+    "repository_accession": "MWB-SYN-002",
+    "repository_accessions": [
+      "MWB-SYN-002"
+    ],
+    "study_id": "SYN-ACTI-MET",
+    "title": "Synthetic actigraphy linked plasma metabolomics study"
+  },
+  {
+    "human": true,
+    "match_class": "enrichment",
+    "mirage_flags": [
+      "no_data_files"
+    ],
+    "modalities": [
+      "metabolomics",
+      "genetics",
+      "diet"
+    ],
+    "notes": "Complementary genetics and diet metadata without exercise",
+    "provenance": {
+      "repository_row_keys": [
+        "SYN-OMICS-GEN::dbGaP::DBGAP-SYN-003::row-4"
+      ],
+      "representative_repository": {
+        "accession": "DBGAP-SYN-003",
+        "repository": "dbGaP"
+      },
+      "row_key": "SYN-OMICS-GEN",
+      "source": "data/examples/mock_publications.csv"
+    },
+    "repository_accession": "DBGAP-SYN-003",
+    "repository_accessions": [
+      "DBGAP-SYN-003"
+    ],
+    "study_id": "SYN-OMICS-GEN",
+    "title": "Synthetic nonexercise metabolomics genetics reference"
+  },
+  {
+    "human": true,
+    "match_class": "mirage",
+    "mirage_flags": [
+      "no_repository_accession",
+      "repository_data_not_available",
+      "no_downloadable_metadata",
+      "no_variable_dictionary_or_codebook",
+      "no_data_files",
+      "unclear_assay_platform",
+      "unclear_biospecimen_timing"
+    ],
+    "modalities": [
+      "metabolomics",
+      "exercise",
+      "cpet"
+    ],
+    "notes": "Looks relevant but lacks deposited repository data",
+    "provenance": {
+      "repository_row_keys": [
+        "SYN-EXER-NODATA::unknown::not_available::row-5"
+      ],
+      "representative_repository": {
+        "accession": "not_available",
+        "repository": "unknown"
+      },
+      "row_key": "SYN-EXER-NODATA",
+      "source": "data/examples/mock_publications.csv"
+    },
+    "repository_accession": "not_available",
+    "repository_accessions": [],
+    "study_id": "SYN-EXER-NODATA",
+    "title": "Synthetic exercise metabolomics abstract without repository"
+  },
+  {
+    "human": false,
+    "match_class": "excluded",
+    "mirage_flags": [],
+    "modalities": [
+      "metabolomics",
+      "exercise"
+    ],
+    "notes": "Animal-only exclusion",
+    "provenance": {
+      "repository_row_keys": [
+        "SYN-ANIMAL-MET::Metabolomics Workbench::MWB-SYN-005::row-6"
+      ],
+      "representative_repository": {
+        "accession": "MWB-SYN-005",
+        "repository": "Metabolomics Workbench"
+      },
+      "row_key": "SYN-ANIMAL-MET",
+      "source": "data/examples/mock_publications.csv"
+    },
+    "repository_accession": "MWB-SYN-005",
+    "repository_accessions": [
+      "MWB-SYN-005"
+    ],
+    "study_id": "SYN-ANIMAL-MET",
+    "title": "Synthetic mouse endurance metabolomics experiment"
+  },
+  {
+    "human": true,
+    "match_class": "mirage",
+    "mirage_flags": [
+      "no_variable_dictionary_or_codebook"
+    ],
+    "modalities": [
+      "metabolomics"
+    ],
+    "notes": "Metabolomics available but variable dictionary missing",
+    "provenance": {
+      "repository_row_keys": [
+        "SYN-MET-NOCODEBOOK::Metabolomics Workbench::MWB-SYN-006::row-7"
+      ],
+      "representative_repository": {
+        "accession": "MWB-SYN-006",
+        "repository": "Metabolomics Workbench"
+      },
+      "row_key": "SYN-MET-NOCODEBOOK",
+      "source": "data/examples/mock_publications.csv"
+    },
+    "repository_accession": "MWB-SYN-006",
+    "repository_accessions": [
+      "MWB-SYN-006"
+    ],
+    "study_id": "SYN-MET-NOCODEBOOK",
+    "title": "Synthetic public metabolomics study without codebook"
+  },
+  {
+    "human": true,
+    "match_class": "direct",
+    "mirage_flags": [],
+    "modalities": [
+      "metabolomics",
+      "exercise",
+      "cpet",
+      "body_composition"
+    ],
+    "notes": "CPET rich direct match",
+    "provenance": {
+      "repository_row_keys": [
+        "SYN-CPET-RICH::Metabolomics Workbench::MWB-SYN-007::row-8"
+      ],
+      "representative_repository": {
+        "accession": "MWB-SYN-007",
+        "repository": "Metabolomics Workbench"
+      },
+      "row_key": "SYN-CPET-RICH",
+      "source": "data/examples/mock_publications.csv"
+    },
+    "repository_accession": "MWB-SYN-007",
+    "repository_accessions": [
+      "MWB-SYN-007"
+    ],
+    "study_id": "SYN-CPET-RICH",
+    "title": "Synthetic CPET and targeted metabolomics training study"
+  },
+  {
+    "human": true,
+    "match_class": "direct",
+    "mirage_flags": [],
+    "modalities": [
+      "metabolomics",
+      "exercise",
+      "actigraphy",
+      "genetics",
+      "cpet",
+      "body_composition",
+      "diet"
+    ],
+    "notes": "Best synthetic MoTrPAC-style alignment",
+    "provenance": {
+      "repository_row_keys": [
+        "SYN-MOTRPAC-LIKE::Metabolomics Workbench::MWB-SYN-008::row-9"
+      ],
+      "representative_repository": {
+        "accession": "MWB-SYN-008",
+        "repository": "Metabolomics Workbench"
+      },
+      "row_key": "SYN-MOTRPAC-LIKE",
+      "source": "data/examples/mock_publications.csv"
+    },
+    "repository_accession": "MWB-SYN-008",
+    "repository_accessions": [
+      "MWB-SYN-008"
+    ],
+    "study_id": "SYN-MOTRPAC-LIKE",
+    "title": "Synthetic MoTrPAC-like multi-domain exercise trial"
+  },
+  {
+    "human": true,
+    "match_class": "enrichment",
+    "mirage_flags": [],
+    "modalities": [
+      "metabolomics",
+      "body_composition",
+      "diet"
+    ],
+    "notes": "Enrichment candidate for diet and body composition",
+    "provenance": {
+      "repository_row_keys": [
+        "SYN-DIET-BODY::Metabolomics Workbench::MWB-SYN-009::row-10"
+      ],
+      "representative_repository": {
+        "accession": "MWB-SYN-009",
+        "repository": "Metabolomics Workbench"
+      },
+      "row_key": "SYN-DIET-BODY",
+      "source": "data/examples/mock_publications.csv"
+    },
+    "repository_accession": "MWB-SYN-009",
+    "repository_accessions": [
+      "MWB-SYN-009"
+    ],
+    "study_id": "SYN-DIET-BODY",
+    "title": "Synthetic diet body composition metabolomics cohort"
+  },
+  {
+    "human": true,
+    "match_class": "enrichment",
+    "mirage_flags": [
+      "no_data_files"
+    ],
+    "modalities": [
+      "metabolomics",
+      "genetics"
+    ],
+    "notes": "Restricted data with metadata only",
+    "provenance": {
+      "repository_row_keys": [
+        "SYN-RESTRICTED-META::dbGaP::DBGAP-SYN-010::row-11"
+      ],
+      "representative_repository": {
+        "accession": "DBGAP-SYN-010",
+        "repository": "dbGaP"
+      },
+      "row_key": "SYN-RESTRICTED-META",
+      "source": "data/examples/mock_publications.csv"
+    },
+    "repository_accession": "DBGAP-SYN-010",
+    "repository_accessions": [
+      "DBGAP-SYN-010"
+    ],
+    "study_id": "SYN-RESTRICTED-META",
+    "title": "Synthetic restricted metabolomics genetics cohort"
+  }
+]

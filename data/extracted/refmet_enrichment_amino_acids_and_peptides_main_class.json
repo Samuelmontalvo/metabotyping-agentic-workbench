@@ -1,0 +1,30 @@
+[
+  {
+    "query_original":"Amino acids and peptides",
+    "query_type":"enrichment",
+    "refmet_level":"main_class",
+    "refmet_label":"Amino acids and peptides",
+    "match_basis":"refmet_hierarchy_annotation",
+    "match_confidence":"accepted_curated",
+    "review_status":"accepted_curated",
+    "n_class_rows":383,
+    "n_class_significant":124,
+    "n_class_up_significant":22,
+    "n_class_down_significant":102,
+    "class_significant_fraction":0.3237597911,
+    "n_background_rows":1503,
+    "n_background_significant":467,
+    "n_nonclass_background_rows":1120,
+    "n_nonclass_background_significant":343,
+    "background_significant_fraction":0.3107119095,
+    "enrichment_ratio":1.0419935033,
+    "fisher_exact_p":0.2816900876,
+    "source_systems":"Metabolomics Workbench;MoTrPAC DataHub",
+    "study_ids":"ST004303;human-precovid-sed-adu;pass1b06",
+    "source_files":"data\/live\/volcano_human_ST004303.csv;data\/live\/volcano_motrpac_human_plasma_endur_post.csv;data\/live\/volcano_motrpac_pass1b06_plasma_8w.csv",
+    "example_metabolites":"Alloisoleucine [metab-u-hilicpos]; Monoethylglycinexylidide [metab-u-hilicpos]; Tyrosine [metab-t-amines]; N-Acetyl-D-tryptophan [metab-u-hilicpos]; Threonine [metab-t-amines]; Proline [metab-t-amines]; Leucine [metab-u-hilicpos]; Tryptophan [metab-u-hilicpos]",
+    "significance_threshold":"FDR<0.05",
+    "interpretation":"Amino acids and peptides has 124\/383 annotated rows significant at FDR<0.05; enrichment ratio=1.04, one-sided Fisher p=2.82e-01.",
+    "missing_evidence":""
+  }
+]

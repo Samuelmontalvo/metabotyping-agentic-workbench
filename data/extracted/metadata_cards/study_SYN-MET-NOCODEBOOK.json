@@ -1,0 +1,28 @@
+{
+  "human": true,
+  "match_class": "mirage",
+  "mirage_flags": [
+    "no_variable_dictionary_or_codebook"
+  ],
+  "modalities": [
+    "metabolomics"
+  ],
+  "notes": "Metabolomics available but variable dictionary missing",
+  "provenance": {
+    "repository_row_keys": [
+      "SYN-MET-NOCODEBOOK::Metabolomics Workbench::MWB-SYN-006::row-7"
+    ],
+    "representative_repository": {
+      "accession": "MWB-SYN-006",
+      "repository": "Metabolomics Workbench"
+    },
+    "row_key": "SYN-MET-NOCODEBOOK",
+    "source": "data/examples/mock_publications.csv"
+  },
+  "repository_accession": "MWB-SYN-006",
+  "repository_accessions": [
+    "MWB-SYN-006"
+  ],
+  "study_id": "SYN-MET-NOCODEBOOK",
+  "title": "Synthetic public metabolomics study without codebook"
+}

@@ -1,0 +1,31 @@
+{
+  "human": true,
+  "match_class": "direct",
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "exercise",
+    "genetics",
+    "cpet",
+    "body_composition",
+    "diet"
+  ],
+  "notes": "Direct match with exercise metabolomics genetics CPET and diet",
+  "provenance": {
+    "repository_row_keys": [
+      "SYN-METEX-GEN::Metabolomics Workbench::MWB-SYN-001::row-2"
+    ],
+    "representative_repository": {
+      "accession": "MWB-SYN-001",
+      "repository": "Metabolomics Workbench"
+    },
+    "row_key": "SYN-METEX-GEN",
+    "source": "data/examples/mock_publications.csv"
+  },
+  "repository_accession": "MWB-SYN-001",
+  "repository_accessions": [
+    "MWB-SYN-001"
+  ],
+  "study_id": "SYN-METEX-GEN",
+  "title": "Synthetic training metabolome and genotype cohort"
+}

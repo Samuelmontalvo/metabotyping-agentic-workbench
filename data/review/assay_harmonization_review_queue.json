@@ -1,0 +1,139 @@
+{
+  "decisions": [
+    {
+      "blockers": [
+        "calibration_models_differ",
+        "calibration_traceability_differs",
+        "internal_standards_differ",
+        "reference_materials_differ",
+        "unbridged_assay_methods"
+      ],
+      "canonical_identity": "inchikey:KRKNYBCHXYNGOX-UHFFFAOYSA-N",
+      "common_unit": "umol/L",
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "code": "analytical_adducts_differ",
+          "conclusion": "compatible",
+          "detail": "Analytical ions differ ([M-H]- versus not_applicable). This does not redefine an MSI level 1 calibrated neutral analyte.",
+          "provenance_refs": []
+        },
+        {
+          "code": "common_quantifiable_range_defined",
+          "conclusion": "compatible",
+          "detail": "Common LOQ is 2 umol/L; values below remain left-censored.",
+          "provenance_refs": []
+        },
+        {
+          "code": "cross_platform_heterogeneity_unbridged",
+          "conclusion": "review",
+          "detail": "Assay methods/platforms differ without a validated bridge; direct pooling is blocked.",
+          "provenance_refs": []
+        },
+        {
+          "code": "lod_missingness_gate_passed",
+          "conclusion": "compatible",
+          "detail": "Missingness and left-censoring can be represented without zero/half-limit imputation.",
+          "provenance_refs": []
+        },
+        {
+          "code": "mqacc_qaqc_gate_passed",
+          "conclusion": "compatible",
+          "detail": "QC precision, batches/run order, drift, blanks, internal/reference standards are sufficiently documented for deterministic planning.",
+          "provenance_refs": []
+        },
+        {
+          "code": "msi_level_1_exact_identity",
+          "conclusion": "compatible",
+          "detail": "Exact identity passed the MSI level 1 evidence gate.",
+          "provenance_refs": [
+            "syn-a-id",
+            "syn-e-id"
+          ]
+        },
+        {
+          "code": "qc_precision_acceptable",
+          "conclusion": "compatible",
+          "detail": "SYN-A:citrate QC CV is 8.0% (threshold 20.0%).",
+          "provenance_refs": []
+        },
+        {
+          "code": "qc_precision_acceptable",
+          "conclusion": "compatible",
+          "detail": "SYN-E:citrate-nmr QC CV is 12.0% (threshold 30.0%).",
+          "provenance_refs": []
+        },
+        {
+          "code": "reported_name_not_identity_evidence",
+          "conclusion": "neutral",
+          "detail": "Reported names match, but names are not used as chemical identity evidence.",
+          "provenance_refs": []
+        },
+        {
+          "code": "shared_standard_identifier",
+          "conclusion": "compatible",
+          "detail": "Both records declare inchikey:KRKNYBCHXYNGOX-UHFFFAOYSA-N at exact structural resolution.",
+          "provenance_refs": [
+            "syn-a-id",
+            "syn-e-id"
+          ]
+        },
+        {
+          "code": "transforms_withheld_by_review_gate",
+          "conclusion": "blocked",
+          "detail": "Candidate transform steps are withheld because this pair is not accepted.",
+          "provenance_refs": []
+        }
+      ],
+      "heterogeneity_plan": {
+        "analysis_level": "study_specific_effects_random_effects_meta_analysis",
+        "interpretation_rule": "Report direction and heterogeneity, retain platform/study strata, and do not convert a heterogeneous or scale-incompatible result into a pooled concentration.",
+        "required_diagnostics": [
+          "Cochran_Q",
+          "I2",
+          "tau2",
+          "platform_moderator_meta_regression",
+          "leave_one_study_out",
+          "leave_one_platform_out"
+        ],
+        "stratify_by": [
+          "study_id",
+          "platform_family",
+          "assay_id",
+          "sample_matrix"
+        ]
+      },
+      "identity_status": "accepted",
+      "left_feature_id": "SYN-A:citrate",
+      "permitted_analysis": "study_specific_effects_meta_analysis",
+      "provenance": {
+        "pair_input_digest": "e472fcdb503036d252e5e128d2d585e5fcba9030ed9b3b69dfb1c70e3c8634c8",
+        "rule_set_version": "metabolite-assay-harmonization-1.0.0",
+        "source_artifacts": [
+          "data/examples/synthetic_assay_a_codebook.csv",
+          "data/examples/synthetic_assay_e_nmr_codebook.csv"
+        ],
+        "source_feature_ids": [
+          "SYN-A:citrate",
+          "SYN-E:citrate-nmr"
+        ],
+        "source_sha256": [
+          "1111111111111111111111111111111111111111111111111111111111111111",
+          "5555555555555555555555555555555555555555555555555555555555555555"
+        ]
+      },
+      "qa_qc_status": "accepted",
+      "quantitative_status": "requires_human_review",
+      "raw_values_combinable": false,
+      "review_questions": [
+        "Provide a matrix-matched method-comparison/commutability bridge or keep studies separate."
+      ],
+      "right_feature_id": "SYN-E:citrate-nmr",
+      "status": "requires_human_review",
+      "transforms": []
+    }
+  ],
+  "input_digest": "08064db4c289c9d3378c4e73c78b91d72657b3ccd44198a3824992728cabbf32",
+  "rule_set_version": "metabolite-assay-harmonization-1.0.0",
+  "schema_version": "1.0.0"
+}

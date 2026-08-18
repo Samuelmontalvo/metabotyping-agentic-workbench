@@ -1,0 +1,28 @@
+{
+  "complementary_terms": [
+    "omics phenotype overlap",
+    "non-exercise metabolomics with genetics",
+    "activity/body-composition/diet enrichment metadata"
+  ],
+  "exclusions": [
+    "animal-only",
+    "cell-only",
+    "no metabolomics"
+  ],
+  "notes": [
+    "Required terms are intentionally strict: human and metabolomics.",
+    "Complementary datasets may lack exercise but must improve omics/phenotype enrichment.",
+    "Animal-only, cell-only, and no-metabolomics studies are exclusions.",
+    "Query explicitly requests MoTrPAC-style metadata-readiness relevance."
+  ],
+  "preferred_terms": [
+    "exercise",
+    "actigraphy",
+    "genetics"
+  ],
+  "query": "human metabolomics datasets with exercise or actigraphy and genetics for MoTrPAC-style metadata readiness",
+  "required_terms": [
+    "human",
+    "metabolomics"
+  ]
+}

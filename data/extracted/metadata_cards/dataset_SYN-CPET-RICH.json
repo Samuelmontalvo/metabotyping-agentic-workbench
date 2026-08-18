@@ -1,0 +1,27 @@
+{
+  "accession": "MWB-SYN-007",
+  "assay_platform": "targeted LC-MS",
+  "biospecimen_timing": "pre and post acute cycling",
+  "data_availability": "public",
+  "documented_absent_modalities": [
+    "genetics"
+  ],
+  "has_codebook": true,
+  "has_data_files": true,
+  "has_metadata": true,
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "exercise",
+    "cpet",
+    "body_composition"
+  ],
+  "provenance": {
+    "row_key": "SYN-CPET-RICH",
+    "source": "data/examples/mock_repository_records.csv"
+  },
+  "repository": "Metabolomics Workbench",
+  "sample_matrix": "plasma",
+  "sample_size": 150,
+  "study_id": "SYN-CPET-RICH"
+}

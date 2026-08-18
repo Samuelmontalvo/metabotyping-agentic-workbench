@@ -1,0 +1,116 @@
+{
+  "artifact_payload_digests": {
+    "accepted": "8e3cb7f4544817c168ff209b1c3a6b5117d309acc94d17372260b25f3caef379",
+    "non_combinable": "5983d6eea52402f89a93975e643bb52ed320baa45c3b86554e577b160fda2683",
+    "plan": "6b6c2b45a46a1883c3170f4b8dd4f34d59c6c4da94757756e535c90c252d3995",
+    "review": "aaf61e71a770c4d423bb6c7211a0ad0b39a2c6ae809f44a89894f0a938706afc"
+  },
+  "failure_conditions": [
+    "Duplicate or unknown feature identifier.",
+    "Conflicting exact chemical identifiers.",
+    "Unresolved isomer, stereochemistry, or identity provenance.",
+    "Unapproved unit or transform.",
+    "Irreversible zero/half-limit imputation or missing censoring flags.",
+    "Cross-study batch correction or feature QC CV above policy threshold.",
+    "Unbridged assay/platform method for individual-value pooling."
+  ],
+  "fixture_content_digest": "6c18758a79862f88125d143140a8cc97275a6bc55b65d21f4c0eaa493cb9f791",
+  "input_digest": "08064db4c289c9d3378c4e73c78b91d72657b3ccd44198a3824992728cabbf32",
+  "rule_set_version": "metabolite-assay-harmonization-1.0.0",
+  "schema_version": "1.0.0",
+  "source_provenance": [
+    {
+      "feature_id": "SYN-A:citrate",
+      "provenance": {
+        "evidence_locators": {
+          "syn-a-id": "synthetic codebook row 2 identifier columns",
+          "syn-a-standard": "synthetic SOP section 4.2"
+        },
+        "extraction_method": "deterministic synthetic fixture parser v1",
+        "source_artifact": "data/examples/synthetic_assay_a_codebook.csv",
+        "source_record_locator": "row=2",
+        "source_sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+      }
+    },
+    {
+      "feature_id": "SYN-B:citrate",
+      "provenance": {
+        "evidence_locators": {
+          "syn-b-id": "synthetic codebook row 7 identifier columns",
+          "syn-b-standard": "synthetic SOP section 5.1"
+        },
+        "extraction_method": "deterministic synthetic fixture parser v1",
+        "source_artifact": "data/examples/synthetic_assay_b_codebook.csv",
+        "source_record_locator": "row=7",
+        "source_sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+      }
+    },
+    {
+      "feature_id": "SYN-C:citrate-name-only",
+      "provenance": {
+        "evidence_locators": {
+          "syn-c-feature": "synthetic feature table row 18"
+        },
+        "extraction_method": "deterministic synthetic fixture parser v1",
+        "source_artifact": "data/examples/synthetic_assay_c_features.csv",
+        "source_record_locator": "feature=191.020@127s",
+        "source_sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+      }
+    },
+    {
+      "feature_id": "SYN-D:different-structure",
+      "provenance": {
+        "evidence_locators": {
+          "syn-d-id": "synthetic codebook row 3 identifier columns",
+          "syn-d-standard": "synthetic SOP section 3"
+        },
+        "extraction_method": "deterministic synthetic fixture parser v1",
+        "source_artifact": "data/examples/synthetic_assay_d_codebook.csv",
+        "source_record_locator": "row=3",
+        "source_sha256": "4444444444444444444444444444444444444444444444444444444444444444"
+      }
+    },
+    {
+      "feature_id": "SYN-E:citrate-nmr",
+      "provenance": {
+        "evidence_locators": {
+          "syn-e-id": "synthetic NMR codebook row 11",
+          "syn-e-standard": "synthetic NMR SOP section 6"
+        },
+        "extraction_method": "deterministic synthetic fixture parser v1",
+        "source_artifact": "data/examples/synthetic_assay_e_nmr_codebook.csv",
+        "source_record_locator": "row=11",
+        "source_sha256": "5555555555555555555555555555555555555555555555555555555555555555"
+      }
+    },
+    {
+      "feature_id": "SYN-F:citrate-relative",
+      "provenance": {
+        "evidence_locators": {
+          "syn-f-id": "synthetic annotation table row 4",
+          "syn-f-standard": "synthetic SOP section 7"
+        },
+        "extraction_method": "deterministic synthetic fixture parser v1",
+        "source_artifact": "data/examples/synthetic_assay_f_relative.csv",
+        "source_record_locator": "feature=citrate",
+        "source_sha256": "6666666666666666666666666666666666666666666666666666666666666666"
+      }
+    }
+  ],
+  "summary": {
+    "accepted_count": 1,
+    "candidate_pair_count": 5,
+    "non_combinable_count": 3,
+    "record_count": 6,
+    "requires_human_review_count": 1
+  },
+  "validation_checks": [
+    "No reported-name-only match is accepted as chemical identity.",
+    "Only MSI level 1 exact identities with linked evidence may pool values.",
+    "No incompatible quantitative representation or scale pools raw values.",
+    "All accepted transforms are present in the approved transform registry.",
+    "Batch/drift processing is performed within study, never jointly across studies.",
+    "Below-limit observations remain censored and distinct from biological zero.",
+    "Every identity assertion and decision retains source provenance."
+  ]
+}

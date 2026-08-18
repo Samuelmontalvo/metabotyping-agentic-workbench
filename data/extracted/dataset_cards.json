@@ -1,0 +1,280 @@
+[
+  {
+    "accession": "MWB-SYN-001",
+    "assay_platform": "LC-MS plasma metabolomics",
+    "biospecimen_timing": "pre and post 12-week training",
+    "data_availability": "public",
+    "documented_absent_modalities": [],
+    "has_codebook": true,
+    "has_data_files": true,
+    "has_metadata": true,
+    "mirage_flags": [],
+    "modalities": [
+      "metabolomics",
+      "exercise",
+      "genetics",
+      "cpet",
+      "body_composition",
+      "diet"
+    ],
+    "provenance": {
+      "row_key": "SYN-METEX-GEN::Metabolomics Workbench::MWB-SYN-001::row-2",
+      "source": "data/examples/mock_repository_records.csv",
+      "source_row_number": 2
+    },
+    "repository": "Metabolomics Workbench",
+    "sample_matrix": "plasma",
+    "sample_size": 180,
+    "study_id": "SYN-METEX-GEN"
+  },
+  {
+    "accession": "MWB-SYN-002",
+    "assay_platform": "untargeted LC-MS",
+    "biospecimen_timing": "fasting morning draw linked to 7-day actigraphy",
+    "data_availability": "public",
+    "documented_absent_modalities": [
+      "genetics"
+    ],
+    "has_codebook": true,
+    "has_data_files": true,
+    "has_metadata": true,
+    "mirage_flags": [],
+    "modalities": [
+      "metabolomics",
+      "actigraphy",
+      "body_composition"
+    ],
+    "provenance": {
+      "row_key": "SYN-ACTI-MET::Metabolomics Workbench::MWB-SYN-002::row-3",
+      "source": "data/examples/mock_repository_records.csv",
+      "source_row_number": 3
+    },
+    "repository": "Metabolomics Workbench",
+    "sample_matrix": "plasma",
+    "sample_size": 240,
+    "study_id": "SYN-ACTI-MET"
+  },
+  {
+    "accession": "DBGAP-SYN-003",
+    "assay_platform": "NMR metabolomics",
+    "biospecimen_timing": "baseline fasting",
+    "data_availability": "restricted_metadata_only",
+    "documented_absent_modalities": [],
+    "has_codebook": true,
+    "has_data_files": false,
+    "has_metadata": true,
+    "mirage_flags": [
+      "no_data_files"
+    ],
+    "modalities": [
+      "metabolomics",
+      "genetics",
+      "diet"
+    ],
+    "provenance": {
+      "row_key": "SYN-OMICS-GEN::dbGaP::DBGAP-SYN-003::row-4",
+      "source": "data/examples/mock_repository_records.csv",
+      "source_row_number": 4
+    },
+    "repository": "dbGaP",
+    "sample_matrix": "serum",
+    "sample_size": 1200,
+    "study_id": "SYN-OMICS-GEN"
+  },
+  {
+    "accession": "not_available",
+    "assay_platform": "unknown",
+    "biospecimen_timing": "unknown",
+    "data_availability": "not_available",
+    "documented_absent_modalities": [],
+    "has_codebook": false,
+    "has_data_files": false,
+    "has_metadata": false,
+    "mirage_flags": [
+      "no_repository_accession",
+      "repository_data_not_available",
+      "no_downloadable_metadata",
+      "no_variable_dictionary_or_codebook",
+      "no_data_files",
+      "unclear_assay_platform",
+      "unclear_biospecimen_timing"
+    ],
+    "modalities": [
+      "metabolomics",
+      "exercise",
+      "cpet"
+    ],
+    "provenance": {
+      "row_key": "SYN-EXER-NODATA::unknown::not_available::row-5",
+      "source": "data/examples/mock_repository_records.csv",
+      "source_row_number": 5
+    },
+    "repository": "unknown",
+    "sample_matrix": "unknown",
+    "sample_size": 64,
+    "study_id": "SYN-EXER-NODATA"
+  },
+  {
+    "accession": "MWB-SYN-005",
+    "assay_platform": "LC-MS muscle metabolomics",
+    "biospecimen_timing": "post exercise",
+    "data_availability": "public",
+    "documented_absent_modalities": [
+      "genetics"
+    ],
+    "has_codebook": true,
+    "has_data_files": true,
+    "has_metadata": true,
+    "mirage_flags": [],
+    "modalities": [
+      "metabolomics",
+      "exercise"
+    ],
+    "provenance": {
+      "row_key": "SYN-ANIMAL-MET::Metabolomics Workbench::MWB-SYN-005::row-6",
+      "source": "data/examples/mock_repository_records.csv",
+      "source_row_number": 6
+    },
+    "repository": "Metabolomics Workbench",
+    "sample_matrix": "muscle",
+    "sample_size": 40,
+    "study_id": "SYN-ANIMAL-MET"
+  },
+  {
+    "accession": "MWB-SYN-006",
+    "assay_platform": "GC-MS serum metabolomics",
+    "biospecimen_timing": "baseline fasting",
+    "data_availability": "public",
+    "documented_absent_modalities": [
+      "genetics"
+    ],
+    "has_codebook": false,
+    "has_data_files": true,
+    "has_metadata": true,
+    "mirage_flags": [
+      "no_variable_dictionary_or_codebook"
+    ],
+    "modalities": [
+      "metabolomics"
+    ],
+    "provenance": {
+      "row_key": "SYN-MET-NOCODEBOOK::Metabolomics Workbench::MWB-SYN-006::row-7",
+      "source": "data/examples/mock_repository_records.csv",
+      "source_row_number": 7
+    },
+    "repository": "Metabolomics Workbench",
+    "sample_matrix": "serum",
+    "sample_size": 95,
+    "study_id": "SYN-MET-NOCODEBOOK"
+  },
+  {
+    "accession": "MWB-SYN-007",
+    "assay_platform": "targeted LC-MS",
+    "biospecimen_timing": "pre and post acute cycling",
+    "data_availability": "public",
+    "documented_absent_modalities": [
+      "genetics"
+    ],
+    "has_codebook": true,
+    "has_data_files": true,
+    "has_metadata": true,
+    "mirage_flags": [],
+    "modalities": [
+      "metabolomics",
+      "exercise",
+      "cpet",
+      "body_composition"
+    ],
+    "provenance": {
+      "row_key": "SYN-CPET-RICH::Metabolomics Workbench::MWB-SYN-007::row-8",
+      "source": "data/examples/mock_repository_records.csv",
+      "source_row_number": 8
+    },
+    "repository": "Metabolomics Workbench",
+    "sample_matrix": "plasma",
+    "sample_size": 150,
+    "study_id": "SYN-CPET-RICH"
+  },
+  {
+    "accession": "MWB-SYN-008",
+    "assay_platform": "multi-platform LC-MS",
+    "biospecimen_timing": "baseline acute exercise and training follow-up",
+    "data_availability": "public",
+    "documented_absent_modalities": [],
+    "has_codebook": true,
+    "has_data_files": true,
+    "has_metadata": true,
+    "mirage_flags": [],
+    "modalities": [
+      "metabolomics",
+      "exercise",
+      "actigraphy",
+      "genetics",
+      "cpet",
+      "body_composition",
+      "diet"
+    ],
+    "provenance": {
+      "row_key": "SYN-MOTRPAC-LIKE::Metabolomics Workbench::MWB-SYN-008::row-9",
+      "source": "data/examples/mock_repository_records.csv",
+      "source_row_number": 9
+    },
+    "repository": "Metabolomics Workbench",
+    "sample_matrix": "plasma and muscle",
+    "sample_size": 320,
+    "study_id": "SYN-MOTRPAC-LIKE"
+  },
+  {
+    "accession": "MWB-SYN-009",
+    "assay_platform": "LC-MS lipidomics",
+    "biospecimen_timing": "baseline fasting",
+    "data_availability": "public",
+    "documented_absent_modalities": [
+      "genetics"
+    ],
+    "has_codebook": true,
+    "has_data_files": true,
+    "has_metadata": true,
+    "mirage_flags": [],
+    "modalities": [
+      "metabolomics",
+      "body_composition",
+      "diet"
+    ],
+    "provenance": {
+      "row_key": "SYN-DIET-BODY::Metabolomics Workbench::MWB-SYN-009::row-10",
+      "source": "data/examples/mock_repository_records.csv",
+      "source_row_number": 10
+    },
+    "repository": "Metabolomics Workbench",
+    "sample_matrix": "plasma",
+    "sample_size": 410,
+    "study_id": "SYN-DIET-BODY"
+  },
+  {
+    "accession": "DBGAP-SYN-010",
+    "assay_platform": "LC-MS metabolomics",
+    "biospecimen_timing": "baseline fasting",
+    "data_availability": "restricted_metadata_only",
+    "documented_absent_modalities": [],
+    "has_codebook": true,
+    "has_data_files": false,
+    "has_metadata": true,
+    "mirage_flags": [
+      "no_data_files"
+    ],
+    "modalities": [
+      "metabolomics",
+      "genetics"
+    ],
+    "provenance": {
+      "row_key": "SYN-RESTRICTED-META::dbGaP::DBGAP-SYN-010::row-11",
+      "source": "data/examples/mock_repository_records.csv",
+      "source_row_number": 11
+    },
+    "repository": "dbGaP",
+    "sample_matrix": "serum",
+    "sample_size": 860,
+    "study_id": "SYN-RESTRICTED-META"
+  }
+]

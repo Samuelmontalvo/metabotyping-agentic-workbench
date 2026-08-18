@@ -1,0 +1,28 @@
+{
+  "human": true,
+  "match_class": "enrichment",
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "body_composition",
+    "diet"
+  ],
+  "notes": "Enrichment candidate for diet and body composition",
+  "provenance": {
+    "repository_row_keys": [
+      "SYN-DIET-BODY::Metabolomics Workbench::MWB-SYN-009::row-10"
+    ],
+    "representative_repository": {
+      "accession": "MWB-SYN-009",
+      "repository": "Metabolomics Workbench"
+    },
+    "row_key": "SYN-DIET-BODY",
+    "source": "data/examples/mock_publications.csv"
+  },
+  "repository_accession": "MWB-SYN-009",
+  "repository_accessions": [
+    "MWB-SYN-009"
+  ],
+  "study_id": "SYN-DIET-BODY",
+  "title": "Synthetic diet body composition metabolomics cohort"
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "activity_quality": 0.7,
+    "body_composition_quality": 0.3,
+    "cpet_quality": 0.25,
+    "diet_quality": 0.3,
+    "genetics_quality": 0.35,
+    "harmonization_feasibility": 0.85,
+    "metabolomics_quality": 1.0,
+    "metadata_completeness": 1.0,
+    "overall_score": 0.718,
+    "rationale": [
+      "Metabolomics assay platform is reported."
+    ],
+    "study_design_rigor": 0.9,
+    "study_id": "ST004303",
+    "temporal_alignment": 0.8,
+    "weights": {
+      "activity_quality": 0.1,
+      "body_composition_quality": 0.05,
+      "cpet_quality": 0.1,
+      "diet_quality": 0.05,
+      "genetics_quality": 0.1,
+      "harmonization_feasibility": 0.05,
+      "metabolomics_quality": 0.15,
+      "metadata_completeness": 0.15,
+      "study_design_rigor": 0.15,
+      "temporal_alignment": 0.1
+    }
+  },
+  {
+    "activity_quality": 0.7,
+    "body_composition_quality": 0.3,
+    "cpet_quality": 0.25,
+    "diet_quality": 0.75,
+    "genetics_quality": 0.35,
+    "harmonization_feasibility": 0.25,
+    "metabolomics_quality": 1.0,
+    "metadata_completeness": 0.714,
+    "overall_score": 0.637,
+    "rationale": [
+      "Variable dictionary/codebook missing or incomplete.",
+      "Biospecimen timing is not sufficiently documented.",
+      "Metabolomics assay platform is reported."
+    ],
+    "study_design_rigor": 1.0,
+    "study_id": "ST003807",
+    "temporal_alignment": 0.35,
+    "weights": {
+      "activity_quality": 0.1,
+      "body_composition_quality": 0.05,
+      "cpet_quality": 0.1,
+      "diet_quality": 0.05,
+      "genetics_quality": 0.1,
+      "harmonization_feasibility": 0.05,
+      "metabolomics_quality": 0.15,
+      "metadata_completeness": 0.15,
+      "study_design_rigor": 0.15,
+      "temporal_alignment": 0.1
+    }
+  }
+]

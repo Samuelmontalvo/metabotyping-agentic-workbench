@@ -1,0 +1,339 @@
+study_id,study_title,species,analysis_type,number_of_samples,submission_date,release_date,institute
+ST000016,NPM-ALK metabolic regulation,Homo sapiens,LC-MS,110,2013-09-24,2013-10-24,University of Michigan
+ST000046,"Identification of altered metabolic pathways in Alzheimer's disease, mild cognitive impairment and cognitively normals using Metabolomics (plasma)",Homo sapiens,LC-MS,45,2014-03-24,2014-04-25,Mayo Clinic
+ST000047,"Identification of altered metabolic pathways in Alzheimer's disease, mild cognitive impairment and cognitively normals using Metabolomics (CSF)",Homo sapiens,LC-MS,45,2014-03-24,2014-04-24,Mayo Clinic
+ST000054,Metabolic Microenvironments in Normal Breast and Breast Cancer (MS analysis),Homo sapiens,GC-MS,192,2014-04-30,2018-08-27,University of North Carolina
+ST000061,Metabolic Profiling of Visceral and Subcutaneous Adipose Tissue from Colorectal Cancer Patients: GC-TOF MS analyis of subcutaneous and visceral adipose tissue samples,Homo sapiens,GC-MS,130,2014-06-11,2014-07-11,"University of California, Davis"
+ST000065,Metabolic Profiling of Visceral and Subcutaneous Adipose Tissue from Colorectal Cancer Patients: GC-TOF MS analyis of serum samples,Homo sapiens,GC-MS,65,2014-06-11,2014-07-12,"University of California, Davis"
+ST000081,Metabolic Profiling of Visceral and Subcutaneous Adipose Tissue from Colorectal Cancer Patients: UHPLC-QTOF MS analyis of subcutaneous and visceral adipose tissue samples,Homo sapiens,LC-MS,124,2014-06-11,2014-07-26,"University of California, Davis"
+ST000082,Metabolic Profiling of Visceral and Subcutaneous Adipose Tissue from Colorectal Cancer Patients: UHPLC-QTOF MS analyis of serum samples,Homo sapiens,LC-MS,66,2014-06-11,2014-07-25,"University of California, Davis"
+ST000091,Quantitative Metabolomics by 1H-NMR and LC-MS/MS Confirms Altered Metabolic Pathways in Diabetes,Homo sapiens,LC-MS,26,2014-07-15,2014-07-26,Mayo Clinic
+ST000122,Perinatal DDT causes dysfunctional lipid metabolism underlying metabolic syndrome,Homo sapiens,LC-MS,42,2014-09-30,2014-09-30,"University of California, Davis"
+ST000150,Association of Metabolic Profile and Microbiome in Chronic Pressure Ulcer Wounds,Homo sapiens,NMR,8,2015-03-10,2015-04-20,Montana State University
+ST000166,Cardiac Resynchronization Therapy Induces Adaptive Metabolic Transitions in the Metabolomic Profile of Heart Failure,Homo sapiens,GC-MS,53,2015-05-14,2015-06-28,Mayo Clinic
+ST000223,Metabolic Aberrations in Barth Syndrome,Homo sapiens,NMR,40,2015-06-29,2016-07-08,University of North Carolina
+ST000248,Metabolic heterogeneity in Glioblastoma,Homo sapiens,LC-MS,6,2015-03-24,2016-09-23,University of Florida
+ST000250,The Role of Obesity and Adipocytes in Immune Activation on Antiretroviral Therapy,Homo sapiens,LC-MS,100,2015-01-07,2016-12-22,University of Florida
+ST000284,Colorectal Cancer Detection Using Targeted Serum Metabolic Profiling,Homo sapiens,LC-MS,224,2015-12-15,2015-12-16,University of Washington
+ST000295,Metabolic analysis of Human and Mouse Lung Fiboblasts,Mus musculus;Homo sapiens,LC-MS,35,2014-10-16,2016-06-18,University of Michigan
+ST000315,Metabolomics and Childhood Obesity: A Pilot and Feasibility Study With Multiple Phenotypic Anchors,Homo sapiens,NMR,233,2015-12-31,2016-12-31,University of North Carolina
+ST000342,Renal metabolic pathways indicating ischemic or inflammatory changes,Homo sapiens,LC-MS,33,2016-02-04,2016-03-03,"University of California, Davis"
+ST000367,Distinctly perturbed metabolic networks underlie differential tumor tissue damages induced by immune modulator b-glucan in a two-case ex vivo non-small cell lung cancer study,Homo sapiens,LC-MS,12,2016-03-10,2016-03-21,University of Kentucky
+ST000385,Investigation of metabolomic blood biomarkers for detection of adenocarcinoma lung cancer (training set),Homo sapiens,GC-MS,192,2016-03-31,2016-04-30,"University of California, Davis"
+ST000387,Changes in the metabalome and lipidome in response to exercise training,Homo sapiens,LC-MS,276,2016-04-26,2016-04-29,"University of California, Davis"
+ST000398,Metabolic profiling of maternal urine can aid clinical management of Gestational Diabetes Mellitus (GDM),Homo sapiens,NMR,90,2016-04-20,2016-06-18,University of Aveiro
+ST000403,Metabolomics-based elucidation of active metabolic pathways in erythrocytes and HSC-derived reticulocytes,Homo sapiens,LC-MS,18,2016-05-11,2016-05-20,Monash Institute of Pharmaceutical Sciences
+ST000412,Metabolic profiling during ex vivo machine perfusion of the human liver (part I),Homo sapiens,GC-MS,96,2016-06-30,2016-09-23,"University of California, Davis"
+ST000413,Metabolic profiling during ex vivo machine perfusion of the human liver (part III),Homo sapiens,LC-MS,24,2016-07-01,2016-09-23,"University of California, Davis"
+ST000421,Type 1 Diabetes poor glycemic control versus control samples,Homo sapiens,LC-MS,222,2016-07-15,2016-09-23,Mayo Clinic
+ST000422,Type 1 Diabetes good glycemic control and controls samples,Homo sapiens,LC-MS,180,2016-07-01,2016-09-23,Mayo Clinic
+ST000438,Characterizing commonalities and differences between the breast and prostate cancer metabotypes in African-American cohorts (part I),Homo sapiens,NMR,48,2016-08-02,2016-09-23,University of North Carolina
+ST000439,Characterizing commonalities and differences between the breast and prostate cancer metabotypes in African-American cohorts,Homo sapiens,NMR,66,2016-08-02,2016-09-23,University of North Carolina
+ST000450,Metabolic features of chronic fatigue syndrome,Homo sapiens,LC-MS,84,2016-08-11,2016-12-22,"University of California, San Diego"
+ST000467,Metabolomics of Saliva Samples Obtained from Subjects with Diabetes,Homo sapiens,LC-MS,50,2016-09-02,2017-10-03,University of North Carolina
+ST000496,Distinct signatures of dental plaque metabolic byproducts dictated by periodontal inflammatory status,Homo sapiens,GC-MS,100,2016-10-23,2017-11-20,Osaka University
+ST000539,Metabolomics-based elucidation of active metabolic pathways in erythrocytes and HSC-derived reticulocytes (part II),Homo sapiens,LC-MS,18,2017-01-23,2017-07-10,Monash University
+ST000548,Replication study: The common feature of leukemia-associated IDH1 and IDH2 mutations is a neomorphic enzyme activity converting alpha-ketoglutarate to 2-hydroxyglutarate,Homo sapiens,GC-MS,86,2017-01-06,2017-07-10,"University of California, Davis"
+ST000568,Metabolomic study on a schizophrenia and type 2 diabetes susceptibility gene,Homo sapiens,GC-MS/LC-MS,147,2017-01-15,2017-07-10,Shanghai Jiao Tong University Affiliated Sixth People’s Hospital
+ST000573,Exploratory research on first and second trimester urinary metabolic profiles and fetal growth restriction,Homo sapiens,NMR,322,2017-03-17,2018-04-10,Mayo Clinic
+ST000605,Whole blood reveals more metabolic detail of the human metabolome than serum as measured by 1H-NMR spectroscopy: Implications for sepsis metabolomics,Homo sapiens,NMR,40,2016-12-08,2017-01-06,University of Michigan
+ST000659,Changes in metabolites and lipid mediators associated with supervised exercise training for peripheral,Homo sapiens,LC-MS,158,2017-06-28,2017-10-03,"University of California, Davis"
+ST000663,Metabolic Syndrome Plasma Lipidomics,Homo sapiens,LC-MS,40,2017-06-05,2017-12-06,University of Michigan
+ST000708,Metabolic effects of weight reduction of very low energy diet vs dietary counseling,Homo sapiens,LC-MS,22,2017-06-19,2017-12-06,University of Michigan
+ST000713,Metabolic profiling of cyst fluid from patients with Intraductal Pancreatic Mucinous Neoplasm,Homo sapiens,LC-MS,12,2017-06-19,2017-12-06,University of Michigan
+ST000762,Plasma Nucleotide/adenosine concentrations in patiens with scleroderma depending on exercise,Homo sapiens,LC-MS,51,2017-06-19,2017-12-06,University of Michigan
+ST000763,Untargeted metabolomics and lipidomics of scleroderma PAH discovery cohort,Homo sapiens,LC-MS,218,2017-06-19,2017-12-06,University of Michigan
+ST000774,Metabolic effects of novel aldehyde dehydrogenase inhibitors (ALDH) inhibitors,Homo sapiens,LC-MS,36,2017-06-19,2017-12-06,University of Michigan
+ST000777,Metabolic Adaptations to Chronic and Acute Exercise in Overweight Adults (ATX-Study) preliminary data,Homo sapiens,LC-MS,10,2017-06-05,2017-12-06,University of Michigan
+ST000787,Identifying metabolic adaptations characteristic of multiple myeloma cells via mass spectrometry-based metabolite profiling from Peripheral Plasma,Homo sapiens,LC-MS,125,2017-07-11,2019-07-17,Mayo Clinic
+ST000788,Identifying metabolic adaptations characteristic of multiple myeloma cells via mass spectrometry-based metabolite profiling from Bone Marrow Plasma,Homo sapiens,LC-MS,125,2017-07-11,2019-07-17,Mayo Clinic
+ST000789,Identifying metabolic adaptations characteristic of multiple myeloma cells via mass spectrometry-based metabolite profiling from (CD138+ Plasma Cells),Homo sapiens,LC-MS,110,2017-07-11,2019-07-17,Mayo Clinic
+ST000790,Identifying metabolic adaptations characteristic of multiple myeloma cells via targeted sphingolipids concentrations from bone marrow and peripheral plasma,Homo sapiens,LC-MS,50,2017-07-11,2019-07-17,Mayo Clinic
+ST000791,Identifying metabolic adaptations characteristic of multiple myeloma cells via amino acids concentrations from bone marrow plasma,Homo sapiens,LC-MS,50,2017-07-11,2019-07-17,Mayo Clinic
+ST000814,Hormones & Cognition/Aging/Placebo,Homo sapiens,LC-MS,28,2017-07-13,2017-10-11,University of Michigan
+ST000823,Metabolic profiling of cyst fluid from patients with Intraductal Pancreatic Mucinous Neoplasm (part II),Homo sapiens,LC-MS,10,2017-07-14,2018-02-07,University of Michigan
+ST000828,Metabolic analysis of Parp1 ko/wt Saline & Bleo Mouse Lung Fiboblasts and Human IPF & Normal Lung Fiboblasts 3,Homo sapiens,GC-MS/LC-MS,16,2017-08-02,2017-10-11,University of Michigan
+ST000842,Muscle and plasma before and after exercise,Homo sapiens,LC-MS,62,2017-08-02,2018-02-07,University of Michigan
+ST000855,Urine metabolic profiles of pregnant women in relation to environmental exposures,Homo sapiens,LC-MS,390,2017-07-21,2024-12-31,University of Michigan
+ST000888,Lyme Disease Biosignature Training (95 MFs),Homo sapiens,LC-MS,758,2017-09-05,2017-11-15,Colorado State University
+ST000909,"Metabolomics Linking Air Pollution, Obesity and Type 2 Diabetes",Homo sapiens,LC-MS,247,2017-12-05,2020-09-12,Emory University
+ST000918,Plasma metabolic fingerprint for breast cancer (MS) - part I,Homo sapiens,GC-MS/LC-MS,58,2017-12-29,2018-02-07,Universidad de los Andes
+ST000926,Probing the metabolic phenotype of breast cancer cells by multiple tracer stable isotope resolved metabolomics (part I),Homo sapiens,NMR,3,2018-01-22,2018-06-05,University of Kentucky
+ST000927,Probing the metabolic phenotype of breast cancer cells by multiple tracer stable isotope resolved metabolomics (part II),Homo sapiens,NMR,6,2018-01-24,2018-06-05,University of Kentucky
+ST000928,Probing the metabolic phenotype of breast cancer cells by multiple tracer stable isotope resolved metabolomics (part III),Homo sapiens,NMR,8,2018-01-24,2018-06-05,University of Kentucky
+ST000978,Metabolomics biomarkers and the risk of overall mortality and ESRD in CKD: results from the Progredir Cohort.,Homo sapiens,GC-MS,450,2018-05-22,2018-07-17,University of Sao Paulo
+ST001000,Gut microbiome structure and metabolic activity in inflammatory bowel disease,Homo sapiens,LC-MS,220,2018-07-09,2019-04-17,Broad Institute of MIT and Harvard
+ST001038,Global Metabolomics of the Placenta Reveals Distinct Metabolic Profiles between Maternal and Fetal Placental Tissues Following Delivery in Non-Labored Women,Homo sapiens,NMR,226,2018-08-20,2018-10-10,University of Florida
+ST001068,The proteomic and metabolomic characterization of exercise-induced sweat (part -I),Homo sapiens,LC-MS,50,2018-10-08,2018-12-11,UES Inc;Air Force Research Laboratory
+ST001070,The global proteomic characterization of exercise-induced sweat - (part II),Homo sapiens,LC-MS,7,2018-10-08,2018-12-11,UES Inc;Air Force Research Laboratory
+ST001072,The in-gel proteomic characterization of exercise-induced sweat - (part III),Homo sapiens,LC-MS,29,2018-10-08,2018-12-11,UES Inc;Air Force Research Laboratory
+ST001097,Metabolomics of Metabolic Risk in Patients Taking Atypical Antipsychotics (part I),Homo sapiens,NMR,114,2018-08-30,2019-01-22,University of Michigan
+ST001098,Metabolomics of Metabolic Risk in Patients Taking Atypical Antipsychotics (part II),Homo sapiens,GC-MS,114,2018-11-15,2019-01-22,University of Michigan
+ST001114,Metabolomics profile of umbilical cord blood is associated with maternal pre-pregnant obesity in a perspective multi-ethnic cohort displaying health disparities,Homo sapiens,LC-MS,57,2018-03-08,2019-01-22,University of Hawaii
+ST001118,Metabolomics profiles of patients with Wilson disease reveal a distinct metabolic signature,Homo sapiens,GC-MS,110,2018-12-21,2019-09-23,"University of California, Davis"
+ST001148,Effect of cell harvesting technique and storage on metabolic profiles in human skin fibroblasts,Homo sapiens,GC-MS/LC-MS,36,2019-02-27,2019-09-23,Mayo Clinic
+ST001168,Alterations in fecal metabolic patterns are associated with atrial fibrillation,Homo sapiens,LC-MS,59,2019-04-10,2019-04-17,Beijing Chaoyang Hospital
+ST001169,Alterations in serum metabolic patterns are associated with atrial fibrillation,Homo sapiens,LC-MS,65,2019-04-11,2019-04-17,Beijing Chaoyang Hospital
+ST001185,Genetic and metabolic characterization of bioengineered human fatty liver tissue with modified SIRT1 expression,Homo sapiens,LC-MS,13,2019-05-20,2020-01-06,University of Pittsburgh
+ST001193,MARBLES (Markers of Autism Risk in Babies: Learning Early Sign) Enriched Cohort Study:Internal Metabolomic Biomarker Exposome and Development Disorders (IMBEDD) (part 2),Homo sapiens,LC-MS,181,2019-06-11,2021-08-31,Emory University
+ST001209,MARBLES (Markers of Autism Risk in Babies: Learning Early Sign) Enriched Cohort Study:Internal Metabolomic Biomarker Exposome and Development Disorders (IMBEDD),Homo sapiens,LC-MS,326,2019-07-03,2021-08-31,Emory University
+ST001223,Host Metabolic Response in Early Lyme Disease,Homo sapiens,LC-MS,518,2019-07-02,2019-09-23,Colorado State University
+ST001235,Metabolic responses to PD1 immune-checkpoint blockade and association with therapeutic benefits - Part I,Homo sapiens,LC-MS,212,2019-08-08,2019-08-27,Broad Institute of MIT and Harvard
+ST001236,Metabolic responses to PD1 immune-checkpoint blockade and association with therapeutic benefits - Part II,Homo sapiens,LC-MS,244,2019-08-12,2019-08-27,Broad Institute of MIT and Harvard
+ST001237,Metabolic responses to PD1 immune-checkpoint blockade and association with therapeutic benefits - Part III,Homo sapiens,LC-MS,1221,2019-08-12,2019-08-27,Broad Institute of MIT and Harvard
+ST001240,Global Metabolic Analysis Trisomy 21 - Cohort 2,Homo sapiens,LC-MS,194,2019-08-09,2019-08-21,University of Colorado Denver
+ST001241,"Global Metabolic Analysis Trisomy 21 - Cohort 3, Plasma",Homo sapiens,LC-MS,258,2019-08-13,2019-08-21,University of Colorado Denver
+ST001242,"Global Metabolic Analysis Trisomy 21 - Cohort 3, CSF",Homo sapiens,LC-MS,200,2019-08-13,2019-08-21,University of Colorado Denver
+ST001243,Global Metabolic Analysis Trisomy 21 - Cohort 1,Homo sapiens,LC-MS,196,2019-08-13,2019-08-21,University of Colorado Denver
+ST001251,"The effects of a training program encompassing cold exposure, breathing exercises, and meditation on plasma metabomics during experimental human endotoxemia",Homo sapiens,LC-MS,138,2019-09-16,2019-10-04,Radboud University Medical Centre
+ST001325,Obesity and Poor Diet as Susceptibility Factors for Secondhand Smoke in Childhood Asthma,Homo sapiens,LC-MS,256,2020-02-26,2022-08-02,University of Michigan
+ST001335,"Air Pollution, Placenta Function, and Birth Outcomes in Los Angeles in the Placental Assessment in Response to ENvironmenTal pollution study (PARENTs) cohort",Homo sapiens,LC-MS,530,2020-02-20,2022-09-27,Emory University
+ST001369,Grass pollen sublingual immunotherapy treatment induces transcriptomic and metabolic changes due to AIT treatment,Homo sapiens,GC-MS/LC-MS,44,2020-03-27,2020-09-29,Institute of Applied Molecular Medicine;The Centre of Metabolomics and Bioanalysis
+ST001385,Microbial and metabolic variations mediate the influence of childhood and adolescent EDC and trace element exposure on breast density.,Homo sapiens,LC-MS,438,2020-05-22,2022-03-01,Icahn School of Medicine at Mount Sinai
+ST001391,Metabolic Response in Patients with Post-Treatment Lyme Disease Symptoms/Syndrome,Homo sapiens,LC-MS,135,2020-05-28,2020-09-21,Colorado State University
+ST001400,Identification of distinct metabolic perturbations and associated immunomodulatory events during intra-erythrocytic development stage of pediatric Plasmodium falciparum malaria,Homo sapiens,LC-MS,199,2020-06-15,2021-08-10,New York University Abu Dhabi
+ST001406,Environmental chemical burden in metabolic tissues and systemic biological pathways in adolescent bariatric surgery patients: A pilot untargeted metabolomic approach (part-II),Homo sapiens,GC-MS,33,2020-06-19,2021-06-19,Icahn School of Medicine at Mount Sinai
+ST001407,Environmental chemical burden in metabolic tissues and systemic biological pathways in adolescent bariatric surgery patients: A pilot untargeted metabolomic approach,Homo sapiens,LC-MS,21,2020-06-22,2021-06-19,Icahn School of Medicine at Mount Sinai
+ST001408,Metabolomic profiling of baseline plasmas from a longitudinal prospective cohort of 491 active surveillance (AS) participants,Homo sapiens,LC-MS,1439,2020-05-19,2020-07-02,University of Texas MD Anderson Cancer Center
+ST001411,Plasma metabolites of lipid metabolism associate with diabetic polyneuropathy in a cohort with screen-tested type 2 diabetes: ADDITION-Denmark,Homo sapiens,LC-MS,106,2020-06-22,2021-06-15,University of Michigan
+ST001430,Metabolic dynamics and prediction og gestational ange and time to delivery in pregant women,Homo sapiens,LC-MS,781,2019-08-30,2020-07-24,Stanford University
+ST001491,Global Urine Metabolic Profiling to Predict Gestational Age in Term and Preterm Pregnancies,Homo sapiens,LC-MS,172,2020-09-27,2022-05-16,Stanford University
+ST001515,A Metabolomic Signature of Glucagon Action in Healthy Individuals with Overweight/Obesity Humans,Homo sapiens,LC-MS,187,2020-10-26,2020-12-01,Translational Research Institute- AdventHealth Orlando
+ST001516,Identification of distinct metabolic perturbations and associated immunomodulatory events during intra-erythrocytic development stage of pediatric Plasmodium falciparum malaria (part-II),Homo sapiens,LC-MS,199,2020-08-25,2021-03-01,New York University Abu Dhabi
+ST001517,Identification of distinct metabolic perturbations and associated immunomodulatory events during intra-erythrocytic development stage of pediatric Plasmodium falciparum malaria (part-III),Homo sapiens,LC-MS,106,2020-08-25,2021-04-27,New York University Abu Dhabi
+ST001618,Metabolomics Analysis: Opioid Addiction Project (Golestan Cohort Study) - MS (part-I),Homo sapiens,LC-MS,336,2020-12-01,2022-05-02,University of North Carolina at Chapel Hill
+ST001619,Metabolomics Analysis: Opioid Addiction Project (Golestan Cohort Study) - NMR (part-II),Homo sapiens,NMR,334,2020-12-01,2022-05-02,University of North Carolina at Chapel Hill
+ST001639,Plasma Metabolomic signatures of COPD in a SPIROMICS cohort,Homo sapiens,LC-MS,649,2020-12-30,2021-05-30,National Jewish Health
+ST001642,Lipidomics in high-risk subjects for the identification of integrated biomarker signatures of type 1 diabetes,Homo sapiens,LC-MS,9,2021-01-06,2021-01-25,University of Miami
+ST001655,Characterization of anaphylaxis reveals different metabolic changes depending on severity and triggers - NMR (part-I),Homo sapiens,NMR,55,2021-01-18,2022-01-18,Centre of Metabolomics and Bioanalysis
+ST001656,Characterization of anaphylaxis reveals different metabolic changes depending on severity and triggers - MS (part-II),Homo sapiens,LC-MS,55,2021-01-15,2022-01-17,Centre of Metabolomics and Bioanalysis
+ST001710,Metabolic signatures of NAFLD - Lipidomics data (part 1 of 3),Homo sapiens,LC-MS,627,2021-02-10,2022-01-03,Örebro University
+ST001711,Metabolic signatures of NAFLD - Polar metabolomics data (part II),Homo sapiens,GC-MS,627,2021-02-17,2022-01-03,Örebro University
+ST001718,Commensal intestinal microbiota regulates host luminal proteolytic activity and intestinal barrier integrity through β-glucuronidase activity,Homo sapiens,LC-MS,16,2021-03-11,2022-03-09,Mayo Clinic
+ST001719,Metabolomics Analysis of Philadelphia Cohort - Update (part-I),Homo sapiens,LC-MS,28,2021-01-07,2021-05-25,Wistar Institute
+ST001720,Metabolomics Analysis of ACTG Cohort -Update (part-II),Homo sapiens,LC-MS,81,2021-01-07,2021-05-25,Wistar Institute
+ST001750,Gut microbiome influence on metabolic 1 disease in HIV and high-risk populations,Homo sapiens,LC-MS,54,2021-04-24,2021-05-04,University of Colorado Anschutz Medical Campus
+ST001776,Metabolic Response of HEK 293 Cells Exposed to Methylmercury,Homo sapiens,LC-MS,36,2021-04-27,2022-01-02,University of Macau
+ST001780,Comparative analysis of metabolomic profiles in cerebrospinal fluid before and after endurance exercise,Homo sapiens,LC-MS,38,2021-05-03,2021-11-25,"University of California, San Diego School of Medicine"
+ST001789,Acute metabolomic changes of plasma in response to endurance exercise,Homo sapiens,LC-MS,57,2021-04-21,2022-01-06,"University of California, San Diego"
+ST001814,Searching for prognostic biomarkers of Parkinson´s Disease development in the Spanish EPIC cohort through a multiplatform metabolomics approach,Homo sapiens,GC-MS/LC-MS,79,2021-06-01,2021-06-17,Universidad CEU San Pablo
+ST001815,Metabolic Markers of Methotrexate Response in Juvenile Idiopathic Arthritis,Homo sapiens,GC-MS/LC-MS,60,2021-05-18,2021-06-17,University of Kansas
+ST001827,The pregnancy metabolome from a multi-ethnic pregnancy cohort,Homo sapiens,LC-MS,410,2021-06-10,2021-06-28,Icahn School of Medicine at Mount Sinai
+ST001828,Nested case–control study of environmental exposure within the ongoing Puerto Rico Testsite for Exploring Contamination Threats (PROTECT) pregnancy cohort.,Homo sapiens,LC-MS,100,2021-06-11,2021-12-15,University of Michigan
+ST001831,Nested case–control study of environmental exposure within the ongoing Puerto Rico Testsite for Exploring Contamination Threats (PROTECT) pregnancy cohort (part II),Homo sapiens,LC-MS,100,2021-06-15,2021-12-15,University of Michigan
+ST001857,Peak Learning of Mass Spectrometry Imaging Data Using Artificial Neural Networks (Prostate tissue),Homo sapiens;Mus musculus,MALDI-MS,5,2021-06-20,2021-07-18,Brigham and Women's Hospital
+ST001860,Spontaneous hydrolysis and spurious metabolic properties of α-ketoglutarate esters,Homo sapiens,LC-MS,9,2021-05-26,2021-08-04,University of British Columbia
+ST001863,Analysis of Bxa induced metabolic changes in epithelial cells,Homo sapiens,LC-MS,12,2021-07-01,2021-07-24,Broad Institute of MIT and Harvard
+ST001905,Metabolomic profiling of saliva in diabetes patients,Homo sapiens,GC-MS,61,2021-08-15,2022-12-09,Osaka University
+ST001906,Metabolomic profiling of plasma in diabetes patients,Homo sapiens,GC-MS,61,2021-08-15,2022-12-09,Osaka University
+ST001907,Training-induced bioenergetic improvement in human skeletal muscle is associated with non-stoichiometric changes in the mitochondrial proteome without reorganisation of respiratory chain content,Homo sapiens,LC-MS,40,2021-08-15,2021-10-18,Baker Heart and Diabetes Institute
+ST001913,Stool metabolomics in the New Hampshire Birth Cohort Study,Homo sapiens,NMR,572,2021-08-09,2023-01-31,University of North Carolina at Chapel Hill
+ST001914,Fecal Metabolomics Reveals Products of Dysregulated Proteolysis and Altered Microbial Metabolism in Obesity-Related Osteoarthritis,Homo sapiens,LC-MS,101,2021-09-08,2022-09-14,University of North Carolina at Chapel Hill
+ST001920,Metabolic and lipidomic characterization of radioresistant MDA-MB-231 human breast cancer cells to investigate potential therapeutic targets,Homo sapiens,GC-MS/MS(Dir. inf.),36,2021-09-22,2021-10-02,ChungAng University
+ST001932,Perfluorinated compounds and high fat diet in relation to CVD-relevant metabolomic pathways in the SEARCH for Diabetes in Youth study,Homo sapiens,LC-MS,2158,2021-10-06,2022-10-07,Emory University
+ST001943,Urinary signature of chronic kidney disease in patients with severe obesity by CE-MS,Homo sapiens,CE-MS,86,2021-08-19,2021-11-04,University Rey Juan Carlos
+ST001948,Metabolites Associated with Gestational Diabetes in Plasma,Homo sapiens,LC-MS,68,2021-10-13,2021-11-04,California Polytechnic State University
+ST001949,Plasma Metabolome Normalization in Rheumatoid Arthritis following initiation of Methotrexate and the Identification of Metabolic Biomarkers of Efficacy,Homo sapiens,GC-MS,60,2021-10-20,2022-11-07,University of Kansas
+ST002049,Perfluoroalkyl Compounds and Child Metabolic Health - Healthy Start Cohort,Homo sapiens,LC-MS,643,2022-01-06,2022-12-22,University of Colorado Anschutz Medical Campus
+ST002050,Perfluoroalkyl Compounds and Child Metabolic Health (Project Viva),Homo sapiens,LC-MS,234,2022-01-06,2022-12-23,Harvard Pilgrim Health Care Institute
+ST002081,"Dynamic Lipidome Alterations Associated with Human Health, Disease, and Aging",Homo sapiens,MS(Dir. Inf.),1643,2023-05-05,2023-05-05,Stanford University
+ST002082,Predicting dying: a study of the metabolic changes and the dying process in patients with lung cancer,Homo sapiens,LC-MS,112,2022-02-10,2022-02-24,University of Liverpool Institute of Life Course & Medical Sciences
+ST002087,"Profiling metabolites and lipoproteins in COMETA, an Italian cohort of COVID-19 patients",Homo sapiens,NMR,368,2022-02-23,2022-03-16,University of Florence
+ST002088,Plasma Metabolomic signatures of COPD in a SPIROMICS cohort: A metabolomic severity score for airflow obstructions and emphysema,Homo sapiens,LC-MS,648,2022-02-23,2022-03-04,National Jewish Health
+ST002094,Commensal intestinal microbiota regulates host luminal proteolytic activity and intestinal barrier integrity through β-glucuronidase activity (Part 1),Homo sapiens,LC-MS,7,2022-03-04,2022-03-09,Mayo Clinic
+ST002113,Metabolomic analyses redefine the biological classification of pancreatic cancer: From clinical stage to metabolic subtype,Homo sapiens,NMR,106,2022-03-19,2022-03-22,Xiamen University
+ST002115,LC-MS analysis of metabolic changes induced by GPX4 inhibitor treatment in cultured HT1080 cells,Homo sapiens,LC-MS,12,2022-04-20,2022-04-14,University of Texas MD Anderson Cancer Center
+ST002122,Functional metabolic molecules were identified as novel therapeutic targets to facilitate gemcitabine treatment against pancreatic cancer (Cells metabolomics),Homo sapiens,LC-MS,15,2022-04-06,2022-04-20,"Shanghai Center for Systems Biomedicine, Shanghai Jiaotong University"
+ST002183,Individualized exercise intervention for people with multiple myeloma improves quality of life in a randomized controlled trial,Homo sapiens,LC-MS,180,2022-06-03,2024-02-05,QIMR Berghofer Medical Research Institute
+ST002190,Mass Spectrometry Imaging of Lipids In A Gut Epithelial Cell Model,Homo sapiens,MS(Dir. Inf.),10,2022-06-08,2022-07-06,"Manchester Institute of Biotechnology, University of Manchester"
+ST002194,Metabolic profiling at COVID-19 onset shows disease severity and sex-specific dysregulation,Homo sapiens,GC-MS/LC-MS,144,2022-06-14,2022-06-17,CEMBIO
+ST002196,Metabolic signature of idiopathic inflammatory myopathy,Homo sapiens,LC-MS,90,2022-06-17,2022-07-14,Seoul National University
+ST002213,Metabolic changes in Alzheimer patient-derived induced neurons versus non-demented controls,Homo sapiens,LC-MS,36,2022-07-13,2022-07-25,University of Colorado Denver
+ST002214,The effects of PKM2 modulation and hypoxia on the metabolic landscape of Alzheimer patient-derived induced neurons,Homo sapiens,LC-MS,16,2022-07-13,2022-07-25,University of Colorado Denver
+ST002224,Intracellular metabolic profile of renal cells cultured in Plasmax,Homo sapiens,LC-MS,48,2022-07-19,2022-08-03,CECAD Research Center
+ST002234,A metabolic map of the DNA damage response identifies PRDX1 in nuclear ROS scavenging and aspartate synthesis,Homo sapiens,LC-MS,30,2022-07-25,2023-04-03,CRG
+ST002250,Ramadan diurnal intermittent fasting is associated with significant plasma metabolomics changes in overweight and obese subjects: A prospective cohort study,Homo sapiens,LC-MS,100,2022-08-10,2022-12-22,University of Sharjah
+ST002255,Functional metabolic molecules were identified as novel therapeutic targets to facilitate gemcitabine treatment against pancreatic cancer (Cells metabolomics with ATP),Homo sapiens,LC-MS,10,2022-08-11,2022-08-22,"Shanghai Center for Systems Biomedicine, Shanghai Jiaotong University"
+ST002256,Metabolomics and metagenomics of pediatric obesity (Serum),Homo sapiens,GC-MS,57,2022-08-17,2023-01-04,Seoul National University College of Medicine and Hospital
+ST002261,Investigating metabolic pathways of pediatric obesity (urine),Homo sapiens,GC-MS,58,2022-08-18,2023-01-04,Seoul National University College of Medicine and Hospital
+ST002262,Metabolomics and metagenomics of pediatric obesity (Feces),Homo sapiens,GC-MS,58,2022-08-18,2023-01-04,Seoul National University College of Medicine and Hospital
+ST002273,Multi-Omics analysis revealed a significant alteration of critical metabolic pathways due to sorafenib-resistance in Hep3B cell lines,Homo sapiens,LC-MS,12,2022-09-01,2022-09-16,Sharjah Institute for Medical Research
+ST002291,"Integrated metabolic and inflammatory signatures associated with severity, fatality, and recovery of COVID-19",Homo sapiens,LC-MS,232,2022-09-28,2022-10-19,Federal University of Goiás
+ST002299,Characterizing the intrauterine environment via untargeted metabolomics profiling of maternal blood collected during pregnancy (Healthy Start Cohort)-Part 1,Homo sapiens,LC-MS,2630,2022-09-30,2023-10-02,University of Colorado Anschutz Medical Campus
+ST002300,Characterizing the intrauterine environment via untargeted metabolomics profiling of maternal blood collected during pregnancy (Healthy Start Cohort)-Part 2,Homo sapiens,LC-MS,2728,2022-09-30,2023-10-02,University of Colorado Anschutz Medical Campus
+ST002328,Metabolome and transcriptome analysis of oral mucosa of HIV+ patients reveal a role for polyamine metabolic pathway in T cell dysfunction,Homo sapiens,LC-MS,66,2022-10-28,2022-12-01,Case Western Reserve University
+ST002331,Comprehensive characterization of putative genetic influences on plasma metabolome in a pediatric cohort,Homo sapiens,LC-MS,882,2022-11-02,2023-04-13,Boston Children's Hospital
+ST002351,Characterizing the intrauterine environment via untargeted metabolomics profiling of maternal blood collected during pregnancy (Atlanta ECHO Cohort),Homo sapiens,LC-MS,699,2022-11-21,2023-11-14,Emory University
+ST002404,"Profiling Metabolites and Lipoproteins in COMETA, an Italian Cohort of COVID-19 patients-part 2",Homo sapiens,NMR,605,2022-12-15,2023-11-09,University of Florence
+ST002432,Metabolic impacts of metformin to seasonal influenza vaccination: a pilot study of drug interaction with the immune response,Homo sapiens,LC-MS,360,2023-01-06,2023-01-20,Jackson Laboratory for Genomic Medicine
+ST002439,Characterizing the intrauterine environment via untargeted metabolomics profiling of maternal blood collected during pregnancy (PETALS Cohort),Homo sapiens,LC-MS,364,2023-01-13,2024-01-12,Kaiser Permanente
+ST002440,Impacts of interactions between environmental chemical exposures and diet on gut microbiota and microbiota-derived metabolites in mothers and children (MAAP Cohort),Homo sapiens,LC-MS,43,2023-01-13,2024-01-12,Wayne State University
+ST002441,Impacts of interactions between environmental chemical exposures and diet on gut microbiota and microbiota-derived metabolites in mothers and children (MARCH Cohort),Homo sapiens,LC-MS,82,2023-01-13,2024-01-12,Wayne State University
+ST002443,Characterizing the intrauterine environment via untargeted metabolomics profiling of maternal blood collected during pregnancy (ARCH Cohort),Homo sapiens,LC-MS,297,2023-01-17,2024-01-16,Michigan State University
+ST002448,Metabolic analysis of primary HPV18-genome containing human foreskin keratinocytes compared to untransfected donor-matched controls.,Homo sapiens,LC-MS,96,2023-01-19,2024-12-31,"University of Birmingham, UK"
+ST002496,Study of environmental toxicants and gut microbiome in relation to obesity and insulin resistance,Homo sapiens,LC-MS,264,2023-04-11,2024-02-28,Örebro University
+ST002498,Plasma Metabolomics Profiling of 580 Patients from the Weill Cornell Medicine Early Detection Research Network Prostate Cancer Cohort,Homo sapiens,LC-MS,580,2023-09-01,2023-09-19,Weill Cornell Medicine
+ST002501,The ECHO Cohort Exposome: First Steps using HHEAR Analysis – An Opportunity for ALL ECHO Cohorts to Contribute Type A Samples – Untargeted Analysis (ReCHARGE Cohort),Homo sapiens,LC-MS,297,2023-03-08,2024-03-01,"University of California, Davis"
+ST002502,The ECHO Cohort Exposome: First Steps using HHEAR Analysis – An Opportunity for ALL ECHO Cohorts to Contribute Type A Samples – Untargeted Analysis (IKIDS Cohort),Homo sapiens,LC-MS,417,2023-03-10,2024-03-08,University of Illinois Urbana-Champaign
+ST002533,Untargeted Metabolomics on First Trimester Serum Implicates Metabolic Perturbations Associated with BMI in Development of Hypertensive Disorders: A Discovery Study,Homo sapiens,LC-MS,178,2023-03-29,2023-07-06,University of North Carolina at Chapel Hill
+ST002543,GC/MS analysis of hypoxic volatile metabolic markers in the MDA-MB-231 breast cancer cell line,Homo sapiens,GC-MS,24,2023-04-07,2023-04-21,University of York
+ST002555,Ethnicity-Specific Differences in Ovarian Cancer Metabolic Signatures,Homo sapiens,LC-MS,48,2023-04-11,2023-04-25,University of Oklahoma Health Sciences Center
+ST002559,The ECHO Cohort Exposome: First Steps using HHEAR Analysis – An Opportunity for ALL ECHO Cohorts to Contribute Type A Samples – Untargeted Analysis (VCSIP Cohort),Homo sapiens,LC-MS,279,2023-04-13,2024-04-14,Oregon Health and Science University
+ST002576,Role of environmental toxicants in obesity-related cardiovascular disease: Plasma untargeted LC-HRMS analysis (part 1 of 3),Homo sapiens,LC-MS,176,2024-08-20,2025-08-20,Boston University
+ST002692,Per- and poly-fluoroalkyl substances (PFAS) Exposures and Child Health (PEACH) Study: Using targeted exposure assessment and untargeted metabolic profiling to characterize molecular pathways and mechanisms underlying PFAS toxicity on adverse birth and child health outcomes,Homo sapiens,LC-MS,363,2023-05-02,2024-04-26,Emory University
+ST002704,The ECHO Cohort Exposome: First Steps using HHEAR Analysis – An Opportunity for ALL ECHO Cohorts to Contribute Type A Samples – Untargeted Analysis (UCP Cohort),Homo sapiens,LC-MS,846,2023-05-17,2024-05-04,University of Utah
+ST002712,Ranolazine induced metabolic rewiring improves melanoma responses to targeted therapy and immunotherapy - metabolomics,Homo sapiens,LC-MS,12,2023-05-25,2023-06-21,University of Colorado Denver
+ST002713,Ranolazine induced metabolic rewiring improves melanoma responses to targeted therapy and immunotherapy - lipidomics,Homo sapiens,LC-MS,12,2023-05-25,2023-06-21,University of Colorado Denver
+ST002715,Metabolic alteration of MCF-7 cells upon indirect exposure to E. coli secretome: A model of studying the microbiota effect on human breast tissue,Homo sapiens,LC-MS,36,2023-05-31,2023-06-22,King Saud University
+ST002718,SAND: automated time-domain modeling of NMR spectra applied to metabolic quantification,Homo sapiens,NMR,7,2023-05-31,2023-06-21,University of Georgia
+ST002719,Comparison of metabolic of A549 cells before and after Gossypol acetate (GAA) treatment,Homo sapiens,LC-MS,6,2023-05-31,2023-06-21,"Hangzhou Institute of Medicine (HIM), University of Chinese Academy of Sciences (Zhejiang Cancer Hospital), Chinese Academy of Sciences"
+ST002720,Metabolic characterization of the polar endometabolome of Triple-Negative Breast Cancer parental and cDDP-resistant cells,Homo sapiens,NMR,54,2023-06-02,2024-01-01,University of Aveiro
+ST002728,The ECHO Cohort Exposome: First Steps using HHEAR Analysis – An Opportunity for ALL ECHO Cohorts to Contribute Type A Samples – Untargeted Analysis (CHES Cohort),Homo sapiens,LC-MS,693,2023-06-06,2024-05-18,NYU Grossman School of Medicine
+ST002733,Plasma metabolic fingerprints for large-scale screening and personalized risk stratification of metabolic syndrome,Homo sapiens,MALDI-MS,13554,2023-06-09,2023-06-15,Shanghai Jiao Tong University affiliated Renji Hospital
+ST002735,Untargeted metabolomics revealed multiple metabolic perturbations in plasma of T2D patients in response to Liraglutide,Homo sapiens,LC-MS,40,2023-06-12,2023-07-02,King Faisal Specialist Hospital and Research Centre (KFSHRC)
+ST002757,The ECHO Cohort Exposome: First Steps using HHEAR Analysis – An Opportunity for ALL ECHO Cohorts to Contribute Type A Samples – Untargeted Analysis (CIOB Cohort),Homo sapiens,LC-MS,644,2023-06-28,2024-06-24,"University of California, San Francisco"
+ST002762,The ECHO Cohort Exposome: First Steps using HHEAR Analysis – An Opportunity for ALL ECHO Cohorts to Contribute Type A Samples – Untargeted Analysis (ECHO-NOVI Cohort),Homo sapiens,LC-MS,369,2023-06-29,2024-06-27,Emory University
+ST002764,Identification of pre-diagnostic lipid sets associated with liver cancer risk using untargeted lipidomics and chemical set analysis – a nested case-control study within the ATBC cohort,Homo sapiens,LC-MS,438,2023-06-30,2023-07-03,Icahn School of Medicine at Mount Sinai
+ST002766,The ECHO Cohort Exposome: First Steps using HHEAR Analysis – An Opportunity for ALL ECHO Cohorts to Contribute Type A Samples – Untargeted Analysis (GAPPS Cohort),Homo sapiens,LC-MS,457,2023-06-30,2024-07-01,University of Washington
+ST002769,The ECHO Cohort Exposome: First Steps using HHEAR Analysis – An Opportunity for ALL ECHO Cohorts to Contribute Type A Samples – Untargeted Analysis (INSPIRE Cohort),Homo sapiens,LC-MS,876,2023-07-06,2024-07-01,Vanderbilt University Medical Center
+ST002777,The ECHO Cohort Exposome: First Steps using HHEAR Analysis – An Opportunity for ALL ECHO Cohorts to Contribute Type A Samples – Untargeted Analysis (Project Viva),Homo sapiens,LC-MS,1646,2023-07-11,2024-07-10,Harvard Pilgrim Health Care Institute
+ST002780,The ECHO Cohort Exposome: First Steps using HHEAR Analysis – An Opportunity for ALL ECHO Cohorts to Contribute Type A Samples – Untargeted Analysis (CANDLE Cohort),Homo sapiens,LC-MS,1053,2023-07-12,2024-07-15,University of Tennessee Health Science Center
+ST002785,Metabolic changes of the human kidney during isolated normothermic perfusion with red blood cell based perfusate - perfusate,Homo sapiens,LC-MS,48,2023-07-18,2023-08-07,KU Leuven
+ST002797,Fetal metabolic adaptations to cardiovascular stress in twin-twin transfusion syndrome,Homo sapiens,LC-MS,32,2023-07-27,2023-08-15,University of Texas Health Science Center at Houston
+ST002806,"Comprehensive Metabolic Profiling of MYC-Amplified Medulloblastoma Tumors Reveals Key Dependencies on Amino Acid, Tricarboxylic Acid and Hexosamine Pathways",Homo sapiens,LC-MS,98,2023-08-03,2023-08-20,Johns Hopkins University
+ST002808,The ECHO Cohort Exposome: First Steps using HHEAR Analysis – An Opportunity for ALL ECHO Cohorts to Contribute Type A Samples – Untargeted Analysis (DINE Cohorts),Homo sapiens,LC-MS,526,2023-08-04,2024-08-05,Zucker School of Medicine at Hofstra / Northwell
+ST002811,Metabolomics panel associated with cystic fibrosis-related diabetes towards biomarker discovery,Homo sapiens,LC-MS,72,2023-08-14,2024-08-05,King Faisal Specialist Hospital and Research Centre (KFSHRC)
+ST002821,The ECHO Cohort Exposome: First Steps using HHEAR Analysis – An Opportunity for ALL ECHO Cohorts to Contribute Type A Samples – Untargeted Analysis (PRISM Cohort),Homo sapiens,LC-MS,886,2023-08-18,2024-08-14,Mount Sinai Kravis Children's Hospital
+ST002829,"Nucleotide, phospholipid, and kynurenine metabolites are robustly associated with COVID-19 severity and time of plasma sample collection in a prospective cohort study",Homo sapiens,LC-MS,609,2023-08-25,2023-09-19,National Institutes of Health
+ST002839,Metabolic alteration during ferroptotic process in cancer cells.,Homo sapiens,LC-MS,4,2023-08-30,2023-09-07,Zhongshan Hospital Fudan University
+ST002845,Methylprednisolone therapy induces differential metabolic trajectories in severe COVID-19 patients,Homo sapiens,LC-MS,130,2023-09-06,2023-09-15,Federal University of Goiás
+ST002850,Bap1 Promotes Osteoclast Function by Metabolic Reprogramming,Homo sapiens,LC-MS,20,2023-09-08,2023-09-11,Washington University in St. Louis
+ST002853,Targeting Pancreatic Cancer Metabolic Dependencies through Glutamine Antagonism (Lipidomics-human),Homo sapiens,LC-MS,6,2023-09-12,2024-09-12,New York University
+ST002863,Metabolic profiling and glucose tracing in naive and Enzalutamide-treated 16D prostate cancer cells,Homo sapiens,LC-MS,14,2023-09-15,2023-09-19,"University of California, Los Angeles"
+ST002864,"Metabolic profiling, glucose tracing and glutamine tracing in naive and Enzalutamide-treated 16D prostate cancer cells expressing RFP or MYC",Homo sapiens,LC-MS,27,2023-09-15,2023-09-19,"University of California, Los Angeles"
+ST002865,"Metabolic profiling, glucose tracing and glutamine tracing in 16D prostate cancer cells treated with vehicle, AR inhibitor Enzalutamide, AR inhibitor Apalutamide, or AR degrader/PROTAC ARCC-4",Homo sapiens,LC-MS,27,2023-09-15,2023-09-19,"University of California, Los Angeles"
+ST002871,Role of environmental toxicants in obesity-related cardiovascular disease- Part 2 GC-MS analysis of plasma,Homo sapiens,GC-MS,246,2024-04-08,2025-08-20,Boston University
+ST002876,High Level Expression of NSD2 Creates a Metabolic Dependency in Multiple Myeloma,Homo sapiens,LC-MS,18,2023-09-25,2023-10-30,University of Florida
+ST002919,Short-term metabolic insulin response of DINCH- and MINCH-treated cells,Homo sapiens,LC-MS,100,2023-10-10,2023-11-01,Helmholtz Centre for Environmental Research
+ST002927,O-GlcNAcase activity maintains stress granules for proximity-enhanced ATP production to ensure recovery from stress,Homo sapiens,LC-MS,21,2023-10-13,2023-10-14,Zhejiang University
+ST002934,Metabolic profiling of newborn DBS samples associated with transit and false elevation of glutarylcarnitine (C5DC),Homo sapiens,LC-MS,94,2023-10-17,2024-04-02,King Faisal Specialist Hospital and Research Centre (KFSHRC)
+ST002937,Deep Metabolic Phenotyping of Newborn Cord Blood Reveals Maternal-Fetal Interactions and Disease Risk,Homo sapiens,LC-MS/MS(Dir. Inf.),962,2023-10-23,2023-11-10,Stanford University
+ST002940,Environmental Exposure in the New Hampshire Birth Cohort Study,Homo sapiens,LC-MS,288,2023-10-26,2024-10-21,Dartmouth College
+ST002945,Polar fecal metabolomics of a patient cohort,Homo sapiens,LC-MS,97,2023-10-27,2023-11-01,Ghent University
+ST002946,Fecal lipidomics of a patient cohort,Homo sapiens,LC-MS,97,2023-10-27,2023-11-01,Ghent University
+ST002949,Serum metabolomics reveals metabolic profile and potential biomarkers of ankylosing spondylitis,Homo sapiens,LC-MS,268,2023-10-30,2023-11-15,Ningxia Medical University
+ST002982,Metabolic characterization of the polar endometabolome of Triple-Negative Breast Cancer parental and cDDP-resistant cells (part 2),Homo sapiens,NMR,126,2023-11-22,2024-05-22,University of Aveiro
+ST002988,Polar urinary metabolomics of a patient cohort,Homo sapiens,LC-MS,90,2023-11-28,2023-11-29,Ghent University
+ST002993,Identifying subgroups of childhood obesity by using multiplatform metabotyping,Homo sapiens,GC-MS/LC-MS,111,2023-11-30,2023-12-04,Universidad CEU San Pablo
+ST003012,A High-Fat Eucaloric Diet Induces Reprometabolic Syndrome of Obesity in Normal Weight Women - metabolomics,Homo sapiens,LC-MS,50,2023-12-15,2024-01-02,University of Colorado Denver
+ST003026,Untargeted Metabolomics Reveals Unique Biomolecular Signatures in Overweight and Obesity Using UHPLC-ESI-QTOF-MS Analysis,Homo sapiens,LC-MS,148,2023-12-27,2024-05-28,Sharjah Institute for Medical Research
+ST003031,Early time-restricted eating improves markers of cardiometabolic health but has no impact on nutrient absorption in healthy adults,Homo sapiens,LC-MS,88,2024-01-04,2024-01-23,"California Polytechnic State University, San Luis Obispo"
+ST003044,A High-Fat Eucaloric Diet Induces Reprometabolic Syndrome of Obesity in Normal Weight Women - lipidomics,Homo sapiens,LC-MS,50,2024-01-18,2024-02-05,University of Colorado Denver
+ST003056,Untargeted metabolomics revealed multiple metabolic perturbations in plasma of T2D patients in response to Liraglutide - Part 2,Homo sapiens,LC-MS,46,2024-01-26,2024-08-05,King Faisal Specialist Hospital and Research Centre (KFSHRC)
+ST003092,Prediction of metabolites associated with somatic mutations in cancers by using genome-scale metabolic models and mutation data,Homo sapiens,CE-MS,38,2024-02-20,2024-02-20,Korea Advanced Institute of Science and Technology (KAIST)
+ST003110,Influence of Lifestyle Factors on Epigenetic and Proteomic Biomarkers: A Cross-Sectional Comparison,Homo sapiens,LC-MS,136,2024-02-29,2025-02-28,Appalachian State University
+ST003122,Characterizing Metabolic Profiles in Human Hypophysis Tissue According to Hormone Secretion Patterns through NMR Metabolomics,Homo sapiens,NMR,22,2024-03-13,2025-08-20,Bezmialem Vakif University
+ST003139,Endothelial-Dependent Vascular Reactivity After Cardiopulmonary Bypass is Associated with Unique Metabolomic Signatures,Homo sapiens,LC-MS,36,2024-03-25,2024-09-23,Vanderbilt University
+ST003155,NMR-based metabolomics combined with metabolic pathway analysis reveals metabolic heterogeneity of colorectal cancer tissue at different anatomical locations and stages,Homo sapiens,NMR,102,2024-04-02,2024-05-22,Shantou University Medical College
+ST003161,Diet-omics in the Study of Urban and Rural Crohn disease Evolution (SOURCE) cohort,Homo sapiens,LC-MS,37,2024-04-10,2024-04-16,Sheba hospital
+ST003174,O-GlcNAcase activity maintains stress granules for proximity-enhanced ATP production to ensure recovery from stress (Part 3),Homo sapiens,LC-MS,12,2024-04-18,2024-04-30,Zhejiang University
+ST003182,METTL3-mediated chromatin contacts promote stress granule phase separation through metabolic reprogramming during senescence,Homo sapiens,LC-MS,15,2024-04-30,2024-05-03,University of Texas MD Anderson Cancer Center
+ST003194,Multi-Omics Analysis Revealed Significant Metabolic Changes in Brain Cancer Cells Treated with Paclitaxel and/or Topotecan,Homo sapiens,LC-MS,16,2024-05-08,2024-11-01,Sharjah Institute for Medical Research
+ST003205,Metabolic profile evolution in relapsed/refractory B-NHL patients treated with CD19.CAR-T cell therapy and implications in clinical outcome,Homo sapiens,NMR,114,2024-05-15,2024-06-07,UNIVERSITY OF SALENTO
+ST003266,Metabolomics analysis of human spermatozoa reveals impaired metabolic pathways in asthenozoospermia,Homo sapiens,LC-MS,61,2024-06-18,2024-07-25,University of Aveiro
+ST003274,Metabolomics analysis within healthy donors and end-stage heart failure with a focus on ischaemic cardiomyopathy with diabetes,Homo sapiens,LC-MS,77,2024-06-19,2025-05-06,University of Sydney
+ST003275,Lipidomics analysis within healthy donors and end-stage heart failure with a focus on ischaemic cardiomyopathy with diabetes,Homo sapiens,LC-MS,75,2024-06-19,2025-05-06,University of Sydney
+ST003276,Metabolomics analysis of human spermatozoa reveals impaired metabolic pathways in asthenozoospermia (NMR data),Homo sapiens,NMR,57,2024-06-20,2024-07-25,University of Aveiro
+ST003286,"Interaction between NSCLC cells, CD8+ T cells and immune checkpoint inhibitors potentiates coagulation and promotes metabolic remodeling- new cues on CAT-VTE",Homo sapiens,NMR,81,2024-07-01,2024-07-03,ITQB NOVA
+ST003287,Metabolic profiling and synergistic therapeutic strategies unveil the cytotoxic potential of selenium-chrysin (SeChry) in NSCLC cells,Homo sapiens,NMR,22,2024-07-02,2024-07-22,ITQB NOVA
+ST003303,Metabolic Alterations in Aneurysmal Subarachnoid Hemorrhage,Homo sapiens,LC-MS,41,2024-07-08,2024-07-29,University of Akron
+ST003346,Fast Targeted Metabolomics for Analyzing Metabolic Diversity of Bacterial Indole Derivatives - fecal samples,Homo sapiens,LC-MS,180,2024-07-25,2025-10-05,University of Connecticut
+ST003348,An integrated LC-MS analysis of the biometric characteristics of different time cohorts of race walkers - untargeted,Homo sapiens,LC-MS,76,2024-07-26,2024-08-09,First Affiliated Hospital of Dalian Medical University
+ST003349,An integrated LC-MS analysis of the biometric characteristics of different time cohorts of race walkers - targeted,Homo sapiens,LC-MS,76,2024-07-26,2024-08-09,First Affiliated Hospital of Dalian Medical University
+ST003368,Non-Invasive Diagnosis of Moyamoya Disease Using Serum Metabolic Fingerprints and Machine Learning,Homo sapiens,MS(Dir. Inf.),288,2024-08-02,2024-09-16,Shanghai Jiao Tong University affiliated Renji Hospital
+ST003390,In-depth profiling of biosignatures for Type 2 diabetes mellitus cohort utilizing an integrated targeted LC-MS platform,Homo sapiens,LC-MS,300,2024-08-09,2024-10-14,First Affiliated Hospital of Dalian Medical University
+ST003415,Role of environmental toxicants in obesity-related cardiovascular disease- Part 3 GC-MS analysis of adipose tissue,Homo sapiens,GC-MS,528,2024-08-20,2025-08-22,Boston University
+ST003416,The “metabolic fingerprint” of cytotoxic gold drugs in cancer cells disclosed by NMR,Homo sapiens,NMR,259,2024-08-20,2025-02-17,University of Florence
+ST003439,Metabolomics of human serum to support understanding of early metabolic shift in presymptomatic sepsis patients. (Part1 human metabolites),Homo sapiens,LC-MS,573,2024-09-03,2025-05-26,Leibniz Institute for Natural Product Research and Infection Biology Hans Knöll Institute (Leibniz-HKI)
+ST003455,Metabolic alterations in pulmonary artery smooth muscle cells of idiopathic pulmonary arterial hypertension (IPAH) patients.,Homo sapiens,LC-MS,10,2024-09-04,2024-09-19,Peking University
+ST003456,Lipidomics of human serum to support understanding of early metabolic shift in presymptomatic sepsis patients. (Part2 human lipids),Homo sapiens,LC-MS,581,2024-09-05,2025-05-26,Leibniz Institute for Natural Product Research and Infection Biology Hans Knöll Institute
+ST003475,Intracellular metabolome and Intracellular metabolic pathway prediction,Homo sapiens,GC-MS,3,2024-09-16,2024-10-03,Thapar Institute of Engineering and Technology
+ST003499,Metabolic analysis of ADSL deficiency patients' EBV-LCLs.,Homo sapiens,LC-MS,30,2024-09-26,2024-10-16,Catholic University of the Sacred Heart
+ST003579,Landscape of Metabolic Fingerprinting for Diagnosis of Ovarian Endometriosis.,Homo sapiens,LC-MS,68,2024-11-16,2026-01-02,Women’s Hospital of Nanjing Medical University
+ST003581,Rapid and non-invasive early detection of lung cancer by integration of machine learning and salivary metabolic fingerprints using MS LOC platform: A large-scale multicenter study,Homo sapiens,MS(Dir. Inf.),1043,2024-11-19,2026-02-01,"Affiliated Hangzhou First People’s Hospital, Westlake University"
+ST003597,Metabolic regulation of RNA methylation by the m6A-reader IGF2BP3,Homo sapiens,LC-MS,12,2024-11-27,2025-09-28,"University of California, Los Angeles"
+ST003617,Metabolic adaptations in pancreatic ductal adenocarcinoma-patient derived xenograft models across serial passages,Homo sapiens,NMR,116,2024-12-12,2025-09-07,Xiamen University
+ST003630,Individual glycemic responses to carbohydrates vary and reflect underlying metabolic physiology (Lipidomics),Homo sapiens,MS(Dir. Inf.),113,2024-12-17,2025-01-12,Stanford University
+ST003632,Dysregulated Lipid Metabolism in African American Women Who Experienced Cardiometabolic Complications of Pregnancy,Homo sapiens,LC-MS,32,2024-12-19,2025-11-26,Emory University
+ST003636,Individual glycemic responses to carbohydrates vary and reflect underlying metabolic physiology (metabolomics),Homo sapiens,LC-MS,113,2024-12-24,2025-01-14,Stanford University
+ST003656,Profiling the human beta cell's molecular metabolic response to glucose,Homo sapiens,MS(Dir. Inf.),10,2025-01-12,2026-01-02,Dana Farber Cancer Institute
+ST003662,Metabolome trajectory of exercise physiology- a comprehensive study of healthy male and female athletes,Homo sapiens,LC-MS,352,2025-01-16,2025-05-14,University of Vienna
+ST003671,Discovery of Metabolic Biomarkers for Gestational Diabetes Mellitus: An In-Depth Metabolomics Investigation Utilizing Mass Spectrometry  ,Homo sapiens,LC-MS,52,2025-01-17,2025-07-07,Sharjah Institute for Medical Research
+ST003686,Characterization of the transpulmonary metabolome at the intersection of pulmonary vascular disease and exercise,Homo sapiens,LC-MS,468,2025-01-27,2025-02-17,University of Colorado Anschutz Medical Campus
+ST003697,Cross-sectional salivary metabolomics of the FAME cohort (children 11-17 years),Homo sapiens,LC-MS,610,2025-07-07,2025-07-07,Ghent University
+ST003709,Cross-sectional salivary metabolomics of the PANIC cohort (children 11-17 years),Homo sapiens,LC-MS,354,2025-07-07,2025-07-07,Ghent University
+ST003740,Distinct metabolic signatures in non-small cell lung cancer subtype: metabolomics and lipidomics for accurate differentiation of adenocarcinoma and squamous cell carcinoma,Homo sapiens,LC-MS,115,2025-02-20,2026-01-02,Wenzhou Medical University
+ST003751,Comprehensive Lipidomic Analysis Identifies Critical Lipid and Metabolic Pathway Shifts in Alport Syndrome,Homo sapiens,LC-MS,241,2025-02-25,2025-03-17,Universidad CEU San Pablo
+ST003765,1H NMR metabolomics applied to detect metabolic markers of early ostedifferentiation of mesenchymal stem cells from multiple donors,Homo sapiens,NMR,237,2025-03-03,2025-05-19,University of Aveiro
+ST003798,Metabolic signature in combination with fecal immunochemical test as a non-invasive tool for advanced colorectal neoplasia diagnosis,Homo sapiens,LC-MS,211,2025-03-18,2025-07-15,CICbiogUNE
+ST003806,Selective Influence of Hemp Fiber Ingestion on Post-Exercise Gut Permeability: A Metabolomics-Based Analysis,Homo sapiens,LC-MS,464,2025-03-20,2026-03-11,Appalachian State University
+ST003807,A lipidomic exploration of the effects of high-intensity interval exercise in healthy men after metformin intake,Homo sapiens,LC-MS,217,2025-03-20,2025-03-21,University CEU San Pablo
+ST003815,Serum metabolic fingerprints encode functional biomarkers for ovarian cancer diagnosis: a large-scale cohort study,Homo sapiens,MALDI-MS,1073,2025-03-27,2025-03-27,Shanghai Jiao Tong University
+ST003867,Fatty-acid oxidation is a metabolic hallmark of human proliferative retinopathy,Homo sapiens,LC-MS,18,2025-04-17,2025-05-01,Broad Institute of MIT and Harvard
+ST003869,A long non-coding RNA (lncRNA}-mediated metabolic rewiring of cell senescence,Homo sapiens,LC-MS,78,2025-04-18,2025-05-12,CIC bioGUNE - Centro de Investigación Cooperativa en Biociencias
+ST003894,Postprandial Plasma Lipidomic Changes in 24 Metabolically Healthy Individuals Following Ingestion of Four Different Isocaloric Macronutrients,Homo sapiens,LC-MS,480,2025-05-02,2025-07-30,Nanjing Medical University
+ST003895,Postprandial Plasma Metabolomic Changes in 24 Metabolically Healthy Individuals Following Ingestion of Four Different Isocaloric Macronutrients,Homo sapiens,LC-MS,480,2025-05-02,2025-07-30,Nanjing Medical University
+ST003921,"Metabolic fingerprinting enables rapid, label-free histopathology in gastric cancer diagnosis and prognostic prediction",Homo sapiens,MS(Dir. Inf.),284,2025-05-19,2025-05-28,Fudan University
+ST003939,Plasma amino acids of treated metabolic syndrome patients with and without mild cognitive impairment,Homo sapiens,GC-MS,95,2025-06-04,2025-06-25,Mahidol University
+ST003942,Tryptophan metabolite concentrations in plasma of treated metabolic syndrome patients with and without mild cognitive impairment,Homo sapiens,LC-MS,95,2025-06-05,2025-06-25,Mahidol University
+ST003946,Plasma tryptophan concentrations in treated metabolic syndrome patients with and without mild cognitive impairment,Homo sapiens,LC-MS,95,2025-06-06,2025-06-25,Mahidol University
+ST003947,Total fatty acids in plasma of treated metabolic syndrome patients with and without mild cognitive impairment,Homo sapiens,GC-MS,95,2025-06-06,2025-06-25,Mahidol University
+ST003963,Immunometabolic determinants of long-term response in preinfusion CAR-T cells of the leukemia patients receiving CD19 CAR T cell therapy,Homo sapiens,LC-MS,56,2025-06-12,2025-07-07,Translational Genomics Research Institute
+ST003964,Immunometabolism determinants of enhanced antileukemic activity upon rapamycin mediated mTOR inhibition in CAR-T cells of short-term responder leukemia patients receiving CD19 CAR T cell therapy,Homo sapiens,LC-MS,48,2025-06-12,2025-07-07,Translational Genomics Research Institute
+ST003965,Immunometabolic determinants of long-term response in leukapheresis T cells of the leukemia patients receiving CD19 CAR T cell therapy,Homo sapiens,LC-MS,56,2025-06-12,2025-07-07,Translational Genomics Research Institute
+ST003966,Immunometabolic determinants of long-term response in bone marrow of the leukemia patients receiving CD19 CAR T cell therapy,Homo sapiens,LC-MS,64,2025-06-12,2025-07-07,Translational Genomics Research Institute
+ST003999,Measuring PEMT activity in HCMV infected fibroblasts using 13C-methionine.,Homo sapiens,LC-MS,88,2025-06-25,2025-06-25,University of Arizona
+ST004019,Analysis of the effects of MINCH on the metabolism of human preadipocytes and mature adipocytes by 13C metabolic tracing with [U-13C]glucose,Homo sapiens,LC-MS,144,2025-07-04,2025-07-24,Helmholtz Centre for Environmental Research
+ST004020,"Analysis of the effects of MINCH on the metabolism of human preadipocytes and mature adipocytes by 13C metabolic tracing with [1,2-13C]glucose",Homo sapiens,LC-MS,144,2025-07-04,2025-07-24,Helmholtz Centre for Environmental Research
+ST004021,Analysis of the effects of MINCH on the metabolism of human preadipocytes and mature adipocytes by 13C metabolic tracing with [U-13C]glutamine,Homo sapiens,LC-MS,144,2025-07-04,2025-07-24,Helmholtz Centre for Environmental Research
+ST004037,Untargeted Metabolomics Reveal Long-Term Metabolic Changes in the Oral Cavity Following Disease Stress and Recovery,Homo sapiens,LC-MS,777,2025-07-11,2025-07-17,University of Michigan
+ST004098,Metabolic-Immuno-Hormonal Crosstalk in Breast Cancer,Homo sapiens,LC-MS,65,2025-08-07,2025-08-29,Sharjah Institute for Medical Research
+ST004099,A genome-scale metabolic model for deciphering the host metabolic perturbations during Mycobacterium tuberculosis infection,Homo sapiens,LC-MS,66,2025-08-08,2025-08-25,Translational health science and technology institute
+ST004111,Metabolic changes in human macrophages following NLRP3 activation,Homo sapiens,LC-MS,38,2025-08-14,2025-08-15,Imperial College London
+ST004113,Metabolic changes in NLRP3 knockout and VRAC knockdown THP-1 derived macrophages following NLRP3 inflammasome activation,Homo sapiens,LC-MS,45,2025-08-14,2025-08-15,Imperial College London
+ST004135,The SLC1A1/EAAT3 Dicarboxylic Amino Acid Transporter is an Epigenetically Dysregulated Nutrient Carrier that Sustains Oncogenic Metabolic Programs,Homo sapiens,LC-MS,24,2025-08-21,2025-09-11,Cleveland Clinic
+ST004139,"Metabolic Profiling of Saliva for Determination of Pathogenesis, Diagnosis, and Prognosis in Gestational Diabetes Mellitus in the First and Second Trimester",Homo sapiens,MALDI-MS,828,2025-08-22,2025-10-08,Zhejiang University
+ST004140,"Metabolic Profiling of Serum for Determination of Pathogenesis, Diagnosis, and Prognosis in Gestational Diabetes Mellitus in the First and Second Trimester",Homo sapiens,MALDI-MS,839,2025-08-22,2025-10-08,Zhejiang University
+ST004141,"Metabolic Profiling of Urine for Determination of Pathogenesis, Diagnosis, and Prognosis in Gestational Diabetes Mellitus in the First and Second Trimester",Homo sapiens,MALDI-MS,686,2025-08-22,2025-10-08,Zhejiang University
+ST004144,Metabolic rewiring in isogenic SW48 colorectal cancer cells with different oncogenic KRAS G12 point mutations,Homo sapiens,LC-MS,294,2025-08-22,2025-08-25,Brunel University of London
+ST004147,Urinary Multi-Omics Signatures of Preterm Premature Rupture of Membranes: Insights into Microbial and Metabolic Biomarkers,Homo sapiens,NMR,78,2025-08-26,2025-10-08,Inonu University Department of Biomedical Eng.
+ST004161,"Distinct plasma metabolomic alterations are associated with physical function, weight loss, and muscle mass in men with cancer",Homo sapiens,LC-MS,88,2025-09-02,2025-09-25,VA Puget Sound Health Care System
+ST004166,"Distinct skeletal muscle metabolomic alterations are associated with physical function, weight loss, and muscle mass in men with cancer",Homo sapiens,LC-MS,79,2025-09-03,2025-09-25,VA Puget Sound Health Care System
+ST004178,Tomato-Soy Juice Reduces Inflammation and Modulates Urinary Metabolome in Adults with Obesity,Homo sapiens,LC-MS,192,2025-09-10,2025-09-30,Ohio State University
+ST004185,Maternal and fetal Tryptophan-Kynurenine metabolite changes in Preeclampsia and Gestational Diabetes,Homo sapiens,LC-MS,60,2025-09-16,2025-10-06,Translational Health Science And Technology Institute (THSTI)
+ST004186,Discovery and Validation of Metabolic Biomarkers for 'Liver Qi Stagnation' and 'Liver-Gallbladder Damp-Heat' Syndromes in Cholelithiasis: Blood untargeted,Homo sapiens,LC-MS,95,2025-11-06,2025-11-06,First Affiliated Hospital of Dalian Medical University
+ST004187,Discovery and Validation of Metabolic Biomarkers for 'Liver Qi Stagnation' and 'Liver-Gallbladder Damp-Heat' Syndromes in Cholelithiasis: Blood targeted,Homo sapiens,LC-MS,96,2025-09-16,2025-09-17,The First Affiliated Hospital of Dalian Medical University
+ST004188,Discovery and Validation of Metabolic Biomarkers for 'Liver Qi Stagnation' and 'Liver-Gallbladder Damp-Heat' Syndromes in Cholelithiasis: Urine targeted,Homo sapiens,LC-MS,96,2025-09-16,2025-09-17,The First Affiliated Hospital of Dalian Medical University
+ST004189,Discovery and Validation of Metabolic Biomarkers for 'Liver Qi Stagnation' and 'Liver-Gallbladder Damp-Heat' Syndromes in Cholelithiasis: Urine untargeted,Homo sapiens,LC-MS,96,2025-11-06,2025-11-06,First Affiliated Hospital of Dalian Medical University
+ST004199,Longitudinal Metabolomic Changes in Adolescents with Obesity: Efficacy of a One-Year Ketogenic Nutritional Intervention,Homo sapiens,GC-MS/LC-MS/CE-MS,220,2025-09-18,2026-01-29,Universidad CEU San Pablo
+ST004207,Tumour sampling conditions perturb the metabolic landscape of clear cell renal cell carcinoma,Homo Sapiens; Mus musculus,LC-MS,111,2025-09-22,2025-09-25,University of Cambridge
+ST004275,Cardiometabolic and molecular adaptations to 6-month intermittent fasting in middle-aged men and women with overweight: secondary outcomes of a randomized controlled trial,Homo sapiens,GC-MS,120,2025-10-10,2025-10-28,Washington University in St. Louis
+ST004279,Metabolic aging in human pancreas,Homo sapiens,LC-MS,41,2025-10-13,2025-11-19,University of Southern California
+ST004303,Exercise intensity modulates the human plasma secretome and interorgan communication,Homo sapiens,LC-MS,67,2025-10-22,2025-11-12,The Rockefeller University
+ST004325,Dynamics of urine metabolomics and tubular inflammatory cytokines in Type 1 diabetes across disease durations,Homo sapiens,NMR,247,2025-11-01,2025-11-21,Lin-Kou Chang Gung Memorial hospital
+ST004423,Follicular Fluid from Women with PCOS Induces Granulosa Cells Metabolic Dysfunction that is Amplified by Obesity,Homo sapiens,NMR,24,2025-12-09,2026-03-26,"School of Medicine and Biomedical Sciences (ICBAS), University of Porto"
+ST004492,Metabolic Flux Analysis of Glycolysis and the Pentose Phosphate Pathway Using U-¹³C-Glucose Stable Isotope Tracing in WT type and TIGAR-knockout HIEC-6 cells,Homo sapiens,LC-MS,40,2025-12-25,2026-01-02,"Southwest Hospital, Third Military Medical University"
+ST004494,Metabolic Flux Analysis of Glycolysis and the Pentose Phosphate Pathway Using U-¹³C-Glucose Stable Isotope Tracing in Wild-type and sgTIGAR HT-29 Cl.16E Cells,Homo sapiens,LC-MS,40,2025-12-26,2026-01-02,"Southwest Hospital, Third Military Medical University"
+ST004518,Plasma metabolic profiling identifies elevated hippurate as a potential biomarker of methotrexate non-response in juvenile idiopathic arthritis.,Homo sapiens,LC-MS,60,2026-01-08,2026-01-29,University of Kansas
+ST004529,"Description of metabolic variation between MDS versus control patient derived HSPCs, and in cultured primary cells between DMSO and OT82 exposure.",Homo sapiens,LC-MS,38,2026-01-13,2026-02-06,University of Colorado School of Medicine
+ST004581,"Impact of maternal HIV infection on the gut microbiota microbiome and metabolome of maternal-infant populations mothers and infants: The PRACHITi Cohort in Pune, India",Homo sapiens,LC-MS,100,2026-01-30,2026-02-16,Columbia University - Medical Center
+ST004582,"Cysteine boosts fitness to hypoxia by promoting sulphur and carbon metabolism reprograming, in ovarian cancer",Homo sapiens,NMR,24,2026-01-30,2026-02-16,ITQB NOVA
+ST004615,Multi-omics analyses reveal key immunological and metabolic determinants of mortality in HIV-associated Pneumocystis pneumonia,Homo sapiens,LC-MS,47,2026-02-06,2026-02-10,Imperial College London
+ST004616,Lineage-tailored Extracellular Vesicles from Human Retinal Ganglion-like cells drive Metabolic Reprogramming and Bioenergetic Recovery in Preclinical Glaucomatous Degeneration,Homo sapiens,LC-MS,16,2026-02-06,2026-03-02,National Institutes of Health
+ST004628,Active brown adipose tissue is associated with reduced arterial inflammation and improved atherogenic systemic profile in individuals with obesity,Homo sapiens,LC-MS,130,2026-02-13,2026-05-01,University of Vienna
+ST004684,BCAT1 promotes HCC metabolic reprogramming and survival through HIF-1α stabilization,Homo sapiens,CE-MS,6,2026-03-11,2026-03-17,University of Hong Kong
+ST004714,Targeted serum metabolomics before and after short-term lifestyle intervention in children with obesity,Homo sapiens,LC-MS,27,2026-03-24,2026-05-11,Hebei medical university
+ST004715,Untargeted serum metabolomics comparison between metabolically healthy and metabolically unhealthy obesity in children,Homo sapiens,LC-MS,298,2026-03-24,2026-05-11,Hebei medical university
+ST004718,Chikungunya virus infection significantly alters the metabolic composition of the human intestine,Homo sapiens,LC-MS,117,2026-03-25,2026-04-17,Zhujiang Hospital of Southern Medical University
+ST004741,"Metabolomic aging and mortality clocks based on ensemble learning identify systemic aging risk across the human lifespan in 18,476 individuals",Homo sapiens,MALDI-MS,18476,2026-04-08,2026-04-10,Shanghai Jiao Tong University affiliated Renji Hospital
+ST004818,Whole Blood Metabolomics Reveals Coordinated Redox-One-Carbon Axis Disruption in NSCLC: A Pilot Study in an Indian Cohort,Homo sapiens,LC-MS,84,2026-05-04,2026-05-11,"All India Institute of Medical Sciences,"

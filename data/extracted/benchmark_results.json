@@ -1,0 +1,77 @@
+[
+  {
+    "details": {
+      "definition": "accepted or review-required proposals matching a non-rejected expert mapping",
+      "predicted_candidate": 24,
+      "true_positive": 24
+    },
+    "metric_name": "candidate_precision",
+    "value": 1.0
+  },
+  {
+    "details": {
+      "gold_candidate": 24,
+      "true_positive": 24
+    },
+    "metric_name": "candidate_recall",
+    "value": 1.0
+  },
+  {
+    "details": {
+      "precision_denominator": 24,
+      "recall_denominator": 24
+    },
+    "metric_name": "candidate_f1",
+    "value": 1.0
+  },
+  {
+    "details": {
+      "definition": "predicted accepted mappings that experts also marked accepted",
+      "predicted_auto_accepts": 12,
+      "safe_auto_accepts": 12
+    },
+    "metric_name": "auto_accept_precision",
+    "value": 1.0
+  },
+  {
+    "details": {
+      "gold_accepted": 12,
+      "safe_auto_accepts": 12
+    },
+    "metric_name": "auto_accept_recall",
+    "value": 1.0
+  },
+  {
+    "details": {
+      "predicted_auto_accepts": 12,
+      "release_target": 0.0,
+      "unsafe_auto_accepts": 0
+    },
+    "metric_name": "unsafe_auto_accept_rate",
+    "value": 0.0
+  },
+  {
+    "details": {
+      "correctly_routed_to_review": 12,
+      "gold_review_required": 12
+    },
+    "metric_name": "review_capture_rate",
+    "value": 1.0
+  },
+  {
+    "details": {
+      "compared": 26,
+      "correct": 26
+    },
+    "metric_name": "review_status_accuracy",
+    "value": 1.0
+  },
+  {
+    "details": {
+      "compared": 10,
+      "tolerance": 0.15
+    },
+    "metric_name": "quality_score_agreement_within_0.15",
+    "value": 0.8
+  }
+]

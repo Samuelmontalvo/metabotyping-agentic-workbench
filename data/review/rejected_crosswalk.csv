@@ -1,0 +1,3 @@
+source_study,source_variable,source_label,source_unit,source_timing,source_modality,proposed_common_variable,proposed_common_unit,transform,confidence,evidence,review_status
+SYN-MET-NOCODEBOOK,metab_feature_001,Unknown metabolite intensity,unknown,unknown,metabolomics,not_mapped,not_available,not_available,0.2,No supported scientific synonym or mapping rule matched.,rejected
+SYN-DIET-BODY,diet_score,Diet quality score,points,baseline,diet,not_mapped,not_available,not_available,0.2,No supported scientific synonym or mapping rule matched.,rejected
