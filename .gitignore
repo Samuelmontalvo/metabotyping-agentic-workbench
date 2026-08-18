@@ -3,3 +3,5 @@
 .claude/settings.local.json
 .venv/
 tmp/
+__pycache__/
+*.py[cod]
