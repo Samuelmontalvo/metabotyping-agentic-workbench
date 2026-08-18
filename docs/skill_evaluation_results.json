@@ -1,338 +1,2151 @@
-[
-  {
-    "missing_sections": [],
-    "path": ".agents/skills/benchmark-agents/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+{
+  "agent_aliases": [
+    {
+      "canonical_name": "dataset-readiness-reviewer",
+      "checks": {
+        "alias_not_expired": true,
+        "alias_platform_declared": true,
+        "behaviorally_equivalent_to_canonical": true,
+        "deprecated_alias_description": true,
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "one_hop_alias_resolution": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": true,
+      "issues": [],
+      "name": "data-quality-reviewer",
+      "path": ".codex/agents/data-quality-reviewer.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".agents/skills/define-inclusion-criteria/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "motrpac-metadata-readiness-analyst",
+      "checks": {
+        "alias_not_expired": true,
+        "alias_platform_declared": true,
+        "behaviorally_equivalent_to_canonical": true,
+        "deprecated_alias_description": true,
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "one_hop_alias_resolution": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": true,
+      "issues": [],
+      "name": "motrpac-replication-analyst",
+      "path": ".codex/agents/motrpac-replication-analyst.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".agents/skills/grant-aims-refiner/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "dataset-readiness-reviewer",
+      "checks": {
+        "alias_not_expired": true,
+        "alias_platform_declared": true,
+        "behaviorally_equivalent_to_canonical": true,
+        "deprecated_alias_description": true,
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "one_hop_alias_resolution": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": true,
+      "issues": [],
+      "name": "data-quality-reviewer",
+      "path": ".claude/agents/data-quality-reviewer.md",
+      "platform": "claude",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".agents/skills/harmonization-plan/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "motrpac-metadata-readiness-analyst",
+      "checks": {
+        "alias_not_expired": true,
+        "alias_platform_declared": true,
+        "behaviorally_equivalent_to_canonical": true,
+        "deprecated_alias_description": true,
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "one_hop_alias_resolution": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": true,
+      "issues": [],
+      "name": "motrpac-replication-analyst",
+      "path": ".claude/agents/motrpac-replication-analyst.md",
+      "platform": "claude",
+      "score": 1.0
+    }
+  ],
+  "agents": [
+    {
+      "canonical_name": "assay-harmonization-skeptic",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "assay-harmonization-skeptic",
+      "path": ".codex/agents/assay-harmonization-skeptic.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".agents/skills/human-review-packet/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "benchmark-agent",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "benchmark-agent",
+      "path": ".codex/agents/benchmark-agent.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".agents/skills/metabolite-effect-search/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "biospecimen-preanalytics-reviewer",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "biospecimen-preanalytics-reviewer",
+      "path": ".codex/agents/biospecimen-preanalytics-reviewer.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".agents/skills/metadata-card-extraction/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "dataset-readiness-reviewer",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "dataset-readiness-reviewer",
+      "path": ".codex/agents/dataset-readiness-reviewer.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".agents/skills/motrpac-alignment/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "discovery-orchestrator",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "discovery-orchestrator",
+      "path": ".codex/agents/discovery-orchestrator.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".agents/skills/motrpac-plotting/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "exercise-phenotype-harmonization-reviewer",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "exercise-phenotype-harmonization-reviewer",
+      "path": ".codex/agents/exercise-phenotype-harmonization-reviewer.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".agents/skills/quality-scoring/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "harmonization-skeptic",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "harmonization-skeptic",
+      "path": ".codex/agents/harmonization-skeptic.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".agents/skills/recommendation-engine/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "literature-retrieval",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "literature-retrieval",
+      "path": ".codex/agents/literature-retrieval.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".agents/skills/repository-intake/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "metabolite-identity-resolver",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "metabolite-identity-resolver",
+      "path": ".codex/agents/metabolite-identity-resolver.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".agents/skills/study-dataset-discovery/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "metabolomics-visualization-analyst",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "metabolomics-visualization-analyst",
+      "path": ".codex/agents/metabolomics-visualization-analyst.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".agents/skills/variable-crosswalk/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "metadata-extractor",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "metadata-extractor",
+      "path": ".codex/agents/metadata-extractor.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".claude/skills/benchmark-agents/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "motrpac-metadata-readiness-analyst",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "motrpac-metadata-readiness-analyst",
+      "path": ".codex/agents/motrpac-metadata-readiness-analyst.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".claude/skills/define-inclusion-criteria/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "multi-source-orchestrator",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "multi-source-orchestrator",
+      "path": ".codex/agents/multi-source-orchestrator.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".claude/skills/grant-aims-refiner/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "pipeline-builder",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "pipeline-builder",
+      "path": ".codex/agents/pipeline-builder.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".claude/skills/harmonization-plan/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "repository-discovery",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "repository-discovery",
+      "path": ".codex/agents/repository-discovery.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".claude/skills/human-review-packet/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "statistical-estimand-and-synthesis-skeptic",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "statistical-estimand-and-synthesis-skeptic",
+      "path": ".codex/agents/statistical-estimand-and-synthesis-skeptic.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".claude/skills/metabolite-effect-search/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "study-design-population-context-reviewer",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "study-design-population-context-reviewer",
+      "path": ".codex/agents/study-design-population-context-reviewer.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".claude/skills/metadata-card-extraction/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "variable-crosswalk",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "variable-crosswalk",
+      "path": ".codex/agents/variable-crosswalk.toml",
+      "platform": "codex",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".claude/skills/motrpac-alignment/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "assay-harmonization-skeptic",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "assay-harmonization-skeptic",
+      "path": ".claude/agents/assay-harmonization-skeptic.md",
+      "platform": "claude",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".claude/skills/motrpac-plotting/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "benchmark-agent",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "benchmark-agent",
+      "path": ".claude/agents/benchmark-agent.md",
+      "platform": "claude",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".claude/skills/quality-scoring/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "biospecimen-preanalytics-reviewer",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "biospecimen-preanalytics-reviewer",
+      "path": ".claude/agents/biospecimen-preanalytics-reviewer.md",
+      "platform": "claude",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".claude/skills/recommendation-engine/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "dataset-readiness-reviewer",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "dataset-readiness-reviewer",
+      "path": ".claude/agents/dataset-readiness-reviewer.md",
+      "platform": "claude",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".claude/skills/repository-intake/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "discovery-orchestrator",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "discovery-orchestrator",
+      "path": ".claude/agents/discovery-orchestrator.md",
+      "platform": "claude",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".claude/skills/study-dataset-discovery/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "exercise-phenotype-harmonization-reviewer",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "exercise-phenotype-harmonization-reviewer",
+      "path": ".claude/agents/exercise-phenotype-harmonization-reviewer.md",
+      "platform": "claude",
+      "score": 1.0
     },
-    "score": 1.0
-  },
-  {
-    "missing_sections": [],
-    "path": ".claude/skills/variable-crosswalk/SKILL.md",
-    "quality_gates": {
-      "critical_evidence": true,
-      "fair_data": true,
-      "human_review": true,
-      "reproducibility": true,
-      "scoring": true
+    {
+      "canonical_name": "harmonization-skeptic",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "harmonization-skeptic",
+      "path": ".claude/agents/harmonization-skeptic.md",
+      "platform": "claude",
+      "score": 1.0
     },
-    "score": 1.0
+    {
+      "canonical_name": "literature-retrieval",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "literature-retrieval",
+      "path": ".claude/agents/literature-retrieval.md",
+      "platform": "claude",
+      "score": 1.0
+    },
+    {
+      "canonical_name": "metabolite-identity-resolver",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "metabolite-identity-resolver",
+      "path": ".claude/agents/metabolite-identity-resolver.md",
+      "platform": "claude",
+      "score": 1.0
+    },
+    {
+      "canonical_name": "metabolomics-visualization-analyst",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "metabolomics-visualization-analyst",
+      "path": ".claude/agents/metabolomics-visualization-analyst.md",
+      "platform": "claude",
+      "score": 1.0
+    },
+    {
+      "canonical_name": "metadata-extractor",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "metadata-extractor",
+      "path": ".claude/agents/metadata-extractor.md",
+      "platform": "claude",
+      "score": 1.0
+    },
+    {
+      "canonical_name": "motrpac-metadata-readiness-analyst",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "motrpac-metadata-readiness-analyst",
+      "path": ".claude/agents/motrpac-metadata-readiness-analyst.md",
+      "platform": "claude",
+      "score": 1.0
+    },
+    {
+      "canonical_name": "multi-source-orchestrator",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "multi-source-orchestrator",
+      "path": ".claude/agents/multi-source-orchestrator.md",
+      "platform": "claude",
+      "score": 1.0
+    },
+    {
+      "canonical_name": "pipeline-builder",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "pipeline-builder",
+      "path": ".claude/agents/pipeline-builder.md",
+      "platform": "claude",
+      "score": 1.0
+    },
+    {
+      "canonical_name": "repository-discovery",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "repository-discovery",
+      "path": ".claude/agents/repository-discovery.md",
+      "platform": "claude",
+      "score": 1.0
+    },
+    {
+      "canonical_name": "statistical-estimand-and-synthesis-skeptic",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "statistical-estimand-and-synthesis-skeptic",
+      "path": ".claude/agents/statistical-estimand-and-synthesis-skeptic.md",
+      "platform": "claude",
+      "score": 1.0
+    },
+    {
+      "canonical_name": "study-design-population-context-reviewer",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "study-design-population-context-reviewer",
+      "path": ".claude/agents/study-design-population-context-reviewer.md",
+      "platform": "claude",
+      "score": 1.0
+    },
+    {
+      "canonical_name": "variable-crosswalk",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "variable-crosswalk",
+      "path": ".claude/agents/variable-crosswalk.md",
+      "platform": "claude",
+      "score": 1.0
+    }
+  ],
+  "inventory_issues": [],
+  "skills": [
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/harmonization/assay_models.py",
+        "src/metabotyping_agentic/harmonization/assay_harmonization.py",
+        "scripts/build_assay_harmonization_plan.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "assay-platform-harmonization",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/assay-platform-harmonization/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/evaluation/benchmark.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "benchmark-agents",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/benchmark-agents/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/discovery/criteria.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "define-inclusion-criteria",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/define-inclusion-criteria/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [],
+      "implementation_status": "agent_only_declared",
+      "issues": [],
+      "name": "grant-aims-refiner",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/grant-aims-refiner/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/harmonization/harmonization_plan.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "harmonization-plan",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/harmonization-plan/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/reports/render.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "human-review-packet",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/human-review-packet/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "scripts/run_metabolite_effect_search.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "metabolite-effect-search",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/metabolite-effect-search/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/harmonization/assay_models.py",
+        "src/metabotyping_agentic/harmonization/assay_harmonization.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "metabolite-identity-resolution",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/metabolite-identity-resolution/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/extraction/metadata_cards.py",
+        "src/metabotyping_agentic/extraction/variable_inventory.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "metadata-card-extraction",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/metadata-card-extraction/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/evaluation/motrpac_alignment.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "motrpac-alignment",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/motrpac-alignment/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/plotting/motrpac_plot_helpers.R",
+        "src/metabotyping_agentic/plotting/metabolomics.py",
+        "scripts/render_synthetic_motrpac_plot_suite.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "motrpac-plotting",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/motrpac-plotting/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/knowledge/source_registry.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "multi-database-metabolomics-router",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/multi-database-metabolomics-router/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        ".agents/skills/plot-motrpac-bag3/scripts/plot_bag3_acute_motrpac.R",
+        ".agents/skills/plot-motrpac-bag3/scripts/plot_rat_bag3_from_search_api.R",
+        "src/metabotyping_agentic/plotting/motrpac_plot_helpers.R"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "plot-motrpac-bag3",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/plot-motrpac-bag3/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/evaluation/quality_scoring.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "quality-scoring",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/quality-scoring/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/discovery/recommender.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "recommendation-engine",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/recommendation-engine/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/discovery/repositories.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "repository-intake",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/repository-intake/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/discovery/literature.py",
+        "src/metabotyping_agentic/discovery/recommender.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "study-dataset-discovery",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/study-dataset-discovery/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/harmonization/crosswalk.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "variable-crosswalk",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/variable-crosswalk/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/harmonization/assay_models.py",
+        "src/metabotyping_agentic/harmonization/assay_harmonization.py",
+        "scripts/build_assay_harmonization_plan.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "assay-platform-harmonization",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/assay-platform-harmonization/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/evaluation/benchmark.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "benchmark-agents",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/benchmark-agents/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/discovery/criteria.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "define-inclusion-criteria",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/define-inclusion-criteria/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [],
+      "implementation_status": "agent_only_declared",
+      "issues": [],
+      "name": "grant-aims-refiner",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/grant-aims-refiner/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/harmonization/harmonization_plan.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "harmonization-plan",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/harmonization-plan/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/reports/render.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "human-review-packet",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/human-review-packet/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "scripts/run_metabolite_effect_search.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "metabolite-effect-search",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/metabolite-effect-search/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/harmonization/assay_models.py",
+        "src/metabotyping_agentic/harmonization/assay_harmonization.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "metabolite-identity-resolution",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/metabolite-identity-resolution/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/extraction/metadata_cards.py",
+        "src/metabotyping_agentic/extraction/variable_inventory.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "metadata-card-extraction",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/metadata-card-extraction/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/evaluation/motrpac_alignment.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "motrpac-alignment",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/motrpac-alignment/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/plotting/motrpac_plot_helpers.R",
+        "src/metabotyping_agentic/plotting/metabolomics.py",
+        "scripts/render_synthetic_motrpac_plot_suite.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "motrpac-plotting",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/motrpac-plotting/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/knowledge/source_registry.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "multi-database-metabolomics-router",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/multi-database-metabolomics-router/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        ".agents/skills/plot-motrpac-bag3/scripts/plot_bag3_acute_motrpac.R",
+        ".agents/skills/plot-motrpac-bag3/scripts/plot_rat_bag3_from_search_api.R",
+        "src/metabotyping_agentic/plotting/motrpac_plot_helpers.R"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "plot-motrpac-bag3",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/plot-motrpac-bag3/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/evaluation/quality_scoring.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "quality-scoring",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/quality-scoring/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/discovery/recommender.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "recommendation-engine",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/recommendation-engine/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/discovery/repositories.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "repository-intake",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/repository-intake/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/discovery/literature.py",
+        "src/metabotyping_agentic/discovery/recommender.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "study-dataset-discovery",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/study-dataset-discovery/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/harmonization/crosswalk.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "variable-crosswalk",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/variable-crosswalk/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    }
+  ],
+  "summary": {
+    "addressable_agent_files": 40,
+    "addressable_agent_names": 20,
+    "agent_files": 36,
+    "deprecated_agent_alias_files": 4,
+    "inventory_issue_count": 0,
+    "mean_agent_contract_score": 1.0,
+    "mean_deprecated_agent_alias_contract_score": 1.0,
+    "mean_skill_operational_score": 1.0,
+    "mean_skill_structural_score": 1.0,
+    "paired_addressable_agent_names": 20,
+    "paired_agent_names": 18,
+    "paired_deprecated_agent_alias_names": 2,
+    "paired_skill_names": 18,
+    "skill_files": 36
   }
-]
+}

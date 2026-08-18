@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plot MoTrPAC BAG3"
+  short_description: "Plot human and rat MoTrPAC BAG3"
+  default_prompt: "Use $plot-motrpac-bag3 to plot BAG3 from the MoTrPAC PRECAWG Human Data Visualization app and rat MoTrPAC Data Hub gene-centric rows, preserving provenance."

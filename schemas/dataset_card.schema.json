@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DatasetCard",
+  "type": "object",
+  "required": ["study_id", "repository", "accession", "data_availability", "has_metadata", "has_codebook", "has_data_files", "assay_platform", "sample_matrix", "biospecimen_timing", "modalities"],
+  "properties": {
+    "study_id": { "type": "string" },
+    "repository": { "type": "string" },
+    "accession": { "type": "string" },
+    "data_availability": { "type": "string" },
+    "has_metadata": { "type": "boolean" },
+    "has_codebook": { "type": "boolean" },
+    "has_data_files": { "type": "boolean" },
+    "assay_platform": { "type": "string" },
+    "sample_matrix": { "type": "string" },
+    "biospecimen_timing": { "type": "string" },
+    "sample_size": { "type": ["integer", "null"] },
+    "modalities": { "type": "array", "items": { "type": "string" } },
+    "documented_absent_modalities": { "type": "array", "items": { "type": "string" } },
+    "mirage_flags": { "type": "array", "items": { "type": "string" } },
+    "provenance": { "type": "object" }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VariableCard",
+  "type": "object",
+  "required": ["study_id", "source_variable", "label", "unit", "timing", "modality"],
+  "properties": {
+    "study_id": { "type": "string" },
+    "source_variable": { "type": "string" },
+    "label": { "type": "string" },
+    "unit": { "type": "string" },
+    "timing": { "type": "string" },
+    "modality": { "type": "string" },
+    "description": { "type": "string" },
+    "provenance": { "type": "object" }
+  }
+}
+

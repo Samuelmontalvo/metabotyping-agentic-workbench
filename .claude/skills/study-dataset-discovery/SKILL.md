@@ -50,3 +50,6 @@ Metabolomics Workbench candidates constrained to blood-derived sample matrices.
 - Critical evidence: distinguish observed repository evidence from title-based inference; do not hide missing data behind high modality overlap.
 - Human review: review triggers must preserve ambiguous Metabolomics Workbench matrix evidence for reviewer decisions.
 - Skill quality rubric: pass only if direct, complementary, enrichment, mirage, and excluded classes are auditable.
+
+# Implementation
+- Deterministic implementations: `src/metabotyping_agentic/discovery/literature.py` and `src/metabotyping_agentic/discovery/recommender.py`.

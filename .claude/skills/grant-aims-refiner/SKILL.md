@@ -38,3 +38,6 @@ Translate MVP evidence into clearer aims for dataset discovery, meta-harmonizati
 - Reproducibility: aims must be regenerated from declared pilot reports, benchmark metrics, and human-review artifacts as evidence.
 - Critical evidence: distinguish completed MVP capabilities, missing evidence, and proposed future live-repository integrations; do not overclaim automation.
 - Skill quality rubric: pass only if aims, milestones, evaluation criteria, risks, and human-review safeguards are explicit.
+
+# Implementation
+- Execution status: agent-only scientific synthesis; no deterministic module is claimed, and all aims require author review.

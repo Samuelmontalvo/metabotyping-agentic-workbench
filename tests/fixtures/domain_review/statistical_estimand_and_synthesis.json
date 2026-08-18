@@ -1,0 +1,255 @@
+{
+  "schema_version": "1.0.0",
+  "contract_version": "1.0.0",
+  "packet_id": "synthetic-estimand-synthesis-review-001",
+  "scope_version": "1.0.0",
+  "role": "statistical-estimand-and-synthesis-skeptic",
+  "research_question": "Which estimand components and dependencies must an expert reconcile before considering synthesis of two synthetic effects?",
+  "intended_use": "Produce an estimand-alignment ledger and diagnostic questions without calculating or pooling effects.",
+  "referenced_entities": {
+    "study_ids": [
+      "SYN-STUDY-01",
+      "SYN-STUDY-02"
+    ],
+    "dataset_ids": [],
+    "variable_ids": [
+      "SYN:citrate"
+    ],
+    "effect_ids": [
+      "SYN-EFFECT-01",
+      "SYN-EFFECT-02"
+    ]
+  },
+  "provenance": [
+    {
+      "provenance_id": "st-p01",
+      "source_artifact": "synthetic/effect_summaries.json",
+      "record_locator": "$.effects[SYN-EFFECT-01,SYN-EFFECT-02]",
+      "source_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+      "extraction_method": "deterministic synthetic fixture lookup"
+    },
+    {
+      "provenance_id": "st-p02",
+      "source_artifact": "synthetic/upstream_review_statuses.json",
+      "record_locator": "$.statuses[SYN:citrate]",
+      "source_sha256": "4545454545454545454545454545454545454545454545454545454545454545",
+      "extraction_method": "deterministic synthetic fixture lookup"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "st-e01",
+      "dimension": "population",
+      "state": "reported",
+      "detail": "Both effect summaries identify their analyzed synthetic populations.",
+      "provenance_ids": [
+        "st-p01"
+      ]
+    },
+    {
+      "evidence_id": "st-e02",
+      "dimension": "intervention_or_exposure",
+      "state": "reported",
+      "detail": "Both summaries describe endurance-training exposure.",
+      "provenance_ids": [
+        "st-p01"
+      ]
+    },
+    {
+      "evidence_id": "st-e03",
+      "dimension": "comparator",
+      "state": "conflicting",
+      "detail": "One effect contrasts training with control and the other contrasts post-training with baseline.",
+      "provenance_ids": [
+        "st-p01"
+      ]
+    },
+    {
+      "evidence_id": "st-e04",
+      "dimension": "outcome",
+      "state": "reported",
+      "detail": "Both summaries name citrate as the outcome label.",
+      "provenance_ids": [
+        "st-p01"
+      ]
+    },
+    {
+      "evidence_id": "st-e05",
+      "dimension": "timepoint",
+      "state": "conflicting",
+      "detail": "The outcome windows differ between immediate post-training and 24-hour follow-up.",
+      "provenance_ids": [
+        "st-p01"
+      ]
+    },
+    {
+      "evidence_id": "st-e06",
+      "dimension": "effect_scale",
+      "state": "reported",
+      "detail": "One summary reports a log2 fold change and the other a standardized mean difference.",
+      "provenance_ids": [
+        "st-p01"
+      ]
+    },
+    {
+      "evidence_id": "st-e07",
+      "dimension": "effect_orientation",
+      "state": "unresolved",
+      "detail": "The source summaries do not provide a common direction convention.",
+      "provenance_ids": [
+        "st-p01"
+      ]
+    },
+    {
+      "evidence_id": "st-e08",
+      "dimension": "model",
+      "state": "reported",
+      "detail": "Each source names its study-specific regression model.",
+      "provenance_ids": [
+        "st-p01"
+      ]
+    },
+    {
+      "evidence_id": "st-e09",
+      "dimension": "covariates",
+      "state": "conflicting",
+      "detail": "The two study-specific covariate sets differ.",
+      "provenance_ids": [
+        "st-p01"
+      ]
+    },
+    {
+      "evidence_id": "st-e10",
+      "dimension": "repeated_measures_or_clustering",
+      "state": "not_reported",
+      "detail": "Within-participant dependence handling is not reported for one effect.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "st-e11",
+      "dimension": "uncertainty",
+      "state": "reported",
+      "detail": "Both summaries include a standard error.",
+      "provenance_ids": [
+        "st-p01"
+      ]
+    },
+    {
+      "evidence_id": "st-e12",
+      "dimension": "sample_counts",
+      "state": "reported",
+      "detail": "Analyzed sample counts are stated for both effects.",
+      "provenance_ids": [
+        "st-p01"
+      ]
+    },
+    {
+      "evidence_id": "st-e13",
+      "dimension": "missing_data_handling",
+      "state": "not_reported",
+      "detail": "Effect-specific missing-data handling is not reported.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "st-e14",
+      "dimension": "multiplicity",
+      "state": "not_reported",
+      "detail": "Multiplicity adjustment and tested-feature universe are not reported.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "st-e15",
+      "dimension": "dependencies",
+      "state": "unresolved",
+      "detail": "Participant overlap and shared-control dependencies have not been resolved.",
+      "provenance_ids": [
+        "st-p01"
+      ]
+    },
+    {
+      "evidence_id": "st-e16",
+      "dimension": "upstream_mapping_status",
+      "state": "reported",
+      "detail": "The upstream variable mapping remains marked for human review.",
+      "provenance_ids": [
+        "st-p02"
+      ]
+    },
+    {
+      "evidence_id": "st-e17",
+      "dimension": "upstream_assay_status",
+      "state": "reported",
+      "detail": "The assay plan permits only study-specific effect planning and does not authorize synthesis.",
+      "provenance_ids": [
+        "st-p02"
+      ]
+    },
+    {
+      "evidence_id": "st-e18",
+      "dimension": "estimand",
+      "state": "unresolved",
+      "detail": "A common target estimand has not been specified across the two submitted effects.",
+      "provenance_ids": [
+        "st-p01"
+      ]
+    },
+    {
+      "evidence_id": "st-e19",
+      "dimension": "heterogeneity_plan",
+      "state": "not_reported",
+      "detail": "No prespecified heterogeneity assessment plan is reported.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "st-e20",
+      "dimension": "sensitivity_plan",
+      "state": "not_reported",
+      "detail": "No prespecified sensitivity-analysis plan is reported.",
+      "provenance_ids": []
+    }
+  ],
+  "limitations": [
+    {
+      "limitation_id": "st-l01",
+      "description": "Comparator, timepoint, scale, covariate, and dependence evidence is not aligned.",
+      "evidence_ids": [
+        "st-e03",
+        "st-e05",
+        "st-e06",
+        "st-e09",
+        "st-e15"
+      ]
+    }
+  ],
+  "blockers": [
+    {
+      "blocker_id": "st-b01",
+      "description": "Unresolved estimand components and upstream review statuses preclude any automated synthesis action.",
+      "evidence_ids": [
+        "st-e03",
+        "st-e07",
+        "st-e15",
+        "st-e16",
+        "st-e17"
+      ]
+    }
+  ],
+  "human_review_questions": [
+    {
+      "question_id": "st-q01",
+      "question": "What target estimand, direction convention, dependence structure, and upstream adjudications would be required before synthesis is considered?",
+      "evidence_ids": [
+        "st-e03",
+        "st-e07",
+        "st-e10",
+        "st-e15",
+        "st-e16",
+        "st-e17"
+      ]
+    }
+  ],
+  "decision_authority": "advisory_only",
+  "human_adjudication_status": "required",
+  "executable_actions": [],
+  "packet_digest": "7313f901a3bffcf556c8a2806712cc8a0384ecdee127ba6018d8284b447df3b2"
+}

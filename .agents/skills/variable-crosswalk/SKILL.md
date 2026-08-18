@@ -41,3 +41,6 @@ Map source variables to common variables while preventing unsafe name-only harmo
 - Reproducibility: confidence and review status must be regenerated from declared synonym, unit, timing, and modality rules.
 - Critical evidence: distinguish equivalent, related, and weak evidence; do not accept mappings based only on names.
 - Skill quality rubric: pass only if accepted, review-required, and rejected outcomes all have explicit evidence and scores.
+
+# Implementation
+- Deterministic implementation: `src/metabotyping_agentic/harmonization/crosswalk.py`.

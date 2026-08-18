@@ -38,3 +38,6 @@ Define strict human metabolomics inclusion criteria and softer enrichment criter
 - Reproducibility: output must be regenerated from the declared query and deterministic parser rules.
 - Critical evidence: distinguish explicit query terms from inferred complementary terms; do not promote inferred terms into required terms without human review.
 - Skill quality rubric: pass only if required terms, preferred terms, exclusions, validation checks, and review triggers are all present.
+
+# Implementation
+- Deterministic implementation: `src/metabotyping_agentic/discovery/criteria.py`.

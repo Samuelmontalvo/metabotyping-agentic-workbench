@@ -41,3 +41,6 @@ Create auditable metadata cards that preserve source provenance and distinguish 
 - Reproducibility: extraction must be regenerated from declared publication, repository, and variable dictionary inputs.
 - Critical evidence: distinguish missing, not reported, and unknown fields; do not fill gaps with assumptions.
 - Skill quality rubric: pass only if study, dataset, and variable cards each include validation checks and provenance.
+
+# Implementation
+- Deterministic implementations: `src/metabotyping_agentic/extraction/metadata_cards.py` and `src/metabotyping_agentic/extraction/variable_inventory.py`.

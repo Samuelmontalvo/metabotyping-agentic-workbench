@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Recommendation",
+  "type": "object",
+  "required": ["study_id", "recommendation_class", "match_class", "score", "rationale"],
+  "properties": {
+    "study_id": { "type": "string" },
+    "recommendation_class": { "type": "string" },
+    "match_class": { "type": "string" },
+    "score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "rationale": { "type": "string" },
+    "mirage_flags": { "type": "array", "items": { "type": "string" } }
+  }
+}
+

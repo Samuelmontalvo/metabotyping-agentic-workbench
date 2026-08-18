@@ -1,0 +1,634 @@
+[
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "steps_per_day",
+    "gold": {
+      "common_variable": "steps_per_day",
+      "review_status": "requires_human_review"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "steps_per_day",
+      "review_status": "requires_human_review"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-ACTI-MET",
+    "source_variable": "daily_steps",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "mvpa_minutes",
+    "gold": {
+      "common_variable": "mvpa_minutes",
+      "review_status": "requires_human_review"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "mvpa_minutes",
+      "review_status": "requires_human_review"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-ACTI-MET",
+    "source_variable": "mvpa_min",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "fat_mass",
+    "gold": {
+      "common_variable": "fat_mass",
+      "review_status": "requires_human_review"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "fat_mass",
+      "review_status": "requires_human_review"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-ACTI-MET",
+    "source_variable": "total_fat_mass",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "insulin",
+    "gold": {
+      "common_variable": "insulin",
+      "review_status": "accepted"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "insulin",
+      "review_status": "accepted"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-CPET-RICH",
+    "source_variable": "insulin",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "lean_mass",
+    "gold": {
+      "common_variable": "lean_mass",
+      "review_status": "requires_human_review"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "lean_mass",
+      "review_status": "requires_human_review"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-CPET-RICH",
+    "source_variable": "total_lean_mass",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "vo2max",
+    "gold": {
+      "common_variable": "vo2max",
+      "review_status": "requires_human_review"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "vo2max",
+      "review_status": "requires_human_review"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-CPET-RICH",
+    "source_variable": "vo2peak",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "bmi",
+    "gold": {
+      "common_variable": "bmi",
+      "review_status": "requires_human_review"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "bmi",
+      "review_status": "requires_human_review"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-DIET-BODY",
+    "source_variable": "body_mass_index",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "not_mapped",
+    "gold": {
+      "common_variable": "not_mapped",
+      "review_status": "rejected"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "not_mapped",
+      "review_status": "rejected"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-DIET-BODY",
+    "source_variable": "diet_score",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "lean_mass",
+    "gold": {
+      "common_variable": "lean_mass",
+      "review_status": "requires_human_review"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "lean_mass",
+      "review_status": "requires_human_review"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-DIET-BODY",
+    "source_variable": "dxa_lean_mass",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "vo2max",
+    "gold": {
+      "common_variable": "vo2max",
+      "review_status": "requires_human_review"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "vo2max",
+      "review_status": "requires_human_review"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-EXER-NODATA",
+    "source_variable": "peak_vo2",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "not_mapped",
+    "gold": {
+      "common_variable": "not_mapped",
+      "review_status": "rejected"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "not_mapped",
+      "review_status": "rejected"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-MET-NOCODEBOOK",
+    "source_variable": "metab_feature_001",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "age",
+    "gold": {
+      "common_variable": "age",
+      "review_status": "accepted"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "age",
+      "review_status": "accepted"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-METEX-GEN",
+    "source_variable": "age",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "bmi",
+    "gold": {
+      "common_variable": "bmi",
+      "review_status": "accepted"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "bmi",
+      "review_status": "accepted"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-METEX-GEN",
+    "source_variable": "bmi",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "fasting_glucose",
+    "gold": {
+      "common_variable": "fasting_glucose",
+      "review_status": "accepted"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "fasting_glucose",
+      "review_status": "accepted"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-METEX-GEN",
+    "source_variable": "fasting_glucose",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "sex",
+    "gold": {
+      "common_variable": "sex",
+      "review_status": "accepted"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "sex",
+      "review_status": "accepted"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-METEX-GEN",
+    "source_variable": "sex",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "vo2max",
+    "gold": {
+      "common_variable": "vo2max",
+      "review_status": "accepted"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "vo2max",
+      "review_status": "accepted"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-METEX-GEN",
+    "source_variable": "vo2max",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "fat_mass",
+    "gold": {
+      "common_variable": "fat_mass",
+      "review_status": "accepted"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "fat_mass",
+      "review_status": "accepted"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-MOTRPAC-LIKE",
+    "source_variable": "fat_mass",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "lean_mass",
+    "gold": {
+      "common_variable": "lean_mass",
+      "review_status": "accepted"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "lean_mass",
+      "review_status": "accepted"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-MOTRPAC-LIKE",
+    "source_variable": "lean_mass",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "mvpa_minutes",
+    "gold": {
+      "common_variable": "mvpa_minutes",
+      "review_status": "accepted"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "mvpa_minutes",
+      "review_status": "accepted"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-MOTRPAC-LIKE",
+    "source_variable": "mvpa_minutes",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "steps_per_day",
+    "gold": {
+      "common_variable": "steps_per_day",
+      "review_status": "accepted"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "steps_per_day",
+      "review_status": "accepted"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-MOTRPAC-LIKE",
+    "source_variable": "steps_per_day",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "vo2max",
+    "gold": {
+      "common_variable": "vo2max",
+      "review_status": "accepted"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "vo2max",
+      "review_status": "accepted"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-MOTRPAC-LIKE",
+    "source_variable": "vo2max",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "insulin",
+    "gold": {
+      "common_variable": "insulin",
+      "review_status": "requires_human_review"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "insulin",
+      "review_status": "requires_human_review"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-OMICS-GEN",
+    "source_variable": "fasting_insulin",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "fasting_glucose",
+    "gold": {
+      "common_variable": "fasting_glucose",
+      "review_status": "requires_human_review"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "fasting_glucose",
+      "review_status": "requires_human_review"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-OMICS-GEN",
+    "source_variable": "glucose_fasting",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "age",
+    "gold": {
+      "common_variable": "age",
+      "review_status": "requires_human_review"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "age",
+      "review_status": "requires_human_review"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-OMICS-GEN",
+    "source_variable": "participant_age",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "age",
+    "gold": {
+      "common_variable": "age",
+      "review_status": "accepted"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "age",
+      "review_status": "accepted"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-RESTRICTED-META",
+    "source_variable": "age",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": null,
+    "case_type": "mapping",
+    "common_variable": "sex",
+    "gold": {
+      "common_variable": "sex",
+      "review_status": "requires_human_review"
+    },
+    "outcome": "correct",
+    "predicted": {
+      "common_variable": "sex",
+      "review_status": "requires_human_review"
+    },
+    "reason_codes": [],
+    "source_study": "SYN-RESTRICTED-META",
+    "source_variable": "gender",
+    "within_tolerance": null
+  },
+  {
+    "absolute_difference": 0.042,
+    "case_type": "quality",
+    "common_variable": null,
+    "gold": {
+      "overall_score": 0.73
+    },
+    "outcome": "correct",
+    "predicted": {
+      "overall_score": 0.772
+    },
+    "reason_codes": [],
+    "source_study": "SYN-ACTI-MET",
+    "source_variable": null,
+    "within_tolerance": true
+  },
+  {
+    "absolute_difference": 0.488,
+    "case_type": "quality",
+    "common_variable": null,
+    "gold": {
+      "overall_score": 0.2
+    },
+    "outcome": "quality_score_outside_tolerance",
+    "predicted": {
+      "overall_score": 0.688
+    },
+    "reason_codes": [
+      "quality_score_outside_tolerance"
+    ],
+    "source_study": "SYN-ANIMAL-MET",
+    "source_variable": null,
+    "within_tolerance": false
+  },
+  {
+    "absolute_difference": 0.038,
+    "case_type": "quality",
+    "common_variable": null,
+    "gold": {
+      "overall_score": 0.78
+    },
+    "outcome": "correct",
+    "predicted": {
+      "overall_score": 0.818
+    },
+    "reason_codes": [],
+    "source_study": "SYN-CPET-RICH",
+    "source_variable": null,
+    "within_tolerance": true
+  },
+  {
+    "absolute_difference": 0.0,
+    "case_type": "quality",
+    "common_variable": null,
+    "gold": {
+      "overall_score": 0.66
+    },
+    "outcome": "correct",
+    "predicted": {
+      "overall_score": 0.66
+    },
+    "reason_codes": [],
+    "source_study": "SYN-DIET-BODY",
+    "source_variable": null,
+    "within_tolerance": true
+  },
+  {
+    "absolute_difference": 0.154,
+    "case_type": "quality",
+    "common_variable": null,
+    "gold": {
+      "overall_score": 0.33
+    },
+    "outcome": "quality_score_outside_tolerance",
+    "predicted": {
+      "overall_score": 0.484
+    },
+    "reason_codes": [
+      "quality_score_outside_tolerance"
+    ],
+    "source_study": "SYN-EXER-NODATA",
+    "source_variable": null,
+    "within_tolerance": false
+  },
+  {
+    "absolute_difference": 0.096,
+    "case_type": "quality",
+    "common_variable": null,
+    "gold": {
+      "overall_score": 0.45
+    },
+    "outcome": "correct",
+    "predicted": {
+      "overall_score": 0.546
+    },
+    "reason_codes": [],
+    "source_study": "SYN-MET-NOCODEBOOK",
+    "source_variable": null,
+    "within_tolerance": true
+  },
+  {
+    "absolute_difference": 0.025,
+    "case_type": "quality",
+    "common_variable": null,
+    "gold": {
+      "overall_score": 0.86
+    },
+    "outcome": "correct",
+    "predicted": {
+      "overall_score": 0.885
+    },
+    "reason_codes": [],
+    "source_study": "SYN-METEX-GEN",
+    "source_variable": null,
+    "within_tolerance": true
+  },
+  {
+    "absolute_difference": 0.03,
+    "case_type": "quality",
+    "common_variable": null,
+    "gold": {
+      "overall_score": 0.93
+    },
+    "outcome": "correct",
+    "predicted": {
+      "overall_score": 0.9
+    },
+    "reason_codes": [],
+    "source_study": "SYN-MOTRPAC-LIKE",
+    "source_variable": null,
+    "within_tolerance": true
+  },
+  {
+    "absolute_difference": 0.011,
+    "case_type": "quality",
+    "common_variable": null,
+    "gold": {
+      "overall_score": 0.64
+    },
+    "outcome": "correct",
+    "predicted": {
+      "overall_score": 0.629
+    },
+    "reason_codes": [],
+    "source_study": "SYN-OMICS-GEN",
+    "source_variable": null,
+    "within_tolerance": true
+  },
+  {
+    "absolute_difference": 0.026,
+    "case_type": "quality",
+    "common_variable": null,
+    "gold": {
+      "overall_score": 0.58
+    },
+    "outcome": "correct",
+    "predicted": {
+      "overall_score": 0.606
+    },
+    "reason_codes": [],
+    "source_study": "SYN-RESTRICTED-META",
+    "source_variable": null,
+    "within_tolerance": true
+  }
+]

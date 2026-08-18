@@ -1,0 +1,385 @@
+#!/usr/bin/env python3
+"""Side-by-side volcano comparison: MW human exercise study vs MoTrPAC.
+
+LEFT  : Metabolomics Workbench ST004303 (human plasma, acute exercise).
+        Contrast = post vs pre (Time 4P vs 1P), paired within subject, both
+        intensity arms (MIE + SIE) pooled. We compute log2 fold-change and a
+        paired t-test p-value per named metabolite from the raw abundance matrix.
+RIGHT : MoTrPAC HUMAN (human-precovid-sed-adu) plasma acute-exercise differential
+        metabolomics, downloaded from the MoTrPAC DataHub via signed URLs (the
+        externally-released v1.3 "da" tables across 6 untargeted + 5 targeted
+        metabolomics platforms). Contrast = endurance, late post (3.5-4 hr) vs
+        pre-exercise. logFC / p_value are the consortium's precomputed DREAM-model
+        differential stats.
+
+Both panels are therefore HUMAN PLASMA acute-exercise post-vs-pre comparisons.
+
+This is the only networked entry point for this analysis (Live Ingestion Mode):
+network is confined here, outputs land in data/live/ and reports_live/, and
+provenance is recorded. The offline pilot is untouched.
+
+CAVEATS (also stamped on the figure): different cohorts, platforms and statistical
+models. Human ST004303 units are arbitrary MS intensities with a paired t-test we
+compute here; MoTrPAC stats are mixed-model (DREAM) logFC/p from targeted+untargeted
+panels. A rat-training comparison (pass1b06) remains available via --source rat.
+
+Usage:
+    .venv/bin/python scripts/volcano_compare.py              # human vs human (default)
+    .venv/bin/python scripts/volcano_compare.py --source rat # human vs MoTrPAC rat training
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import urllib.parse
+import urllib.request
+from datetime import datetime, timezone
+from pathlib import Path
+
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from scipy import stats
+
+MW_REST = "https://www.metabolomicsworkbench.org/rest/study/study_id/{sid}/{scope}"
+MOTRPAC_SEARCH = "https://search.motrpac-data.org/api/search_public"
+MOTRPAC_SIGNEDURL = "https://services.motrpac-data.org/v1/signedurl"
+MOTRPAC_BUCKET = "motrpac-data-hub"
+# Public API-gateway key baked into the DataHub web app (not a secret).
+MOTRPAC_KEY = "AIzaSyBwfwfqDmVq6PG7BTlv7bPFOsbngGP7BN8"
+
+HUMAN_SID = "ST004303"
+HUMAN_PRE, HUMAN_POST = "1P", "4P"           # pre / post timepoints
+
+# MoTrPAC HUMAN plasma (T02) acute-exercise differential-analysis tables (released v1.3).
+MOTRPAC_HUMAN_OBJECTS = [
+    "analysis/human-precovid-sed-adu/v1.3/metabolomics-targeted/da/human-precovid-sed-adu_t02-plasma_metab-t-amines_da_dream-acute_v1.3.txt",
+    "analysis/human-precovid-sed-adu/v1.3/metabolomics-targeted/da/human-precovid-sed-adu_t02-plasma_metab-t-conv_da_dream-acute_v1.3.txt",
+    "analysis/human-precovid-sed-adu/v1.3/metabolomics-targeted/da/human-precovid-sed-adu_t02-plasma_metab-t-imm-crt_da_dream-acute_v1.3.txt",
+    "analysis/human-precovid-sed-adu/v1.3/metabolomics-targeted/da/human-precovid-sed-adu_t02-plasma_metab-t-oxylipneg_da_dream-acute_v1.3.txt",
+    "analysis/human-precovid-sed-adu/v1.3/metabolomics-targeted/da/human-precovid-sed-adu_t02-plasma_metab-t-tca_da_dream-acute_v1.3.txt",
+    "analysis/human-precovid-sed-adu/v1.3/metabolomics-untargeted/da/human-precovid-sed-adu_t02-plasma_metab-u-hilicpos_da_dream-acute_v1.3.txt",
+    "analysis/human-precovid-sed-adu/v1.3/metabolomics-untargeted/da/human-precovid-sed-adu_t02-plasma_metab-u-ionpneg_da_dream-acute_v1.3.txt",
+    "analysis/human-precovid-sed-adu/v1.3/metabolomics-untargeted/da/human-precovid-sed-adu_t02-plasma_metab-u-lrpneg_da_dream-acute_v1.3.txt",
+    "analysis/human-precovid-sed-adu/v1.3/metabolomics-untargeted/da/human-precovid-sed-adu_t02-plasma_metab-u-lrppos_da_dream-acute_v1.3.txt",
+    "analysis/human-precovid-sed-adu/v1.3/metabolomics-untargeted/da/human-precovid-sed-adu_t02-plasma_metab-u-rpneg_da_dream-acute_v1.3.txt",
+    "analysis/human-precovid-sed-adu/v1.3/metabolomics-untargeted/da/human-precovid-sed-adu_t02-plasma_metab-u-rppos_da_dream-acute_v1.3.txt",
+]
+# Acute-exercise contrast: endurance, late post (3.5-4 hr) vs pre (matches MW late timepoint).
+MOTRPAC_HUMAN_CONTRAST = "group_timepointADUEndur.post_3.5_4_hr - group_timepointADUEndur.pre_exercise"
+
+# Rat-training fallback (--source rat)
+MOTRPAC_RAT_STUDY = "pass1b06"
+MOTRPAC_RAT_TISSUE = "plasma"
+MOTRPAC_RAT_GROUP = "8w"
+
+P_THRESH = 0.05
+LOG2FC_THRESH = 1.0
+TOP_N_LABELS = 8
+TIMEOUT = 90
+
+OUT_DATA = Path("data/live")
+OUT_REPORTS = Path("reports_live")
+PROVENANCE = []
+
+
+# --------------------------------------------------------------------------- #
+# HTTP helpers (mirrors scripts/fetch_live_records.py style)
+# --------------------------------------------------------------------------- #
+def _get(url: str):
+    PROVENANCE.append({"method": "GET", "url": url})
+    with urllib.request.urlopen(url, timeout=TIMEOUT) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def _post(url: str, payload: dict):
+    PROVENANCE.append({"method": "POST", "url": url, "body": payload})
+    data = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def _signed_url(obj: str) -> str:
+    """Resolve a MoTrPAC DataHub object path to a temporary signed download URL."""
+    url = (f"{MOTRPAC_SIGNEDURL}?bucket={MOTRPAC_BUCKET}"
+           f"&object={urllib.parse.quote(obj)}&key={MOTRPAC_KEY}")
+    PROVENANCE.append({"method": "GET", "url": f"{MOTRPAC_SIGNEDURL}?bucket={MOTRPAC_BUCKET}&object={obj}&key=<key>"})
+    with urllib.request.urlopen(url, timeout=TIMEOUT) as resp:
+        return json.loads(resp.read().decode("utf-8"))["url"]
+
+
+def _bh_fdr(pvals: np.ndarray) -> np.ndarray:
+    """Benjamini-Hochberg FDR. NaN-safe."""
+    p = np.asarray(pvals, dtype=float)
+    out = np.full_like(p, np.nan)
+    mask = ~np.isnan(p)
+    pm = p[mask]
+    n = pm.size
+    if n == 0:
+        return out
+    order = np.argsort(pm)
+    ranked = pm[order]
+    adj = ranked * n / (np.arange(n) + 1)
+    adj = np.minimum.accumulate(adj[::-1])[::-1]
+    adj = np.clip(adj, 0, 1)
+    res = np.empty(n)
+    res[order] = adj
+    out[mask] = res
+    return out
+
+
+# --------------------------------------------------------------------------- #
+# Human side — compute volcano from raw MW abundance matrix
+# --------------------------------------------------------------------------- #
+def _parse_factors(factors_json: dict) -> dict:
+    """sample_name -> {Subject, Treatment, Time, source}."""
+    meta = {}
+    for v in factors_json.values():
+        name = v.get("local_sample_id")
+        parts = {}
+        for chunk in (v.get("factors") or "").split("|"):
+            chunk = chunk.strip()
+            if ":" in chunk:
+                k, val = chunk.split(":", 1)
+                parts[k.strip()] = val.strip()
+        meta[name] = {
+            "subject": parts.get("Subject", ""),
+            "treatment": parts.get("Treatment", ""),
+            "time": parts.get("Time", ""),
+            "source": (v.get("sample_source") or "").strip(),
+        }
+    return meta
+
+
+def compute_human_volcano() -> pd.DataFrame:
+    print(f"[human] fetching MW {HUMAN_SID} data + factors ...")
+    data_json = _get(MW_REST.format(sid=HUMAN_SID, scope="data"))
+    factors_json = _get(MW_REST.format(sid=HUMAN_SID, scope="factors"))
+    meta = _parse_factors(factors_json)
+
+    # Long -> wide: rows = metabolite, cols = sample
+    records = {}
+    refmet = {}
+    for entry in data_json.values():
+        name = entry.get("metabolite_name")
+        refmet[name] = entry.get("refmet_name") or name
+        vals = {}
+        for sample, raw in (entry.get("DATA") or {}).items():
+            try:
+                vals[sample] = float(raw)
+            except (TypeError, ValueError):
+                vals[sample] = np.nan
+        records[name] = vals
+    mat = pd.DataFrame(records).T  # metabolite x sample
+
+    # Assign samples to pre/post (real biospecimen samples only)
+    pre_by_subj, post_by_subj = {}, {}
+    for sample, m in meta.items():
+        if m["source"].lower() != "blood":
+            continue
+        if m["time"] == HUMAN_PRE:
+            pre_by_subj[m["subject"]] = sample
+        elif m["time"] == HUMAN_POST:
+            post_by_subj[m["subject"]] = sample
+    paired_subjects = sorted(set(pre_by_subj) & set(post_by_subj))
+    pre_samples = [pre_by_subj[s] for s in paired_subjects]
+    post_samples = [post_by_subj[s] for s in paired_subjects]
+    print(f"[human] paired subjects (post {HUMAN_POST} vs pre {HUMAN_PRE}): {len(paired_subjects)}")
+
+    rows = []
+    for met in mat.index:
+        pre = mat.loc[met, pre_samples].astype(float).to_numpy()
+        post = mat.loc[met, post_samples].astype(float).to_numpy()
+        ok = ~np.isnan(pre) & ~np.isnan(post) & (pre > 0) & (post > 0)
+        if ok.sum() < 3:
+            continue
+        lpre, lpost = np.log2(pre[ok]), np.log2(post[ok])
+        log2fc = float(np.mean(lpost - lpre))
+        try:
+            _, pval = stats.ttest_rel(lpost, lpre)
+        except Exception:
+            pval = np.nan
+        rows.append((met, refmet.get(met, met), log2fc, float(pval)))
+
+    df = pd.DataFrame(rows, columns=["metabolite", "refmet_name", "log2fc", "p_value"])
+    df["fdr"] = _bh_fdr(df["p_value"].to_numpy())
+    df["neg_log10_p"] = -np.log10(df["p_value"].replace(0, np.nan))
+    print(f"[human] metabolites with usable paired data: {len(df)}")
+    return df
+
+
+# --------------------------------------------------------------------------- #
+# MoTrPAC side — fetch precomputed differential stats (pluggable)
+# --------------------------------------------------------------------------- #
+def fetch_motrpac_human_volcano() -> pd.DataFrame:
+    """MoTrPAC HUMAN plasma acute-exercise DA: download released v1.3 da tables
+    across all metabolomics platforms, keep the endurance late-post vs pre contrast."""
+    print(f"[motrpac-human] downloading {len(MOTRPAC_HUMAN_OBJECTS)} plasma DA tables via signed URLs ...")
+    frames = []
+    for obj in MOTRPAC_HUMAN_OBJECTS:
+        platform = obj.split("_t02-plasma_")[1].split("_da")[0]  # e.g. metab-u-rppos
+        url = _signed_url(obj)
+        df = pd.read_csv(url, sep="\t")
+        df = df[df["contrast"] == MOTRPAC_HUMAN_CONTRAST].copy()
+        df["platform"] = platform
+        frames.append(df)
+        print(f"    {platform:18} features={len(df)}")
+    allp = pd.concat(frames, ignore_index=True)
+    for col in ("logFC", "p_value", "adj_p_value"):
+        allp[col] = pd.to_numeric(allp[col], errors="coerce")
+    # feature_id can repeat across platforms; disambiguate by appending platform suffix.
+    label = allp["feature_id"].astype(str)
+    out = pd.DataFrame({
+        "metabolite": (label + " [" + allp["platform"] + "]").to_numpy(),
+        "refmet_name": label.to_numpy(),
+        "log2fc": allp["logFC"].to_numpy(),
+        "p_value": allp["p_value"].to_numpy(),
+        "fdr": allp["adj_p_value"].to_numpy(),
+        "platform": allp["platform"].to_numpy(),
+    })
+    out["neg_log10_p"] = -np.log10(out["p_value"].replace(0, np.nan))
+    out = out.dropna(subset=["log2fc", "p_value"]).reset_index(drop=True)
+    print(f"[motrpac-human] features (endurance post 3.5-4hr vs pre): {len(out)}")
+    return out
+
+
+def fetch_motrpac_rat_volcano(tissue: str = MOTRPAC_RAT_TISSUE, group: str = MOTRPAC_RAT_GROUP) -> pd.DataFrame:
+    print(f"[motrpac-rat] querying search_public study={MOTRPAC_RAT_STUDY} omics=metabolomics ...")
+    resp = _post(MOTRPAC_SEARCH, {"study": MOTRPAC_RAT_STUDY, "omics": "metabolomics", "size": 100000})
+    blk = resp["result"]["metabolomics_timewise"]
+    df = pd.DataFrame(blk["data"], columns=blk["headers"])
+    df = df[(df["tissue"] == tissue) & (df["comparison_group"] == group)].copy()
+    for col in ("logFC", "p_value", "adj_p_value"):
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+    name = df["refmet_name"].where(df["refmet_name"].astype(str).str.len() > 0, df["metabolite"])
+    out = pd.DataFrame({
+        "metabolite": df["metabolite"].to_numpy(),
+        "refmet_name": name.to_numpy(),
+        "log2fc": df["logFC"].to_numpy(),
+        "p_value": df["p_value"].to_numpy(),
+        "fdr": df["adj_p_value"].to_numpy(),
+    })
+    out["neg_log10_p"] = -np.log10(out["p_value"].replace(0, np.nan))
+    out = out.dropna(subset=["log2fc", "p_value"]).reset_index(drop=True)
+    print(f"[motrpac-rat] {tissue} / {group} differential rows: {len(out)}")
+    return out
+
+
+# --------------------------------------------------------------------------- #
+# Plot
+# --------------------------------------------------------------------------- #
+def _draw(ax, df, title):
+    x = df["log2fc"].to_numpy()
+    y = df["neg_log10_p"].to_numpy()
+    sig = (df["p_value"] < P_THRESH) & (df["log2fc"].abs() > LOG2FC_THRESH)
+    up = sig & (df["log2fc"] > 0)
+    down = sig & (df["log2fc"] < 0)
+    ns = ~sig
+
+    ax.scatter(x[ns], y[ns], s=10, c="#b8b8b8", alpha=0.5, linewidths=0, label="ns")
+    ax.scatter(x[up], y[up], s=14, c="#d62728", alpha=0.8, linewidths=0, label="up")
+    ax.scatter(x[down], y[down], s=14, c="#1f77b4", alpha=0.8, linewidths=0, label="down")
+
+    ax.axhline(-math.log10(P_THRESH), ls="--", lw=0.8, c="grey")
+    ax.axvline(LOG2FC_THRESH, ls="--", lw=0.8, c="grey")
+    ax.axvline(-LOG2FC_THRESH, ls="--", lw=0.8, c="grey")
+
+    # label top hits by significance among the significant set
+    labelled = df[sig].nlargest(TOP_N_LABELS, "neg_log10_p")
+    for _, r in labelled.iterrows():
+        txt = str(r["refmet_name"])[:22]
+        ax.annotate(txt, (r["log2fc"], r["neg_log10_p"]), fontsize=6,
+                    xytext=(3, 3), textcoords="offset points", color="#333")
+
+    ax.set_title(title, fontsize=10)
+    ax.set_xlabel("log2 fold-change")
+    ax.set_ylabel("-log10 p-value")
+    ax.legend(fontsize=7, loc="upper right", framealpha=0.6)
+    n_sig = int(sig.sum())
+    ax.text(0.02, 0.97, f"n={len(df)} | sig={n_sig}", transform=ax.transAxes,
+            fontsize=7, va="top", color="#444")
+
+
+def plot_side_by_side(human_df, motrpac_df, path_png: Path, right_title: str, suptitle: str, caption: str):
+    fig, axes = plt.subplots(1, 2, figsize=(13, 6))
+    _draw(axes[0], human_df,
+          f"MW {HUMAN_SID} — human plasma\npost vs pre ({HUMAN_POST} vs {HUMAN_PRE}), paired, MIE+SIE")
+    _draw(axes[1], motrpac_df, right_title)
+    fig.suptitle(suptitle, fontsize=12, fontweight="bold")
+    fig.text(0.5, 0.005, caption, ha="center", fontsize=7, color="#555", wrap=True)
+    fig.tight_layout(rect=(0, 0.04, 1, 0.95))
+    fig.savefig(path_png, dpi=150)
+    fig.savefig(path_png.with_suffix(".svg"))
+    print(f"[plot] wrote {path_png} (+ .svg)")
+
+
+# --------------------------------------------------------------------------- #
+def main():
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--source", choices=["human", "rat"], default="human",
+                    help="MoTrPAC comparison side: human acute exercise (default) or rat training.")
+    args = ap.parse_args()
+
+    OUT_DATA.mkdir(parents=True, exist_ok=True)
+    OUT_REPORTS.mkdir(parents=True, exist_ok=True)
+
+    human = compute_human_volcano()
+
+    if args.source == "human":
+        motrpac = fetch_motrpac_human_volcano()
+        right_title = "MoTrPAC HUMAN plasma (precovid-sed-adu)\nendurance, post 3.5-4hr vs pre"
+        suptitle = "Acute-exercise plasma metabolome: MW ST004303 vs MoTrPAC human"
+        caption = ("Both panels: HUMAN plasma, acute exercise, post vs pre. Different cohorts/platforms/"
+                   "models — MW: paired t-test on arbitrary MS intensities (266 named metabolites); "
+                   "MoTrPAC: DREAM mixed-model logFC/p across 6 untargeted + 5 targeted plasma panels. "
+                   f"Significance: p<{P_THRESH} & |log2FC|>{LOG2FC_THRESH}.")
+        motrpac_csv = OUT_DATA / "volcano_motrpac_human_plasma_endur_post.csv"
+        label_right = "MoTrPAC human plasma endur post"
+    else:
+        motrpac = fetch_motrpac_rat_volcano()
+        right_title = (f"MoTrPAC {MOTRPAC_RAT_STUDY} — RAT plasma\n"
+                       f"{MOTRPAC_RAT_GROUP} training vs sedentary control")
+        suptitle = "Exercise-response metabolome: MW human acute vs MoTrPAC rat training"
+        caption = ("CAVEAT: cross-species (human acute exercise vs rat training adaptation). "
+                   "MW: paired t-test on arbitrary MS intensities; MoTrPAC: consortium precomputed "
+                   f"timewise stats. Significance: p<{P_THRESH} & |log2FC|>{LOG2FC_THRESH}. Not a replication.")
+        motrpac_csv = OUT_DATA / f"volcano_motrpac_{MOTRPAC_RAT_STUDY}_{MOTRPAC_RAT_TISSUE}_{MOTRPAC_RAT_GROUP}.csv"
+        label_right = f"MoTrPAC rat {MOTRPAC_RAT_GROUP}"
+
+    human_csv = OUT_DATA / "volcano_human_ST004303.csv"
+    human.sort_values("p_value").to_csv(human_csv, index=False)
+    motrpac.sort_values("p_value").to_csv(motrpac_csv, index=False)
+    print(f"[csv] {human_csv}\n[csv] {motrpac_csv}")
+
+    png = OUT_REPORTS / (f"volcano_human_vs_motrpac_{args.source}.png")
+    plot_side_by_side(human, motrpac, png, right_title, suptitle, caption)
+
+    (OUT_DATA / "volcano_provenance.json").write_text(json.dumps({
+        "generated_utc": datetime.now(timezone.utc).isoformat(),
+        "source_mode": args.source,
+        "human_mw": {"study": HUMAN_SID, "contrast": f"{HUMAN_POST} vs {HUMAN_PRE}",
+                     "stat": "paired t-test on log2 abundance", "n_metabolites": int(len(human))},
+        "motrpac": {"mode": args.source, "n_metabolites": int(len(motrpac)),
+                    "human_contrast": MOTRPAC_HUMAN_CONTRAST if args.source == "human" else None},
+        "thresholds": {"p": P_THRESH, "abs_log2fc": LOG2FC_THRESH},
+        "requests": PROVENANCE,
+    }, indent=2))
+
+    def _summ(df, label):
+        sig = df[(df["p_value"] < P_THRESH) & (df["log2fc"].abs() > LOG2FC_THRESH)]
+        print(f"\n[{label}] {len(df)} metabolites | {len(sig)} significant")
+        for _, r in sig.nlargest(6, "neg_log10_p").iterrows():
+            print(f"    {str(r['refmet_name'])[:34]:34} log2fc={r['log2fc']:+.2f} p={r['p_value']:.2e}")
+
+    _summ(human, "MW human ST004303")
+    _summ(motrpac, label_right)
+    print("\n[done] figure ->", png)
+
+
+if __name__ == "__main__":
+    main()

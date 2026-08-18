@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StudyCard",
+  "type": "object",
+  "required": ["study_id", "title", "human", "modalities", "repository_accession", "match_class"],
+  "properties": {
+    "study_id": { "type": "string" },
+    "title": { "type": "string" },
+    "human": { "type": "boolean" },
+    "modalities": { "type": "array", "items": { "type": "string" } },
+    "repository_accession": { "type": "string" },
+    "repository_accessions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "match_class": { "type": "string" },
+    "mirage_flags": { "type": "array", "items": { "type": "string" } },
+    "provenance": { "type": "object" },
+    "notes": { "type": "string" }
+  }
+}

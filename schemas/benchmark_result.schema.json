@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BenchmarkResult",
+  "type": "object",
+  "required": ["metric_name", "value", "details"],
+  "properties": {
+    "metric_name": {
+      "type": "string",
+      "enum": [
+        "candidate_precision",
+        "candidate_recall",
+        "candidate_f1",
+        "auto_accept_precision",
+        "auto_accept_recall",
+        "unsafe_auto_accept_rate",
+        "review_capture_rate",
+        "review_status_accuracy",
+        "quality_score_agreement_within_0.15"
+      ]
+    },
+    "value": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "details": {
+      "type": "object",
+      "required": [
+        "numerator",
+        "denominator",
+        "definition",
+        "applicability",
+        "undefined_reason",
+        "wilson_95_interval"
+      ],
+      "properties": {
+        "numerator": { "type": "integer", "minimum": 0 },
+        "denominator": { "type": ["integer", "null"], "minimum": 1 },
+        "definition": { "type": "string", "minLength": 1 },
+        "applicability": {
+          "type": "string",
+          "enum": ["applicable", "not_applicable"]
+        },
+        "undefined_reason": { "type": ["string", "null"] },
+        "wilson_95_interval": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "required": ["lower", "upper"],
+              "properties": {
+                "lower": { "type": "number", "minimum": 0, "maximum": 1 },
+                "upper": { "type": "number", "minimum": 0, "maximum": 1 }
+              },
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "value": { "type": "null" }
+        },
+        "required": ["value"]
+      },
+      "then": {
+        "properties": {
+          "details": {
+            "properties": {
+              "denominator": { "type": "null" },
+              "applicability": { "const": "not_applicable" },
+              "undefined_reason": { "type": "string", "minLength": 1 },
+              "wilson_95_interval": { "type": "null" }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "details": {
+            "properties": {
+              "denominator": { "type": "integer", "minimum": 1 },
+              "applicability": { "const": "applicable" },
+              "undefined_reason": { "type": "null" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "metric_name": { "const": "candidate_f1" }
+        },
+        "required": ["metric_name"]
+      },
+      "then": {
+        "properties": {
+          "details": {
+            "properties": {
+              "wilson_95_interval": { "type": "null" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "metric_name": {
+            "not": { "const": "candidate_f1" }
+          },
+          "value": { "type": "number" }
+        },
+        "required": ["metric_name", "value"]
+      },
+      "then": {
+        "properties": {
+          "details": {
+            "properties": {
+              "wilson_95_interval": { "type": "object" }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

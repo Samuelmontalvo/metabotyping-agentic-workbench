@@ -38,3 +38,6 @@ Prioritize direct matches, complementary studies, enrichment candidates, mirages
 - Reproducibility: priority ordering must be regenerated from declared recommendation scores and review rules.
 - Critical evidence: distinguish direct matches from enrichment candidates; do not let high scores suppress mirage warnings.
 - Skill quality rubric: pass only if each recommendation includes class, score, rationale, missing evidence, and review triggers.
+
+# Implementation
+- Deterministic implementation: `src/metabotyping_agentic/discovery/recommender.py`.

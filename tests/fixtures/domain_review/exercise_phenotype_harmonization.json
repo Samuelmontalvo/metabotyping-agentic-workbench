@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0.0",
+  "contract_version": "1.0.0",
+  "packet_id": "synthetic-exercise-phenotype-review-001",
+  "scope_version": "1.0.0",
+  "role": "exercise-phenotype-harmonization-reviewer",
+  "research_question": "Do the submitted synthetic exercise variables describe sufficiently documented constructs for expert mapping review?",
+  "intended_use": "Surface construct and protocol differences without accepting a mapping or transform.",
+  "referenced_entities": {
+    "study_ids": [
+      "SYN-STUDY-01",
+      "SYN-STUDY-02"
+    ],
+    "dataset_ids": [],
+    "variable_ids": [
+      "SYN-STUDY-01:vo2max",
+      "SYN-STUDY-02:vo2peak"
+    ],
+    "effect_ids": []
+  },
+  "provenance": [
+    {
+      "provenance_id": "ex-p01",
+      "source_artifact": "synthetic/exercise_codebooks.json",
+      "record_locator": "$.variables[vo2max,vo2peak]",
+      "source_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "extraction_method": "deterministic synthetic fixture lookup"
+    },
+    {
+      "provenance_id": "ex-p02",
+      "source_artifact": "synthetic/cpet_protocols.json",
+      "record_locator": "$.protocols[SYN-STUDY-01]",
+      "source_sha256": "2323232323232323232323232323232323232323232323232323232323232323",
+      "extraction_method": "deterministic synthetic fixture lookup"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ex-e01",
+      "dimension": "construct",
+      "state": "conflicting",
+      "detail": "One source labels VO₂max while the other labels VO₂peak; the endpoint labels are not interchangeable evidence.",
+      "provenance_ids": [
+        "ex-p01"
+      ]
+    },
+    {
+      "evidence_id": "ex-e02",
+      "dimension": "codebook_definition",
+      "state": "reported",
+      "detail": "Both source-variable labels and brief definitions are present in the synthetic codebook.",
+      "provenance_ids": [
+        "ex-p01"
+      ]
+    },
+    {
+      "evidence_id": "ex-e03",
+      "dimension": "protocol",
+      "state": "unresolved",
+      "detail": "A graded treadmill protocol is available for only one study.",
+      "provenance_ids": [
+        "ex-p02"
+      ]
+    },
+    {
+      "evidence_id": "ex-e04",
+      "dimension": "exercise_mode",
+      "state": "reported",
+      "detail": "The available protocol uses treadmill exercise.",
+      "provenance_ids": [
+        "ex-p02"
+      ]
+    },
+    {
+      "evidence_id": "ex-e05",
+      "dimension": "device_analyzer_and_calibration",
+      "state": "not_reported",
+      "detail": "Metabolic-cart make, model, and calibration evidence are not reported.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "ex-e06",
+      "dimension": "endpoint",
+      "state": "not_available",
+      "detail": "Endpoint and maximality criteria are unavailable for the VO₂peak variable.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "ex-e07",
+      "dimension": "unit",
+      "state": "reported",
+      "detail": "Both variables use mL/kg/min.",
+      "provenance_ids": [
+        "ex-p01"
+      ]
+    },
+    {
+      "evidence_id": "ex-e08",
+      "dimension": "derivation_rules",
+      "state": "not_reported",
+      "detail": "Smoothing, averaging, and selection rules are not reported.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "ex-e09",
+      "dimension": "assessment_timing",
+      "state": "reported",
+      "detail": "Both variables are labeled as baseline assessments.",
+      "provenance_ids": [
+        "ex-p01"
+      ]
+    },
+    {
+      "evidence_id": "ex-e10",
+      "dimension": "actigraphy_processing",
+      "state": "not_applicable",
+      "detail": "Wear-time and cut-point rules do not apply to the submitted laboratory CPET variables.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "ex-e11",
+      "dimension": "repeated_trial_handling",
+      "state": "not_reported",
+      "detail": "Repeat-test availability and trial-selection rules are not reported.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "ex-e12",
+      "dimension": "maximality_criteria",
+      "state": "not_available",
+      "detail": "Objective and subjective maximality criteria are unavailable for the VO₂peak variable.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "ex-e13",
+      "dimension": "normalization_basis",
+      "state": "reported",
+      "detail": "The codebook states body-mass normalization for both variables.",
+      "provenance_ids": [
+        "ex-p01"
+      ]
+    },
+    {
+      "evidence_id": "ex-e14",
+      "dimension": "training_status",
+      "state": "not_reported",
+      "detail": "Participant training status at assessment is not reported.",
+      "provenance_ids": []
+    }
+  ],
+  "limitations": [
+    {
+      "limitation_id": "ex-l01",
+      "description": "Protocol and endpoint evidence is asymmetric across the two source variables.",
+      "evidence_ids": [
+        "ex-e03",
+        "ex-e06"
+      ]
+    }
+  ],
+  "blockers": [
+    {
+      "blocker_id": "ex-b01",
+      "description": "The submitted evidence does not justify collapsing VO₂max and VO₂peak.",
+      "evidence_ids": [
+        "ex-e01",
+        "ex-e06"
+      ]
+    }
+  ],
+  "human_review_questions": [
+    {
+      "question_id": "ex-q01",
+      "question": "What endpoint, maximality, and derivation evidence distinguishes the two reported oxygen-uptake constructs?",
+      "evidence_ids": [
+        "ex-e01",
+        "ex-e06",
+        "ex-e08"
+      ]
+    }
+  ],
+  "decision_authority": "advisory_only",
+  "human_adjudication_status": "required",
+  "executable_actions": [],
+  "packet_digest": "5f90472b9bc81b89be625d75854bcfef4e6f8c3b6e684e429e3ddacb5ecf1eee"
+}

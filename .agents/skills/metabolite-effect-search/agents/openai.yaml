@@ -1,4 +1,4 @@
 interface:
   display_name: "Metabolite Effect Search"
-  short_description: "Find MW and MoTrPAC effects for metabolites or metabolite classes."
-  default_prompt: "Find all available MW and MoTrPAC reported effects for this metabolite, class, superclass, or subclass, preserving provenance and flagging uncertain matches."
+  short_description: "Search effects and RefMet enrichment."
+  default_prompt: "Use $metabolite-effect-search to find row-level effects or RefMet super_class/main_class/sub_class enrichment while preserving provenance."

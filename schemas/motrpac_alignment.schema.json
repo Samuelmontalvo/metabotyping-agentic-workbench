@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MoTrPACAlignment",
+  "type": "object",
+  "required": ["study_id", "score", "tier", "met_criteria", "missing_elements"],
+  "properties": {
+    "study_id": { "type": "string" },
+    "score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "tier": { "type": "string", "enum": ["high", "moderate", "low", "not_feasible"] },
+    "met_criteria": { "type": "array", "items": { "type": "string" } },
+    "missing_elements": { "type": "array", "items": { "type": "string" } },
+    "rationale": { "type": "string" }
+  }
+}
+

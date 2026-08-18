@@ -39,3 +39,6 @@ Produce transparent 0-1 quality subscores and an overall score for candidate dat
 - Reproducibility: subscores and overall score must be regenerated from declared weights and metadata cards.
 - Critical evidence: distinguish absent modality, documented absence, and missing evidence; do not over-penalize restricted but well-described metadata.
 - Skill quality rubric: pass only if every subscore has transparent inputs, weights, rationale, and bounded 0-1 values.
+
+# Implementation
+- Deterministic implementation: `src/metabotyping_agentic/evaluation/quality_scoring.py`.

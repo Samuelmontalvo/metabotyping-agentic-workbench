@@ -1,0 +1,35 @@
+.DS_Store
+*.Rhistory
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+data/extracted/*
+data/review/*
+data/harmonized/*
+data/external/*
+!data/extracted/.gitkeep
+!data/review/.gitkeep
+!data/harmonized/.gitkeep
+reports/*.md
+reports/*.json
+!reports/templates/*.md
+!reports/benchmark_results.json
+!reports/benchmark_case_results.json
+!reports/benchmark_report.md
+!reports/benchmark_manifest.json
+
+# Local working artifacts kept out of history (regenerable or large).
+tmp/
+output/
+# Live-ingestion outputs: regenerate with scripts/fetch_live_records.py.
+data/live/
+reports_live/
+# Manuscript sources and rendered figures are tracked outside this repository.
+docs/manuscript/

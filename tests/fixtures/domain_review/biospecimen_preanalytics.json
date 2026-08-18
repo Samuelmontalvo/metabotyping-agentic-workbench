@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0.0",
+  "contract_version": "1.0.0",
+  "packet_id": "synthetic-biospecimen-preanalytics-review-001",
+  "scope_version": "1.0.0",
+  "role": "biospecimen-preanalytics-reviewer",
+  "research_question": "Which submitted preanalytical details and gaps require expert review before comparing two synthetic plasma assays?",
+  "intended_use": "Record handling and timing evidence without inferring stability, correction, or combinability.",
+  "referenced_entities": {
+    "study_ids": [
+      "SYN-STUDY-01",
+      "SYN-STUDY-02"
+    ],
+    "dataset_ids": [
+      "SYN-ASSAY-01",
+      "SYN-ASSAY-02"
+    ],
+    "variable_ids": [],
+    "effect_ids": []
+  },
+  "provenance": [
+    {
+      "provenance_id": "bp-p01",
+      "source_artifact": "synthetic/assay_records.json",
+      "record_locator": "$.assays[SYN-ASSAY-01,SYN-ASSAY-02]",
+      "source_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "extraction_method": "deterministic synthetic fixture lookup"
+    },
+    {
+      "provenance_id": "bp-p02",
+      "source_artifact": "synthetic/specimen_sop_excerpt.txt",
+      "record_locator": "sections:collection,processing,storage",
+      "source_sha256": "3434343434343434343434343434343434343434343434343434343434343434",
+      "extraction_method": "human-authored synthetic fixture"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "bp-e01",
+      "dimension": "specimen_derivative",
+      "state": "reported",
+      "detail": "Both assay records label the analyzed derivative as plasma.",
+      "provenance_ids": [
+        "bp-p01"
+      ]
+    },
+    {
+      "evidence_id": "bp-e02",
+      "dimension": "collection_timing_relative_to_exercise",
+      "state": "conflicting",
+      "detail": "One record reports pre-exercise collection and the other reports a two-hour post-exercise collection.",
+      "provenance_ids": [
+        "bp-p01"
+      ]
+    },
+    {
+      "evidence_id": "bp-e03",
+      "dimension": "food_context",
+      "state": "reported",
+      "detail": "The SOP excerpt specifies an overnight fast for one collection workflow.",
+      "provenance_ids": [
+        "bp-p02"
+      ]
+    },
+    {
+      "evidence_id": "bp-e04",
+      "dimension": "circadian_context",
+      "state": "not_reported",
+      "detail": "Clock time or circadian collection window is not reported.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "bp-e05",
+      "dimension": "posture",
+      "state": "not_reported",
+      "detail": "Participant posture before and during collection is not reported.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "bp-e06",
+      "dimension": "tube_or_additive",
+      "state": "unresolved",
+      "detail": "EDTA is named for one workflow; the other tube and additive are unavailable.",
+      "provenance_ids": [
+        "bp-p02"
+      ]
+    },
+    {
+      "evidence_id": "bp-e07",
+      "dimension": "processing_delay",
+      "state": "reported",
+      "detail": "The SOP sets a maximum processing delay for one workflow.",
+      "provenance_ids": [
+        "bp-p02"
+      ]
+    },
+    {
+      "evidence_id": "bp-e08",
+      "dimension": "processing_temperature",
+      "state": "not_reported",
+      "detail": "Temperature during the pre-centrifugation delay is not reported.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "bp-e09",
+      "dimension": "centrifugation",
+      "state": "reported",
+      "detail": "Centrifugation duration and relative force are stated in the SOP excerpt.",
+      "provenance_ids": [
+        "bp-p02"
+      ]
+    },
+    {
+      "evidence_id": "bp-e10",
+      "dimension": "aliquoting",
+      "state": "not_reported",
+      "detail": "Aliquot volume, material, and timing are not reported.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "bp-e11",
+      "dimension": "storage",
+      "state": "reported",
+      "detail": "The SOP reports frozen storage for one workflow.",
+      "provenance_ids": [
+        "bp-p02"
+      ]
+    },
+    {
+      "evidence_id": "bp-e12",
+      "dimension": "freeze_thaw",
+      "state": "not_available",
+      "detail": "Freeze-thaw history is unavailable for both submitted assay records.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "bp-e13",
+      "dimension": "shipping",
+      "state": "not_reported",
+      "detail": "Shipping conditions and monitoring are not reported.",
+      "provenance_ids": []
+    },
+    {
+      "evidence_id": "bp-e14",
+      "dimension": "sop",
+      "state": "reported",
+      "detail": "A synthetic SOP excerpt is available for only one collection workflow.",
+      "provenance_ids": [
+        "bp-p02"
+      ]
+    },
+    {
+      "evidence_id": "bp-e15",
+      "dimension": "deviations",
+      "state": "documented_absent",
+      "detail": "The submitted SOP excerpt explicitly states that no protocol deviations were recorded for its collection workflow.",
+      "provenance_ids": [
+        "bp-p02"
+      ]
+    }
+  ],
+  "limitations": [
+    {
+      "limitation_id": "bp-l01",
+      "description": "Equivalent plasma labels do not establish equivalent collection or handling.",
+      "evidence_ids": [
+        "bp-e01",
+        "bp-e02",
+        "bp-e06"
+      ]
+    }
+  ],
+  "blockers": [
+    {
+      "blocker_id": "bp-b01",
+      "description": "Timing and freeze-thaw evidence is insufficient for a human comparability judgment.",
+      "evidence_ids": [
+        "bp-e02",
+        "bp-e12"
+      ]
+    }
+  ],
+  "human_review_questions": [
+    {
+      "question_id": "bp-q01",
+      "question": "Are source-specific SOPs, deviation logs, and freeze-thaw histories available for both assay collections?",
+      "evidence_ids": [
+        "bp-e12",
+        "bp-e14",
+        "bp-e15"
+      ]
+    }
+  ],
+  "decision_authority": "advisory_only",
+  "human_adjudication_status": "required",
+  "executable_actions": [],
+  "packet_digest": "3635421ba2e655416668b8d76133e0e6cb23970b49aca13798a21438571f28cd"
+}

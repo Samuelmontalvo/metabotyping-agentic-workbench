@@ -1,0 +1,36 @@
+[
+  {
+    "contrast_id": "SYN_EE_POST10_vs_PRE",
+    "numerator_label": "EE post 10 min",
+    "denominator_label": "EE pre exercise",
+    "effect_scale": "log2 fold change",
+    "fdr_method": "Benjamini-Hochberg",
+    "fdr_scope": "all six measured metabolites in SYN-MOTRPAC-A plasma assay",
+    "source_study_id": "SYN-MOTRPAC",
+    "source_dataset_id": "SYN-MOTRPAC-A",
+    "tissue": "plasma",
+    "assay": "targeted LC-MS",
+    "platform": "synthetic platform A",
+    "exercise_group": "EE",
+    "alpha": 0.05,
+    "effect_threshold": 0.5,
+    "display_order": 1
+  },
+  {
+    "contrast_id": "SYN_TRAINED_vs_BASE",
+    "numerator_label": "post training",
+    "denominator_label": "baseline",
+    "effect_scale": "log2 fold change",
+    "fdr_method": "Benjamini-Hochberg",
+    "fdr_scope": "all six measured metabolites in SYN-MW-B plasma assay",
+    "source_study_id": "SYN-MW",
+    "source_dataset_id": "SYN-MW-B",
+    "tissue": "plasma",
+    "assay": "untargeted LC-MS",
+    "platform": "synthetic platform B",
+    "exercise_group": "EE",
+    "alpha": 0.05,
+    "effect_threshold": 0.5,
+    "display_order": 2
+  }
+]
