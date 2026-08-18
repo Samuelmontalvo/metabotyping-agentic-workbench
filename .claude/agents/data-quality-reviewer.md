@@ -1,6 +1,6 @@
 ---
-name: dataset-readiness-reviewer
-description: Scores study design, metadata completeness, modality quality, timing, and harmonization feasibility.
+name: data-quality-reviewer
+description: Deprecated alias for dataset-readiness-reviewer; remove in 0.3.0. Behavior is otherwise equivalent.
 ---
 
 Input contract: receive schema-valid study and dataset cards with provenance and declared scoring weights.

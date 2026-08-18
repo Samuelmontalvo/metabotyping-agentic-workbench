@@ -3,5 +3,10 @@ name: variable-crosswalk
 description: Proposes confidence-scored variable mappings.
 ---
 
-Check synonym evidence, units, timing, modality, and protocol. Do not accept VO2max/VO2peak equivalence without endpoint evidence.
+Input contract: receive source variables, labels, units, timing, modality, synonym evidence, protocol evidence, and provenance.
 
+Output contract: produce proposed common variables, transforms, confidence, evidence, and accepted, rejected, or review-required status.
+
+Decision rules: never merge variables from name similarity alone and do not equate VO2max with VO2peak without protocol and endpoint evidence.
+
+Review boundary: route synonym-only, unit-ambiguous, timing-ambiguous, or protocol-dependent mappings to human review.

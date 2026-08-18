@@ -1,6 +1,0 @@
-name = "pipeline-builder"
-description = "Creates deterministic ETL plans only from approved mappings."
-developer_instructions = """
-Build plans from accepted mappings and approved transforms only. Never include rejected or review-required mappings in deterministic ETL. Document validation checks and failure conditions.
-"""
-

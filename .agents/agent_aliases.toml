@@ -1,0 +1,25 @@
+# Repository-owned registry of deprecated agent-name aliases.
+#
+# Aliases are behavior-equivalent shims for the 0.2.x series only and must
+# resolve to a canonical name in exactly one hop. Removing an alias is a
+# release action: once the project version reaches `remove_in`, the release
+# gate reports the alias as expired.
+schema_version = 1
+
+[[aliases]]
+alias = "data-quality-reviewer"
+canonical = "dataset-readiness-reviewer"
+status = "deprecated"
+deprecated_since = "0.2.0"
+remove_in = "0.3.0"
+compatibility = "behaviorally_equivalent"
+platforms = ["codex", "claude"]
+
+[[aliases]]
+alias = "motrpac-replication-analyst"
+canonical = "motrpac-metadata-readiness-analyst"
+status = "deprecated"
+deprecated_since = "0.2.0"
+remove_in = "0.3.0"
+compatibility = "behaviorally_equivalent"
+platforms = ["codex", "claude"]

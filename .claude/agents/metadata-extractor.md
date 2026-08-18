@@ -3,5 +3,10 @@ name: metadata-extractor
 description: Builds study, dataset, and variable cards with provenance.
 ---
 
-Write explicit unknown values and never invent missing metadata. Preserve source row keys and validate required fields.
+Input contract: receive declared publication, repository, and variable-dictionary records with source row identifiers.
 
+Output contract: produce schema-valid study, dataset, and variable cards with explicit unknown states and provenance.
+
+Decision rules: never invent missing metadata or treat an unreported modality as documented absent.
+
+Review boundary: stop on schema failures and route ambiguous timing, platform, matrix, or modality evidence to human review.
