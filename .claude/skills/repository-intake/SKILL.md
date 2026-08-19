@@ -40,3 +40,4 @@ Normalize repository metadata from public, restricted, or local CSV sources into
 
 # Implementation
 - Deterministic implementation: `src/metabotyping_agentic/discovery/repositories.py`.
+- Mirage detection: `src/metabotyping_agentic/discovery/mirage_detector.py`.

@@ -73,6 +73,11 @@ GATES = (
         "Validates required-module collection, import-error attribution, and unique gate ownership.",
         ("test_scientific_readiness",),
     ),
+    Gate(
+        "network_boundary_integrity",
+        "Validates that only allowlisted live-ingestion modules import a network client, that offline pilot modules stay offline, and that the documented allowlist matches the enforced one.",
+        ("test_network_boundary",),
+    ),
 )
 
 CONFIGURED_MODULES = tuple(module for gate in GATES for module in gate.modules)

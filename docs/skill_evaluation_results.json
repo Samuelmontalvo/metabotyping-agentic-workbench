@@ -156,6 +156,25 @@
       "score": 1.0
     },
     {
+      "canonical_name": "cross-field-consistency-arbitrator",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "cross-field-consistency-arbitrator",
+      "path": ".codex/agents/cross-field-consistency-arbitrator.toml",
+      "platform": "codex",
+      "score": 1.0
+    },
+    {
       "canonical_name": "dataset-readiness-reviewer",
       "checks": {
         "description_present": true,
@@ -289,6 +308,25 @@
       "score": 1.0
     },
     {
+      "canonical_name": "metadata-extraction-critic",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "metadata-extraction-critic",
+      "path": ".codex/agents/metadata-extraction-critic.toml",
+      "platform": "codex",
+      "score": 1.0
+    },
+    {
       "canonical_name": "metadata-extractor",
       "checks": {
         "description_present": true,
@@ -380,6 +418,25 @@
       "issues": [],
       "name": "repository-discovery",
       "path": ".codex/agents/repository-discovery.toml",
+      "platform": "codex",
+      "score": 1.0
+    },
+    {
+      "canonical_name": "source-registry-librarian",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "source-registry-librarian",
+      "path": ".codex/agents/source-registry-librarian.toml",
       "platform": "codex",
       "score": 1.0
     },
@@ -494,6 +551,25 @@
       "issues": [],
       "name": "biospecimen-preanalytics-reviewer",
       "path": ".claude/agents/biospecimen-preanalytics-reviewer.md",
+      "platform": "claude",
+      "score": 1.0
+    },
+    {
+      "canonical_name": "cross-field-consistency-arbitrator",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "cross-field-consistency-arbitrator",
+      "path": ".claude/agents/cross-field-consistency-arbitrator.md",
       "platform": "claude",
       "score": 1.0
     },
@@ -631,6 +707,25 @@
       "score": 1.0
     },
     {
+      "canonical_name": "metadata-extraction-critic",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "metadata-extraction-critic",
+      "path": ".claude/agents/metadata-extraction-critic.md",
+      "platform": "claude",
+      "score": 1.0
+    },
+    {
       "canonical_name": "metadata-extractor",
       "checks": {
         "description_present": true,
@@ -722,6 +817,25 @@
       "issues": [],
       "name": "repository-discovery",
       "path": ".claude/agents/repository-discovery.md",
+      "platform": "claude",
+      "score": 1.0
+    },
+    {
+      "canonical_name": "source-registry-librarian",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "source-registry-librarian",
+      "path": ".claude/agents/source-registry-librarian.md",
       "platform": "claude",
       "score": 1.0
     },
@@ -863,6 +977,44 @@
     },
     {
       "implementation_paths": [
+        "src/metabotyping_agentic/review/validation.py",
+        "src/metabotyping_agentic/review/models.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "biospecimen-preanalytics-reviewer",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/biospecimen-preanalytics-reviewer/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
         "src/metabotyping_agentic/discovery/criteria.py"
       ],
       "implementation_status": "linked",
@@ -877,6 +1029,44 @@
       "operational_score": 1.0,
       "overall_score": 1.0,
       "path": ".agents/skills/define-inclusion-criteria/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/review/validation.py",
+        "src/metabotyping_agentic/review/models.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "exercise-phenotype-harmonization-reviewer",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/exercise-phenotype-harmonization-reviewer/SKILL.md",
       "platform": "codex",
       "structural_checks": {
         "description_present": true,
@@ -949,6 +1139,43 @@
       "operational_score": 1.0,
       "overall_score": 1.0,
       "path": ".agents/skills/harmonization-plan/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/harmonization/skeptic.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "harmonization-skeptic",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/harmonization-skeptic/SKILL.md",
       "platform": "codex",
       "structural_checks": {
         "description_present": true,
@@ -1348,7 +1575,8 @@
     },
     {
       "implementation_paths": [
-        "src/metabotyping_agentic/discovery/repositories.py"
+        "src/metabotyping_agentic/discovery/repositories.py",
+        "src/metabotyping_agentic/discovery/mirage_detector.py"
       ],
       "implementation_status": "linked",
       "issues": [],
@@ -1362,6 +1590,44 @@
       "operational_score": 1.0,
       "overall_score": 1.0,
       "path": ".agents/skills/repository-intake/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/review/validation.py",
+        "src/metabotyping_agentic/review/models.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "statistical-estimand-and-synthesis-skeptic",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/statistical-estimand-and-synthesis-skeptic/SKILL.md",
       "platform": "codex",
       "structural_checks": {
         "description_present": true,
@@ -1400,6 +1666,44 @@
       "operational_score": 1.0,
       "overall_score": 1.0,
       "path": ".agents/skills/study-dataset-discovery/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/review/validation.py",
+        "src/metabotyping_agentic/review/models.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "study-design-population-context-reviewer",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/study-design-population-context-reviewer/SKILL.md",
       "platform": "codex",
       "structural_checks": {
         "description_present": true,
@@ -1536,6 +1840,44 @@
     },
     {
       "implementation_paths": [
+        "src/metabotyping_agentic/review/validation.py",
+        "src/metabotyping_agentic/review/models.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "biospecimen-preanalytics-reviewer",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/biospecimen-preanalytics-reviewer/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
         "src/metabotyping_agentic/discovery/criteria.py"
       ],
       "implementation_status": "linked",
@@ -1550,6 +1892,44 @@
       "operational_score": 1.0,
       "overall_score": 1.0,
       "path": ".claude/skills/define-inclusion-criteria/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/review/validation.py",
+        "src/metabotyping_agentic/review/models.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "exercise-phenotype-harmonization-reviewer",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/exercise-phenotype-harmonization-reviewer/SKILL.md",
       "platform": "claude",
       "structural_checks": {
         "description_present": true,
@@ -1622,6 +2002,43 @@
       "operational_score": 1.0,
       "overall_score": 1.0,
       "path": ".claude/skills/harmonization-plan/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/harmonization/skeptic.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "harmonization-skeptic",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/harmonization-skeptic/SKILL.md",
       "platform": "claude",
       "structural_checks": {
         "description_present": true,
@@ -2021,7 +2438,8 @@
     },
     {
       "implementation_paths": [
-        "src/metabotyping_agentic/discovery/repositories.py"
+        "src/metabotyping_agentic/discovery/repositories.py",
+        "src/metabotyping_agentic/discovery/mirage_detector.py"
       ],
       "implementation_status": "linked",
       "issues": [],
@@ -2035,6 +2453,44 @@
       "operational_score": 1.0,
       "overall_score": 1.0,
       "path": ".claude/skills/repository-intake/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/review/validation.py",
+        "src/metabotyping_agentic/review/models.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "statistical-estimand-and-synthesis-skeptic",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/statistical-estimand-and-synthesis-skeptic/SKILL.md",
       "platform": "claude",
       "structural_checks": {
         "description_present": true,
@@ -2096,6 +2552,44 @@
     },
     {
       "implementation_paths": [
+        "src/metabotyping_agentic/review/validation.py",
+        "src/metabotyping_agentic/review/models.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "study-design-population-context-reviewer",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/study-design-population-context-reviewer/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
         "src/metabotyping_agentic/harmonization/crosswalk.py"
       ],
       "implementation_status": "linked",
@@ -2133,19 +2627,19 @@
     }
   ],
   "summary": {
-    "addressable_agent_files": 40,
-    "addressable_agent_names": 20,
-    "agent_files": 36,
+    "addressable_agent_files": 46,
+    "addressable_agent_names": 23,
+    "agent_files": 42,
     "deprecated_agent_alias_files": 4,
     "inventory_issue_count": 0,
     "mean_agent_contract_score": 1.0,
     "mean_deprecated_agent_alias_contract_score": 1.0,
     "mean_skill_operational_score": 1.0,
     "mean_skill_structural_score": 1.0,
-    "paired_addressable_agent_names": 20,
-    "paired_agent_names": 18,
+    "paired_addressable_agent_names": 23,
+    "paired_agent_names": 21,
     "paired_deprecated_agent_alias_names": 2,
-    "paired_skill_names": 18,
-    "skill_files": 36
+    "paired_skill_names": 23,
+    "skill_files": 46
   }
 }

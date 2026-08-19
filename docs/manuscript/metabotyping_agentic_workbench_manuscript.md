@@ -64,7 +64,7 @@ The assay rules distinguish raw-value pooling from synthesis of study-specific e
 
 ### Agent and skill interfaces
 
-The current worktree contains 18 paired skill names represented by 36 Codex and Claude skill files, and 14 paired agent roles represented by 28 role manifests. The contracts cover source routing, dataset discovery, metadata extraction, metabolite identity, variable and assay harmonization, quality review, MoTrPAC-oriented evaluation and plotting, and benchmark reporting. Each contract declares inputs, outputs, failure conditions, evidence requirements, and points that require expert review.
+The current worktree contains 23 paired skill names represented by 46 Codex and Claude skill files, and 21 paired agent roles represented by 42 role manifests. The contracts cover source routing, dataset discovery, metadata extraction, metabolite identity, variable and assay harmonization, quality review, MoTrPAC-oriented evaluation and plotting, and benchmark reporting. Each contract declares inputs, outputs, failure conditions, evidence requirements, and points that require expert review.
 
 These files are interfaces and operating instructions. They are not trained models, and their presence does not show that an interactive model will follow the instructions. Reported pilot outputs come from the Python modules. This distinction is necessary because fluent agent output can create unwarranted confidence when the underlying evidence is incomplete [@messeri2024illusions].
 

@@ -5,8 +5,8 @@ This report executes the repository's offline synthetic behavioral gates. It com
 ## Result
 
 - Strict synthetic release gate: **PASS**.
-- Tests run: 124.
-- Counts: passed=124, failed=0, error=0, skipped=0, expected_failure=0, unexpected_success=0.
+- Tests run: 128.
+- Counts: passed=128, failed=0, error=0, skipped=0, expected_failure=0, unexpected_success=0.
 
 ## Behavioral gates
 
@@ -20,6 +20,7 @@ This report executes the repository's offline synthetic behavioral gates. It com
 | `benchmark_integrity_and_reproducibility` | PASS | 14 | 14 | 0 | 0 | 0 | Validates explicit benchmark denominators, disagreement accounting, provenance, and byte-reproducible pilot outputs. |
 | `domain_review_contract_safety` | PASS | 14 | 14 | 0 | 0 | 0 | Validates advisory-only domain review packets, complete evidence-state coverage, and non-executable review boundaries. |
 | `scientific_readiness_gate_integrity` | PASS | 9 | 9 | 0 | 0 | 0 | Validates required-module collection, import-error attribution, and unique gate ownership. |
+| `network_boundary_integrity` | PASS | 4 | 4 | 0 | 0 | 0 | Validates that only allowlisted live-ingestion modules import a network client, that offline pilot modules stay offline, and that the documented allowlist matches the enforced one. |
 
 ## Nonpassing tests
 

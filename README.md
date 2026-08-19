@@ -6,7 +6,7 @@ harmonization review, dataset-readiness scoring, MoTrPAC-style analysis plots
 and metadata-readiness assessment, and benchmarking.
 
 The repository is designed for both Codex and Claude Code. Release 0.2.0 contains
-18 canonical paired agent roles and 18 paired skill contracts for both runtimes:
+21 canonical paired agent roles and 23 paired skill contracts for both runtimes:
 
 - Codex: `AGENTS.md`, `.agents/skills/*/SKILL.md`, `.codex/agents/*.toml`
 - Claude Code: `CLAUDE.md`, `.claude/skills/*/SKILL.md`, `.claude/agents/*.md`, `.claude/commands/*.md`

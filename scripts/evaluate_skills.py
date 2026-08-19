@@ -26,6 +26,7 @@ EXPECTED_CANONICAL_AGENT_NAMES = {
     "assay-harmonization-skeptic",
     "benchmark-agent",
     "biospecimen-preanalytics-reviewer",
+    "cross-field-consistency-arbitrator",
     "dataset-readiness-reviewer",
     "discovery-orchestrator",
     "exercise-phenotype-harmonization-reviewer",
@@ -33,11 +34,13 @@ EXPECTED_CANONICAL_AGENT_NAMES = {
     "literature-retrieval",
     "metabolite-identity-resolver",
     "metabolomics-visualization-analyst",
+    "metadata-extraction-critic",
     "metadata-extractor",
     "motrpac-metadata-readiness-analyst",
     "multi-source-orchestrator",
     "pipeline-builder",
     "repository-discovery",
+    "source-registry-librarian",
     "statistical-estimand-and-synthesis-skeptic",
     "study-design-population-context-reviewer",
     "variable-crosswalk",
@@ -123,9 +126,18 @@ EXPECTED_IMPLEMENTATIONS: dict[str, tuple[str, ...]] = {
         "scripts/build_assay_harmonization_plan.py",
     ),
     "benchmark-agents": ("src/metabotyping_agentic/evaluation/benchmark.py",),
+    "biospecimen-preanalytics-reviewer": (
+        "src/metabotyping_agentic/review/validation.py",
+        "src/metabotyping_agentic/review/models.py",
+    ),
     "define-inclusion-criteria": ("src/metabotyping_agentic/discovery/criteria.py",),
+    "exercise-phenotype-harmonization-reviewer": (
+        "src/metabotyping_agentic/review/validation.py",
+        "src/metabotyping_agentic/review/models.py",
+    ),
     "grant-aims-refiner": (),
     "harmonization-plan": ("src/metabotyping_agentic/harmonization/harmonization_plan.py",),
+    "harmonization-skeptic": ("src/metabotyping_agentic/harmonization/skeptic.py",),
     "human-review-packet": ("src/metabotyping_agentic/reports/render.py",),
     "metabolite-effect-search": ("scripts/run_metabolite_effect_search.py",),
     "metabolite-identity-resolution": (
@@ -152,10 +164,21 @@ EXPECTED_IMPLEMENTATIONS: dict[str, tuple[str, ...]] = {
     ),
     "quality-scoring": ("src/metabotyping_agentic/evaluation/quality_scoring.py",),
     "recommendation-engine": ("src/metabotyping_agentic/discovery/recommender.py",),
-    "repository-intake": ("src/metabotyping_agentic/discovery/repositories.py",),
+    "repository-intake": (
+        "src/metabotyping_agentic/discovery/repositories.py",
+        "src/metabotyping_agentic/discovery/mirage_detector.py",
+    ),
+    "statistical-estimand-and-synthesis-skeptic": (
+        "src/metabotyping_agentic/review/validation.py",
+        "src/metabotyping_agentic/review/models.py",
+    ),
     "study-dataset-discovery": (
         "src/metabotyping_agentic/discovery/literature.py",
         "src/metabotyping_agentic/discovery/recommender.py",
+    ),
+    "study-design-population-context-reviewer": (
+        "src/metabotyping_agentic/review/validation.py",
+        "src/metabotyping_agentic/review/models.py",
     ),
     "variable-crosswalk": ("src/metabotyping_agentic/harmonization/crosswalk.py",),
 }

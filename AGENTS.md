@@ -10,7 +10,8 @@ This repository is an offline, synthetic-data MVP for a human-in-the-loop metabo
 - Never merge variables only because names look similar.
 - Route uncertain mappings to human review.
 - Do not require network access or API keys for the MVP.
-- Use only synthetic/mock data in this repository.
+- Use synthetic/mock data for the offline MVP and its tests; real public records are confined to `data/live/` and `reports_live/`.
+- Keep network access inside the declared allowlist enforced by `tests/test_network_boundary.py`; no other module, script, or test may import a network client.
 
 ## Scientific Scope
 

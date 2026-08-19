@@ -16,7 +16,7 @@ Use the `.claude/skills/*/SKILL.md` workflows and `.claude/agents/*.md` subagent
 
 Live ingestion of real public records is permitted as a **separate, opt-in mode**, distinct from the offline pilot. Rules:
 
-- The only networked entry point is `scripts/fetch_live_records.py`. No other module may make network calls.
+- Network access is confined to the declared network-boundary allowlist: `scripts/fetch_live_records.py`, `scripts/volcano_compare.py`, `src/metabotyping_agentic/live_sources/metabolomics_workbench.py`, and `src/metabotyping_agentic/live_sources/motrpac_volcano_compare.py`. These are reachable only through `scripts/fetch_live_records.py` and the `live-*` CLI subcommands. No other module, script, or test may import a network client or open a socket. `tests/test_network_boundary.py` enforces the allowlist by AST scan; adding a module to it is a reviewed change to this file.
 - Live data is written under `data/live/` and live reports under `reports_live/`. Never overwrite `data/examples/` (synthetic fixtures) or `reports/` (offline pilot output).
 - Sources are public, released, openly licensed records only (e.g. Metabolomics Workbench REST; MoTrPAC metabolomics hosted on MW). Record exact source URLs in `data/live/provenance.json`.
 - Do not fabricate records for embargoed/access-controlled data (e.g. the human MoTrPAC DataHub arm). Represent unavailable data as an availability gap / mirage risk, never as a synthetic stand-in.

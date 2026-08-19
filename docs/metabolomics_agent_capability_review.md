@@ -50,7 +50,7 @@ The paired Codex/Claude skill contracts cover four connected layers:
   packets;
 - evaluation and communication: MoTrPAC alignment, MoTrPAC plotting, focused BAG3 plotting, grant-aim refinement, and agent benchmarking.
 
-The 18 canonical paired agent roles provide discovery, extraction,
+The 21 canonical paired agent roles provide discovery, extraction,
 source-orchestration, crosswalk, identity-resolution, assay-skeptic,
 dataset-readiness, pipeline, metabolomics-visualization, MoTrPAC metadata,
 benchmark-audit, study-design/population, exercise-phenotype, biospecimen
