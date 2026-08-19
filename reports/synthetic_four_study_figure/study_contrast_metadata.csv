@@ -1,0 +1,5 @@
+"study_id","display","source","contrast","effect_scale","fdr_method"
+"MOTRPAC-HUMAN-ACUTE","MoTrPAC human acute EE","MoTrPAC","post-exercise / pre-exercise","synthetic log2 fold-change","Benjamini-Hochberg"
+"MOTRPAC-HUMAN-TRAINING","MoTrPAC human 8-week EE","MoTrPAC","week 8 / baseline","synthetic log2 fold-change","Benjamini-Hochberg"
+"ST004303","MW ST004303","Metabolomics Workbench","post-exercise / pre-exercise","synthetic log2 fold-change","Benjamini-Hochberg"
+"ST003807","MW ST003807","Metabolomics Workbench","trained / baseline","synthetic log2 fold-change","Benjamini-Hochberg"

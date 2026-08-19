@@ -19,7 +19,10 @@ from .harmonization.crosswalk import build_crosswalk as run_build_crosswalk
 from .harmonization.harmonization_plan import build_harmonization_plan, review_crosswalk as run_review_crosswalk
 from .io import ensure_dir, read_json, read_text, to_plain, write_csv_rows, write_json
 from .knowledge.source_registry import build_retrieval_plan
-from .live_sources.metabolomics_workbench import ingest_metabolomics_workbench_study
+from .live_sources.metabolomics_workbench import (
+    ingest_metabolomics_workbench_study,
+    search_metabolite_studies,
+)
 from .live_sources.motrpac_volcano_compare import compare_mw_motrpac_volcano
 from .models import InclusionCriteria
 from .reports.render import (
@@ -137,6 +140,15 @@ def live_intake_metabolomics_workbench_command(
         check_data_endpoint=check_data_endpoint,
         require_blood_derived_sample_matrix=require_blood_derived_sample_matrix,
     )
+
+
+def live_search_metabolite_studies_command(
+    query: str,
+    out: str = "data/live/metabolite_search",
+    name_variants: str = "",
+) -> Any:
+    variants = [item.strip() for item in name_variants.split(";") if item.strip()]
+    return search_metabolite_studies(query, out, name_variants=variants)
 
 
 def live_compare_mw_motrpac_volcano_command(
@@ -292,6 +304,14 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
             require_blood_derived_sample_matrix,
         )
 
+    @app.command("live-search-metabolite-studies")
+    def typer_live_search_metabolite_studies(
+        query: str = typer.Option(..., "--query"),
+        out: str = typer.Option("data/live/metabolite_search", "--out"),
+        name_variants: str = typer.Option("", "--name-variants"),
+    ) -> None:
+        live_search_metabolite_studies_command(query, out, name_variants)
+
     @app.command("live-compare-mw-motrpac-volcano")
     def typer_live_compare_mw_motrpac_volcano(
         mw_study_id: str = typer.Option("ST001789", "--mw-study-id"),
@@ -386,6 +406,11 @@ def _argparse_main(argv: list[str] | None = None) -> None:
     p.add_argument("--skip-data-check", action="store_true")
     p.add_argument("--allow-non-blood-derived-sample-matrix", action="store_true")
 
+    p = subparsers.add_parser("live-search-metabolite-studies")
+    p.add_argument("--query", required=True)
+    p.add_argument("--out", default="data/live/metabolite_search")
+    p.add_argument("--name-variants", default="")
+
     p = subparsers.add_parser("live-compare-mw-motrpac-volcano")
     p.add_argument("--mw-study-id", default="ST001789")
     p.add_argument("--motrpac-release", default="human-precovid-sed-adu")
@@ -437,6 +462,8 @@ def _argparse_main(argv: list[str] | None = None) -> None:
             check_data_endpoint=not args.skip_data_check,
             require_blood_derived_sample_matrix=not args.allow_non_blood_derived_sample_matrix,
         )
+    elif args.command == "live-search-metabolite-studies":
+        live_search_metabolite_studies_command(args.query, args.out, args.name_variants)
     elif args.command == "live-compare-mw-motrpac-volcano":
         live_compare_mw_motrpac_volcano_command(
             mw_study_id=args.mw_study_id,

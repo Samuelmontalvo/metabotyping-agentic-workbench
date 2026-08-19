@@ -13,6 +13,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable
 from urllib.error import HTTPError, URLError
+from urllib.parse import quote
 from urllib.request import Request, urlopen
 
 from ..evaluation.motrpac_alignment import align_motrpac
@@ -426,3 +427,223 @@ def ingest_metabolomics_workbench_study(
         data_endpoint_checked=check_data_endpoint,
         data_endpoint_available=data_endpoint_available,
     )
+
+
+# ---------------------------------------------------------------------------
+# Metabolite -> study discovery lane (RefMet name search)
+# ---------------------------------------------------------------------------
+
+METSTAT_FIELDS = (
+    "analysis_type",
+    "polarity",
+    "chromatography",
+    "species",
+    "sample_source",
+    "disease",
+    "kegg_id",
+    "refmet_name",
+)
+
+
+def _refmet_url(name: str, output: str) -> str:
+    return f"{BASE_URL}/refmet/name/{quote(name)}/{output}"
+
+
+def _metstat_url(refmet_name: str) -> str:
+    # metstat takes a fixed positional filter string; empty slots mean "no filter".
+    # metstat parses literal semicolons as slot separators, so only the slot
+    # values are percent-encoded.
+    filters = ["", "", "", "", "", "", "", refmet_name]
+    encoded = ";".join(quote(value, safe="") for value in filters)
+    return f"{BASE_URL}/metstat/{encoded}"
+
+
+def resolve_refmet_entry(name: str, *, fetcher: Fetcher = fetch_json) -> dict[str, Any]:
+    """Resolve a user-supplied metabolite name to a RefMet entry, preserving the query."""
+
+    url = _refmet_url(name, "all")
+    try:
+        payload = fetcher(url)
+    except RuntimeError as exc:
+        return {
+            "query_original": name,
+            "resolved": False,
+            "source_url": url,
+            "error": str(exc),
+        }
+    records = _records(payload)
+    record = records[0] if records else {}
+    refmet_name = str(record.get("refmet_name") or record.get("name") or "").strip()
+    return {
+        "query_original": name,
+        "resolved": bool(refmet_name),
+        "refmet_name": refmet_name,
+        "refmet_id": str(record.get("refmet_id") or "").strip(),
+        "formula": str(record.get("formula") or "").strip(),
+        "exactmass": str(record.get("exactmass") or "").strip(),
+        "super_class": str(record.get("super_class") or "").strip(),
+        "main_class": str(record.get("main_class") or "").strip(),
+        "sub_class": str(record.get("sub_class") or "").strip(),
+        "inchi_key": str(record.get("inchi_key") or "").strip(),
+        "pubchem_cid": str(record.get("pubchem_cid") or "").strip(),
+        "source_url": url,
+    }
+
+
+def search_studies_by_refmet_name(
+    refmet_name: str,
+    *,
+    fetcher: Fetcher = fetch_json,
+) -> dict[str, Any]:
+    """Return MW study/analysis rows that report a named RefMet metabolite."""
+
+    url = _metstat_url(refmet_name)
+    try:
+        payload = fetcher(url)
+    except RuntimeError as exc:
+        return {"refmet_name": refmet_name, "source_url": url, "rows": [], "error": str(exc)}
+    def field(record: dict[str, Any], *names: str) -> str:
+        # metstat labels differ from the study endpoints ("study"/"analysis"/"source"),
+        # so accept both spellings rather than dropping the value.
+        for name in names:
+            value = str(record.get(name) or "").strip()
+            if value:
+                return value
+        return ""
+
+    rows: list[dict[str, Any]] = []
+    for record in _records(payload):
+        study_id = field(record, "study_id", "study")
+        if not study_id:
+            continue
+        rows.append(
+            {
+                "query_refmet_name": refmet_name,
+                "study_id": study_id,
+                "analysis_id": field(record, "analysis_id", "analysis"),
+                "study_title": field(record, "study_title"),
+                "species": field(record, "species"),
+                "sample_source": field(record, "sample_source", "source"),
+                "analysis_type": field(record, "analysis_type"),
+                "polarity": field(record, "polarity"),
+                "chromatography": field(record, "chromatography", "chromatography_type"),
+                "disease": field(record, "disease"),
+                "refmet_name": field(record, "refmet_name") or refmet_name,
+                "refmet_id": field(record, "refmet_id"),
+                "inchi_key": field(record, "inchi_key"),
+                "pubchem_cid": field(record, "pubchem_cid"),
+                "super_class": field(record, "super_class"),
+                "main_class": field(record, "main_class"),
+                "sub_class": field(record, "sub_class"),
+                "study_link": f"https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?StudyID={study_id}",
+                "source_system": "metabolomics_workbench_metstat",
+                "provenance_url": url,
+            }
+        )
+    return {"refmet_name": refmet_name, "source_url": url, "rows": rows}
+
+
+def search_metabolite_studies(
+    query: str,
+    out_dir: str | Path,
+    *,
+    name_variants: list[str] | None = None,
+    fetcher: Fetcher = fetch_json,
+) -> dict[str, Any]:
+    """Discover MW studies reporting a metabolite and record full search provenance.
+
+    Name resolution and retrieval only: every returned row stays review-required for
+    MSI-level assay identity, and absent rows are reported as coverage gaps rather
+    than inferred measurements.
+    """
+
+    out_dir = ensure_dir(out_dir)
+    identity = resolve_refmet_entry(query, fetcher=fetcher)
+    candidates: list[str] = []
+    for candidate in [identity.get("refmet_name") or "", query, *(name_variants or [])]:
+        candidate = candidate.strip()
+        if candidate and candidate.lower() not in {item.lower() for item in candidates}:
+            candidates.append(candidate)
+
+    searches: list[dict[str, Any]] = []
+    rows: list[dict[str, Any]] = []
+    seen: set[tuple[str, str]] = set()
+    for candidate in candidates:
+        result = search_studies_by_refmet_name(candidate, fetcher=fetcher)
+        searches.append(
+            {
+                "queried_name": candidate,
+                "source_url": result["source_url"],
+                "row_count": len(result["rows"]),
+                "error": result.get("error", ""),
+            }
+        )
+        for row in result["rows"]:
+            key = (row["study_id"], row["analysis_id"])
+            if key in seen:
+                continue
+            seen.add(key)
+            row["match_basis"] = (
+                "refmet_name_exact"
+                if candidate.lower() == (identity.get("refmet_name") or "").lower()
+                else "refmet_name_variant"
+            )
+            row["review_status"] = "requires_human_review"
+            row["decision_scope"] = "retrieval_only"
+            row["harmonization_eligibility"] = "requires_assay_identity_review"
+            rows.append(row)
+
+    rows.sort(key=lambda row: (row["species"].lower(), row["study_id"]))
+    fieldnames = [
+        "query_refmet_name",
+        "match_basis",
+        "review_status",
+        "decision_scope",
+        "harmonization_eligibility",
+        "study_id",
+        "analysis_id",
+        "study_title",
+        "species",
+        "sample_source",
+        "analysis_type",
+        "polarity",
+        "chromatography",
+        "disease",
+        "refmet_name",
+        "refmet_id",
+        "inchi_key",
+        "pubchem_cid",
+        "super_class",
+        "main_class",
+        "sub_class",
+        "study_link",
+        "source_system",
+        "provenance_url",
+    ]
+    hits_path = write_csv_rows(out_dir / "metstat_metabolite_study_hits.csv", rows, fieldnames)
+    provenance_path = write_json(
+        out_dir / "metstat_metabolite_study_provenance.json",
+        {
+            "query_original": query,
+            "refmet_identity": identity,
+            "searched_names": candidates,
+            "searches": searches,
+            "study_count": len({row["study_id"] for row in rows}),
+            "analysis_row_count": len(rows),
+            "metstat_filter_fields": list(METSTAT_FIELDS),
+            "note": (
+                "Retrieval evidence only. A metstat hit shows the study reported this RefMet "
+                "name; it does not confirm MSI-level identity, comparable quantitation, or "
+                "harmonization eligibility. Absence of a study is a coverage gap, not evidence "
+                "the metabolite is unchanged."
+            ),
+        },
+    )
+    return {
+        "query": query,
+        "identity": identity,
+        "rows": rows,
+        "hits_path": hits_path,
+        "provenance_path": provenance_path,
+        "searches": searches,
+    }
