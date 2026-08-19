@@ -319,11 +319,270 @@ def plot_side_by_side(human_df, motrpac_df, path_png: Path, right_title: str, su
 
 
 # --------------------------------------------------------------------------- #
+# Metabolite-scan lane (single-metabolite cross-species evidence)
+#
+# Retrieval + effect extraction only. A name match is screening evidence, not
+# MSI-level chemical identity, and absence of a feature is reported as a
+# coverage gap rather than as a null effect.
+# --------------------------------------------------------------------------- #
+SCAN_OUT = Path("data/live/metabolite_scan")
+
+
+def _norm_name(value) -> str:
+    """Lowercase, strip punctuation/whitespace so 'N-Lactoyl phenylalanine',
+    'N-lactoylphenylalanine' and 'Lac-Phe' style spellings collapse to one key."""
+    text = str(value or "").lower()
+    return "".join(ch for ch in text if ch.isalnum())
+
+
+def _name_matches(value, keys: set[str]) -> bool:
+    normalized = _norm_name(value)
+    if not normalized:
+        return False
+    return any(key and (key == normalized or key in normalized) for key in keys)
+
+
+def _mw_scan_sample_map(factors_json: dict) -> dict:
+    """local_sample_id -> {participant, timepoint, sex, source} for pre/post designs.
+
+    Handles the 'Collectionpoint:Before|After' + '<participant>_<Before|After>'
+    convention used by ST003662; other conventions fall through as unknown and
+    are reported rather than guessed.
+    """
+    meta = {}
+    for entry in factors_json.values():
+        name = entry.get("local_sample_id")
+        parts = {}
+        for chunk in (entry.get("factors") or "").split("|"):
+            chunk = chunk.strip()
+            if ":" in chunk:
+                key, value = chunk.split(":", 1)
+                parts[key.strip().lower()] = value.strip()
+        collection = parts.get("collectionpoint", "")
+        timepoint = {"before": "pre", "after": "post"}.get(collection.lower(), "")
+        participant = ""
+        if timepoint and "_" in str(name):
+            participant = str(name).rsplit("_", 1)[0]
+        meta[name] = {
+            "participant": participant,
+            "timepoint": timepoint,
+            "collectionpoint": collection,
+            "sex": parts.get("sex_participant", "") or "not_reported",
+            "source": (entry.get("sample_source") or "").strip(),
+        }
+    return meta
+
+
+def _mw_scan_matrix(data_json: dict):
+    records, refmet = {}, {}
+    for entry in data_json.values():
+        name = entry.get("metabolite_name")
+        refmet[name] = entry.get("refmet_name") or name
+        values = {}
+        for sample, raw in (entry.get("DATA") or {}).items():
+            try:
+                values[sample] = float(raw)
+            except (TypeError, ValueError):
+                values[sample] = np.nan
+        records[name] = values
+    return pd.DataFrame(records).T, refmet
+
+
+def _paired_stats(matrix, metabolite, pre_samples, post_samples):
+    pre = matrix.loc[metabolite, pre_samples].astype(float).to_numpy()
+    post = matrix.loc[metabolite, post_samples].astype(float).to_numpy()
+    ok = ~np.isnan(pre) & ~np.isnan(post) & (pre > 0) & (post > 0)
+    if ok.sum() < 3:
+        return None
+    lpre, lpost = np.log2(pre[ok]), np.log2(post[ok])
+    try:
+        _, pval = stats.ttest_rel(lpost, lpre)
+    except Exception:
+        pval = np.nan
+    return {
+        "log2fc": float(np.mean(lpost - lpre)),
+        "p_value": float(pval),
+        "n_pairs": int(ok.sum()),
+        "mean_pre": float(np.mean(pre[ok])),
+        "mean_post": float(np.mean(post[ok])),
+    }
+
+
+def scan_mw_study(study_id: str, keys: set[str]):
+    """Whole-metabolome pre/post volcano for one MW study, plus the queried rows."""
+    print(f"[scan-mw] fetching MW {study_id} data + factors ...")
+    data_json = _get(MW_REST.format(sid=study_id, scope="data"))
+    factors_json = _get(MW_REST.format(sid=study_id, scope="factors"))
+    summary = _get(MW_REST.format(sid=study_id, scope="summary"))
+    matrix, refmet = _mw_scan_matrix(data_json)
+    meta = _mw_scan_sample_map(factors_json)
+
+    strata = {"all": None}
+    sexes = sorted({m["sex"] for m in meta.values() if m["timepoint"] and m["sex"] in {"m", "f"}})
+    for sex in sexes:
+        strata[sex] = sex
+
+    volcano_rows, queried_rows = [], []
+    stratum_sizes = {}
+    for stratum, sex_filter in strata.items():
+        pre_by, post_by = {}, {}
+        for sample, m in meta.items():
+            if not m["participant"] or (m["source"] or "").lower() not in {"blood", "plasma", "serum"}:
+                continue
+            if sex_filter is not None and m["sex"] != sex_filter:
+                continue
+            if m["timepoint"] == "pre":
+                pre_by[m["participant"]] = sample
+            elif m["timepoint"] == "post":
+                post_by[m["participant"]] = sample
+        paired = [pid for pid in sorted(set(pre_by) & set(post_by))
+                  if pre_by[pid] in matrix.columns and post_by[pid] in matrix.columns]
+        pre_samples = [pre_by[pid] for pid in paired]
+        post_samples = [post_by[pid] for pid in paired]
+        stratum_sizes[stratum] = len(paired)
+        print(f"[scan-mw]   stratum={stratum} paired participants={len(paired)}")
+        if len(paired) < 3:
+            continue
+        rows = []
+        for metabolite in matrix.index:
+            result = _paired_stats(matrix, metabolite, pre_samples, post_samples)
+            if result is None:
+                continue
+            rows.append({
+                "study_id": study_id,
+                "stratum": stratum,
+                "metabolite": metabolite,
+                "refmet_name": refmet.get(metabolite, metabolite),
+                **result,
+            })
+        frame = pd.DataFrame(rows)
+        frame["fdr"] = _bh_fdr(frame["p_value"].to_numpy())
+        frame["neg_log10_p"] = -np.log10(frame["p_value"].replace(0, np.nan))
+        volcano_rows.append(frame)
+        hits = frame[frame.apply(
+            lambda r: _name_matches(r["metabolite"], keys) or _name_matches(r["refmet_name"], keys), axis=1)]
+        queried_rows.append(hits)
+
+    volcano = pd.concat(volcano_rows, ignore_index=True) if volcano_rows else pd.DataFrame()
+    queried = pd.concat(queried_rows, ignore_index=True) if queried_rows else pd.DataFrame()
+    context = {
+        "study_id": study_id,
+        "study_title": summary.get("study_title", "") if isinstance(summary, dict) else "",
+        "species": summary.get("species", "") if isinstance(summary, dict) else "",
+        "license": summary.get("license", "") if isinstance(summary, dict) else "",
+        "study_link": f"https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?StudyID={study_id}",
+        "paired_participants_by_stratum": stratum_sizes,
+        "features_measured": int(matrix.shape[0]),
+        "queried_feature_hits": int(len(queried)),
+        "contrast": "post-exercise vs pre-exercise (Collectionpoint After vs Before)",
+        "statistic": "paired t-test on log2 abundance, BH-adjusted within stratum",
+        "orientation": "positive log2fc = higher post-exercise",
+    }
+    return volcano, queried, context
+
+
+def scan_rat_pass1b06(keys: set[str]):
+    """Full pass1b-06 metabolomics timewise table, scanned across all tissues/timepoints."""
+    print("[scan-rat] querying search_public study=pass1b06 omics=metabolomics ...")
+    resp = _post(MOTRPAC_SEARCH, {"study": MOTRPAC_RAT_STUDY, "omics": "metabolomics", "size": 200000})
+    block = resp["result"]["metabolomics_timewise"]
+    df = pd.DataFrame(block["data"], columns=block["headers"])
+    for col in ("logFC", "p_value", "adj_p_value"):
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+    name_cols = [c for c in ("refmet_name", "metabolite", "feature_id") if c in df.columns]
+    mask = pd.Series(False, index=df.index)
+    for col in name_cols:
+        mask |= df[col].map(lambda v: _name_matches(v, keys))
+    hits = df[mask].copy()
+    coverage = {
+        "study": MOTRPAC_RAT_STUDY,
+        "omics": "metabolomics",
+        "endpoint": MOTRPAC_SEARCH,
+        "query": {"study": MOTRPAC_RAT_STUDY, "omics": "metabolomics", "size": 200000},
+        "timewise_rows_returned": int(len(df)),
+        "unique_features": int(df[name_cols[0]].nunique()) if name_cols else 0,
+        "tissues": sorted({str(v) for v in df.get("tissue", pd.Series(dtype=str)).unique()}),
+        "comparison_groups": sorted({str(v) for v in df.get("comparison_group", pd.Series(dtype=str)).unique()}),
+        "assays": sorted({str(v) for v in df.get("assay", pd.Series(dtype=str)).unique()}),
+        "name_columns_scanned": name_cols,
+        "queried_feature_hits": int(len(hits)),
+    }
+    print(f"[scan-rat] timewise rows={len(df)} | queried-name hits={len(hits)}")
+    return df, hits, coverage
+
+
+def run_metabolite_scan(query: str, variants: list[str], mw_studies: list[str]):
+    keys = {_norm_name(query)} | {_norm_name(v) for v in variants}
+    keys = {k for k in keys if k}
+    slug = "".join(ch if ch.isalnum() else "_" for ch in query.lower()).strip("_")
+    out_dir = SCAN_OUT / slug
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    mw_contexts, mw_queried, mw_volcanoes = [], [], []
+    for study_id in mw_studies:
+        try:
+            volcano, queried, context = scan_mw_study(study_id, keys)
+        except Exception as exc:  # network/parse failure is recorded, not hidden
+            mw_contexts.append({"study_id": study_id, "error": str(exc)})
+            continue
+        mw_contexts.append(context)
+        if not volcano.empty:
+            volcano.to_csv(out_dir / f"mw_{study_id}_volcano_pre_post.csv", index=False)
+            mw_volcanoes.append(volcano)
+        if not queried.empty:
+            mw_queried.append(queried)
+    if mw_queried:
+        pd.concat(mw_queried, ignore_index=True).to_csv(out_dir / "mw_queried_metabolite_effects.csv", index=False)
+
+    rat_all, rat_hits, rat_coverage = scan_rat_pass1b06(keys)
+    rat_all.to_csv(out_dir / "rat_pass1b06_metabolomics_timewise_all_rows.csv", index=False)
+    if not rat_hits.empty:
+        rat_hits.to_csv(out_dir / "rat_pass1b06_queried_metabolite_rows.csv", index=False)
+
+    provenance = {
+        "generated_utc": datetime.now(timezone.utc).isoformat(),
+        "query_original": query,
+        "name_variants_searched": variants,
+        "normalized_match_keys": sorted(keys),
+        "match_basis": "normalized name containment across source name columns",
+        "review_status": "requires_human_review",
+        "decision_scope": "retrieval_and_effect_extraction_only",
+        "harmonization_eligibility": "requires_assay_identity_review",
+        "mw_studies": mw_contexts,
+        "rat_motrpac": rat_coverage,
+        "coverage_gap_semantics": (
+            "A queried metabolite absent from a source feature space is an availability/coverage "
+            "gap. It is not evidence of a null effect and must not be replaced by a synthetic row."
+        ),
+        "requests": PROVENANCE,
+    }
+    (out_dir / "provenance.json").write_text(json.dumps(provenance, indent=2))
+    print(f"[scan] wrote {out_dir}")
+    return provenance
+
+
+# --------------------------------------------------------------------------- #
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--source", choices=["human", "rat"], default="human",
                     help="MoTrPAC comparison side: human acute exercise (default) or rat training.")
+    ap.add_argument("--metabolite-scan", default="",
+                    help="Run the single-metabolite cross-species scan lane for this metabolite name "
+                         "instead of the paired volcano figure.")
+    ap.add_argument("--name-variants", default="",
+                    help="Semicolon-separated additional spellings to match for --metabolite-scan.")
+    ap.add_argument("--mw-studies", default="",
+                    help="Comma-separated MW study IDs to scan for --metabolite-scan.")
     args = ap.parse_args()
+
+    if args.metabolite_scan:
+        variants = [v.strip() for v in args.name_variants.split(";") if v.strip()]
+        studies = [s.strip().upper() for s in args.mw_studies.split(",") if s.strip()]
+        if not studies:
+            raise SystemExit("--metabolite-scan requires --mw-studies")
+        run_metabolite_scan(args.metabolite_scan, variants, studies)
+        return
 
     OUT_DATA.mkdir(parents=True, exist_ok=True)
     OUT_REPORTS.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,166 @@
+{
+  "generated_utc": "2026-08-19T20:18:14.219366+00:00",
+  "query_original": "N-Lactoyl phenylalanine",
+  "name_variants_searched": [
+    "Lac-Phe",
+    "N-lactoylphenylalanine",
+    "lactoylphenylalanine"
+  ],
+  "normalized_match_keys": [
+    "lacphe",
+    "lactoylphenylalanine",
+    "nlactoylphenylalanine"
+  ],
+  "match_basis": "normalized name containment across source name columns",
+  "review_status": "requires_human_review",
+  "decision_scope": "retrieval_and_effect_extraction_only",
+  "harmonization_eligibility": "requires_assay_identity_review",
+  "mw_studies": [
+    {
+      "study_id": "ST003662",
+      "study_title": "Metabolome trajectory of exercise physiology- a comprehensive study of healthy male and female athletes",
+      "species": "Homo sapiens",
+      "license": "CC BY 4.0",
+      "study_link": "https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?StudyID=ST003662",
+      "paired_participants_by_stratum": {
+        "all": 137,
+        "f": 63,
+        "m": 71
+      },
+      "features_measured": 178,
+      "queried_feature_hits": 3,
+      "contrast": "post-exercise vs pre-exercise (Collectionpoint After vs Before)",
+      "statistic": "paired t-test on log2 abundance, BH-adjusted within stratum",
+      "orientation": "positive log2fc = higher post-exercise"
+    }
+  ],
+  "rat_motrpac": {
+    "study": "pass1b06",
+    "omics": "metabolomics",
+    "endpoint": "https://search.motrpac-data.org/api/search_public",
+    "query": {
+      "study": "pass1b06",
+      "omics": "metabolomics",
+      "size": 200000
+    },
+    "timewise_rows_returned": 99236,
+    "unique_features": 2459,
+    "tissues": [
+      "adrenal",
+      "brown adipose",
+      "colon",
+      "cortex",
+      "gastrocnemius",
+      "heart",
+      "hippocampus",
+      "hypothalamus",
+      "kidney",
+      "liver",
+      "lung",
+      "ovaries",
+      "plasma",
+      "small intestine",
+      "spleen",
+      "testes",
+      "vastus lateralis",
+      "vena cava",
+      "white adipose"
+    ],
+    "comparison_groups": [
+      "1w",
+      "2w",
+      "4w",
+      "8w"
+    ],
+    "assays": [
+      "metab-t-acoa",
+      "metab-t-acoa, metab-u-ionpneg",
+      "metab-t-amines",
+      "metab-t-amines, metab-t-tca, metab-u-hilicpos, metab-u-rpneg",
+      "metab-t-amines, metab-t-tca, metab-u-hilicpos, metab-u-rpneg, metab-u-ionpneg",
+      "metab-t-amines, metab-u-hilicpos",
+      "metab-t-amines, metab-u-hilicpos, metab-u-ionpneg",
+      "metab-t-amines, metab-u-hilicpos, metab-u-rpneg",
+      "metab-t-amines, metab-u-hilicpos, metab-u-rpneg, metab-u-ionpneg",
+      "metab-t-amines, metab-u-hilicpos, metab-u-rppos",
+      "metab-t-amines, metab-u-hilicpos, metab-u-rppos, metab-u-ionpneg",
+      "metab-t-amines, metab-u-hilicpos, metab-u-rppos, metab-u-rpneg",
+      "metab-t-amines, metab-u-hilicpos, metab-u-rppos, metab-u-rpneg, metab-u-ionpneg",
+      "metab-t-amines, metab-u-lrppos, metab-u-hilicpos",
+      "metab-t-amines, metab-u-lrppos, metab-u-hilicpos, metab-u-ionpneg",
+      "metab-t-amines, metab-u-lrppos, metab-u-hilicpos, metab-u-rpneg, metab-u-ionpneg",
+      "metab-t-amines, metab-u-lrppos, metab-u-hilicpos, metab-u-rppos, metab-u-rpneg, metab-u-ionpneg",
+      "metab-t-etamidpos",
+      "metab-t-etamidpos, metab-u-hilicpos",
+      "metab-t-etamidpos, metab-u-lrppos",
+      "metab-t-ka",
+      "metab-t-ka, metab-u-rpneg",
+      "metab-t-nuc",
+      "metab-t-nuc, metab-u-hilicpos",
+      "metab-t-nuc, metab-u-hilicpos, metab-u-rppos",
+      "metab-t-nuc, metab-u-ionpneg",
+      "metab-t-nuc, metab-u-rpneg, metab-u-ionpneg",
+      "metab-t-nuc, metab-u-rppos",
+      "metab-t-nuc, metab-u-rppos, metab-u-ionpneg",
+      "metab-t-oxylipneg",
+      "metab-t-tca",
+      "metab-t-tca, metab-u-ionpneg",
+      "metab-t-tca, metab-u-rpneg",
+      "metab-t-tca, metab-u-rpneg, metab-u-ionpneg",
+      "metab-t-tca, metab-u-rppos, metab-u-rpneg",
+      "metab-u-hilicpos",
+      "metab-u-hilicpos, metab-u-ionpneg",
+      "metab-u-hilicpos, metab-u-rpneg",
+      "metab-u-hilicpos, metab-u-rppos",
+      "metab-u-hilicpos, metab-u-rppos, metab-u-ionpneg",
+      "metab-u-hilicpos, metab-u-rppos, metab-u-rpneg",
+      "metab-u-ionpneg",
+      "metab-u-lrpneg",
+      "metab-u-lrpneg, metab-u-hilicpos",
+      "metab-u-lrpneg, metab-u-rpneg",
+      "metab-u-lrppos",
+      "metab-u-lrppos, metab-u-hilicpos",
+      "metab-u-lrppos, metab-u-hilicpos, metab-u-ionpneg",
+      "metab-u-lrppos, metab-u-hilicpos, metab-u-rppos",
+      "metab-u-lrppos, metab-u-lrpneg",
+      "metab-u-lrppos, metab-u-lrpneg, metab-u-rppos",
+      "metab-u-lrppos, metab-u-rpneg",
+      "metab-u-lrppos, metab-u-rppos",
+      "metab-u-rpneg",
+      "metab-u-rpneg, metab-u-ionpneg",
+      "metab-u-rppos",
+      "metab-u-rppos, metab-u-ionpneg",
+      "metab-u-rppos, metab-u-rpneg"
+    ],
+    "name_columns_scanned": [
+      "refmet_name",
+      "metabolite",
+      "feature_id"
+    ],
+    "queried_feature_hits": 0
+  },
+  "coverage_gap_semantics": "A queried metabolite absent from a source feature space is an availability/coverage gap. It is not evidence of a null effect and must not be replaced by a synthetic row.",
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003662/data"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003662/factors"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003662/summary"
+    },
+    {
+      "method": "POST",
+      "url": "https://search.motrpac-data.org/api/search_public",
+      "body": {
+        "study": "pass1b06",
+        "omics": "metabolomics",
+        "size": 200000
+      }
+    }
+  ]
+}
