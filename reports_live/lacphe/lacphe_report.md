@@ -56,8 +56,8 @@ platforms. **57 studies / 60 analyses** report Lac-Phe.
 
 - Human blood analyses: **11** across 9 studies.
 - Of those, exactly **one** is an exercise-physiology design: `ST003662`. The rest are disease or
-  case-control cohorts (cancer, ALS, MS, ARDS, pancreatitis), which carry Lac-Phe as an incidental
-  untargeted feature and cannot answer an exercise question.
+  case-control cohorts (cancer, ALS, MS, ARDS, pancreatitis). They report Lac-Phe but carry no exercise
+  exposure, so they cannot answer an exercise question.
 - Rat MW analyses exist (2) but are oxycodone-exposure plasma and
   post-colectomy feces designs — neither is an exercise design.
 - **Discovery verdict:** the exercise-relevant human Lac-Phe evidence base in MW is a single study.
@@ -105,8 +105,9 @@ is required before any sex-difference claim.
 
 **0 rows matched Lac-Phe.** Name matching was normalization-insensitive
 (punctuation and spacing stripped, so `N-Lactoyl phenylalanine`, `N-lactoylphenylalanine` and
-`lactoylphenylalanine` all collapse to one key), and the whole rat namespace contains **no `lactoyl`
-substring at all** — no N-lactoyl-phenylalanine, -leucine, -valine, or any other conjugate.
+`lactoylphenylalanine` all collapse to one key). A direct substring sweep of all three name columns
+(`refmet_name` 2459 unique, `metabolite` 2651 unique, `feature_id` 2739 unique) returns **zero rows
+containing `lactoyl`** — no N-lactoyl-phenylalanine, -leucine, -valine, or any other conjugate.
 
 This is an **availability gap in the rat metabolomics panel**, and it is the correct scientific finding to
 report. It is emphatically *not*: (a) evidence that Lac-Phe is unchanged by training in rats, (b) grounds
@@ -117,16 +118,20 @@ call it Lac-Phe.
 
 The two substrates of the Lac-Phe conjugation reaction *are* measured in rat:
 
-| metabolite | tissues in focus set | timewise rows | any adj_p<0.05 |
-| --- | --- | --- | --- |
-| lactic acid | gastrocnemius, heart, liver, plasma | 32 | no |
-| phenylalanine | gastrocnemius, heart, liver, plasma, vastus lateralis | 40 | no |
+| metabolite | tissues in focus set | timewise rows | rows adj_p<0.05 | rows nominal p<0.05 |
+| --- | --- | --- | --- | --- |
+| lactic acid | gastrocnemius, heart, liver, plasma | 32 | 0 | 9 |
+| phenylalanine | gastrocnemius, heart, liver, plasma, vastus lateralis | 40 | 0 | 3 |
+
+
+No precursor cell in the focus tissues reaches adj_p<0.05 (every reported adj_p is 1.0); only nominal
+p<0.05 rows exist. So the rat side offers neither the conjugate nor an FDR-significant precursor signal.
 
 - Figure: `figures/rat_pass1b06_lacphe_precursors.png`
 - Precursor abundance changes constrain **substrate availability**, not conjugate formation. CNDP2-mediated
   Lac-Phe synthesis is a separate step, and neither substrate is a validated proxy for the conjugate.
 
-### Two independent barriers to alignment
+### Barriers to alignment
 
 | barrier | human ST003662 | rat pass1b-06 | consequence |
 | --- | --- | --- | --- |

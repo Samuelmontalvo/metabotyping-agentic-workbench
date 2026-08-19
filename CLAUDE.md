@@ -29,6 +29,27 @@ python3 scripts/fetch_live_records.py            # fetch curated real studies ->
 # or: python3 scripts/fetch_live_records.py ST004303 ST003807 ST002916
 ```
 
+### Single-metabolite lane
+
+Find which public studies report a metabolite, then extract its effects and check MoTrPAC rat coverage:
+
+```bash
+# 1. Which MW studies report the metabolite (RefMet resolution + metstat search)
+PYTHONPATH=src python3 -m metabotyping_agentic.cli live-search-metabolite-studies \
+  --query "N-Lactoyl phenylalanine" --name-variants "Lac-Phe" \
+  --out data/live/metabolite_search_lacphe
+
+# 2. Human pre/post effects for chosen studies + rat pass1b-06 coverage scan
+PYTHONPATH=src python3 scripts/volcano_compare.py --metabolite-scan "N-Lactoyl phenylalanine" \
+  --name-variants "Lac-Phe;N-lactoylphenylalanine" --mw-studies ST003662
+
+# 3. Offline figures + report -> reports_live/lacphe/
+python3 scripts/render_lacphe_report.py
+```
+
+A metabolite absent from a source feature space is recorded as a coverage gap. Never substitute a
+synthetic row, a nearby analyte, or a precursor for the queried metabolite.
+
 ## Pilot
 
 Run:

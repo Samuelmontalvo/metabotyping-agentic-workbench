@@ -123,7 +123,8 @@ def plot_human_volcano(volcano: pd.DataFrame, hits: pd.DataFrame, path: Path) ->
         fontsize=12,
     )
     fig.text(0.5, 0.005,
-             "Single study, whole blood, targeted+untargeted LC-MS (AN006015/AN006016). Name-level RefMet match: "
+             "Single study, whole blood, quantitative LC-MS panel (178 named metabolites in \u03bcmol/L; "
+             "AN006015 HILIC + AN006016 reversed phase). Name-level RefMet match: "
              "screening evidence, not MSI-confirmed identity. Sex strata are separate BH families.",
              ha="center", fontsize=8, color="#444444")
     fig.tight_layout(rect=(0, 0.03, 1, 0.9))
@@ -340,8 +341,8 @@ def render_report(inputs: dict, context: dict, rat_sub: pd.DataFrame, path: Path
     add("")
     add(f"- Human blood analyses: **{len(human_blood)}** across {human_blood['study_id'].nunique()} studies.")
     add("- Of those, exactly **one** is an exercise-physiology design: `ST003662`. The rest are disease or")
-    add("  case-control cohorts (cancer, ALS, MS, ARDS, pancreatitis), which carry Lac-Phe as an incidental")
-    add("  untargeted feature and cannot answer an exercise question.")
+    add("  case-control cohorts (cancer, ALS, MS, ARDS, pancreatitis). They report Lac-Phe but carry no exercise")
+    add("  exposure, so they cannot answer an exercise question.")
     add(f"- Rat MW analyses exist ({int(species_counts.get('Rat', 0))}) but are oxycodone-exposure plasma and")
     add("  post-colectomy feces designs — neither is an exercise design.")
     add("- **Discovery verdict:** the exercise-relevant human Lac-Phe evidence base in MW is a single study.")
@@ -395,8 +396,9 @@ def render_report(inputs: dict, context: dict, rat_sub: pd.DataFrame, path: Path
     add("")
     add(f"**{rat_cov['queried_feature_hits']} rows matched Lac-Phe.** Name matching was normalization-insensitive")
     add("(punctuation and spacing stripped, so `N-Lactoyl phenylalanine`, `N-lactoylphenylalanine` and")
-    add("`lactoylphenylalanine` all collapse to one key), and the whole rat namespace contains **no `lactoyl`")
-    add("substring at all** — no N-lactoyl-phenylalanine, -leucine, -valine, or any other conjugate.")
+    add("`lactoylphenylalanine` all collapse to one key). A direct substring sweep of all three name columns")
+    add("(`refmet_name` 2459 unique, `metabolite` 2651 unique, `feature_id` 2739 unique) returns **zero rows")
+    add("containing `lactoyl`** — no N-lactoyl-phenylalanine, -leucine, -valine, or any other conjugate.")
     add("")
     add("This is an **availability gap in the rat metabolomics panel**, and it is the correct scientific finding to")
     add("report. It is emphatically *not*: (a) evidence that Lac-Phe is unchanged by training in rats, (b) grounds")
@@ -407,19 +409,24 @@ def render_report(inputs: dict, context: dict, rat_sub: pd.DataFrame, path: Path
     add("")
     add("The two substrates of the Lac-Phe conjugation reaction *are* measured in rat:")
     add("")
-    add("| metabolite | tissues in focus set | timewise rows | any adj_p<0.05 |")
-    add("| --- | --- | --- | --- |")
+    add("| metabolite | tissues in focus set | timewise rows | rows adj_p<0.05 | rows nominal p<0.05 |")
+    add("| --- | --- | --- | --- | --- |")
     for metabolite in RAT_PRECURSORS:
         sub = rat_sub[rat_sub["refmet_name"].astype(str).str.lower() == metabolite]
         tissues = ", ".join(sorted(set(sub["tissue"].astype(str))))
         add(f"| {metabolite} | {tissues} | {len(sub)} | "
-            f"{'yes' if (sub['adj_p_value'] < P_THRESH).any() else 'no'} |")
+            f"{int((sub['adj_p_value'] < P_THRESH).sum())} | "
+            f"{int((sub['p_value'] < P_THRESH).sum())} |")
+    add("")
+    add("")
+    add("No precursor cell in the focus tissues reaches adj_p<0.05 (every reported adj_p is 1.0); only nominal")
+    add("p<0.05 rows exist. So the rat side offers neither the conjugate nor an FDR-significant precursor signal.")
     add("")
     add("- Figure: `figures/rat_pass1b06_lacphe_precursors.png`")
     add("- Precursor abundance changes constrain **substrate availability**, not conjugate formation. CNDP2-mediated")
     add("  Lac-Phe synthesis is a separate step, and neither substrate is a validated proxy for the conjugate.")
     add("")
-    add("### Two independent barriers to alignment")
+    add("### Barriers to alignment")
     add("")
     add("| barrier | human ST003662 | rat pass1b-06 | consequence |")
     add("| --- | --- | --- | --- |")
