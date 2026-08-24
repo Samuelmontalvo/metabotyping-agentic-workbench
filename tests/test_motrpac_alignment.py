@@ -1,10 +1,9 @@
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
 from metabotyping_agentic.evaluation.motrpac_alignment import align_motrpac, align_one
 from metabotyping_agentic.extraction.metadata_cards import extract_metadata_cards
-
 
 ROOT = Path(__file__).resolve().parents[1]
 

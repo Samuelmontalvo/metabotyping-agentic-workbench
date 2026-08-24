@@ -13,7 +13,6 @@ from typing import Any
 from .._compat import ConfigDict
 from ..models import WorkbenchModel
 
-
 DOMAIN_REVIEW_SCHEMA_VERSION = "1.0.0"
 DOMAIN_REVIEW_CONTRACT_VERSION = "1.0.0"
 
@@ -223,7 +222,7 @@ class DomainReviewPacket(_DomainReviewModel):
     packet_digest: str
 
     @classmethod
-    def model_validate(cls, value: Any) -> "DomainReviewPacket":
+    def model_validate(cls, value: Any) -> DomainReviewPacket:
         """Construct nested models in both Pydantic and dependency-free runs."""
 
         if isinstance(value, cls):

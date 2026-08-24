@@ -974,7 +974,7 @@ def write_report(out: pd.DataFrame, query: str, qtype: str) -> Path:
         f"- Effect tables scanned: {len(EFFECT_TABLES)}",
         f"- Matched rows: **{len(out)}**",
         f"- Significance threshold: FDR < {DEFAULT_FDR}",
-        f"- Match basis distribution: " + ", ".join(f"{k}={int(v)}" for k, v in out["match_basis"].value_counts().items()),
+        "- Match basis distribution: " + ", ".join(f"{k}={int(v)}" for k, v in out["match_basis"].value_counts().items()),
         "",
         "## Results (sorted by p_value)",
         "",
@@ -1008,7 +1008,8 @@ def write_report(out: pd.DataFrame, query: str, qtype: str) -> Path:
     if not out.empty:
         for (sys_, sid), grp in out.groupby(["source_system", "study_id"], sort=False):
             sig = grp[grp["significance_call"] == "significant_FDR<0.05"]
-            up = sig[sig["log2fc"] > 0]; dn = sig[sig["log2fc"] < 0]
+            up = sig[sig["log2fc"] > 0]
+            dn = sig[sig["log2fc"] < 0]
             lines.append(f"| {sys_} | {sid} | {len(grp)} | {len(sig)} | {len(up)} | {len(dn)} |")
     n_curated = int((out["match_basis"] == "refmet_curated_class").sum())
     n_pattern = int((out["match_basis"] == "inferred_name_pattern").sum())

@@ -13,7 +13,6 @@ from ..io import ensure_dir, to_plain, write_json
 from ..models import DatasetCard, Modality, PublicationRecord, StudyCard
 from ..schemas import project_schema_path, validate_or_raise
 
-
 UNKNOWN_ACCESSIONS = {"", "unknown", "not_available", "not_reported"}
 MATCH_CLASS_PRIORITY = {
     "direct": 5,

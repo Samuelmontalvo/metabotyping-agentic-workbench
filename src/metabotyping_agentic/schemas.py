@@ -8,7 +8,6 @@ from typing import Any
 
 from .io import read_json
 
-
 REPOSITORY_SCHEMA_DIR = Path(__file__).resolve().parents[2] / "schemas"
 INSTALLED_SCHEMA_DIR = (
     Path(sysconfig.get_path("data"))

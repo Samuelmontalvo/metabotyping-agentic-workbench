@@ -52,7 +52,7 @@ except ModuleNotFoundError:  # pragma: no cover - fallback is covered in this en
                 setattr(self, name, value)
 
         @classmethod
-        def model_validate(cls, value: Any) -> "BaseModel":
+        def model_validate(cls, value: Any) -> BaseModel:
             if isinstance(value, cls):
                 return value
             return cls(**value)

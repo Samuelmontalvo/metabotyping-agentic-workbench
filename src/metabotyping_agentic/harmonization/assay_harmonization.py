@@ -13,10 +13,11 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+from collections.abc import Iterable, Sequence
 from dataclasses import dataclass, field
 from itertools import combinations
 from pathlib import Path
-from typing import Any, Iterable, Sequence
+from typing import Any
 
 from ..io import read_json, to_plain, write_json
 from .assay_models import (

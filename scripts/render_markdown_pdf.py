@@ -15,7 +15,6 @@ import re
 import textwrap
 from pathlib import Path
 
-
 PAGE_WIDTH = 612
 PAGE_HEIGHT = 792
 LEFT = 54
@@ -40,7 +39,7 @@ TRANSLITERATIONS = {
     "\u03bc": "u", "\u0394": "delta ", "\u03c1": "rho", "\u03b1": "alpha",
     "\u03b2": "beta", "\u2020": "+", "\u2713": "yes", "\u2717": "no",
     "\u00b7": "-", "\u00b0": "deg", "\u00a0": " ", "\u2011": "-", "\u2032": "'",
-    "\u2033": '"', "\u00ad": "", "\u2009": " ", "\u202f": " ", "\u2265": ">=",
+    "\u2033": '"', "\u00ad": "", "\u2009": " ", "\u202f": " ",
 }
 
 
@@ -262,7 +261,7 @@ def markdown_to_draw_ops(markdown: str, base_dir: Path | None = None) -> list[tu
             payload.update({"box_width": width, "box_height": height})
             ops.append(("", "IMG", 0.0, height + 8.0, 0, payload))
             if caption:
-                for i, wrapped in enumerate(wrap_line(caption, "F1", CAPTION_SIZE, 0)):
+                for _i, wrapped in enumerate(wrap_line(caption, "F1", CAPTION_SIZE, 0)):
                     ops.append((wrapped, "F1", CAPTION_SIZE, CAPTION_LEADING, 0, None))
             ops.append(("", "F1", BODY_SIZE, 10.0, 0, None))
             continue

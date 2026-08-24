@@ -1,19 +1,18 @@
 import csv
 import hashlib
 import json
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
 from metabotyping_agentic.evaluation.benchmark import (
-    BenchmarkInputError,
     CASE_OUTCOME_PRECEDENCE,
     METRIC_NAMES,
+    BenchmarkInputError,
     benchmark,
 )
 from metabotyping_agentic.io import read_json, write_csv_rows, write_json
 from metabotyping_agentic.schemas import project_schema_path, validate_against_schema
-
 
 ROOT = Path(__file__).resolve().parents[1]
 PREDICTED_FIELDS = [

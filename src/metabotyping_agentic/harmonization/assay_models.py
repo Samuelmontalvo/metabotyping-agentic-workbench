@@ -209,7 +209,7 @@ class MetaboliteAssayRecord(WorkbenchModel):
     provenance: RecordProvenance
 
     @classmethod
-    def model_validate(cls, value: Any) -> "MetaboliteAssayRecord":
+    def model_validate(cls, value: Any) -> MetaboliteAssayRecord:
         """Validate nested input with Pydantic or the dependency-free fallback.
 
         The repository intentionally supports offline smoke runs without

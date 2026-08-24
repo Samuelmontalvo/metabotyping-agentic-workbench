@@ -1,9 +1,8 @@
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
 from metabotyping_agentic.harmonization.crosswalk import build_crosswalk
-
 
 ROOT = Path(__file__).resolve().parents[1]
 

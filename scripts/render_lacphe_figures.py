@@ -30,7 +30,7 @@ import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from matplotlib.colors import LinearSegmentedColormap, Normalize, TwoSlopeNorm
+from matplotlib.colors import LinearSegmentedColormap, TwoSlopeNorm
 from scipy import stats
 
 SCAN_LACPHE = Path("data/live/metabolite_scan/n_lactoyl_phenylalanine")

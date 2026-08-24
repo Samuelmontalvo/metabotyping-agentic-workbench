@@ -1,11 +1,10 @@
-import os
 import json
-from pathlib import Path
+import os
 import tempfile
 import unittest
+from pathlib import Path
 
 from metabotyping_agentic.cli import discover_command, main
-
 
 ROOT = Path(__file__).resolve().parents[1]
 

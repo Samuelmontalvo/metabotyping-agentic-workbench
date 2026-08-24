@@ -20,9 +20,10 @@ import math
 import re
 import statistics
 from collections import defaultdict
+from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Iterable, Mapping, Sequence
+from typing import Any
 
 MIN_PROBABILITY = 1e-300
 SCHEMA_VERSION = "metabotyping-plot-bundle/1.0"

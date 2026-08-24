@@ -26,7 +26,6 @@ from metabotyping_agentic.plotting import (
     run_metabolomics_plot_workflow,
 )
 
-
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURES = ROOT / "tests" / "fixtures" / "plotting"
 

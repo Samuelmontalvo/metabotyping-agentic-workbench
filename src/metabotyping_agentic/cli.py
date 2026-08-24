@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import argparse
 import re
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -13,6 +13,8 @@ from .discovery.literature import load_publications
 from .discovery.literature_review import (
     load_literature_records,
     records_from_publications,
+)
+from .discovery.literature_review import (
     review_literature as run_review_literature,
 )
 from .discovery.recommender import build_recommendations
@@ -23,7 +25,8 @@ from .evaluation.quality_scoring import score_quality as run_quality_scoring
 from .extraction.metadata_cards import extract_metadata_cards
 from .extraction.variable_inventory import extract_variable_inventory
 from .harmonization.crosswalk import build_crosswalk as run_build_crosswalk
-from .harmonization.harmonization_plan import build_harmonization_plan, review_crosswalk as run_review_crosswalk
+from .harmonization.harmonization_plan import build_harmonization_plan
+from .harmonization.harmonization_plan import review_crosswalk as run_review_crosswalk
 from .io import ensure_dir, read_json, read_text, to_plain, write_csv_rows, write_json
 from .knowledge.source_registry import build_retrieval_plan
 from .live_sources.literature_search import LITERATURE_SOURCES, search_literature
@@ -273,7 +276,7 @@ def live_search_literature_command(
         context_terms=_split_terms(context_terms),
         sources=requested,
         max_records_per_source=max_records_per_source,
-        generated_utc=datetime.now(timezone.utc).isoformat(),
+        generated_utc=datetime.now(UTC).isoformat(),
     )
     criteria = define_inclusion_criteria(query)
     review = run_review_literature(
