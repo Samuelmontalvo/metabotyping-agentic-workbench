@@ -229,7 +229,7 @@ def build_corpus_figure(
     style_axis(ax, "y")
 
     fig.suptitle(
-        "Metabolomics Workbench corpus and RefMet reference landscape",
+        "Metabolomics Workbench corpus and RefMet reference overview",
         x=0.01,
         ha="left",
         fontsize=14,
@@ -270,7 +270,7 @@ def build_demonstration_figure(
     ax.set_xscale("log")
     for bar, value in zip(bars, values[::-1], strict=True):
         ax.text(value * 1.08, bar.get_y() + bar.get_height() / 2, f"{value:,}", va="center")
-    ax.set_title("A. MW-MoTrPAC screening funnel", loc="left", fontweight="bold")
+    ax.set_title("A. MW-MoTrPAC name-screening funnel", loc="left", fontweight="bold")
     ax.set_xlabel("counts (log scale)")
     ax.set_xlim(1, max(values) * 2.0)
     style_axis(ax)
@@ -308,7 +308,7 @@ def build_demonstration_figure(
     style_axis(ax)
 
     fig.suptitle(
-        "Demonstrations: candidate overlap narrows under review gates",
+        "Candidate overlap and Lac-Phe coverage after review filters",
         x=0.01,
         ha="left",
         fontsize=14,
@@ -318,8 +318,8 @@ def build_demonstration_figure(
         0.01,
         -0.025,
         textwrap.fill(
-            "Overlap is normalized-label screening only. Duplicate feature keys, assay identity, matrix, "
-            "scale, timing and estimand remain review gates; a missing Lac-Phe label is a coverage gap.",
+            "The overlap screen uses normalized labels only. Duplicate feature keys, assay identity, matrix, "
+            "scale, timing, and estimand still require review. A missing Lac-Phe label indicates a coverage gap.",
             width=155,
         ),
         ha="left",
