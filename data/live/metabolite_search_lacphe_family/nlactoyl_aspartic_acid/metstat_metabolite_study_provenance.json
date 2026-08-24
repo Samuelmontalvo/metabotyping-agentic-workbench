@@ -1,0 +1,41 @@
+{
+  "analysis_row_count": 1,
+  "metstat_filter_fields": [
+    "analysis_type",
+    "polarity",
+    "chromatography",
+    "species",
+    "sample_source",
+    "disease",
+    "kegg_id",
+    "refmet_name"
+  ],
+  "note": "Retrieval evidence only. A metstat hit shows the study reported this RefMet name; it does not confirm MSI-level identity, comparable quantitation, or harmonization eligibility. Absence of a study is a coverage gap, not evidence the metabolite is unchanged.",
+  "query_original": "N-Lactoyl aspartic acid",
+  "refmet_identity": {
+    "exactmass": "205.058639",
+    "formula": "C7H11NO6",
+    "inchi_key": "ZQMJQKKUBGAYPM-IMJSIDKUSA-N",
+    "main_class": "Amino acids and peptides",
+    "pubchem_cid": "170794638",
+    "query_original": "N-Lactoyl aspartic acid",
+    "refmet_id": "RM0158113",
+    "refmet_name": "N-Lactoyl aspartic acid",
+    "resolved": true,
+    "source_url": "https://www.metabolomicsworkbench.org/rest/refmet/name/N-Lactoyl%20aspartic%20acid/all",
+    "sub_class": "Amino acids",
+    "super_class": "Organic acids"
+  },
+  "searched_names": [
+    "N-Lactoyl aspartic acid"
+  ],
+  "searches": [
+    {
+      "error": "",
+      "queried_name": "N-Lactoyl aspartic acid",
+      "row_count": 1,
+      "source_url": "https://www.metabolomicsworkbench.org/rest/metstat/;;;;;;;N-Lactoyl%20aspartic%20acid"
+    }
+  ],
+  "study_count": 1
+}

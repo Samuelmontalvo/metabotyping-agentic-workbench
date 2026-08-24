@@ -3,11 +3,18 @@
 from __future__ import annotations
 
 import argparse
+import re
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from .discovery.criteria import define_inclusion_criteria
 from .discovery.literature import load_publications
+from .discovery.literature_review import (
+    load_literature_records,
+    records_from_publications,
+    review_literature as run_review_literature,
+)
 from .discovery.recommender import build_recommendations
 from .discovery.repositories import load_repository_records, repository_by_study
 from .evaluation.benchmark import benchmark as run_benchmark
@@ -19,6 +26,7 @@ from .harmonization.crosswalk import build_crosswalk as run_build_crosswalk
 from .harmonization.harmonization_plan import build_harmonization_plan, review_crosswalk as run_review_crosswalk
 from .io import ensure_dir, read_json, read_text, to_plain, write_csv_rows, write_json
 from .knowledge.source_registry import build_retrieval_plan
+from .live_sources.literature_search import LITERATURE_SOURCES, search_literature
 from .live_sources.metabolomics_workbench import (
     ingest_metabolomics_workbench_study,
     search_metabolite_studies,
@@ -29,6 +37,7 @@ from .reports.render import (
     render_catalog_report,
     render_evaluation_report,
     render_human_review_packet,
+    render_literature_report,
     render_motrpac_alignment_report,
 )
 from .schemas import project_schema_path, validate_or_raise
@@ -186,6 +195,105 @@ def live_compare_mw_motrpac_volcano_command(
     )
 
 
+def _split_terms(value: str) -> list[str]:
+    """Split a ``;``-separated CLI term list, preserving order and dropping blanks."""
+
+    return [item.strip() for item in str(value or "").split(";") if item.strip()]
+
+
+def _slug(value: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "_", str(value).strip().lower()).strip("_")
+    return slug or "query"
+
+
+def review_literature_command(
+    records: str,
+    query: str = DEFAULT_QUERY,
+    out: str = "data/extracted",
+    reports_out: str = "reports",
+    label: str = "literature",
+    subject_terms: str = "",
+    report_title: str = "Literature Evidence Report",
+    report_filename: str = "literature_report.md",
+) -> Any:
+    """Screen and report an existing literature record set. Offline; no network access."""
+
+    records_path = Path(records)
+    provenance_path = (records_path if records_path.is_dir() else records_path.parent) / "literature_provenance.json"
+    retrieval_provenance = read_json(provenance_path) if provenance_path.exists() else None
+    criteria = define_inclusion_criteria(query)
+    declared_subject_terms = _split_terms(subject_terms)
+    if not declared_subject_terms and retrieval_provenance:
+        # Reuse the retrieval query as the subject term when re-screening a fetched set.
+        declared_subject_terms = [
+            term
+            for term in [
+                str(retrieval_provenance.get("query_original") or ""),
+                *(retrieval_provenance.get("name_variants_searched") or []),
+            ]
+            if term
+        ]
+    review = run_review_literature(
+        load_literature_records(records_path),
+        criteria,
+        out,
+        retrieval_provenance=retrieval_provenance,
+        label=label,
+        subject_terms=declared_subject_terms,
+    )
+    render_literature_report(
+        review,
+        reports_out,
+        retrieval_provenance=retrieval_provenance,
+        filename=report_filename,
+        title=report_title,
+    )
+    return review
+
+
+def live_search_literature_command(
+    query: str,
+    out: str | None = None,
+    name_variants: str = "",
+    context_terms: str = "",
+    sources: str = "",
+    max_records_per_source: int = 300,
+    reports_out: str = "reports_live/literature",
+) -> Any:
+    """Retrieve, screen, and report literature for one topic. Requires network access."""
+
+    slug = _slug(query)
+    out_dir = Path(out) if out else Path("data/live/literature") / slug
+    requested = _split_terms(sources) or list(LITERATURE_SOURCES)
+    variants = _split_terms(name_variants)
+    result = search_literature(
+        query,
+        out_dir,
+        name_variants=variants,
+        context_terms=_split_terms(context_terms),
+        sources=requested,
+        max_records_per_source=max_records_per_source,
+        generated_utc=datetime.now(timezone.utc).isoformat(),
+    )
+    criteria = define_inclusion_criteria(query)
+    review = run_review_literature(
+        result["records"],
+        criteria,
+        out_dir,
+        retrieval_provenance=result["provenance"],
+        label="literature",
+        subject_terms=[query, *variants],
+    )
+    render_literature_report(
+        review,
+        reports_out,
+        retrieval_provenance=result["provenance"],
+        filename=f"{slug}_literature_report.md",
+        title=f"Literature Evidence Report — {query}",
+    )
+    return {"retrieval": result, "review": review}
+
+
 def run_pilot_command(out: str = "reports") -> None:
     ensure_dir(out)
     ensure_dir("data/extracted")
@@ -194,6 +302,36 @@ def run_pilot_command(out: str = "reports") -> None:
     query = read_text(query_path).strip() if query_path.exists() else DEFAULT_QUERY
     define_criteria_command(query=query, out="data/extracted/criteria.json")
     recommendations = discover_command(criteria="data/extracted/criteria.json", out="data/extracted")
+    publications = load_publications(_examples_dir() / "mock_publications.csv")
+    literature_records = records_from_publications(publications)
+    # The offline pilot has no retrieval lane, so the fixture itself is declared as the
+    # source rather than leaving the provenance table empty.
+    literature_provenance = {
+        "query_original": query,
+        "name_variants_searched": [],
+        "context_terms": [],
+        "unavailable_sources": [],
+        "truncated_sources": [],
+        "sources": [
+            {
+                "source_system": "local_synthetic_fixture",
+                "status": "ok",
+                "queried_expression": "data/examples/mock_publications.csv",
+                "reported_hit_count": len(literature_records),
+                "retrieved_count": len(literature_records),
+                "pagination_complete": True,
+                "detail": "offline pilot fixture; no network access and no live index queried",
+                "endpoints": [],
+            }
+        ],
+    }
+    literature_review = run_review_literature(
+        literature_records,
+        define_inclusion_criteria(query),
+        "data/extracted",
+        retrieval_provenance=literature_provenance,
+        label="literature",
+    )
     extract_metadata_command(records=str(_examples_dir() / "mock_repository_records.csv"), out="data/extracted")
     extract_variable_inventory(_examples_dir() / "mock_variable_dictionary.csv", "data/extracted")
     build_crosswalk_command(variables=str(_examples_dir() / "mock_variable_dictionary.csv"), out="data/extracted")
@@ -206,6 +344,12 @@ def run_pilot_command(out: str = "reports") -> None:
     render_evaluation_report(scores, out)
     render_motrpac_alignment_report(alignments, out)
     render_human_review_packet("data/review", out)
+    render_literature_report(
+        literature_review,
+        out,
+        retrieval_provenance=literature_provenance,
+        title="Literature Screening Report (offline pilot)",
+    )
 
 
 if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
@@ -302,6 +446,48 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
             out,
             check_data_endpoint,
             require_blood_derived_sample_matrix,
+        )
+
+    @app.command("review-literature")
+    def typer_review_literature(
+        records: str = typer.Option(..., "--records"),
+        query: str = typer.Option(DEFAULT_QUERY, "--query"),
+        out: str = typer.Option("data/extracted", "--out"),
+        reports_out: str = typer.Option("reports", "--reports-out"),
+        label: str = typer.Option("literature", "--label"),
+        subject_terms: str = typer.Option("", "--subject-terms"),
+        report_filename: str = typer.Option("literature_report.md", "--report-filename"),
+        report_title: str = typer.Option("Literature Evidence Report", "--report-title"),
+    ) -> None:
+        review_literature_command(
+            records,
+            query,
+            out,
+            reports_out,
+            label,
+            subject_terms=subject_terms,
+            report_filename=report_filename,
+            report_title=report_title,
+        )
+
+    @app.command("live-search-literature")
+    def typer_live_search_literature(
+        query: str = typer.Option(..., "--query"),
+        out: str | None = typer.Option(None, "--out"),
+        name_variants: str = typer.Option("", "--name-variants"),
+        context_terms: str = typer.Option("", "--context-terms"),
+        sources: str = typer.Option("", "--sources"),
+        max_records_per_source: int = typer.Option(300, "--max-records-per-source"),
+        reports_out: str = typer.Option("reports_live/literature", "--reports-out"),
+    ) -> None:
+        live_search_literature_command(
+            query,
+            out,
+            name_variants,
+            context_terms,
+            sources,
+            max_records_per_source,
+            reports_out,
         )
 
     @app.command("live-search-metabolite-studies")
@@ -406,6 +592,25 @@ def _argparse_main(argv: list[str] | None = None) -> None:
     p.add_argument("--skip-data-check", action="store_true")
     p.add_argument("--allow-non-blood-derived-sample-matrix", action="store_true")
 
+    p = subparsers.add_parser("review-literature")
+    p.add_argument("--records", required=True)
+    p.add_argument("--query", default=DEFAULT_QUERY)
+    p.add_argument("--out", default="data/extracted")
+    p.add_argument("--reports-out", default="reports")
+    p.add_argument("--label", default="literature")
+    p.add_argument("--subject-terms", default="")
+    p.add_argument("--report-filename", default="literature_report.md")
+    p.add_argument("--report-title", default="Literature Evidence Report")
+
+    p = subparsers.add_parser("live-search-literature")
+    p.add_argument("--query", required=True)
+    p.add_argument("--out", default=None)
+    p.add_argument("--name-variants", default="")
+    p.add_argument("--context-terms", default="")
+    p.add_argument("--sources", default="", help="; separated subset of " + ", ".join(LITERATURE_SOURCES))
+    p.add_argument("--max-records-per-source", type=int, default=300)
+    p.add_argument("--reports-out", default="reports_live/literature")
+
     p = subparsers.add_parser("live-search-metabolite-studies")
     p.add_argument("--query", required=True)
     p.add_argument("--out", default="data/live/metabolite_search")
@@ -461,6 +666,27 @@ def _argparse_main(argv: list[str] | None = None) -> None:
             out=args.out,
             check_data_endpoint=not args.skip_data_check,
             require_blood_derived_sample_matrix=not args.allow_non_blood_derived_sample_matrix,
+        )
+    elif args.command == "review-literature":
+        review_literature_command(
+            records=args.records,
+            query=args.query,
+            out=args.out,
+            reports_out=args.reports_out,
+            label=args.label,
+            subject_terms=args.subject_terms,
+            report_filename=args.report_filename,
+            report_title=args.report_title,
+        )
+    elif args.command == "live-search-literature":
+        live_search_literature_command(
+            query=args.query,
+            out=args.out,
+            name_variants=args.name_variants,
+            context_terms=args.context_terms,
+            sources=args.sources,
+            max_records_per_source=args.max_records_per_source,
+            reports_out=args.reports_out,
         )
     elif args.command == "live-search-metabolite-studies":
         live_search_metabolite_studies_command(args.query, args.out, args.name_variants)

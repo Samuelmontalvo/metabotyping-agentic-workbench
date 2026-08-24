@@ -1,0 +1,482 @@
+latin_name,common_names,study_count,percent_of_species_annotated_studies
+Homo sapiens,Human,1852,41.3116
+Mus musculus,Mouse,1463,32.6344
+Rattus norvegicus,Rat,257,5.7328
+Escherichia coli,E coli; Escherichia coli,54,1.2046
+Plasmodium falciparum,Parasite; Plasmodium falciparum,53,1.1822
+Drosophila melanogaster,Fruit fly; Insect,32,0.7138
+Caenorhabditis elegans,C. elegans; Roundworm,27,0.6023
+Arabidopsis thaliana,Arabidopsis thaliana,25,0.5577
+Danio rerio,Zebrafish,24,0.5354
+Saccharomyces cerevisiae,Saccharomyces cerevisiae; Yeast,24,0.5354
+Sus scrofa,Pig,22,0.4907
+Bos taurus,Cow,20,0.4461
+Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis,19,0.4238
+Ovis aries,Sheep,19,0.4238
+Bacteria,Bacteria,18,0.4015
+Canis lupus familiaris,Dog,14,0.3123
+Macaca mulatta,Rhesus monkey,14,0.3123
+Staphylococcus aureus,Staphylococcus aureus,14,0.3123
+Apis mellifera,Honey bee; Insect,13,0.29
+Xenopus laevis,Frog,12,0.2677
+Zea mays,Maize,12,0.2677
+Other abiotic sample,Other; Other abiotic sample,11,0.2454
+Bacteroides thetaiotaomicron,Bacteroides thetaiotaomicron,10,0.2231
+Glycine max,Soybean,10,0.2231
+Other,Other,9,0.2008
+Capra hircus,Goat,8,0.1785
+Eggerthella lenta,Eggerthella lenta,8,0.1785
+Equus caballus,Horse,7,0.1561
+Gallus gallus,Chicken,7,0.1561
+Mesocricetus auratus,Golden hamster,7,0.1561
+Oryctolagus cuniculus,Rabbit,7,0.1561
+Pseudomonas aeruginosa,Pseudomonas aeruginosa,7,0.1561
+Abiotic,Abiotic,6,0.1338
+Candida albicans,Candida albicans; Yeast,6,0.1338
+Enterococcus faecium,Enterococcus faecium,6,0.1338
+Hordeum vulgare,Barley,6,0.1338
+Quercus ilex,Oak,6,0.1338
+Staphylococcus epidermidis,Bacteria; Staphylococcus epidermidis,6,0.1338
+Synthetic,Synthetic,6,0.1338
+Thalassiosira pseudonana,Thalassiosira pseudonana,6,0.1338
+Cervus nippon,Sika deer,5,0.1115
+Chlamydomonas reinhardtii,Chlamydomonas reinhardtii,5,0.1115
+Enterococcus faecalis,Enterococcus faecalis,5,0.1115
+Megalobrama amblycephala,Wuchang bream,5,0.1115
+Salmonella enterica,Salmonella enterica,5,0.1115
+Solanum lycopersicum,Tomato,5,0.1115
+Synechocystis sp. PCC 6803,Synechococcus,5,0.1115
+Algae,Algae,4,0.0892
+Bacillus subtilis,Bacillus subtilis,4,0.0892
+Bacteroides uniformis,Bacteroides uniformis,4,0.0892
+Fusobacterium nucleatum,Fusobacterium nucleatum,4,0.0892
+Marine microbes,Marine microbes,4,0.0892
+Metacarcinus magister,Dungeness crab,4,0.0892
+Oncorhynchus mykiss,Rainbow trout,4,0.0892
+Phoenix dactylifera,Date palm,4,0.0892
+Scyliorhinus canicula,Catshark,4,0.0892
+Synechococcus elongatus,Synechococcus elongatus,4,0.0892
+Thermococcus kodakarensis,Thermococcus kodakarensis,4,0.0892
+Toxoplasma gondii,Toxoplasma gondii,4,0.0892
+Trypanosoma brucei brucei,Trypanosoma brucei,4,0.0892
+Acinetobacter baumannii,Acinetobacter baumannii,3,0.0669
+Acropora cervicornis,Acropora cervicornis,3,0.0669
+Alexandrium minutum,Alexandrium minutum,3,0.0669
+Alexandrium tamarense,Alexandrium tamarense,3,0.0669
+Bacteroides fragilis,Bacteroides fragilis,3,0.0669
+Blautia producta,Blautia producta,3,0.0669
+Brassica napus,Rapeseed,3,0.0669
+Clostridium clostridioforme,Clostridium clostridioforme,3,0.0669
+Clostridium hathewayi,Clostridium hathewayi,3,0.0669
+Clostridium hylemonae,Clostridium hylemonae,3,0.0669
+Clostridium scindens,Clostridium scindens,3,0.0669
+Clostridium symbiosum,Clostridium symbiosum,3,0.0669
+Collinsella aerofaciens,Collinsella aerofaciens,3,0.0669
+Cystophora cristata,Hooded seal,3,0.0669
+Enterococcus hirae,Enterococcus hirae,3,0.0669
+Escherichia fergusonii,Escherichia fergusonii,3,0.0669
+Felis catus,Cat,3,0.0669
+Flavonifractor plautii,Flavonifractor plautii,3,0.0669
+Haloxylon salicornicum,Haloxylon salicornicum,3,0.0669
+Macaca fascicularis,Macaque monkey,3,0.0669
+Malus domestica,Apple,3,0.0669
+Myotis lucifugus,Little brown bat,3,0.0669
+Natural mixed marine microbial community,Phytoplankton,3,0.0669
+Nothobranchius furzeri,Killifish; Turquoise killifish,3,0.0669
+Ophiocordyceps sinensis,Ophiocordyceps; Ophiocordyceps sinensis,3,0.0669
+Oryza sativa,Rice,3,0.0669
+Oryza sativa Japonica Group,Rice,3,0.0669
+Papio hamadryas,Baboon,3,0.0669
+Parabacteroides distasonis,Parabacteroides distasonis,3,0.0669
+Psychotria viridis,Chacrona,3,0.0669
+Streptococcus mutans,Streptococcus mutans,3,0.0669
+Triticum aestivum,Plant; Wheat,3,0.0669
+Vitis vinifera,Vine,3,0.0669
+Xenopus tropicalis,Western clawed frog,3,0.0669
+Ailuropoda melanoleuca,Giant Panda,2,0.0446
+Alexandrium catenella,Alexandrium catenella,2,0.0446
+Allium cepa,Onion,2,0.0446
+Allium sativum,Garlic,2,0.0446
+Artemisia argyi,Artemisia argyi,2,0.0446
+Athorix diptoa,Athorix,2,0.0446
+Aurantiochytrium limacinum,Aurantiochytrium limacinum,2,0.0446
+Auxenochlorella protothecoides,Auxenochlorella,2,0.0446
+Avena sativa,Oat,2,0.0446
+Bacillus megaterium,Bacillus megaterium,2,0.0446
+Bacteroides thetaiotaomicron VPI-5482,Bacteroides thetaiotaomicron,2,0.0446
+Bombus impatiens,Bumble Bee,2,0.0446
+Bombyx mori,Silkworm,2,0.0446
+Botrytis cinerea,Botrytis cinerea; Gray fruit mold,2,0.0446
+Brassica oleracea,Cabbage,2,0.0446
+Brucella abortus,Brucella abortus,2,0.0446
+"Callinectus sapidus, Crassostrea virginica, Panopeus herbstii","Blue Crabs, Eastern oysters, Mud Crabs",2,0.0446
+Callithrix jacchus,Marmoset,2,0.0446
+Capreolus pygargus,Asian roe deer,2,0.0446
+Capsicum annuum,Chili pepper; Pepper,2,0.0446
+Centroptilum triangulifer,Mayfly,2,0.0446
+Elaeis guineensis Jacq.,Oil palm,2,0.0446
+Faecalibacterium prausnitzii,Faecalibacterium prausnitzii,2,0.0446
+Fragaria x ananassa,Strawberry,2,0.0446
+Gastrolobium bilobum,Heart-leaved poison,2,0.0446
+Helicoverpa armigera,Insect,2,0.0446
+Hevea brasiliensis,Rubber tree,2,0.0446
+Ilyonectria estremocensis,Ilyonectria estremocensis,2,0.0446
+Ilyonectria mors-panacis,Ilyonectria mors-panacis,2,0.0446
+Ilyonectria robusta,Ilyonectria robusta,2,0.0446
+Ilyonectria rufa,Ilyonectria rufa,2,0.0446
+Ilyonectria torresensis,Ilyonectria torresensis,2,0.0446
+Lactobacillus plantarum,Lactobacillus plantarum,2,0.0446
+Lactuca sativa,Lettuce,2,0.0446
+Methanococcus maripaludis,Methanococcus maripaludis,2,0.0446
+Microbacterium sediminis,Microbacterium sediminis,2,0.0446
+Microchloropsis gaditana,Microchloropsis gaditana,2,0.0446
+Mirounga angustirostris,Seal,2,0.0446
+Mycobacterium tuberculosis,Mycobacterium tuberculosis,2,0.0446
+Neonectria obtusispora,Neonectria obtusispora,2,0.0446
+Nitzschia lecointei,Nitzschia lecointei,2,0.0446
+Ocimum basilicum,Basil,2,0.0446
+Oncorhynchus kisutch,Coho salmon,2,0.0446
+Oncorhynchus tshawytscha,Chinook salmon,2,0.0446
+Oreochromis mossambicus,Mozambique tilapia,2,0.0446
+Other Organism,Biofilm Microbial Community,2,0.0446
+Panax notoginseng,Ginseng; Panax notoginseng,2,0.0446
+Phaeodactylum tricornutum,Phaeodactylum tricornutum,2,0.0446
+Pinus pinaster,Maritime pine; Pine,2,0.0446
+Pitcairnia flammea,Flame Bromeliad,2,0.0446
+Plants,Plants,2,0.0446
+Porphyromonas gingivalis,Porphyromonas gingivalis,2,0.0446
+Rothia mucilaginosa,Rothia,2,0.0446
+Ruegeria pomeroyi,Ruegeria pomeroyi,2,0.0446
+Sinorhizobium meliloti,Sinorhizobium,2,0.0446
+Solanum tuberosum,Plant,2,0.0446
+Streptococcus,Streptococcus,2,0.0446
+Streptococcus pyogenes,Streptococcus pyogenes,2,0.0446
+Sulfolobus acidocaldarius,Sulfolobus acidocaldarius,2,0.0446
+Sulfolobus islandicus,Sulfolobus islandicus,2,0.0446
+Synechococcus,Synechococcus,2,0.0446
+Thermococcus sp. AM4,Thermococcus,2,0.0446
+Trichinella spiralis,Trichinella spiralis,2,0.0446
+Triticum durum,Wheat,2,0.0446
+Various marine planktons,Phytoplankton,2,0.0446
+Veillonella parvula,Veillonella parvula,2,0.0446
+Vibrio cholerae,Vibrio cholerae,2,0.0446
+Acer Saccharum,Sugar Maple,1,0.0223
+Acidithiobacillus ferrooxidans,Acidithiobacillus,1,0.0223
+Acinetobacter,Acinetobacter,1,0.0223
+Acropora hyacinthus,Stony coral,1,0.0223
+Aedes albopictus,Mosquito,1,0.0223
+Akkermansia muciniphila,Akkermansia muciniphila,1,0.0223
+Alexandrium pacificum,Alexandrium pacificum,1,0.0223
+Alkanna tinctoria,Alkanet,1,0.0223
+Alpinaria cf. rhododendri,Alpinaria cf. rhododendri,1,0.0223
+Alternaria alternata,Alternaria alternata,1,0.0223
+Alternaria arborescens,Alternaria arborescens,1,0.0223
+Alternaria cf. alternata,Alternaria cf. alternata,1,0.0223
+Alternaria infectoria,Alternaria infectoria,1,0.0223
+Alternaria sp.,Fungi,1,0.0223
+Amaranthus caudatus L.,Pendant amaranth,1,0.0223
+Anthostomella sp.,Anthostomella sp.,1,0.0223
+Aphaenogaster picea,Ant,1,0.0223
+Aphyosemion striatum,Red-striped killifish,1,0.0223
+Aposphaeria corallinolutea,Aposphaeria corallinolutea,1,0.0223
+Arma chinensis,Arma chinensis,1,0.0223
+Artemia salina,Brine shrimp,1,0.0223
+Articulospora atra,Articulospora atra,1,0.0223
+Asparagopsis taxiformis,Red algae,1,0.0223
+Aspergillus amstelodami,Aspergillus amstelodami,1,0.0223
+Aspergillus niger,Aspergillus niger,1,0.0223
+Astragalus mongholicus,Plant,1,0.0223
+Aureobasidium cf. subglaciale,Aureobasidium cf. subglaciale,1,0.0223
+Auxenochlorella pyrenoidosa,Algae,1,0.0223
+Babesia divergens,Blood parasite,1,0.0223
+Bacillus cereus,Bacillus cereus,1,0.0223
+Bacillus licheniformis,Bacillus licheniformis,1,0.0223
+Bacillus pumilus,Bacillus pumilus,1,0.0223
+Bacteroides ovatus ATCC 8483,Bacteroides ovatus,1,0.0223
+Bacteroides xylanisolvens,Bacteroides,1,0.0223
+Banisteriopsis caapi,Chacrona,1,0.0223
+Barbatosphaeriaceae sp.,Barbatosphaeriaceae sp.,1,0.0223
+Beauveria bassiana,Fungi,1,0.0223
+Beta vulgaris,Beet,1,0.0223
+Bifidobacteria,Bifidobacteria,1,0.0223
+Bifidobacterium longum,Bifidobacterium,1,0.0223
+Bos indicus,Cow,1,0.0223
+Brassica nigra,Black mustard,1,0.0223
+Brugia malayi,Roundworm,1,0.0223
+Callinectes sapidus,Maryland blue crab,1,0.0223
+Camaropella sp.,Camaropella sp.,1,0.0223
+Camelina sativa,Camelina,1,0.0223
+Camellia sinensis,Tea plant,1,0.0223
+Candida auris,Candida auris,1,0.0223
+Capsicum,Capsicum,1,0.0223
+Capsicum Chinense,Habanero pepper,1,0.0223
+Carassius cuvieri,Japanese crucian carp,1,0.0223
+Casaresia cf. sphagnorum,Casaresia cf. sphagnorum,1,0.0223
+Cassiopea andromeda,Cassiopea andromeda,1,0.0223
+Centella asiatica,Centella asiatica,1,0.0223
+Cerastium regelii,Regel's chickweed,1,0.0223
+Ceratodon purpurues,Moss,1,0.0223
+Chaetomium globosum,Chaetomium globosum,1,0.0223
+Chaetopsis sp.,Chaetopsis sp.,1,0.0223
+Cherax tenuimanus,Crayfish,1,0.0223
+Chlorella minutissima,Chlorella,1,0.0223
+Chromobacterium vaccinii,Chromobacterium vaccinii,1,0.0223
+Chromobacterium violaceum,Chromobacterium violaceum,1,0.0223
+Chromochloris zofingiensis,Algae,1,0.0223
+Cicer arietinum,Chickpea,1,0.0223
+Citrus sinensis,Orange,1,0.0223
+Cladosporium allicinum,Cladosporium allicinum,1,0.0223
+Cladosporium cf. cladosporioides,Cladosporium cf. cladosporioides,1,0.0223
+Clathrus transvaalensis,Bermudagrass,1,0.0223
+Clavularia inflata,Coral,1,0.0223
+Clostridioides difficile,C. difficile,1,0.0223
+Clostridium,Clostridium,1,0.0223
+Cobetia marina,Cobetia marina,1,0.0223
+Coelastrella tenuitheca,Microalga,1,0.0223
+Colletotrichum cf. truncatum,Colletotrichum cf. truncatum,1,0.0223
+Colletotrichum fioriniae,Colletotrichum fioriniae,1,0.0223
+Coniochaeta cf. marina,Coniochaeta cf. marina,1,0.0223
+Coniothyrium ferrarisianum,Coniothyrium ferrarisianum,1,0.0223
+Cordyceps militaris,Cordyceps,1,0.0223
+Cormus domestica,Cormus domestica,1,0.0223
+Corydalis yanhusuo,Corydalis yanhusuo,1,0.0223
+Corylus americana,Corylus americana,1,0.0223
+Corylus avellana,Corylus avellana,1,0.0223
+Crassostrea virginica; Pogonias cromis; Archosargus probatocephalus,Eastern oysters; Black drum; Sheepshead,1,0.0223
+Creosphaeria sassafras,Creosphaeria sassafras,1,0.0223
+Cricetulus griseus,Chinese hamster,1,0.0223
+Cryptococcus neoformans,Cryptococcus neoformans,1,0.0223
+Cryptosporella sp.,Cryptosporella sp.,1,0.0223
+Cucumis sativus,Cucumber,1,0.0223
+Cytospora cf. cedri,Cytospora cf. cedri,1,0.0223
+Cytospora ribis,Cytospora ribis,1,0.0223
+Daphnia magna,Water flea,1,0.0223
+Daucus carota,Carrot,1,0.0223
+Diadema antillarum,Sea urchin,1,0.0223
+Diaporthe phaseolorum,Diaporthe phaseolorum,1,0.0223
+Diaporthe vaccinii,Diaporthe vaccinii,1,0.0223
+Didymella pomorum,Didymella pomorum,1,0.0223
+Didymella sp.,Didymella sp.,1,0.0223
+Discosia rubi,Discosia rubi,1,0.0223
+Dorea longicatena,Dorea longicatena,1,0.0223
+Doryteuthis pealeii,Longfin inshore squid,1,0.0223
+Dothideaceae sp.,Dothideaceae sp.,1,0.0223
+Duponchelia fovealis,European pepper moth,1,0.0223
+Echium vulgare,Echium vulgare,1,0.0223
+Enterobacter sp.,Enterobacter sp.,1,0.0223
+Epicoccum nigrum,Epicoccum nigrum,1,0.0223
+Epicoleosporium ramularioides,Epicoleosporium ramularioides,1,0.0223
+Epinephelus coioides,Orange-spotted grouper,1,0.0223
+Equisetum arvense,Equisetum arvense,1,0.0223
+Equisetum hyemale,Equisetum hyemale,1,0.0223
+Equisetum telmateia,Equisetum telmateia,1,0.0223
+Equus ferus caballus; Bos grunniens; Equus africanus asinus; Camelus bactrianus,Horse; Yak; Donkey; Camel,1,0.0223
+Eriobotrya japonica,Loquat,1,0.0223
+Exaiptasia diaphana,Sea anemone,1,0.0223
+Exidia glandulosa,Exidia glandulosa,1,0.0223
+Food item,Food item,1,0.0223
+Fragilariopsis cylindrus,Fragilariopsis cylindrus,1,0.0223
+Fraxinus americana,White ash,1,0.0223
+Fraxinus chinensis,Chinese ash,1,0.0223
+Fraxinus excelsior,European ash,1,0.0223
+Fraxinus mandshurica,Manchurian ash,1,0.0223
+Fraxinus nigra,Black ash,1,0.0223
+Fraxinus pennsylvanica,Green ash,1,0.0223
+Fraxinus platypoda,Chinese red ash,1,0.0223
+Fusarium tricinctum,Fusarium tricinctum,1,0.0223
+Galaxea fascicularis,Coral,1,0.0223
+Gammarus locusta,Amphipods,1,0.0223
+Gardenerella vaginalis,Gardenerella vaginalis,1,0.0223
+Geastrumia polystigmatis,Geastrumia polystigmatis,1,0.0223
+Gemella morbillorum,Gemella morbillorum,1,0.0223
+Ginkgo biloba,Ginkgo biloba,1,0.0223
+Gloeophyllum sepiarium,Gloeophyllum sepiarium,1,0.0223
+Glycyrrhiza glabra,Glycyrrhiza glabra,1,0.0223
+Godronia cassandrae,Godronia cassandrae,1,0.0223
+Godronia cf. cassandrae,Godronia cf. cassandrae,1,0.0223
+Gracilaria edulis,Malaysian red seaweed,1,0.0223
+Haemophilus influenzae,Haemophilus influenzae,1,0.0223
+Haliotis discus hannai,Pacific Abalone,1,0.0223
+Halyomorpha halys,Halyomorpha halys,1,0.0223
+Hevea brasiliensis strain:RRIM 600,Rubber tree,1,0.0223
+Hevea guianensis pauciflora,Rubber tree,1,0.0223
+Hevea guianensis pauciflora var. coriacea,Rubber tree,1,0.0223
+Hevea guianensis var. collina,Rubber tree,1,0.0223
+Hevea guianensis var. guianensis,Rubber tree,1,0.0223
+Hevea spruceana,Rubber tree,1,0.0223
+Homo sapiens; Mus musculus,Human,1,0.0223
+Hyaloscyphaceae sp.,Hyaloscyphaceae sp.,1,0.0223
+Hydrochoerus hydrochaeris,Capybara,1,0.0223
+Hypoderma cf. rubi,Hypoderma cf. rubi,1,0.0223
+Hypoxylon submonticulosum,Hypoxylon submonticulosum,1,0.0223
+Ipomoea batatas,Sweet potato,1,0.0223
+Karenia brevis,Karenia brevis,1,0.0223
+Kretzschmaria hedjaroudei,Kretzschmaria hedjaroudei,1,0.0223
+Lachnellula calyciformis,Lachnellula calyciformis,1,0.0223
+Lachnum sp.,Lachnum sp.,1,0.0223
+Lacticaseibacillus casei,Lacticaseibacillus casei,1,0.0223
+Lacticaseibacillus paracasei,Lacticaseibacillus paracasei,1,0.0223
+Lacticaseibacillus rhamnosus,Lacticaseibacillus rhamnosus,1,0.0223
+Lacticaseibacillus rhamnosus GG,Lacticaseibacillus rhamnosus,1,0.0223
+Lactobacillus,Lactobacillus,1,0.0223
+Lactobacillus crispatus,Lactobacillus crispatus,1,0.0223
+Lactobacillus iners,Lactobacillus iners,1,0.0223
+Lactobacillus reuter,Lactobacillus reuter,1,0.0223
+Lake water,Lake water,1,0.0223
+Lemnoideae,Plant,1,0.0223
+Lens culinaris,Lentil,1,0.0223
+Lentilactobacillus kefiri,Lentilactobacillus kefiri,1,0.0223
+Leptodontidium sp.,Leptodontidium sp.,1,0.0223
+Leptospira interrogans,Leptospira interrogans,1,0.0223
+Lethenteron camtschaticum,Arctic lamprey,1,0.0223
+Lithospermum officinale,Common gromwell,1,0.0223
+Loktanella vestfoldensis,Loktanella vestfoldensis,1,0.0223
+Lophiotrema mucilaginosis,Lophiotrema mucilaginosis,1,0.0223
+Lycopersicon esculentum,Tomato,1,0.0223
+Macrobrachium rosenbergii,Prawn,1,0.0223
+Malassezia globosa,Malassezia globosa,1,0.0223
+"Malus domestica, Pyrus communis, Apple-pear intergeneric hybrid",Apple-pear hybrid,1,0.0223
+Manihot esculenta,Cassava,1,0.0223
+Marine plankton,Marine plankton,1,0.0223
+Medicago sativa L.,Alfalfa,1,0.0223
+Megachile rotundata,Megachile rotundata,1,0.0223
+Microcoleus vaginatus,Microcoleus vaginatus,1,0.0223
+Microdochium neoqueenslandicum,Microdochium neoqueenslandicum,1,0.0223
+Mollisia cf. melaleuca,Mollisia cf. melaleuca,1,0.0223
+Mollisia cf. nigrescens,Mollisia cf. nigrescens,1,0.0223
+Mollisia sp.,Mollisia sp.,1,0.0223
+Mortierella alpina,Mortierella alpina,1,0.0223
+Mucidula mucida,Mucidula mucida,1,0.0223
+Multi-species non-defined biofilm consortium,Bacteria,1,0.0223
+Multiple bacterial species,Multiple bacterial species,1,0.0223
+Musa acuminata,Banana,1,0.0223
+Mustela putorius furo,Ferret,1,0.0223
+Mycoplasma gallisepticum,Bacteria,1,0.0223
+Mycoplasma mycoides,Mycoplasma mycoides,1,0.0223
+Myracrodruon urundeuva,Aroeira tree,1,0.0223
+Nannochloropsis gaditana,Nannochloropsis,1,0.0223
+Navicula cf. perminuta,Navicula cf. perminuta,1,0.0223
+Navicula pelliculosa,Navicula pelliculosa,1,0.0223
+Neisseria flava,Neisseria flava,1,0.0223
+Nemania diffusa,Nemania diffusa,1,0.0223
+Nemania serpens,Nemania serpens,1,0.0223
+Nemania sp.,Nemania sp.,1,0.0223
+Neocucurbitaria sp.,Neocucurbitaria sp.,1,0.0223
+Neodevriesiaceae sp.,Neodevriesiaceae sp.,1,0.0223
+Neovaginatispora sp.,Neovaginatispora sp.,1,0.0223
+Nesterenkonia flava,Actinobacteria,1,0.0223
+Neurospora crassa,Fungi,1,0.0223
+Nicotiana tabacum,Tobacco,1,0.0223
+Nigrospora sp.,Nigrospora sp.,1,0.0223
+Nigrospora sphaerica,Nigrospora sphaerica,1,0.0223
+Olea europaea,Olive,1,0.0223
+Ovis canadensis canadensis,Bighorn sheep,1,0.0223
+Palaemon serratus,Common prawn,1,0.0223
+Panax ginseng,Panax ginseng,1,0.0223
+Panicum maximum(Megathyrsis maximus (Jacq.)),Guinea Grass,1,0.0223
+Paradoxurus hermaphroditus,Civet,1,0.0223
+Paramecium bursaria,Ciliate,1,0.0223
+Paramycosphaerella sp.,Paramycosphaerella sp.,1,0.0223
+Paraphaeosphaeria neglecta,Paraphaeosphaeria neglecta,1,0.0223
+Penicillium camponotum,Penicillium camponotum,1,0.0223
+Peromyscus californicus,Mouse,1,0.0223
+Peromyscus leucopus,White-footed mouse,1,0.0223
+Phaeoacremonium fraxinopennsylvanicum,Phaeoacremonium fraxinopennsylvanicum,1,0.0223
+Phaeomoniellales sp.,Phaeomoniellales sp.,1,0.0223
+Phaseolus vulgaris,Common bean,1,0.0223
+Phialocephala sp.,Phialocephala sp.,1,0.0223
+Phyllosticta cf. pyrolae,Phyllosticta cf. pyrolae,1,0.0223
+Phyllosticta pyrolae,Phyllosticta pyrolae,1,0.0223
+Phyllostictina vaccinii,Phyllostictina vaccinii,1,0.0223
+Pico Synechococcus sp.,Pico Synechococcus sp.,1,0.0223
+Picochlorum celeri,Picochlorum celeri,1,0.0223
+Pilidium concavum,Pilidium concavum,1,0.0223
+Pinus koraiensis,Pine,1,0.0223
+Piper longum,Long pepper,1,0.0223
+Pipistrellus nathusii,Bat,1,0.0223
+Plagiostoma petiolophilum,Plagiostoma petiolophilum,1,0.0223
+Plankton,Plankton,1,0.0223
+Plasmodium berghei ANKA,Plasmodium berghei,1,0.0223
+Pleosporales sp.,Pleosporales sp.,1,0.0223
+Pocillopora damicornis,Stony coral,1,0.0223
+Pontastacus leptodactylus,Narrow-clawed crayfish,1,0.0223
+Populus,Poplar,1,0.0223
+Populus trichocarpa,Populus trichocarpa,1,0.0223
+Porites lutea,Stony coral,1,0.0223
+Porphyromonas gingivalis ATCC33277,Porphyromonas gingivalis,1,0.0223
+Portulaca oleracea,Purslane,1,0.0223
+Prevotella intermedia,Prevotella intermedia,1,0.0223
+Prochlorococcus marinus,Prochlorococcus marinus,1,0.0223
+Proliferodiscus sp.,Proliferodiscus sp.,1,0.0223
+Propionibacterium acidipropionici,Propionibacterium,1,0.0223
+Prunus armeniaca,Plant,1,0.0223
+Prunus persica,Peach,1,0.0223
+Pseudoplectania nigrella,Pseudoplectania nigrella,1,0.0223
+Pteris vittata,Chinese brake fern,1,0.0223
+Pteropus alecto,Black flying fox fruit bat,1,0.0223
+Pyrenopeziza sp.,Pyrenopeziza sp.,1,0.0223
+Pyrus communis,Pear,1,0.0223
+Quercus coccifera,Oak,1,0.0223
+Quercus faginea,Oak,1,0.0223
+Quercus ilex subsp. ballota,Oak,1,0.0223
+Quercus ilex subsp. ilex,Oak,1,0.0223
+Quercus petraea,Oak,1,0.0223
+Quercus pubescens,Oak,1,0.0223
+Quercus robur,Oak,1,0.0223
+Quercus suber,Oak,1,0.0223
+Ramularia sp.,Ramularia sp.,1,0.0223
+Rhytismataceae sp.,Rhytismataceae sp.,1,0.0223
+Rickettsia parkeri,Rickettsia parkeri,1,0.0223
+Rothia dentocariosa,Rothia dentocariosa,1,0.0223
+Rubrivivax benzoatilyticus,Rubrivivax benzoatilyticus,1,0.0223
+Ruditapes philippinarum,Clam,1,0.0223
+Rumex patientia,Rumex patientia,1,0.0223
+Rumex patientia L.× Rumex tianschanicus A. LOS,Grass,1,0.0223
+Saccharum spp,Sugarcane,1,0.0223
+Salmonella enterica subsp. enterica serovar Typhimurium,Salmonella enterica,1,0.0223
+Salmonella typhimurium,Salmonella typhimurium,1,0.0223
+Salvia,Sage,1,0.0223
+Sarcophaga crassipalpis,Flesh Fly,1,0.0223
+Sarea difformis,Sarea difformis,1,0.0223
+Scenedesmus obliquus,Scenedesmus obliquus,1,0.0223
+Schistosoma mansoni,Worm,1,0.0223
+Scophthalmus maximus,Turbot fish,1,0.0223
+Seawater,Seawater,1,0.0223
+Seimatosporium lichenicola,Seimatosporium lichenicola,1,0.0223
+Setaria italica,Millet,1,0.0223
+Setomelanomma holmii,Setomelanomma holmii,1,0.0223
+Sisymbrium officinale,Mustard,1,0.0223
+Soil,Soil,1,0.0223
+Sorex araneus,Shrew,1,0.0223
+Sphaerulina vaccinii,Sphaerulina vaccinii,1,0.0223
+Spinacia oleracea,Spinach,1,0.0223
+Stellaria longipes,Longstalk starwort,1,0.0223
+Stemphylium globuliferum,Stemphylium globuliferum,1,0.0223
+Streptococcus salivarius,Streptococcus salivarius,1,0.0223
+Stylophora pistillata,Stylophora pistillata,1,0.0223
+Swine colonic microbiota,Swine colonic microbiota,1,0.0223
+Symbiodiniaceae,Symbiodiniaceae,1,0.0223
+Synechococcus elongatus PCC 11801,Synechococcus elongatus,1,0.0223
+Synechococcus elongatus PCC 11802,Synechococcus elongatus,1,0.0223
+Synechococcus sp CC9605,Synechococcus,1,0.0223
+Synechococcus sp. PCC 7002,Synechococcus,1,0.0223
+Synechococcus sp. SAG2156,Synechococcus,1,0.0223
+Tamiasciurus hudsonicus,Squirrel,1,0.0223
+Taxus wallichiana,Yew,1,0.0223
+Tetradesmus lagerheimii; Blastomonas natatoria; Erythrobacter colymbi,Algae; Bacteria,1,0.0223
+Tetrastigma loheri,Woody vine,1,0.0223
+Thyronectria cucurbitula,Thyronectria cucurbitula,1,0.0223
+Treponema pectinovorum,Treponema,1,0.0223
+Trichaptum abietinum,Trichaptum abietinum,1,0.0223
+Trichechus manatus latirostris,Florida manatee,1,0.0223
+Tursiops truncatus,Dolphin,1,0.0223
+Tympanidaceae sp.,Tympanidaceae sp.,1,0.0223
+Unknown,Unknown,1,0.0223
+Venturia sp.,Venturia sp.,1,0.0223
+Vigna unguiculata,Cowpea,1,0.0223
+Waste water,Waste water,1,0.0223
+Xylaria corniformis,Xylaria corniformis,1,0.0223
+Xylaria ellisii,Xylaria ellisii,1,0.0223
+Xylaria sp.,Xylaria sp.,1,0.0223
+Xylariaceae sp.,Xylariaceae sp.,1,0.0223
+Zingiberaceae,Ginger,1,0.0223

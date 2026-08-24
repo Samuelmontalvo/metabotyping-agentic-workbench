@@ -1,0 +1,41 @@
+{
+  "analysis_row_count": 1,
+  "metstat_filter_fields": [
+    "analysis_type",
+    "polarity",
+    "chromatography",
+    "species",
+    "sample_source",
+    "disease",
+    "kegg_id",
+    "refmet_name"
+  ],
+  "note": "Retrieval evidence only. A metstat hit shows the study reported this RefMet name; it does not confirm MSI-level identity, comparable quantitation, or harmonization eligibility. Absence of a study is a coverage gap, not evidence the metabolite is unchanged.",
+  "query_original": "N-Lactoyl glycine",
+  "refmet_identity": {
+    "exactmass": "147.053159",
+    "formula": "C5H9NO4",
+    "inchi_key": "CLNVOWMDSFOIPV-VKHMYHEASA-N",
+    "main_class": "Amino acids and peptides",
+    "pubchem_cid": "101947384",
+    "query_original": "N-Lactoyl glycine",
+    "refmet_id": "RM0158138",
+    "refmet_name": "N-Lactoyl glycine",
+    "resolved": true,
+    "source_url": "https://www.metabolomicsworkbench.org/rest/refmet/name/N-Lactoyl%20glycine/all",
+    "sub_class": "Amino acids",
+    "super_class": "Organic acids"
+  },
+  "searched_names": [
+    "N-Lactoyl glycine"
+  ],
+  "searches": [
+    {
+      "error": "",
+      "queried_name": "N-Lactoyl glycine",
+      "row_count": 1,
+      "source_url": "https://www.metabolomicsworkbench.org/rest/metstat/;;;;;;;N-Lactoyl%20glycine"
+    }
+  ],
+  "study_count": 1
+}

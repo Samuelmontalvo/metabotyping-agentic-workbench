@@ -31,6 +31,7 @@ EXPECTED_CANONICAL_AGENT_NAMES = {
     "discovery-orchestrator",
     "exercise-phenotype-harmonization-reviewer",
     "harmonization-skeptic",
+    "literature-evidence-appraiser",
     "literature-retrieval",
     "metabolite-identity-resolver",
     "metabolomics-visualization-analyst",
@@ -139,6 +140,11 @@ EXPECTED_IMPLEMENTATIONS: dict[str, tuple[str, ...]] = {
     "harmonization-plan": ("src/metabotyping_agentic/harmonization/harmonization_plan.py",),
     "harmonization-skeptic": ("src/metabotyping_agentic/harmonization/skeptic.py",),
     "human-review-packet": ("src/metabotyping_agentic/reports/render.py",),
+    "literature-evidence-review": (
+        "src/metabotyping_agentic/live_sources/literature_search.py",
+        "src/metabotyping_agentic/discovery/literature_review.py",
+        "src/metabotyping_agentic/reports/render.py",
+    ),
     "metabolite-effect-search": ("scripts/run_metabolite_effect_search.py",),
     "metabolite-identity-resolution": (
         "src/metabotyping_agentic/harmonization/assay_models.py",

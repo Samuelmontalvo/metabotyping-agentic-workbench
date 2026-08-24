@@ -1,0 +1,41 @@
+{
+  "analysis_row_count": 1,
+  "metstat_filter_fields": [
+    "analysis_type",
+    "polarity",
+    "chromatography",
+    "species",
+    "sample_source",
+    "disease",
+    "kegg_id",
+    "refmet_name"
+  ],
+  "note": "Retrieval evidence only. A metstat hit shows the study reported this RefMet name; it does not confirm MSI-level identity, comparable quantitation, or harmonization eligibility. Absence of a study is a coverage gap, not evidence the metabolite is unchanged.",
+  "query_original": "N-Lactoyl arginine",
+  "refmet_identity": {
+    "exactmass": "246.132806",
+    "formula": "C9H18N4O4",
+    "inchi_key": "IOUCKFLDYLOCRN-WDSKDSINSA-N",
+    "main_class": "Amino acids and peptides",
+    "pubchem_cid": "171117870",
+    "query_original": "N-Lactoyl arginine",
+    "refmet_id": "RM0158117",
+    "refmet_name": "N-Lactoyl arginine",
+    "resolved": true,
+    "source_url": "https://www.metabolomicsworkbench.org/rest/refmet/name/N-Lactoyl%20arginine/all",
+    "sub_class": "Amino acids",
+    "super_class": "Organic acids"
+  },
+  "searched_names": [
+    "N-Lactoyl arginine"
+  ],
+  "searches": [
+    {
+      "error": "",
+      "queried_name": "N-Lactoyl arginine",
+      "row_count": 1,
+      "source_url": "https://www.metabolomicsworkbench.org/rest/metstat/;;;;;;;N-Lactoyl%20arginine"
+    }
+  ],
+  "study_count": 1
+}

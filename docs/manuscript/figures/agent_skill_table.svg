@@ -1,0 +1,269 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3200" height="1685" viewBox="0 0 3200 1685" role="img" aria-labelledby="title desc">
+  <title id="title">Agent roles and corresponding skill playbooks</title>
+  <desc id="desc">A two-panel slide-ready table listing 22 canonical agent roles and their primary project skills. Deprecated aliases are excluded.</desc>
+  <defs>
+    <style>
+      .title { font: 700 68px Arial, Helvetica, sans-serif; fill: #25313d; }
+      .subtitle { font: 400 30px Arial, Helvetica, sans-serif; fill: #5d6873; }
+      .panel-title { font: 700 34px Arial, Helvetica, sans-serif; fill: #25313d; letter-spacing: 1px; }
+      .column-title { font: 700 30px Arial, Helvetica, sans-serif; fill: #ffffff; }
+      .agent { font: 700 32px Arial, Helvetica, sans-serif; fill: #25313d; }
+      .skill { font: 400 29px Arial, Helvetica, sans-serif; fill: #25313d; }
+      .note { font: 400 27px Arial, Helvetica, sans-serif; fill: #5d6873; }
+      .note-strong { font: 700 27px Arial, Helvetica, sans-serif; fill: #25313d; }
+      .divider { stroke: #c8d0d6; stroke-width: 2; }
+      .panel-border { fill: none; stroke: #87939d; stroke-width: 3; }
+    </style>
+  </defs>
+
+  <rect width="3200" height="1800" fill="#ffffff"/>
+
+  <text class="title" x="110" y="86">Agent roles and their skill playbooks</text>
+  <text class="subtitle" x="110" y="135">22 canonical agents · 24 project skills · exact repository slugs shown</text>
+  <line x1="110" y1="164" x2="3090" y2="164" stroke="#2d7896" stroke-width="8"/>
+
+  <g transform="translate(0,-70)">
+  <!-- LEFT PANEL -->
+  <rect x="110" y="260" width="1450" height="1372" rx="18" fill="#f6f8fa"/>
+  <rect class="panel-border" x="110" y="260" width="1450" height="1372" rx="18"/>
+  <rect x="110" y="260" width="1450" height="65" rx="18" fill="#e7f1f7"/>
+  <rect x="110" y="307" width="1450" height="18" fill="#e7f1f7"/>
+  <text class="panel-title" x="150" y="304">DISCOVERY, INTAKE &amp; CURATION</text>
+  <rect x="110" y="325" width="1450" height="70" fill="#2d7896"/>
+  <text class="column-title" x="150" y="370">AGENT</text>
+  <text class="column-title" x="760" y="370">PRIMARY CORRESPONDING SKILL(S)</text>
+  <line x1="720" y1="325" x2="720" y2="1632" stroke="#c8d0d6" stroke-width="2"/>
+
+  <!-- L1 -->
+  <rect x="110" y="395" width="1450" height="112" fill="#ffffff"/>
+  <rect x="110" y="395" width="12" height="112" fill="#2d7896"/>
+  <text class="agent" x="150" y="438"><tspan x="150">discovery-orchestrator</tspan></text>
+  <text class="skill" x="760" y="430">
+    <tspan x="760">define-inclusion-criteria · study-dataset-discovery</tspan>
+    <tspan x="760" dy="36">recommendation-engine</tspan>
+  </text>
+  <line class="divider" x1="122" y1="507" x2="1548" y2="507"/>
+
+  <!-- L2 -->
+  <rect x="110" y="507" width="1450" height="112" fill="#f6f8fa"/>
+  <rect x="110" y="507" width="12" height="112" fill="#2d7896"/>
+  <text class="agent" x="150" y="573">literature-retrieval</text>
+  <text class="skill" x="760" y="573">literature-evidence-review</text>
+  <line class="divider" x1="122" y1="619" x2="1548" y2="619"/>
+
+  <!-- L3 -->
+  <rect x="110" y="619" width="1450" height="112" fill="#ffffff"/>
+  <rect x="110" y="619" width="12" height="112" fill="#2d7896"/>
+  <text class="agent" x="150" y="666">
+    <tspan x="150">literature-evidence-</tspan>
+    <tspan x="150" dy="34">appraiser</tspan>
+  </text>
+  <text class="skill" x="760" y="685">literature-evidence-review</text>
+  <line class="divider" x1="122" y1="731" x2="1548" y2="731"/>
+
+  <!-- L4 -->
+  <rect x="110" y="731" width="1450" height="112" fill="#f6f8fa"/>
+  <rect x="110" y="731" width="12" height="112" fill="#2d7896"/>
+  <text class="agent" x="150" y="797">repository-discovery</text>
+  <text class="skill" x="760" y="789">
+    <tspan x="760">repository-intake ·</tspan>
+    <tspan x="760" dy="36">study-dataset-discovery</tspan>
+  </text>
+  <line class="divider" x1="122" y1="843" x2="1548" y2="843"/>
+
+  <!-- L5 -->
+  <rect x="110" y="843" width="1450" height="112" fill="#ffffff"/>
+  <rect x="110" y="843" width="12" height="112" fill="#2d7896"/>
+  <text class="agent" x="150" y="890">
+    <tspan x="150">multi-source-</tspan>
+    <tspan x="150" dy="34">orchestrator</tspan>
+  </text>
+  <text class="skill" x="760" y="909">multi-database-metabolomics-router</text>
+  <line class="divider" x1="122" y1="955" x2="1548" y2="955"/>
+
+  <!-- L6 -->
+  <rect x="110" y="955" width="1450" height="112" fill="#f6f8fa"/>
+  <rect x="110" y="955" width="12" height="112" fill="#2d7896"/>
+  <text class="agent" x="150" y="1002">
+    <tspan x="150">source-registry-</tspan>
+    <tspan x="150" dy="34">librarian</tspan>
+  </text>
+  <text class="skill" x="760" y="1021">multi-database-metabolomics-router</text>
+  <line class="divider" x1="122" y1="1067" x2="1548" y2="1067"/>
+
+  <!-- L7 -->
+  <rect x="110" y="1067" width="1450" height="112" fill="#ffffff"/>
+  <rect x="110" y="1067" width="12" height="112" fill="#2d7896"/>
+  <text class="agent" x="150" y="1133">metadata-extractor</text>
+  <text class="skill" x="760" y="1133">metadata-card-extraction</text>
+  <line class="divider" x1="122" y1="1179" x2="1548" y2="1179"/>
+
+  <!-- L8 -->
+  <rect x="110" y="1179" width="1450" height="112" fill="#f6f8fa"/>
+  <rect x="110" y="1179" width="12" height="112" fill="#2d7896"/>
+  <text class="agent" x="150" y="1226">
+    <tspan x="150">metadata-extraction-</tspan>
+    <tspan x="150" dy="34">critic</tspan>
+  </text>
+  <text class="skill" x="760" y="1245">metadata-card-extraction</text>
+  <line class="divider" x1="122" y1="1291" x2="1548" y2="1291"/>
+
+  <!-- L9 -->
+  <rect x="110" y="1291" width="1450" height="112" fill="#ffffff"/>
+  <rect x="110" y="1291" width="12" height="112" fill="#2d7896"/>
+  <text class="agent" x="150" y="1338">
+    <tspan x="150">cross-field-consistency-</tspan>
+    <tspan x="150" dy="34">arbitrator</tspan>
+  </text>
+  <text class="skill" x="760" y="1357">metadata-card-extraction</text>
+  <line class="divider" x1="122" y1="1403" x2="1548" y2="1403"/>
+
+  <!-- L10 -->
+  <rect x="110" y="1403" width="1450" height="112" fill="#f6f8fa"/>
+  <rect x="110" y="1403" width="12" height="112" fill="#2d7896"/>
+  <text class="agent" x="150" y="1450">
+    <tspan x="150">dataset-readiness-</tspan>
+    <tspan x="150" dy="34">reviewer</tspan>
+  </text>
+  <text class="skill" x="760" y="1469">quality-scoring</text>
+  <line class="divider" x1="122" y1="1515" x2="1548" y2="1515"/>
+
+  <!-- L11 -->
+  <rect x="110" y="1515" width="1450" height="117" fill="#ffffff"/>
+  <rect x="110" y="1515" width="12" height="117" fill="#2d7896"/>
+  <text class="agent" x="150" y="1562">
+    <tspan x="150">motrpac-metadata-</tspan>
+    <tspan x="150" dy="34">readiness-analyst</tspan>
+  </text>
+  <text class="skill" x="760" y="1581">motrpac-alignment</text>
+
+  <!-- RIGHT PANEL -->
+  <rect x="1640" y="260" width="1450" height="1372" rx="18" fill="#f6f8fa"/>
+  <rect class="panel-border" x="1640" y="260" width="1450" height="1372" rx="18"/>
+  <rect x="1640" y="260" width="1450" height="65" rx="18" fill="#e7f3ef"/>
+  <rect x="1640" y="307" width="1450" height="18" fill="#e7f3ef"/>
+  <text class="panel-title" x="1680" y="304">REVIEW, HARMONIZATION &amp; OUTPUTS</text>
+  <rect x="1640" y="325" width="1450" height="70" fill="#397665"/>
+  <text class="column-title" x="1680" y="370">AGENT</text>
+  <text class="column-title" x="2290" y="370">PRIMARY CORRESPONDING SKILL(S)</text>
+  <line x1="2250" y1="325" x2="2250" y2="1632" stroke="#c8d0d6" stroke-width="2"/>
+
+  <!-- R1 -->
+  <rect x="1640" y="395" width="1450" height="112" fill="#ffffff"/>
+  <rect x="1640" y="395" width="12" height="112" fill="#397665"/>
+  <text class="agent" x="1680" y="442">
+    <tspan x="1680">metabolite-identity-</tspan>
+    <tspan x="1680" dy="34">resolver</tspan>
+  </text>
+  <text class="skill" x="2290" y="461">metabolite-identity-resolution</text>
+  <line class="divider" x1="1652" y1="507" x2="3078" y2="507"/>
+
+  <!-- R2 -->
+  <rect x="1640" y="507" width="1450" height="112" fill="#f6f8fa"/>
+  <rect x="1640" y="507" width="12" height="112" fill="#397665"/>
+  <text class="agent" x="1680" y="573">variable-crosswalk</text>
+  <text class="skill" x="2290" y="573">variable-crosswalk</text>
+  <line class="divider" x1="1652" y1="619" x2="3078" y2="619"/>
+
+  <!-- R3 -->
+  <rect x="1640" y="619" width="1450" height="112" fill="#ffffff"/>
+  <rect x="1640" y="619" width="12" height="112" fill="#397665"/>
+  <text class="agent" x="1680" y="657">
+    <tspan x="1680">exercise-phenotype-</tspan>
+    <tspan x="1680" dy="32">harmonization-reviewer</tspan>
+  </text>
+  <text class="skill" x="2290" y="653">
+    <tspan x="2290">exercise-phenotype-harmonization-reviewer</tspan>
+    <tspan x="2290" dy="36">human-review-packet</tspan>
+  </text>
+  <line class="divider" x1="1652" y1="731" x2="3078" y2="731"/>
+
+  <!-- R4 -->
+  <rect x="1640" y="731" width="1450" height="112" fill="#f6f8fa"/>
+  <rect x="1640" y="731" width="12" height="112" fill="#397665"/>
+  <text class="agent" x="1680" y="778">
+    <tspan x="1680">biospecimen-preanalytics-</tspan>
+    <tspan x="1680" dy="34">reviewer</tspan>
+  </text>
+  <text class="skill" x="2290" y="765">
+    <tspan x="2290">biospecimen-preanalytics-reviewer</tspan>
+    <tspan x="2290" dy="36">human-review-packet</tspan>
+  </text>
+  <line class="divider" x1="1652" y1="843" x2="3078" y2="843"/>
+
+  <!-- R5 -->
+  <rect x="1640" y="843" width="1450" height="112" fill="#ffffff"/>
+  <rect x="1640" y="843" width="12" height="112" fill="#397665"/>
+  <text class="agent" x="1680" y="881">
+    <tspan x="1680">study-design-population-</tspan>
+    <tspan x="1680" dy="32">context-reviewer</tspan>
+  </text>
+  <text class="skill" x="2290" y="877">
+    <tspan x="2290">study-design-population-context-reviewer</tspan>
+    <tspan x="2290" dy="36">human-review-packet</tspan>
+  </text>
+  <line class="divider" x1="1652" y1="955" x2="3078" y2="955"/>
+
+  <!-- R6 -->
+  <rect x="1640" y="955" width="1450" height="112" fill="#f6f8fa"/>
+  <rect x="1640" y="955" width="12" height="112" fill="#397665"/>
+  <text class="agent" x="1680" y="1002">
+    <tspan x="1680">assay-harmonization-</tspan>
+    <tspan x="1680" dy="34">skeptic</tspan>
+  </text>
+  <text class="skill" x="2290" y="1021">assay-platform-harmonization</text>
+  <line class="divider" x1="1652" y1="1067" x2="3078" y2="1067"/>
+
+  <!-- R7 -->
+  <rect x="1640" y="1067" width="1450" height="112" fill="#ffffff"/>
+  <rect x="1640" y="1067" width="12" height="112" fill="#397665"/>
+  <text class="agent" x="1680" y="1133">harmonization-skeptic</text>
+  <text class="skill" x="2290" y="1133">harmonization-skeptic</text>
+  <line class="divider" x1="1652" y1="1179" x2="3078" y2="1179"/>
+
+  <!-- R8 -->
+  <rect x="1640" y="1179" width="1450" height="112" fill="#f6f8fa"/>
+  <rect x="1640" y="1179" width="12" height="112" fill="#397665"/>
+  <text class="agent" x="1680" y="1217">
+    <tspan x="1680">statistical-estimand-and-</tspan>
+    <tspan x="1680" dy="32">synthesis-skeptic</tspan>
+  </text>
+  <text class="skill" x="2290" y="1213">
+    <tspan x="2290">statistical-estimand-and-synthesis-skeptic</tspan>
+    <tspan x="2290" dy="36">human-review-packet</tspan>
+  </text>
+  <line class="divider" x1="1652" y1="1291" x2="3078" y2="1291"/>
+
+  <!-- R9 -->
+  <rect x="1640" y="1291" width="1450" height="112" fill="#ffffff"/>
+  <rect x="1640" y="1291" width="12" height="112" fill="#397665"/>
+  <text class="agent" x="1680" y="1357">pipeline-builder</text>
+  <text class="skill" x="2290" y="1357">harmonization-plan</text>
+  <line class="divider" x1="1652" y1="1403" x2="3078" y2="1403"/>
+
+  <!-- R10 -->
+  <rect x="1640" y="1403" width="1450" height="112" fill="#f6f8fa"/>
+  <rect x="1640" y="1403" width="12" height="112" fill="#397665"/>
+  <text class="agent" x="1680" y="1450">
+    <tspan x="1680">metabolomics-visualization-</tspan>
+    <tspan x="1680" dy="34">analyst</tspan>
+  </text>
+  <text class="skill" x="2290" y="1437">
+    <tspan x="2290">motrpac-plotting · plot-motrpac-bag3</tspan>
+    <tspan x="2290" dy="36">metabolite-effect-search</tspan>
+  </text>
+  <line class="divider" x1="1652" y1="1515" x2="3078" y2="1515"/>
+
+  <!-- R11 -->
+  <rect x="1640" y="1515" width="1450" height="117" fill="#ffffff"/>
+  <rect x="1640" y="1515" width="12" height="117" fill="#397665"/>
+  <text class="agent" x="1680" y="1581">benchmark-agent</text>
+  <text class="skill" x="2290" y="1581">benchmark-agents</text>
+
+  <!-- FOOTNOTE -->
+  <rect x="110" y="1670" width="2980" height="78" rx="15" fill="#fff2dc" stroke="#b16617" stroke-width="3"/>
+  <text class="note-strong" x="150" y="1719">Cross-cutting skill without a dedicated agent:</text>
+  <text class="note" x="780" y="1719">grant-aims-refiner</text>
+  <text class="note" x="1160" y="1719">· Deprecated aliases excluded: data-quality-reviewer; motrpac-replication-analyst</text>
+  </g>
+</svg>

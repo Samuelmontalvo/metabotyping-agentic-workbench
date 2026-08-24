@@ -12,6 +12,7 @@ This repository is an offline, synthetic-data MVP for a human-in-the-loop metabo
 - Do not require network access or API keys for the MVP.
 - Use synthetic/mock data for the offline MVP and its tests; real public records are confined to `data/live/` and `reports_live/`.
 - Keep network access inside the declared allowlist enforced by `tests/test_network_boundary.py`; no other module, script, or test may import a network client.
+- The allowlist is `scripts/fetch_live_records.py`, `scripts/volcano_compare.py`, `src/metabotyping_agentic/live_sources/literature_search.py`, `src/metabotyping_agentic/live_sources/metabolomics_workbench.py`, and `src/metabotyping_agentic/live_sources/motrpac_volcano_compare.py`. Literature retrieval (Europe PMC, PubMed, Crossref, bioRxiv/medRxiv) stays inside `literature_search.py`; screening and appraisal run offline in `src/metabotyping_agentic/discovery/literature_review.py`.
 
 ## Scientific Scope
 

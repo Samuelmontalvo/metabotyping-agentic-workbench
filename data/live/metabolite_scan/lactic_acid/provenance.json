@@ -1,0 +1,50 @@
+{
+  "generated_utc": "2026-08-19T20:35:48.127701+00:00",
+  "query_original": "Lactic acid",
+  "name_variants_searched": [],
+  "normalized_match_keys": [
+    "lacticacid"
+  ],
+  "match_basis": "normalized name containment across source name columns",
+  "review_status": "requires_human_review",
+  "decision_scope": "retrieval_and_effect_extraction_only",
+  "harmonization_eligibility": "requires_assay_identity_review",
+  "mw_studies": [
+    {
+      "study_id": "ST003662",
+      "study_title": "Metabolome trajectory of exercise physiology- a comprehensive study of healthy male and female athletes",
+      "species": "Homo sapiens",
+      "license": "CC BY 4.0",
+      "study_link": "https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?StudyID=ST003662",
+      "paired_participants_by_stratum": {
+        "all": 137,
+        "f": 63,
+        "m": 71
+      },
+      "features_measured": 178,
+      "queried_feature_hits": 6,
+      "contrast": "post-exercise vs pre-exercise (Collectionpoint After vs Before)",
+      "statistic": "paired t-test on log2 abundance, BH-adjusted within stratum",
+      "orientation": "positive log2fc = higher post-exercise"
+    }
+  ],
+  "rat_motrpac": {
+    "skipped": true,
+    "reason": "--scan-skip-rat requested; rat coverage NOT assessed in this run"
+  },
+  "coverage_gap_semantics": "A queried metabolite absent from a source feature space is an availability/coverage gap. It is not evidence of a null effect and must not be replaced by a synthetic row.",
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003662/data"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003662/factors"
+    },
+    {
+      "method": "GET",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003662/summary"
+    }
+  ]
+}

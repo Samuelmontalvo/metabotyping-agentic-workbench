@@ -1,0 +1,2 @@
+mw_search_studies,mw_search_analyses,mw_search_human_studies,mw_search_human_analyses,complete_pairs,participant_rows,participants_increased,log2fc,geometric_fold,mean_pre,mean_post,arithmetic_mean_ratio,p_value,fdr,rank_of_165,n_lactoyl_refmet_entries,n_lactoyl_entries_with_mw_hit,n_lactoyl_labels_in_public_motrpac_human,n_lactoyl_labels_in_public_motrpac_rat
+57,60,22,24,116,137,92,1.158602604139859,2.232410913151606,0.5391989305689655,0.7552617628879312,1.4007107953477858,2.7324245842427723e-15,2.5047225355558747e-14,4,22,17,0,0

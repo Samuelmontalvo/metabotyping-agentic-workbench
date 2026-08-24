@@ -1,0 +1,101 @@
+{
+  "context_terms": [],
+  "coverage_gap_semantics": "status=unavailable means the index could not be reached and its coverage is unknown; it is not evidence that no matching publication exists. status=no_hits means the index answered and reported no match for the declared expression. pagination_complete=false means the retrieved set is a ranked sample, not the full result set.",
+  "decision_scope": "retrieval_only",
+  "distinct_record_keys": 376,
+  "generated_utc": "2026-08-19T22:30:25.578475+00:00",
+  "name_variants_searched": [
+    "Lac-Phe",
+    "N-lactoylphenylalanine",
+    "lactoylphenylalanine",
+    "N-lactoyl-phenylalanine"
+  ],
+  "note": "Retrieval evidence only. A bibliographic hit does not establish that the publication measured the queried metabolite, that its species or design match the question, or that underlying data are deposited. Screening and appraisal run offline in metabotyping_agentic.discovery.literature_review.",
+  "preprint_linkage_lookups": 6,
+  "query_original": "N-Lactoyl phenylalanine",
+  "record_count_raw": 464,
+  "registered_sources": [
+    "europe_pmc",
+    "pubmed",
+    "crossref",
+    "biorxiv_medrxiv"
+  ],
+  "requested_sources": [
+    "europe_pmc",
+    "pubmed",
+    "crossref",
+    "biorxiv_medrxiv"
+  ],
+  "review_status": "requires_human_review",
+  "sources": [
+    {
+      "detail": "index reported 306 hits but returned 304 records across all pages; the difference is unexplained by the index and the shortfall is not a screening decision",
+      "endpoints": [
+        "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%22N-Lactoyl+phenylalanine%22+OR+%22Lac-Phe%22+OR+%22N-lactoylphenylalanine%22+OR+%22lactoylphenylalanine%22+OR+%22N-lactoyl-phenylalanine%22%29&format=json&resultType=core&pageSize=100&cursorMark=%2A",
+        "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%22N-Lactoyl+phenylalanine%22+OR+%22Lac-Phe%22+OR+%22N-lactoylphenylalanine%22+OR+%22lactoylphenylalanine%22+OR+%22N-lactoyl-phenylalanine%22%29&format=json&resultType=core&pageSize=100&cursorMark=AoIIQG6ytCg1MTU3MDY0Nw%3D%3D",
+        "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%22N-Lactoyl+phenylalanine%22+OR+%22Lac-Phe%22+OR+%22N-lactoylphenylalanine%22+OR+%22lactoylphenylalanine%22+OR+%22N-lactoyl-phenylalanine%22%29&format=json&resultType=core&pageSize=100&cursorMark=AoIIP8mECig1MzA0MzQ4OA%3D%3D",
+        "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%22N-Lactoyl+phenylalanine%22+OR+%22Lac-Phe%22+OR+%22N-lactoylphenylalanine%22+OR+%22lactoylphenylalanine%22+OR+%22N-lactoyl-phenylalanine%22%29&format=json&resultType=core&pageSize=100&cursorMark=AoIIPWxCvyc0MDcwNjA1",
+        "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%22N-Lactoyl+phenylalanine%22+OR+%22Lac-Phe%22+OR+%22N-lactoylphenylalanine%22+OR+%22lactoylphenylalanine%22+OR+%22N-lactoyl-phenylalanine%22%29&format=json&resultType=core&pageSize=100&cursorMark=AoIIPFgWcyc3NDg0MTMw"
+      ],
+      "pagination_complete": true,
+      "queried_expression": "(\"N-Lactoyl phenylalanine\" OR \"Lac-Phe\" OR \"N-lactoylphenylalanine\" OR \"lactoylphenylalanine\" OR \"N-lactoyl-phenylalanine\")",
+      "reported_hit_count": 306,
+      "retrieved_count": 304,
+      "source_system": "europe_pmc",
+      "status": "ok"
+    },
+    {
+      "detail": "literature request returned non-JSON content: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28%22N-Lactoyl+phenylalanine%22%5BAll+Fields%5D+OR+%22Lac-Phe%22%5BAll+Fields%5D+OR+%22N-lactoylphenylalanine%22%5BAll+Fields%5D+OR+%22lactoylphenylalanine%22%5BAll+Fields%5D+OR+%22N-lactoyl-phenylalanine%22%5BAll+Fields%5D%29&retmode=json&retmax=400&sort=relevance&tool=metabotyping-agentic-workbench :: <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\" \"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd\"> <html> <head> <title>NCBI - WWW Error Blocked Diagnostic</title> <meta http-equiv=\"Content-Type\" cont",
+      "endpoints": [
+        "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28%22N-Lactoyl+phenylalanine%22%5BAll+Fields%5D+OR+%22Lac-Phe%22%5BAll+Fields%5D+OR+%22N-lactoylphenylalanine%22%5BAll+Fields%5D+OR+%22lactoylphenylalanine%22%5BAll+Fields%5D+OR+%22N-lactoyl-phenylalanine%22%5BAll+Fields%5D%29&retmode=json&retmax=400&sort=relevance&tool=metabotyping-agentic-workbench"
+      ],
+      "pagination_complete": false,
+      "queried_expression": "(\"N-Lactoyl phenylalanine\"[All Fields] OR \"Lac-Phe\"[All Fields] OR \"N-lactoylphenylalanine\"[All Fields] OR \"lactoylphenylalanine\"[All Fields] OR \"N-lactoyl-phenylalanine\"[All Fields])",
+      "reported_hit_count": null,
+      "retrieved_count": 0,
+      "source_system": "pubmed",
+      "status": "unavailable"
+    },
+    {
+      "detail": "query.bibliographic is a ranked relevance query: reported_hit_count is the summed size of the candidate pools Crossref scored across the variant queries, not a count of publications about the subject, and the same work can be counted in more than one pool. The retrieved rows are the top-ranked sample of each query only.",
+      "endpoints": [
+        "https://api.crossref.org/works?query.bibliographic=N-Lactoyl+phenylalanine&rows=50&sort=relevance",
+        "https://api.crossref.org/works?query.bibliographic=Lac-Phe&rows=50&sort=relevance",
+        "https://api.crossref.org/works?query.bibliographic=N-lactoylphenylalanine&rows=50&sort=relevance",
+        "https://api.crossref.org/works?query.bibliographic=lactoylphenylalanine&rows=50&sort=relevance",
+        "https://api.crossref.org/works?query.bibliographic=N-lactoyl-phenylalanine&rows=50&sort=relevance"
+      ],
+      "pagination_complete": false,
+      "queried_expression": "N-Lactoyl phenylalanine; Lac-Phe; N-lactoylphenylalanine; lactoylphenylalanine; N-lactoyl-phenylalanine",
+      "reported_hit_count": 47194,
+      "retrieved_count": 160,
+      "source_system": "crossref",
+      "status": "ok"
+    },
+    {
+      "detail": "",
+      "endpoints": [
+        "https://api.biorxiv.org/details/biorxiv/10.1101/2022.09.07.22279536",
+        "https://api.biorxiv.org/details/medrxiv/10.1101/2022.09.07.22279536",
+        "https://api.biorxiv.org/details/biorxiv/10.1101/2023.11.02.565321",
+        "https://api.biorxiv.org/details/biorxiv/10.1101/2024.04.18.589815",
+        "https://api.biorxiv.org/details/biorxiv/10.1101/2024.12.16.24317793",
+        "https://api.biorxiv.org/details/medrxiv/10.1101/2024.12.16.24317793",
+        "https://api.biorxiv.org/details/biorxiv/10.1101/2025.10.02.678294",
+        "https://api.biorxiv.org/details/biorxiv/10.1101/2025.10.22.683699"
+      ],
+      "pagination_complete": true,
+      "queried_expression": "6 preprint DOIs from the retrieved set",
+      "reported_hit_count": 6,
+      "retrieved_count": 6,
+      "source_system": "biorxiv_medrxiv",
+      "status": "ok"
+    }
+  ],
+  "truncated_sources": [
+    "crossref"
+  ],
+  "unavailable_sources": [
+    "pubmed"
+  ]
+}
