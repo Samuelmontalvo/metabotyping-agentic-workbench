@@ -34,7 +34,7 @@ import json
 import math
 import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import matplotlib
@@ -579,7 +579,7 @@ def run_metabolite_scan(query: str, variants: list[str], mw_studies: list[str], 
             rat_hits.to_csv(out_dir / "rat_pass1b06_queried_metabolite_rows.csv", index=False)
 
     provenance = {
-        "generated_utc": datetime.now(timezone.utc).isoformat(),
+        "generated_utc": datetime.now(UTC).isoformat(),
         "query_original": query,
         "name_variants_searched": variants,
         "normalized_match_keys": sorted(keys),
@@ -659,7 +659,7 @@ def main():
     plot_side_by_side(human, motrpac, png, right_title, suptitle, caption)
 
     (OUT_DATA / "volcano_provenance.json").write_text(json.dumps({
-        "generated_utc": datetime.now(timezone.utc).isoformat(),
+        "generated_utc": datetime.now(UTC).isoformat(),
         "source_mode": args.source,
         "human_mw": {"study": HUMAN_SID, "contrast": f"{HUMAN_POST} vs {HUMAN_PRE}",
                      "stat": "paired t-test on log2 abundance", "n_metabolites": int(len(human))},

@@ -347,7 +347,7 @@ def plot_human_effect_by_sex(hits: pd.DataFrame, path: Path) -> None:
 
     fig, ax = plt.subplots(figsize=(8.4, 3.6))
     ypos = np.arange(len(rows))[::-1]
-    for y, (label, stratum, effect, lo, hi, n, fdr) in zip(ypos, rows):
+    for y, (_label, stratum, effect, lo, hi, n, fdr) in zip(ypos, rows):
         color = SEX_COLORS.get(stratum, "#444444")
         ax.plot([lo, hi], [y, y], lw=2.2, c=color, solid_capstyle="round")
         ax.plot([effect], [y], "o", ms=8, c=color)
@@ -362,7 +362,7 @@ def plot_human_effect_by_sex(hits: pd.DataFrame, path: Path) -> None:
     for spine in ("top", "right", "left"):
         ax.spines[spine].set_visible(False)
     ax.tick_params(axis="y", length=0)
-    ax.set_title(f"Lac-Phe exercise response by sex — MW ST003662 whole blood", fontsize=11)
+    ax.set_title("Lac-Phe exercise response by sex — MW ST003662 whole blood", fontsize=11)
     fig.text(0.5, 0.01,
              "CIs recovered from the stored paired-t effect, p-value and pair count. Sex strata overlap the 'All' "
              "stratum and are not independent replications.",
@@ -458,7 +458,7 @@ def plot_alignment_matrix(context: dict, rat_coverage: dict, path: Path) -> None
     ]
     fig, ax = plt.subplots(figsize=(10.5, 3.6))
     cmap = {1: "#2e7d32", 0.5: "#f9a825", 0.25: "#8a8985", 0: "#c62828"}
-    for index, (source, status, level, detail) in enumerate(rows):
+    for index, (_source, status, level, detail) in enumerate(rows):
         y = len(rows) - index - 1
         ax.barh([y], [1], color=cmap[level], alpha=0.18, edgecolor="none")
         ax.plot([0.035], [y], "o", ms=13, c=cmap[level])
@@ -503,11 +503,11 @@ def render_report(inputs: dict, context: dict, rat_sub: pd.DataFrame, suite: dic
     add("")
     row_all = hits[hits["stratum"] == "all"].iloc[0]
     se, lo, hi = paired_ci(row_all["log2fc"], row_all["p_value"], int(row_all["n_pairs"]))
-    add(f"- **Human exercise effect is present and large.** In MW `ST003662` (healthy male and female athletes,")
+    add("- **Human exercise effect is present and large.** In MW `ST003662` (healthy male and female athletes,")
     add(f"  whole blood, post- vs pre-exercise), Lac-Phe rises **log2FC {row_all['log2fc']:+.2f}** "
         f"(95% CI {lo:+.2f} to {hi:+.2f}; ~{2 ** row_all['log2fc']:.1f}-fold), "
         f"paired t p={row_all['p_value']:.2e}, BH FDR={row_all['fdr']:.2e}, n={int(row_all['n_pairs'])} pairs.")
-    add(f"- **Rat MoTrPAC alignment is blocked by feature coverage, not by effect size.** Lac-Phe does not appear")
+    add("- **Rat MoTrPAC alignment is blocked by feature coverage, not by effect size.** Lac-Phe does not appear")
     add(f"  anywhere in pass1b-06 metabolomics: 0 matches across {rat_cov['unique_features']} unique features, "
         f"{rat_cov['timewise_rows_returned']:,} timewise rows, {len(rat_cov['tissues'])} tissues, "
         f"{len(rat_cov['comparison_groups'])} training-week groups.")
@@ -534,8 +534,8 @@ def render_report(inputs: dict, context: dict, rat_sub: pd.DataFrame, suite: dic
     add("")
     add("## Chemical identity of the query")
     add("")
-    add(f"| field | value |")
-    add(f"| --- | --- |")
+    add("| field | value |")
+    add("| --- | --- |")
     add(f"| query submitted to MW | {inputs['search_provenance']['query_original']} |")
     add(f"| name variants also searched | "
         f"{', '.join(inputs['search_provenance']['searched_names'][1:]) or 'none'} |")
@@ -552,7 +552,7 @@ def render_report(inputs: dict, context: dict, rat_sub: pd.DataFrame, suite: dic
     add("")
     add("## Aim 1 — Study discovery")
     add("")
-    add(f"Metabolomics Workbench `metstat` was queried for the resolved RefMet name across all species, sources and")
+    add("Metabolomics Workbench `metstat` was queried for the resolved RefMet name across all species, sources and")
     add(f"platforms. **{search['study_id'].nunique()} studies / {len(search)} analyses** report Lac-Phe.")
     add("")
     add("| species | analyses |")
@@ -581,7 +581,7 @@ def render_report(inputs: dict, context: dict, rat_sub: pd.DataFrame, suite: dic
     add("")
     add(f"- Study: [{mw_ctx['study_title']}]({mw_ctx['study_link']})")
     add(f"- Species: {mw_ctx['species']}; license {mw_ctx['license']}")
-    add(f"- Matrix: whole blood, μmol/L (analyses AN006015 HILIC + AN006016 reversed phase)")
+    add("- Matrix: whole blood, μmol/L (analyses AN006015 HILIC + AN006016 reversed phase)")
     add(f"- Contrast: {mw_ctx['contrast']}; orientation: {mw_ctx['orientation']}")
     add(f"- Statistic: {mw_ctx['statistic']}")
     add(f"- Named metabolites in the fetched panel: {mw_ctx['features_measured']}")
@@ -614,7 +614,7 @@ def render_report(inputs: dict, context: dict, rat_sub: pd.DataFrame, suite: dic
     add("### What was searched")
     add("")
     add(f"- Endpoint: `{rat_cov['endpoint']}`, query `{json.dumps(rat_cov['query'])}`")
-    add(f"- Block: `metabolomics_timewise` (trained vs sedentary control, timewise differential rows)")
+    add("- Block: `metabolomics_timewise` (trained vs sedentary control, timewise differential rows)")
     add(f"- Rows returned: {rat_cov['timewise_rows_returned']:,}; unique features: {rat_cov['unique_features']}")
     add(f"- Tissues: {', '.join(rat_cov['tissues'])}")
     add(f"- Training-week groups: {', '.join(rat_cov['comparison_groups'])}")

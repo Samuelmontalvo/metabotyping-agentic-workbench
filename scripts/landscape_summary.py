@@ -75,14 +75,16 @@ def main():
         ax.text(float(st.iloc[0]) * 1.1, ax.get_ylim()[1] * 0.7,
                 f"{ST_VOLCANO}\n(n={int(st.iloc[0])})", fontsize=7, color="#e45756")
     ax.set_title("B. Sample size per study (log scale)", fontsize=10)
-    ax.set_xlabel("samples"); ax.set_ylabel("studies")
+    ax.set_xlabel("samples")
+    ax.set_ylabel("studies")
 
     # ---- C: studies by release year ----
     ax = axes[1, 0]
     yc = df["year"].value_counts().sort_index()
     ax.bar(yc.index.astype(int), yc.values, color="#54a24b")
     ax.set_title("C. Public release year", fontsize=10)
-    ax.set_xlabel("year"); ax.set_ylabel("studies")
+    ax.set_xlabel("year")
+    ax.set_ylabel("studies")
 
     # ---- D: accelerometry availability ----
     ax = axes[1, 1]
@@ -93,7 +95,8 @@ def main():
            label="has accelerometry")
     ax.set_xlim(-0.6, 4.2)
     ax.set_ylim(0, 360)
-    ax.set_xticks([0]); ax.set_xticklabels(["MW\n(n=338)"], fontsize=8)
+    ax.set_xticks([0])
+    ax.set_xticklabels(["MW\n(n=338)"], fontsize=8)
     ax.set_ylabel("studies")
     ax.text(0, 345, f"{ACCEL_HITS} with\naccelerometry", ha="center", fontsize=7.5, color="#e45756")
     txt = (

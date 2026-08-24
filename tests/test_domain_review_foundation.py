@@ -19,7 +19,6 @@ from metabotyping_agentic.review import (
 )
 from metabotyping_agentic.schemas import project_schema_path, validate_against_schema
 
-
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE_DIR = ROOT / "tests" / "fixtures" / "domain_review"
 REPOSITORY_SCHEMA_PATH = project_schema_path("domain_review_packet.schema.json")

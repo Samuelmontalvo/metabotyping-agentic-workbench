@@ -8,9 +8,10 @@ import math
 import re
 import shutil
 import subprocess
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -575,7 +576,7 @@ def compute_mw_volcano_stats(
             )
 
     output: list[dict[str, Any]] = []
-    for contrast_key, rows in rows_by_contrast.items():
+    for _contrast_key, rows in rows_by_contrast.items():
         adjusted = bh_adjust([float(row["p_value"]) for row in rows])
         for row, adj_p_value in zip(rows, adjusted, strict=True):
             row["adj_p_value"] = adj_p_value
@@ -1599,7 +1600,7 @@ def compare_mw_motrpac_volcano(
             ],
         ),
     )
-    motrpac_source_stats_path = write_csv_rows(
+    write_csv_rows(
         normalized_dir / "motrpac_pre_exercise_volcano_stats.csv",
         motrpac_source_rows,
         _csv_fieldnames(

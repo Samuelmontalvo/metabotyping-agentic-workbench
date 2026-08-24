@@ -17,7 +17,6 @@ from ..sample_matrix import (
 )
 from .mirage_detector import detect_mirage_flags, is_mirage
 
-
 DEFAULT_PREFERRED_TERMS = {
     "exercise",
     "actigraphy",

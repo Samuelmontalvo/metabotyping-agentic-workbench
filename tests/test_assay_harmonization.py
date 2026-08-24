@@ -17,7 +17,6 @@ from metabotyping_agentic.harmonization.assay_models import MetaboliteAssayRecor
 from metabotyping_agentic.io import read_json, to_plain
 from metabotyping_agentic.schemas import project_schema_path, validate_against_schema
 
-
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = ROOT / "data/examples/mock_metabolite_assays.json"
 

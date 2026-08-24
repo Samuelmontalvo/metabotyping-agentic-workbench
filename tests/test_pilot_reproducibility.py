@@ -7,7 +7,6 @@ from pathlib import Path
 
 from metabotyping_agentic.cli import run_pilot_command
 
-
 ROOT = Path(__file__).resolve().parents[1]
 COPIED_INPUT_ROOT = Path("data/examples")
 ISO_TIMESTAMP = re.compile(rb"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}")

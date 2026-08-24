@@ -1,6 +1,6 @@
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
 from metabotyping_agentic.discovery.repositories import (
     load_repository_records,
@@ -9,8 +9,11 @@ from metabotyping_agentic.discovery.repositories import (
 )
 from metabotyping_agentic.extraction.metadata_cards import extract_metadata_cards
 from metabotyping_agentic.io import read_json, to_plain, write_csv_rows
-from metabotyping_agentic.schemas import project_schema_path, validate_against_schema, validate_or_raise
-
+from metabotyping_agentic.schemas import (
+    project_schema_path,
+    validate_against_schema,
+    validate_or_raise,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 

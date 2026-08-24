@@ -9,7 +9,6 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyArrowPatch, FancyBboxPatch
 
-
 INK = "#24313D"
 MUTED = "#5B6670"
 INPUT_FILL = "#F3F4F6"

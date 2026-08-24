@@ -21,8 +21,9 @@ Three guardrails shape the design:
 from __future__ import annotations
 
 import re
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 from ..io import read_csv_rows, read_json, write_csv_rows, write_json
 from ..models import InclusionCriteria, PublicationRecord

@@ -331,6 +331,7 @@ def render_literature_report(
         if row.get("homonym_risk")
         in {"flagged_non_metabolite_homonym_context", "mixed_material_and_biological_context"}
     ][:top_n]
+    homonym_absent_note = "_No record carries a materials-science reading of the queried name._\n"
 
     accession_rows = [
         {
@@ -440,7 +441,7 @@ cannot be confirmed as subject evidence from the record alone. Where the name ap
 materials-science context terms, the string may denote a different chemical entity that shares the
 abbreviation; those records are escalated rather than counted as subject evidence.
 
-{markdown_table(homonym_rows, ["homonym risk", "year", "title", "journal", "url"]) if homonym_rows else "_No record carries a materials-science reading of the queried name._\n"}
+{markdown_table(homonym_rows, ["homonym risk", "year", "title", "journal", "url"]) if homonym_rows else homonym_absent_note}
 
 ## Direct human exercise records
 

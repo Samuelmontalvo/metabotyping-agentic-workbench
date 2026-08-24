@@ -2,12 +2,11 @@ from __future__ import annotations
 
 import importlib.util
 import os
-from pathlib import Path
 import sys
 import tempfile
 import unittest
+from pathlib import Path
 from unittest import mock
-
 
 SCRIPT_PATH = Path(__file__).resolve().parents[1] / "scripts" / "run_metabolite_effect_search.py"
 SPEC = importlib.util.spec_from_file_location("run_metabolite_effect_search", SCRIPT_PATH)

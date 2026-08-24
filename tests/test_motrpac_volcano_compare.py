@@ -1,9 +1,9 @@
 import json
-from pathlib import Path
 import shutil
 import subprocess
 import tempfile
 import unittest
+from pathlib import Path
 
 from metabotyping_agentic.cli import main
 from metabotyping_agentic.live_sources.motrpac_volcano_compare import (
@@ -16,15 +16,14 @@ from metabotyping_agentic.live_sources.motrpac_volcano_compare import (
     is_motrpac_acute_pre_contrast,
     normalize_motrpac_omics_assay_filter,
     normalize_motrpac_scope,
-    parse_motrpac_group_contrast_filter,
-    parse_motrpac_da_tsv,
     parse_motrpac_contrast_plot_metadata,
+    parse_motrpac_da_tsv,
+    parse_motrpac_group_contrast_filter,
     parse_motrpac_object_metadata,
     parse_mw_factor_plot_metadata,
     prepare_motrpac_plot_rows,
     rank_similarity,
 )
-
 
 FEATURES = ["Alanine", "Citrulline", "Glucose", "Lactate", "Succinate", "Fumarate"]
 
@@ -135,7 +134,7 @@ def fixture_da_text_all_groups(row_assay: str = "metab-t-amines"):
         "RE": ("ADUResist", 0.20),
         "CON": ("ADUControl", 0.05),
     }
-    for group_index, (group_token, (motrpac_token, base_logfc)) in enumerate(group_terms.items(), start=1):
+    for group_index, (_group_token, (motrpac_token, base_logfc)) in enumerate(group_terms.items(), start=1):
         for feature_index, feature in enumerate(FEATURES, start=1):
             lines.append(
                 "\t".join(

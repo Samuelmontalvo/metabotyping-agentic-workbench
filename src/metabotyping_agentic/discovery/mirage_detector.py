@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from ..models import DataAvailability, PublicationRecord, RepositoryRecord
 
-
 UNKNOWN_VALUES = {"", "unknown", "not_available", "not_reported", None}
 
 

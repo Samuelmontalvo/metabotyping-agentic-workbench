@@ -1,6 +1,6 @@
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
 from metabotyping_agentic.live_sources.metabolomics_workbench import (
     ingest_metabolomics_workbench_study,
