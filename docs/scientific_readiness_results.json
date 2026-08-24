@@ -3,7 +3,7 @@
     "error": 0,
     "expected_failure": 0,
     "failed": 0,
-    "passed": 148,
+    "passed": 150,
     "skipped": 0,
     "unexpected_success": 0
   },
@@ -238,7 +238,7 @@
   "nonpassing_tests": [],
   "schema_version": "1.0",
   "strict_release_gate_status": "pass",
-  "tests_run": 148,
+  "tests_run": 150,
   "unmapped_nonpassing_tests": [],
   "validation_scope": "offline synthetic and deterministic repository regression tests"
 }

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 from pathlib import Path
 
 from ..io import read_json, to_plain, write_json
@@ -84,7 +85,13 @@ def _score_dataset(dataset: dict, study: dict | None, weights: dict[str, float])
         "temporal_alignment": round(temporal_alignment, 3),
         "harmonization_feasibility": round(harmonization_feasibility, 3),
     }
-    overall = sum(subscores[name] * weights[name] for name in weights)
+    # math.fsum, not sum(): CPython 3.12 gave sum() Neumaier compensated
+    # summation for floats, so naive accumulation of these weighted subscores
+    # lands on either side of a .0005 rounding boundary depending on the
+    # interpreter version (SYN-CPET-RICH scored 0.817 on 3.11 and 0.818 on
+    # 3.12+). fsum is exactly rounded on every version, which keeps a published
+    # quality score independent of the interpreter that produced it.
+    overall = math.fsum(subscores[name] * weights[name] for name in weights)
     rationale = []
     if not dataset.get("has_codebook"):
         rationale.append("Variable dictionary/codebook missing or incomplete.")
