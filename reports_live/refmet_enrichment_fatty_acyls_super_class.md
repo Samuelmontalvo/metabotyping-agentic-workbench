@@ -16,8 +16,8 @@
 | human-precovid-sed-adu | Homo sapiens | metab-u-hilicpos | all_or_not_reported | Fatty Acyls | 41 | 340 | 30 | 1.38 | 4.13e-03 | 5.37e-02 | 13 | requires_human_review |
 | human-precovid-sed-adu | Homo sapiens | metab-u-lrpneg | all_or_not_reported | Fatty Acyls | 32 | 37 | 12 | 0.99 | 7.31e-01 | 7.31e-01 | 2 | requires_human_review |
 | ST004303 | Homo sapiens | AN007160 | all_or_not_reported | Fatty Acyls | 53 | 236 | 26 | 1.11 | 2.50e-01 | 8.74e-01 | 14 | requires_human_review |
-| human-precovid-sed-adu | Homo sapiens | metab-u-rpneg | all_or_not_reported | Fatty Acyls | 46 | 98 | 26 | 0.94 | 8.18e-01 | 1.00e+00 | 8 | requires_human_review |
 | human-precovid-sed-adu | Homo sapiens | metab-u-rppos | all_or_not_reported | Fatty Acyls | 6 | 94 | 3 | 1.07 | 5.98e-01 | 1.00e+00 | 12 | requires_human_review |
+| human-precovid-sed-adu | Homo sapiens | metab-u-rpneg | all_or_not_reported | Fatty Acyls | 46 | 98 | 26 | 0.94 | 8.18e-01 | 1.00e+00 | 8 | requires_human_review |
 | pass1b06 | Rattus norvegicus | metabolomics_timewise | female | Fatty Acyls | 76 | 299 | 0 | 0.00 | 1.00e+00 | 1.00e+00 | 11 | requires_human_review |
 | pass1b06 | Rattus norvegicus | metabolomics_timewise | male | Fatty Acyls | 76 | 299 | 0 | 0.00 | 1.00e+00 | 1.00e+00 | 11 | requires_human_review |
 | human-precovid-sed-adu | Homo sapiens | metab-t-oxylipneg | all_or_not_reported | Fatty Acyls | 2 | 2 | 0 | nan | 1.00e+00 | 1.00e+00 | 1 | requires_human_review |

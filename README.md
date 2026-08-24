@@ -319,16 +319,37 @@ or treated as aliases. Consumers should migrate to the canonical names before
 
 ## Release status
 
-Version `0.2.0` is a local pre-release snapshot. It adds advisory domain-review
-contracts, deterministic benchmark disagreement/provenance artifacts, and
-stricter scientific-readiness gates. Canonical benchmark computation remains
+Version `0.2.1` is the first release intended for use outside the authoring
+group. It fixes the reproducibility, credential, and installability defects
+listed in [CHANGELOG.md](CHANGELOG.md), and adds
+[docs/QUICKSTART.md](docs/QUICKSTART.md) and
+[data/README.md](data/README.md). Canonical benchmark computation remains
 deterministic; hidden-gold agent execution, handoff tracing, independent
 evaluator subagents, and a behavioral multi-agent harness are deferred. The
 manuscript, DOCX, PDF, and publication figure bundles remain frozen descriptions
-of the evaluated 0.1.0 snapshot. The code is licensed under MIT and includes
-citation, contribution, support, CI, synthetic inputs, and example outputs. A
-public repository URL and archived release DOI have not yet been assigned; they
-are required before journal submission.
+of the evaluated 0.1.0 snapshot and do not reflect 0.2.1 numbers. The code is
+licensed under MIT; see `data/README.md` for the separate terms covering
+redistributed third-party records.
+
+The repository is public at
+<https://github.com/Samuelmontalvo/metabotyping-agentic-workbench>. **No archived
+release DOI has been assigned yet**, which is required before journal submission.
+
+Known limitations at 0.2.1, stated so they are not discovered later:
+
+- A MoTrPAC API key is present in the git history of earlier commits. It has been
+  removed from the working tree, but history rewriting and key rotation by the
+  source owner are still outstanding. Treat it as exposed.
+- Each live lane has exactly one worked example, so generalisation to other
+  studies' factor conventions is untested. The Metabolomics Workbench timepoint
+  classifier infers "pre-exercise" from a bare `pre` or `:b` substring and has no
+  test coverage.
+- Reproducibility is verified on CPython 3.11 (arm64), 3.12 (x86_64) and 3.14
+  (arm64). Figure binaries depend on the matplotlib version and are not
+  byte-reproducible across matplotlib releases.
+- 25 of 28 `data/live` provenance files do not record a source licence.
+- The R toolchain is required only by the optional MoTrPAC plot helpers and by
+  CI; it is not needed for the offline pilot or the test suite.
 
 ## Outputs
 

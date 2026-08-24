@@ -3,7 +3,7 @@
     "error": 0,
     "expected_failure": 0,
     "failed": 0,
-    "passed": 153,
+    "passed": 156,
     "skipped": 0,
     "unexpected_success": 0
   },
@@ -190,7 +190,7 @@
         "error": 0,
         "expected_failure": 0,
         "failed": 0,
-        "passed": 23,
+        "passed": 24,
         "skipped": 0,
         "unexpected_success": 0
       },
@@ -204,7 +204,7 @@
       ],
       "purpose": "Validates that an unreachable literature index is recorded as unavailable rather than as zero hits, that truncated or relevance-ranked sweeps are never declared complete, that unscreenable records and unlocated subject names stay unresolved instead of excluded, and that preprint, peer-reviewed and retracted records keep separate evidence tiers.",
       "status": "pass",
-      "tests": 23
+      "tests": 24
     },
     {
       "counts": {
@@ -238,7 +238,7 @@
   "nonpassing_tests": [],
   "schema_version": "1.0",
   "strict_release_gate_status": "pass",
-  "tests_run": 153,
+  "tests_run": 156,
   "unmapped_nonpassing_tests": [],
   "validation_scope": "offline synthetic and deterministic repository regression tests"
 }

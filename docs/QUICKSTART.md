@@ -89,8 +89,22 @@ Change a required term in `/tmp/criteria.json`, rerun `discover`, and watch
 studies move between classes. That is the auditability claim: the classification
 is a function of stated criteria, not a model's opinion.
 
-`--out` is honoured strictly. No subcommand writes outside the directory you give
-it, which is what keeps a stray run from overwriting the committed pilot output.
+The single-stage subcommands above honour `--out` strictly: `discover`,
+`score-quality`, and `review-literature` write only inside the directory you give
+them, which is what keeps a stray run from overwriting the committed pilot report.
+
+`run-pilot` is the exception, and it is worth knowing before you use it.
+`--out` controls where the *reports* go, but the pipeline's intermediate state is
+always written to `data/extracted/` and `data/review/` relative to the current
+working directory, whatever `--out` says. Running it from a checkout therefore
+regenerates those trees in place and discards any uncommitted edits you have made
+there. If you are experimenting with `data/extracted/criteria.json`, copy it
+somewhere else first, or run the pilot from a scratch directory:
+
+```bash
+mkdir -p /tmp/pilot-run && cp -R data/examples /tmp/pilot-run/
+cd /tmp/pilot-run && PYTHONPATH=<repo>/src python -m metabotyping_agentic.cli run-pilot --out reports
+```
 
 ## 4. Check the project's own gates
 

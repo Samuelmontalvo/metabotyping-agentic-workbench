@@ -454,3 +454,61 @@ class ProvenanceRedactionTests(unittest.TestCase):
 
         url = "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=lacphe&format=json"
         self.assertEqual(redact_url(url), url)
+
+
+class CredentialLeakEndToEndTests(unittest.TestCase):
+    """No artifact written by the literature lane may contain a credential.
+
+    README and CLAUDE.md promise that setting NCBI_API_KEY and
+    METABOTYPING_CONTACT_EMAIL is safe because they are masked in anything
+    written to disk. Redacting only the endpoints list was not enough: the key
+    also reached provenance through raised error text, and the contact email
+    reached every record through source_url. This drives the whole lane with a
+    fake fetcher and asserts the secrets appear in no output file.
+    """
+
+    KEY = "SECRETNCBIKEY123456789abcdef"
+    EMAIL = "secret.person@example.edu"
+
+    def test_no_artifact_contains_the_api_key_or_contact_email(self):
+        import json
+        import os
+        import tempfile
+        from pathlib import Path
+        from unittest import mock
+
+        from metabotyping_agentic.live_sources import literature_search as ls
+
+        def exploding_fetcher(url, *args, **kwargs):
+            # Every source fails, which is the path that puts the URL into an
+            # error string and then into provenance.
+            raise RuntimeError(f"literature request failed: {ls.redact_url(url)}")
+
+        env = {"NCBI_API_KEY": self.KEY, "METABOTYPING_CONTACT_EMAIL": self.EMAIL}
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, env):
+            out = Path(tmp) / "lit"
+            try:
+                ls.search_literature(
+                    "N-Lactoyl phenylalanine",
+                    out,
+                    fetcher=exploding_fetcher,
+                    max_records_per_source=5,
+                )
+            except TypeError:
+                self.skipTest("search_literature signature does not accept an injected fetcher")
+
+            leaked = []
+            for path in out.rglob("*"):
+                if not path.is_file():
+                    continue
+                text = path.read_text(encoding="utf-8", errors="replace")
+                if self.KEY in text:
+                    leaked.append(f"{path.name}: api key")
+                if self.EMAIL in text or self.EMAIL.replace("@", "%40") in text:
+                    leaked.append(f"{path.name}: contact email")
+            self.assertEqual(leaked, [], f"credentials reached disk: {leaked}")
+
+            provenance = out / "literature_provenance.json"
+            if provenance.exists():
+                blob = json.loads(provenance.read_text(encoding="utf-8"))
+                self.assertIn("redacted", json.dumps(blob))

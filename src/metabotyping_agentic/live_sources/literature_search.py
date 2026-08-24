@@ -146,21 +146,21 @@ def fetch_json(url: str, timeout: int = DEFAULT_TIMEOUT_SECONDS) -> Any:
             if exc.code in RETRYABLE_STATUS_CODES and attempt < MAX_ATTEMPTS:
                 time.sleep(RETRY_BACKOFF_SECONDS * attempt)
                 continue
-            raise RuntimeError(f"literature request failed with HTTP {exc.code}: {url}") from exc
+            raise RuntimeError(f"literature request failed with HTTP {exc.code}: {redact_url(url)}") from exc
         except (URLError, TimeoutError) as exc:
             last_error = exc
             if attempt < MAX_ATTEMPTS:
                 time.sleep(RETRY_BACKOFF_SECONDS * attempt)
                 continue
-            raise RuntimeError(f"literature request failed: {url} ({exc})") from exc
+            raise RuntimeError(f"literature request failed: {redact_url(url)} ({exc})") from exc
         if not body.strip():
-            raise RuntimeError(f"literature request returned an empty response: {url}")
+            raise RuntimeError(f"literature request returned an empty response: {redact_url(url)}")
         try:
             return json.loads(body)
         except json.JSONDecodeError as exc:
             snippet = " ".join(body[:200].split())
-            raise RuntimeError(f"literature request returned non-JSON content: {url} :: {snippet}") from exc
-    raise RuntimeError(f"literature request failed after {MAX_ATTEMPTS} attempts: {url} ({last_error})")
+            raise RuntimeError(f"literature request returned non-JSON content: {redact_url(url)} :: {snippet}") from exc
+    raise RuntimeError(f"literature request failed after {MAX_ATTEMPTS} attempts: {redact_url(url)} ({last_error})")
 
 
 def _sleep() -> None:
@@ -255,7 +255,7 @@ def _europe_pmc_record(result: dict[str, Any], expression: str, source_url: str)
         "record_url": f"https://europepmc.org/article/{subset}/{result.get('id')}" if subset else "",
         "abstract": _plain_text(result.get("abstractText")),
         "queried_expression": expression,
-        "source_url": source_url,
+        "source_url": redact_url(source_url),
         "retrieved_via": "europe_pmc_rest_search",
     }
 
@@ -364,7 +364,7 @@ def _pubmed_record(uid: str, summary: dict[str, Any], expression: str, source_ur
         "record_url": f"https://pubmed.ncbi.nlm.nih.gov/{uid}/",
         "abstract": "",
         "queried_expression": expression,
-        "source_url": source_url,
+        "source_url": redact_url(source_url),
         "retrieved_via": "ncbi_eutils_esearch_esummary",
     }
 
@@ -484,7 +484,7 @@ def _crossref_record(item: dict[str, Any], expression: str, source_url: str) -> 
         "record_url": str(item.get("URL") or (f"https://doi.org/{doi}" if doi else "")),
         "abstract": _plain_text(item.get("abstract")),
         "queried_expression": expression,
-        "source_url": source_url,
+        "source_url": redact_url(source_url),
         "retrieved_via": "crossref_rest_works",
     }
 
@@ -601,7 +601,7 @@ def enrich_preprint_records(
                     "preprint_version_count": str(len(collection)),
                     "linked_published_doi": "" if published.upper() in {"", "NA"} else published.lower(),
                     "preprint_category": str(latest.get("category") or "").strip(),
-                    "source_url": url,
+                    "source_url": redact_url(url),
                 }
             )
             _sleep()

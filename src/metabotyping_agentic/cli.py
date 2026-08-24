@@ -460,8 +460,12 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
     def typer_review_literature(
         records: str = typer.Option(..., "--records"),
         query: str = typer.Option(DEFAULT_QUERY, "--query"),
-        out: str = typer.Option("data/extracted", "--out"),
-        reports_out: str = typer.Option("reports", "--reports-out"),
+        # Must match the argparse defaults below. typer is a required
+        # dependency, so this is the live path: leaving it on data/extracted and
+        # reports/ meant a no-flag run still overwrote the offline pilot's
+        # synthetic literature artifacts.
+        out: str = typer.Option("data/live/literature", "--out"),
+        reports_out: str = typer.Option("reports_live/literature", "--reports-out"),
         label: str = typer.Option("literature", "--label"),
         subject_terms: str = typer.Option("", "--subject-terms"),
         report_filename: str = typer.Option("literature_report.md", "--report-filename"),
@@ -544,7 +548,13 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
         )
 
 
-def _argparse_main(argv: list[str] | None = None) -> None:
+def build_parser() -> argparse.ArgumentParser:
+    """Construct the argparse frontend.
+
+    Exposed separately so tests can inspect option defaults without executing a
+    command, which is how the typer/argparse default drift is caught.
+    """
+
     parser = argparse.ArgumentParser(prog="metabo-agent")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -643,6 +653,11 @@ def _argparse_main(argv: list[str] | None = None) -> None:
     p.add_argument("--mw-reference-contrast-key", default="auto")
     p.add_argument("--skip-plots", action="store_true")
 
+    return parser
+
+
+def _argparse_main(argv: list[str] | None = None) -> None:
+    parser = build_parser()
     args = parser.parse_args(argv)
     if args.command == "define-criteria":
         define_criteria_command(args.query, args.out)
