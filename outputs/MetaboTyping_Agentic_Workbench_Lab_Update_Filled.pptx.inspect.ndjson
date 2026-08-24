@@ -1,0 +1,66 @@
+{"kind":"deck","id":"pr/4j5lfd","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"","type":"master","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"},{"name":"footer","type":"footer"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"Title Only","placeholders":[{"name":"title","type":"title"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout2.xml","name":"1_Standard Layout","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout3.xml","name":"Standard Layout","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout4.xml","name":"Blank","placeholders":[{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout5.xml","name":"Two column","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"},{"name":"body","type":"body"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout6.xml","name":"Title Slide","placeholders":[{"name":"title","type":"title"},{"name":"subtitle","type":"subtitle"},{"name":"body","type":"body"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout7.xml","name":"Image with Caption","placeholders":[{"name":"picture","type":"picture"},{"name":"body","type":"body"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout8.xml","name":"Closing Slide"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout9.xml","name":"TITLE","type":"title","placeholders":[{"name":"title","type":"title"},{"name":"subtitle","type":"subtitle"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout10.xml","name":"TWO_OBJECTS","type":"twoObj","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"},{"name":"body","type":"body"},{"name":"dateTime","type":"dateTime"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout11.xml","name":"Closing Slide Option 3","placeholders":[{"name":"body","type":"body"},{"name":"body","type":"body"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout12.xml","name":"Title and Content","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"}]}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"MetaboTyping Workbench","textShapes":2}
+{"kind":"textbox","id":"sh/8ra1oze9","slide":1,"name":"Google Shape;72;p14","placeholder":"title","text":"MetaboTyping Workbench","textPreview":"MetaboTyping Workbench","textChars":22,"textLines":1,"bbox":[32.72,78.17,894.55,112.44]}
+{"kind":"textbox","id":"sh/ts32h4vu","slide":1,"name":"Google Shape;73;p14","text":"Samuel Montalvo, Ph.D.\nStanford University","textPreview":"Samuel Montalvo, Ph.D. | Stanford University","textChars":42,"textLines":2,"bbox":[590,410,330,70]}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":"[Sources]\n- Visual template: Copy of Lab Update.pptx.\n- Project identity: README.md.\n[/Sources]"}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"Exercise Metabolites","textShapes":6}
+{"kind":"textbox","id":"sh/2p0fapwr","slide":2,"name":"Google Shape;78;p15","placeholder":"title","text":"Exercise Metabolites","textPreview":"Exercise Metabolites","textChars":20,"textLines":1,"bbox":[32.72,14.69,894.55,83.21]}
+{"kind":"textbox","id":"sh/3q9w3uxc","slide":2,"name":"exercise-need-hero","text":"Exercise changes metabolism within minutes.","textPreview":"Exercise changes metabolism within minutes.","textChars":43,"textLines":1,"bbox":[100,145,760,55]}
+{"kind":"textbox","id":"sh/ret8r2dk","slide":2,"name":"exercise-need-1","text":"Capture\nacute responses","textPreview":"Capture | acute responses","textChars":23,"textLines":2,"bbox":[95,265,220,75]}
+{"kind":"textbox","id":"sh/6tk7yxcz","slide":2,"name":"exercise-need-2","text":"Explain\nindividual variation","textPreview":"Explain | individual variation","textChars":28,"textLines":2,"bbox":[370,265,220,75]}
+{"kind":"textbox","id":"sh/tgvqtcva","slide":2,"name":"exercise-need-3","text":"Find candidate\nbiomarkers","textPreview":"Find candidate | biomarkers","textChars":25,"textLines":2,"bbox":[645,265,220,75]}
+{"kind":"textbox","id":"sh/sf2p07up","slide":2,"name":"exercise-need-footer","text":"Timing, fitness, sex, diet, and assay design shape the signal.","textPreview":"Timing, fitness, sex, diet, and assay design shape the signal.","textChars":62,"textLines":1,"bbox":[160,375,640,38]}
+{"kind":"notes","id":"nt/hwbqtkby","slide":2,"text":"[Sources]\n- Lewis GD et al. Sci Transl Med. 2010. PMID: 20505214.\n- Contrepois K et al. Cell. 2020. PMID: 32470399.\n- MoTrPAC Study Group. Nature. 2024. DOI: 10.1038/s41586-023-06877-w.\n[/Sources]"}
+{"kind":"slide","id":"sl/ofy9wn61","slide":3,"title":"MetaboTyping Workbench","textShapes":1}
+{"kind":"textbox","id":"sh/3id43qdg","slide":3,"name":"Google Shape;83;p16","placeholder":"title","text":"MetaboTyping Workbench","textPreview":"MetaboTyping Workbench","textChars":22,"textLines":1,"bbox":[32.72,14.69,894.55,83.21]}
+{"kind":"image","id":"im/nm1sje5w","slide":3,"name":"Google Shape;84;p16","alt":"MetaboTyping agentic workbench architecture","bbox":[77.93,106.82,855.69,286.2]}
+{"kind":"notes","id":"nt/ofy9wn61","slide":3,"text":"[Sources]\n- Architecture figure: docs/manuscript/figures/metabotyping_agentic_workbench_architecture.png.\n- Workflow definitions: README.md.\n[/Sources]"}
+{"kind":"slide","id":"sl/jyx0ra1s","slide":4,"title":"Objectives","textShapes":7}
+{"kind":"textbox","id":"sh/y1crqhcz","slide":4,"name":"Google Shape;89;p17","placeholder":"title","text":"Objectives","textPreview":"Objectives","textChars":10,"textLines":1,"bbox":[32.72,14.69,894.55,83.21]}
+{"kind":"textbox","id":"sh/w7e9grqx","slide":4,"name":"objective-1","text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[125,155,70,48]}
+{"kind":"textbox","id":"sh/h8nq9wri","slide":4,"name":"objective-text-1","text":"Discover usable exercise-metabolomics studies","textPreview":"Discover usable exercise-metabolomics studies","textChars":45,"textLines":1,"bbox":[205,155,610,48]}
+{"kind":"textbox","id":"sh/u5wreh8r","slide":4,"name":"objective-2","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[125,240,70,48]}
+{"kind":"textbox","id":"sh/v6587m9c","slide":4,"name":"objective-text-2","text":"Build evidence-backed metadata and crosswalks","textPreview":"Build evidence-backed metadata and crosswalks","textChars":45,"textLines":1,"bbox":[205,240,610,48]}
+{"kind":"textbox","id":"sh/83upc7q1","slide":4,"name":"objective-3","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[125,325,70,48]}
+{"kind":"textbox","id":"sh/943q5crm","slide":4,"name":"objective-text-3","text":"Send uncertain decisions to human review","textPreview":"Send uncertain decisions to human review","textChars":40,"textLines":1,"bbox":[205,325,610,48]}
+{"kind":"notes","id":"nt/jyx0ra1s","slide":4,"text":"[Sources]\n- Project aims and review boundaries: README.md and AGENTS.md.\n[/Sources]"}
+{"kind":"slide","id":"sl/i107q5of","slide":5,"title":"Agent Roles","textShapes":2}
+{"kind":"textbox","id":"sh/8z29gfep","slide":5,"name":"Google Shape;94;p18","placeholder":"title","text":"Agent Roles","textPreview":"Agent Roles","textChars":11,"textLines":1,"bbox":[32.72,78.17,894.55,39.91]}
+{"kind":"textbox","id":"sh/9kbqpkfa","slide":5,"name":"Google Shape;95;p18","placeholder":"subtitle","text":"Find records  •  extract metadata  •  prepare review questions","textPreview":"Find records  •  extract metadata  •  prepare review questions","textChars":62,"textLines":1,"bbox":[37.68,137.36,894.55,83.21]}
+{"kind":"notes","id":"nt/i107q5of","slide":5,"text":"[Sources]\n- Agent and skill responsibilities: README.md and .agents/skills/.\n[/Sources]"}
+{"kind":"slide","id":"sl/x8f69ofe","slide":6,"title":"Human Review","textShapes":2}
+{"kind":"textbox","id":"sh/5s721cfe","slide":6,"name":"Google Shape;100;p19","placeholder":"title","text":"Human Review","textPreview":"Human Review","textChars":12,"textLines":1,"bbox":[32.72,78.17,894.55,39.91]}
+{"kind":"textbox","id":"sh/4ry187et","slide":6,"name":"Google Shape;101;p19","placeholder":"subtitle","text":"Agents advise. Schemas and code block unreviewed actions.","textPreview":"Agents advise. Schemas and code block unreviewed actions.","textChars":57,"textLines":1,"bbox":[37.68,137.36,894.55,83.21]}
+{"kind":"notes","id":"nt/x8f69ofe","slide":6,"text":"[Sources]\n- Human-review and non-executable packet rules: AGENTS.md and src/metabotyping_agentic/review/.\n[/Sources]"}
+{"kind":"slide","id":"sl/gnmp4jqx","slide":7,"title":"Finding usable datasets","textShapes":8}
+{"kind":"textbox","id":"sh/587apwjq","slide":7,"name":"Google Shape;106;p20","placeholder":"title","text":"Finding usable datasets","textPreview":"Finding usable datasets","textChars":23,"textLines":1,"bbox":[32.72,78.17,894.55,39.91]}
+{"kind":"textbox","id":"sh/47y9wri5","slide":7,"name":"find-step-1","text":"DISCOVER","textPreview":"DISCOVER","textChars":8,"textLines":1,"bbox":[100,185,210,42]}
+{"kind":"textbox","id":"sh/zal8b21g","slide":7,"name":"find-body-1","text":"Exercise + metabolomics","textPreview":"Exercise + metabolomics","textChars":23,"textLines":1,"bbox":[100,235,210,36]}
+{"kind":"textbox","id":"sh/y9crix0v","slide":7,"name":"find-step-2","text":"VERIFY","textPreview":"VERIFY","textChars":6,"textLines":1,"bbox":[375,185,210,42]}
+{"kind":"textbox","id":"sh/ofa5s3yt","slide":7,"name":"find-body-2","text":"Access + metadata","textPreview":"Access + metadata","textChars":17,"textLines":1,"bbox":[375,235,210,36]}
+{"kind":"textbox","id":"sh/pgj6l8ze","slide":7,"name":"find-step-3","text":"RANK","textPreview":"RANK","textChars":4,"textLines":1,"bbox":[650,185,210,42]}
+{"kind":"textbox","id":"sh/2d8nqtgn","slide":7,"name":"find-body-3","text":"Evidence + readiness","textPreview":"Evidence + readiness","textChars":20,"textLines":1,"bbox":[650,235,210,36]}
+{"kind":"textbox","id":"sh/nehojyh8","slide":7,"name":"find-footer","text":"Missing accessions, codebooks, or timing remain visible gaps.","textPreview":"Missing accessions, codebooks, or timing remain visible gaps.","textChars":61,"textLines":1,"bbox":[170,340,620,40]}
+{"kind":"notes","id":"nt/gnmp4jqx","slide":7,"text":"[Sources]\n- Discovery and mirage criteria: README.md, AGENTS.md, and src/metabotyping_agentic/.\n[/Sources]"}
+{"kind":"slide","id":"sl/fu1gfa1s","slide":8,"title":"Harmonization","textShapes":2}
+{"kind":"textbox","id":"sh/ob21036t","slide":8,"name":"Google Shape;111;p21","placeholder":"title","text":"Harmonization","textPreview":"Harmonization","textChars":13,"textLines":1,"bbox":[32.72,26.98,894.55,76.22]}
+{"kind":"textbox","id":"sh/natkry58","slide":8,"name":"Google Shape;112;p21","placeholder":"subtitle","text":"Names are not identities\nVO₂peak is not VO₂max\nAssays may not be comparable","textPreview":"Names are not identities | VO₂peak is not VO₂max | Assays may not be comparable","textChars":75,"textLines":3,"bbox":[32.72,297.55,894.55,83.21]}
+{"kind":"notes","id":"nt/fu1gfa1s","slide":8,"text":"[Sources]\n- Identity, VO₂peak/VO₂max, and assay-comparability rules: AGENTS.md.\n[/Sources]"}
+{"kind":"slide","id":"sl/udsvah03","slide":9,"title":"Reviewable outputs","textShapes":2}
+{"kind":"textbox","id":"sh/exkbupcr","slide":9,"name":"Google Shape;117;p22","placeholder":"title","text":"Reviewable outputs","textPreview":"Reviewable outputs","textChars":18,"textLines":1,"bbox":[32.72,78.17,894.55,45.67]}
+{"kind":"textbox","id":"sh/x47ad0ve","slide":9,"name":"Google Shape;118;p22","placeholder":"subtitle","text":"Ranked studies  •  provenance cards  •  review queue  •  plots","textPreview":"Ranked studies  •  provenance cards  •  review queue  •  plots","textChars":62,"textLines":1,"bbox":[165,395,630,55]}
+{"kind":"image","id":"im/9cf2hw3y","slide":9,"name":"","alt":"Synthetic reviewed metabolite effects heatmap","bbox":[245,125,470,270]}
+{"kind":"notes","id":"nt/udsvah03","slide":9,"text":"[Sources]\n- Synthetic heatmap: docs/manuscript/figures/synthetic_motrpac_plot_suite/figures/effect_heatmap.png.\n- Report outputs: src/metabotyping_agentic/reports/.\n[/Sources]"}

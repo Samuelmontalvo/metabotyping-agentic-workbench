@@ -1,0 +1,74 @@
+{
+  "analyses_without_metabolite_count_record": 1882,
+  "analysis_count": 7367,
+  "analysis_duplicate_rows_removed": 3,
+  "analysis_feature_count_maximum": 11992,
+  "analysis_feature_count_median": 99.0,
+  "analysis_feature_count_minimum": 1,
+  "analysis_feature_row_sum": 1231376,
+  "analysis_metabolite_blank_count_rows": 65,
+  "analysis_metabolite_count_duplicate_rows_removed": 3,
+  "analysis_metabolite_count_rows": 5485,
+  "analysis_metabolite_numeric_count_rows": 5420,
+  "analysis_scope_counts": {
+    "explicit_targeted": 14,
+    "explicit_untargeted": 2385,
+    "unclassified_or_other": 4968
+  },
+  "distinct_latin_name_count": 481,
+  "explicit_untargeted_index_analysis_count": 2385,
+  "explicit_untargeted_index_study_count": 1250,
+  "interpretation": {
+    "feature_rows": "The sum is analysis-level reported feature rows, not unique chemical entities.",
+    "species": "Species percentages may sum above 100% because a study can list multiple organisms.",
+    "targeted": "Explicit text-labelled targeted count is a lower bound; MW exposes no parallel targeted-only bulk index.",
+    "untargeted": "Untargeted counts use the dedicated MW untarg_studies index; analysis-text checks do not replace that index."
+  },
+  "multi_species_study_count": 88,
+  "retrieved_at_utc": "2026-08-24T04:29:22+00:00",
+  "schema_version": "mw-corpus-snapshot-1.0",
+  "scope": "Metabolomics Workbench bulk public REST indexes",
+  "single_species_study_count": 4395,
+  "source_urls": {
+    "analysis": [
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000/analysis",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST001/analysis",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST002/analysis",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003/analysis",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST004/analysis",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST005/analysis"
+    ],
+    "number_of_metabolites": [
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000/number_of_metabolites",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST001/number_of_metabolites",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST002/number_of_metabolites",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003/number_of_metabolites",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST004/number_of_metabolites",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST005/number_of_metabolites"
+    ],
+    "species": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST/species",
+    "summary": [
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000/summary",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST001/summary",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST002/summary",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003/summary",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST004/summary",
+      "https://www.metabolomicsworkbench.org/rest/study/study_id/ST005/summary"
+    ],
+    "untarg_studies": "https://www.metabolomicsworkbench.org/rest/study/study_id/X/untarg_studies"
+  },
+  "species_annotated_study_count": 4483,
+  "species_duplicate_pair_rows_removed": 3,
+  "species_index_only_study_count": 2,
+  "species_missing_study_count": 18,
+  "species_source_row_count": 4773,
+  "species_unique_study_latin_name_pair_count": 4770,
+  "study_assay_category_counts": {
+    "neither_explicit_or_no_analysis": 3235,
+    "targeted_explicit_only": 14,
+    "untargeted_explicit_only": 1250
+  },
+  "study_count": 4499,
+  "study_summary_duplicate_rows_removed": 1,
+  "untargeted_duplicate_rows_removed": 0
+}

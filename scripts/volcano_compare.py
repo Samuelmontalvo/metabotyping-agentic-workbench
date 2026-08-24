@@ -424,6 +424,7 @@ def scan_mw_study(study_id: str, keys: set[str]):
 
     volcano_rows, queried_rows = [], []
     stratum_sizes = {}
+    paired_samples_by_participant: dict[str, dict[str, str]] = {}
     for stratum, sex_filter in strata.items():
         pre_by, post_by = {}, {}
         for sample, m in meta.items():
@@ -440,6 +441,13 @@ def scan_mw_study(study_id: str, keys: set[str]):
         pre_samples = [pre_by[pid] for pid in paired]
         post_samples = [post_by[pid] for pid in paired]
         stratum_sizes[stratum] = len(paired)
+        if stratum == "all":
+            for pid in paired:
+                paired_samples_by_participant[pid] = {
+                    "pre": pre_by[pid],
+                    "post": post_by[pid],
+                    "sex": meta[post_by[pid]]["sex"],
+                }
         print(f"[scan-mw]   stratum={stratum} paired participants={len(paired)}")
         if len(paired) < 3:
             continue
@@ -465,6 +473,29 @@ def scan_mw_study(study_id: str, keys: set[str]):
 
     volcano = pd.concat(volcano_rows, ignore_index=True) if volcano_rows else pd.DataFrame()
     queried = pd.concat(queried_rows, ignore_index=True) if queried_rows else pd.DataFrame()
+
+    # Sample-level values for the queried metabolite only. The full abundance matrix is
+    # never persisted; one metabolite is kept so individual pre/post responses can be
+    # plotted without re-fetching, using the study's own de-identified sample codes.
+    sample_rows = []
+    queried_features = sorted({str(name) for name in queried.get("metabolite", pd.Series(dtype=str))})
+    for feature in queried_features:
+        for participant, samples in paired_samples_by_participant.items():
+            pre_value = matrix.at[feature, samples["pre"]] if samples["pre"] in matrix.columns else np.nan
+            post_value = matrix.at[feature, samples["post"]] if samples["post"] in matrix.columns else np.nan
+            sample_rows.append({
+                "study_id": study_id,
+                "metabolite": feature,
+                "refmet_name": refmet.get(feature, feature),
+                "participant_code": participant,
+                "sex": samples["sex"],
+                "pre_sample": samples["pre"],
+                "post_sample": samples["post"],
+                "value_pre": pre_value,
+                "value_post": post_value,
+                "unit": "umol/L whole blood (study-reported)",
+            })
+    sample_level = pd.DataFrame(sample_rows)
     context = {
         "study_id": study_id,
         "study_title": summary.get("study_title", "") if isinstance(summary, dict) else "",
@@ -478,7 +509,7 @@ def scan_mw_study(study_id: str, keys: set[str]):
         "statistic": "paired t-test on log2 abundance, BH-adjusted within stratum",
         "orientation": "positive log2fc = higher post-exercise",
     }
-    return volcano, queried, context
+    return volcano, queried, sample_level, context
 
 
 def scan_rat_pass1b06(keys: set[str]):
@@ -512,7 +543,7 @@ def scan_rat_pass1b06(keys: set[str]):
     return df, hits, coverage
 
 
-def run_metabolite_scan(query: str, variants: list[str], mw_studies: list[str]):
+def run_metabolite_scan(query: str, variants: list[str], mw_studies: list[str], skip_rat: bool = False):
     keys = {_norm_name(query)} | {_norm_name(v) for v in variants}
     keys = {k for k in keys if k}
     slug = "".join(ch if ch.isalnum() else "_" for ch in query.lower()).strip("_")
@@ -522,7 +553,7 @@ def run_metabolite_scan(query: str, variants: list[str], mw_studies: list[str]):
     mw_contexts, mw_queried, mw_volcanoes = [], [], []
     for study_id in mw_studies:
         try:
-            volcano, queried, context = scan_mw_study(study_id, keys)
+            volcano, queried, sample_level, context = scan_mw_study(study_id, keys)
         except Exception as exc:  # network/parse failure is recorded, not hidden
             mw_contexts.append({"study_id": study_id, "error": str(exc)})
             continue
@@ -532,13 +563,20 @@ def run_metabolite_scan(query: str, variants: list[str], mw_studies: list[str]):
             mw_volcanoes.append(volcano)
         if not queried.empty:
             mw_queried.append(queried)
+        if not sample_level.empty:
+            sample_level.to_csv(out_dir / f"mw_{study_id}_queried_sample_level.csv", index=False)
     if mw_queried:
         pd.concat(mw_queried, ignore_index=True).to_csv(out_dir / "mw_queried_metabolite_effects.csv", index=False)
 
-    rat_all, rat_hits, rat_coverage = scan_rat_pass1b06(keys)
-    rat_all.to_csv(out_dir / "rat_pass1b06_metabolomics_timewise_all_rows.csv", index=False)
-    if not rat_hits.empty:
-        rat_hits.to_csv(out_dir / "rat_pass1b06_queried_metabolite_rows.csv", index=False)
+    if skip_rat:
+        # Explicitly recorded so a partial scan can never be mistaken for a rat coverage result.
+        rat_coverage = {"skipped": True,
+                        "reason": "--scan-skip-rat requested; rat coverage NOT assessed in this run"}
+    else:
+        rat_all, rat_hits, rat_coverage = scan_rat_pass1b06(keys)
+        rat_all.to_csv(out_dir / "rat_pass1b06_metabolomics_timewise_all_rows.csv", index=False)
+        if not rat_hits.empty:
+            rat_hits.to_csv(out_dir / "rat_pass1b06_queried_metabolite_rows.csv", index=False)
 
     provenance = {
         "generated_utc": datetime.now(timezone.utc).isoformat(),
@@ -574,6 +612,8 @@ def main():
                     help="Semicolon-separated additional spellings to match for --metabolite-scan.")
     ap.add_argument("--mw-studies", default="",
                     help="Comma-separated MW study IDs to scan for --metabolite-scan.")
+    ap.add_argument("--scan-skip-rat", action="store_true",
+                    help="Skip the rat pass1b-06 coverage scan (recorded as not assessed).")
     args = ap.parse_args()
 
     if args.metabolite_scan:
@@ -581,7 +621,7 @@ def main():
         studies = [s.strip().upper() for s in args.mw_studies.split(",") if s.strip()]
         if not studies:
             raise SystemExit("--metabolite-scan requires --mw-studies")
-        run_metabolite_scan(args.metabolite_scan, variants, studies)
+        run_metabolite_scan(args.metabolite_scan, variants, studies, skip_rat=args.scan_skip_rat)
         return
 
     OUT_DATA.mkdir(parents=True, exist_ok=True)

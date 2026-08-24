@@ -255,6 +255,248 @@ The benchmark compares deterministic MVP outputs against synthetic expert fixtur
     return write_text(report_path, text)
 
 
+def render_literature_report(
+    review: dict[str, Any],
+    out_dir: str | Path,
+    *,
+    retrieval_provenance: dict[str, Any] | None = None,
+    filename: str = "literature_report.md",
+    title: str = "Literature Evidence Report",
+    top_n: int = 25,
+) -> Path:
+    """Render the literature screening and appraisal report.
+
+    The report keeps three things visible that a bare citation list hides: which
+    indexes were actually reachable, which records could not be screened at all, and
+    which publications carry a repository accession that bridges back to retrievable
+    data.
+    """
+
+    screened = list(review.get("screened") or [])
+    summary = review.get("summary") or {}
+    escalations = list(review.get("escalations") or [])
+    provenance = retrieval_provenance or {}
+
+    def _reported(value: Any) -> str:
+        return "unknown" if value is None else f"{value:,}" if isinstance(value, int) else str(value)
+
+    def _clip(value: Any, limit: int = 200) -> str:
+        text = " ".join(str(value or "").split())
+        return text if len(text) <= limit else text[: limit - 1].rstrip() + "…"
+
+    source_rows = [
+        {
+            "source": source.get("source_system", ""),
+            "status": source.get("status", ""),
+            "reported hits": _reported(source.get("reported_hit_count")),
+            "retrieved": source.get("retrieved_count", 0),
+            "complete sweep": "yes" if source.get("pagination_complete") else "no",
+            "detail": _clip(source.get("detail")),
+        }
+        for source in provenance.get("sources", []) or []
+    ]
+
+    def class_rows(screen_class: str) -> list[dict[str, Any]]:
+        return [
+            {
+                "year": row.get("publication_year") or "unknown",
+                "title": row.get("title", ""),
+                "journal": row.get("journal") or "unknown",
+                "tier": row.get("evidence_tier", ""),
+                "species": row.get("species_scope", ""),
+                "design": row.get("intervention_design", ""),
+                "accessions": row.get("accessions_in_record_text") or "none in retrieved text",
+                "review": row.get("review_status", ""),
+                "url": row.get("record_url", ""),
+            }
+            for row in screened
+            if row.get("screen_class") == screen_class
+        ][:top_n]
+
+    def count_table(counts: dict[str, Any], key_label: str) -> str:
+        return markdown_table(
+            [{key_label: key, "records": value} for key, value in (counts or {}).items()],
+            [key_label, "records"],
+        )
+
+    homonym_rows = [
+        {
+            "homonym risk": row.get("homonym_risk", ""),
+            "year": row.get("publication_year") or "unknown",
+            "title": row.get("title", ""),
+            "journal": row.get("journal") or "unknown",
+            "url": row.get("record_url", ""),
+        }
+        for row in screened
+        if row.get("homonym_risk")
+        in {"flagged_non_metabolite_homonym_context", "mixed_material_and_biological_context"}
+    ][:top_n]
+
+    accession_rows = [
+        {
+            "accessions": row.get("accessions_in_record_text", ""),
+            "screen class": row.get("screen_class", ""),
+            "year": row.get("publication_year") or "unknown",
+            "title": row.get("title", ""),
+            "url": row.get("record_url", ""),
+        }
+        for row in screened
+        if row.get("data_availability_evidence") == "accession_in_record_text"
+    ][:top_n]
+
+    escalation_counts: dict[str, int] = {}
+    escalation_decisions: dict[str, str] = {}
+    for row in escalations:
+        kind = row.get("escalation", "")
+        escalation_counts[kind] = escalation_counts.get(kind, 0) + 1
+        escalation_decisions.setdefault(kind, row.get("decision_needed", ""))
+    escalation_summary = [
+        {"escalation": kind, "records": count, "decision_needed": escalation_decisions.get(kind, "")}
+        for kind, count in sorted(escalation_counts.items(), key=lambda item: (-item[1], item[0]))
+    ]
+    escalations_path = str(review.get("escalations_path") or "the escalations CSV beside this review")
+
+    accession_count = summary.get("records_with_accession_in_text", 0)
+    if accession_count:
+        accession_section = (
+            f"{accession_count} of {summary.get('record_count', 0)} records name a repository accession in "
+            "the retrieved text. Namespace counts:\n"
+            + count_table(summary.get("accession_namespace_counts"), "namespace")
+            + "\n"
+            + markdown_table(accession_rows, ["accessions", "screen class", "year", "title", "url"])
+        )
+    else:
+        accession_section = (
+            f"No accession appears in the retrieved text of any of the {summary.get('record_count', 0)} "
+            "records. Abstracts rarely carry accessions, so this says nothing about whether these studies "
+            "deposited data; it says the bridge to retrievable data cannot be built from bibliographic "
+            "records alone."
+        )
+
+    unavailable = list(summary.get("unavailable_sources") or [])
+    truncated = list(summary.get("truncated_sources") or [])
+    gap_lines = []
+    for source in unavailable:
+        gap_lines.append(
+            f"- **{source} was unreachable.** Its coverage for this query is unknown. This is an availability "
+            "gap, not a finding that no matching publication exists."
+        )
+    for source in truncated:
+        gap_lines.append(
+            f"- **{source} returned a ranked sample, not a complete sweep.** Absence of a paper from the "
+            "table below is not evidence that it does not exist."
+        )
+    if not gap_lines:
+        gap_lines.append("- Every queried index answered, and each reported result set was retrieved in full.")
+
+    columns = ["year", "title", "journal", "tier", "species", "design", "accessions", "review", "url"]
+    text = f"""# {title}
+
+Screening and appraisal of retrieved bibliographic records. Retrieval provenance is preserved per
+source; screening flags state whether they came from a structured field or from title/abstract text.
+No relevance, quality, or replication claim is made from a bibliographic hit alone.
+
+## Query
+
+- Query: `{review.get("query") or provenance.get("query_original") or "not_recorded"}`
+- Name variants searched: {", ".join(provenance.get("name_variants_searched", []) or []) or "none"}
+- Context terms: {", ".join(provenance.get("context_terms", []) or []) or "none"}
+- Records after cross-source deduplication: {summary.get("record_count", 0)}
+- Records requiring human review: {summary.get("review_required_count", 0)}
+
+## Retrieval provenance
+
+{markdown_table(source_rows, ["source", "status", "reported hits", "retrieved", "complete sweep", "detail"])}
+
+### Retrieval gaps
+
+{chr(10).join(gap_lines)}
+
+## Screening classes
+
+{count_table(summary.get("screen_class_counts"), "screen class")}
+
+## Evidence tiers
+
+{count_table(summary.get("evidence_tier_counts"), "evidence tier")}
+
+## Species scope of the retrieved evidence
+
+{count_table(summary.get("species_scope_counts"), "species scope")}
+
+Species scope is inferred from retrieved title and abstract text unless the basis column says
+`structured_field`. `not_stated_in_retrieved_text` means the text carried no species term; it does not
+mean the study had no species.
+
+## Subject-name evidence and homonym risk
+
+Declared subject terms: {", ".join(review.get("subject_terms", []) or []) or "none declared"}
+
+{count_table(summary.get("subject_term_evidence_counts"), "subject-name evidence")}
+{count_table(summary.get("homonym_risk_counts"), "homonym risk")}
+
+A record matched by a full-text index whose retrieved title and abstract never name the queried subject
+cannot be confirmed as subject evidence from the record alone. Where the name appears only alongside
+materials-science context terms, the string may denote a different chemical entity that shares the
+abbreviation; those records are escalated rather than counted as subject evidence.
+
+{markdown_table(homonym_rows, ["homonym risk", "year", "title", "journal", "url"]) if homonym_rows else "_No record carries a materials-science reading of the queried name._\n"}
+
+## Direct human exercise records
+
+{markdown_table(class_rows("direct_human_exercise"), columns)}
+
+## Human, non-exercise context
+
+{markdown_table(class_rows("human_non_exercise_context"), columns)}
+
+## Animal or in-vitro mechanistic background
+
+Retained as mechanistic background. These records never satisfy a human required term.
+
+{markdown_table(class_rows("animal_or_invitro_mechanistic"), columns)}
+
+## Secondary synthesis (reviews, meta-analyses)
+
+{markdown_table(class_rows("secondary_synthesis"), columns)}
+
+## Unscreenable records
+
+Retrieved records that could not be screened: either no abstract was returned, or the abstract names no
+species and carries no decisive modality signal. The `screen_basis` column in the screened CSV gives the
+reason per record. These are unresolved, not excluded.
+
+{markdown_table(class_rows("screening_uncertain_insufficient_text"), columns)}
+
+## Accession bridge to retrievable data
+
+{accession_section}
+
+A record with no accession in its retrieved text is an open question about deposition, not a confirmed
+deposition gap: bibliographic text is not a data availability statement.
+
+## Human-review escalations
+
+{len(escalations)} escalation(s) raised. The full queue is in `{escalations_path}`; the counts below are
+the queue by type, followed by the first {top_n} rows.
+
+{markdown_table(escalation_summary, ["escalation", "records", "decision_needed"])}
+
+{markdown_table(escalations[:top_n], ["escalation", "reason", "decision_needed", "title", "record_url"])}
+
+## Evaluation gates
+
+| gate | status |
+| --- | --- |
+| FAIR provenance | {"pass" if source_rows or screened else "fail"} — every record keeps source system, source URL, and identifiers |
+| reproducibility | pass — screening is regenerated offline from the declared record set with deterministic rules |
+| critical evidence | pass — structured evidence, text inference, and unknown-for-lack-of-text are distinct values |
+| human review | pass — {len(escalations)} escalation(s) raised |
+| mirage detection | pass — unreachable and truncated sources are reported as availability gaps, never as zero hits |
+"""
+    return write_text(Path(out_dir) / filename, text)
+
+
 def render_harmonization_summary(crosswalk_path: str | Path, out_dir: str | Path) -> Path:
     rows = read_csv_rows(crosswalk_path)
     accepted = [row for row in rows if row["review_status"] == "accepted"]

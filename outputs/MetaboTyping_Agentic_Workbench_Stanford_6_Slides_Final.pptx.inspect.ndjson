@@ -1,0 +1,141 @@
+{"kind":"deck","id":"pr/mxemmp","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"","type":"master","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"Title Slide","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"},{"name":"subtitle","type":"subtitle"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout2.xml","name":"Title and Content","placeholders":[{"name":"title","type":"title"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout3.xml","name":"Title and Content_1","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout4.xml","name":"Section Header","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"},{"name":"picture","type":"picture"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout5.xml","name":"Section Header_1","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout6.xml","name":"Two Content","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"},{"name":"body","type":"body"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout7.xml","name":"Four Content","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"},{"name":"body","type":"body"},{"name":"body","type":"body"},{"name":"body","type":"body"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout8.xml","name":"1_Title and Content","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout9.xml","name":"Two Content Horizontal","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"},{"name":"body","type":"body"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout10.xml","name":"Three Content","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"},{"name":"body","type":"body"},{"name":"body","type":"body"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout11.xml","name":"Blank","placeholders":[{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout12.xml","name":"Standard Layout","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"},{"name":"footer","type":"footer"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout13.xml","name":"TITLE_AND_BODY","placeholders":[{"name":"title","type":"title"},{"name":"body","type":"body"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout14.xml","name":"TITLE","type":"title","placeholders":[{"name":"title","type":"title"},{"name":"subtitle","type":"subtitle"},{"name":"slideNumber","type":"slideNumber","textPreview":"‹#›"}]}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"MetaboTyping Agentic Workbench","textShapes":5}
+{"kind":"textbox","id":"sh/k3yl0zql","slide":1,"name":"deck-title","text":"MetaboTyping Agentic Workbench","textPreview":"MetaboTyping Agentic Workbench","textChars":30,"textLines":1,"bbox":[88,145,770,66]}
+{"kind":"textbox","id":"sh/7qp4be9c","slide":1,"name":"deck-subtitle","text":"Evidence-gated discovery, curation, and harmonization\nfor metabolomics reuse","textPreview":"Evidence-gated discovery, curation, and harmonization | for metabolomics reuse","textChars":76,"textLines":2,"bbox":[88,224,700,66]}
+{"kind":"shape","id":"sh/65g3298r","slide":1,"name":"title-accent","bbox":[88,313,120,4]}
+{"kind":"textbox","id":"sh/ts7md4r2","slide":1,"name":"presenter-name","text":"Samuel Montalvo, Ph.D.","textPreview":"Samuel Montalvo, Ph.D.","textChars":22,"textLines":1,"bbox":[88,342,430,27]}
+{"kind":"textbox","id":"sh/sryl4zqx","slide":1,"name":"presenter-block","text":"Bioinformatics Center | Molecular Transducers of Physical Activity\nWu Tsai Human Performance Alliance\nDivision of Cardiovascular Medicine\nStanford University","textPreview":"Bioinformatics Center | Molecular Transducers of Physical Activity | Wu Tsai Human Performance Alliance | Division of Cardiovascular Medi...","textChars":157,"textLines":4,"bbox":[88,376,610,84]}
+{"kind":"textbox","id":"sh/fu94fe98","slide":1,"name":"presentation-date","text":"August 2026","textPreview":"August 2026","textChars":11,"textLines":1,"bbox":[88,468,180,20]}
+{"kind":"image","id":"im/7mp0jixo","slide":1,"name":"","bbox":[642,61.83,230,28.34]}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":"[Sources]\n- Stanford visual source: stanford-slide-template.pptx and stanford-university-wordmark-cardinal.png.\n- Project identity and scope: README.md.\n[/Sources]"}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"METABOTYPING AGENTIC WORKBENCH","textShapes":15}
+{"kind":"textbox","id":"sh/fadgzu58","slide":2,"name":"section-eyebrow","text":"METABOTYPING AGENTIC WORKBENCH","textPreview":"METABOTYPING AGENTIC WORKBENCH","textChars":30,"textLines":1,"bbox":[80,27,470,18]}
+{"kind":"textbox","id":"sh/9072xkry","slide":2,"name":"slide-title","text":"Evidence gaps are the bottleneck","textPreview":"Evidence gaps are the bottleneck","textChars":32,"textLines":1,"bbox":[80,50,815,42]}
+{"kind":"shape","id":"sh/ozy1ofad","slide":2,"name":"title-rule","bbox":[80,101,805,2]}
+{"kind":"textbox","id":"sh/b29kza94","slide":2,"name":"problem-thesis","text":"Before studies can be combined, investigators must establish what was measured, when, how, and with what identity and assay evidence.","textPreview":"Before studies can be combined, investigators must establish what was measured, when, how, and with what identity and assay evidence.","textChars":133,"textLines":1,"bbox":[80,123,800,61]}
+{"kind":"shape","id":"sh/a10jqpsj","slide":2,"name":"process-baseline","bbox":[124,224,646,4]}
+{"kind":"shape","id":"sh/x4r21kru","slide":2,"name":"stage-node-1","bbox":[112,203,46,46]}
+{"kind":"textbox","id":"sh/w3i1sfa9","slide":2,"name":"stage-number-1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[112,211,46,26]}
+{"kind":"textbox","id":"sh/r65knqtk","slide":2,"name":"stage-label-1","text":"Find usable\nstudies","textPreview":"Find usable | studies","textChars":19,"textLines":2,"bbox":[62,259,146,66]}
+{"kind":"shape","id":"sh/q5wjelsz","slide":2,"name":"stage-node-2","bbox":[326,203,46,46]}
+{"kind":"textbox","id":"sh/ove9o7yd","slide":2,"name":"stage-number-2","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[326,211,46,26]}
+{"kind":"textbox","id":"sh/9wnqhczy","slide":2,"name":"stage-label-2","text":"Verify metadata\nand access","textPreview":"Verify metadata | and access","textChars":26,"textLines":2,"bbox":[276,259,146,66]}
+{"kind":"shape","id":"sh/mtwrmxg7","slide":2,"name":"stage-node-3","bbox":[540,203,46,46]}
+{"kind":"textbox","id":"sh/nu58f2hs","slide":2,"name":"stage-number-3","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[540,211,46,26]}
+{"kind":"textbox","id":"sh/wjy9sry9","slide":2,"name":"stage-label-3","text":"Reconcile\nvariables + assays","textPreview":"Reconcile | variables + assays","textChars":28,"textLines":2,"bbox":[490,259,146,66]}
+{"kind":"shape","id":"sh/xk7qlczu","slide":2,"name":"stage-node-4","bbox":[754,203,46,46]}
+{"kind":"textbox","id":"sh/ahwrqhgj","slide":2,"name":"stage-number-4","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[754,211,46,26]}
+{"kind":"textbox","id":"sh/bip8jmho","slide":2,"name":"stage-label-4","text":"Send uncertainty\nto expert review","textPreview":"Send uncertainty | to expert review","textChars":33,"textLines":2,"bbox":[704,259,146,66]}
+{"kind":"shape","id":"sh/cnupgny5","slide":2,"name":"problem-divider","bbox":[80,337,805,2]}
+{"kind":"shape","id":"sh/do3q9szq","slide":2,"name":"caution-rule-1","bbox":[80,367,5,63]}
+{"kind":"textbox","id":"sh/t8byxkn2","slide":2,"name":"caution-1","text":"Name similarity is not\nchemical identity.","textPreview":"Name similarity is not | chemical identity.","textChars":41,"textLines":2,"bbox":[96,367,224,63]}
+{"kind":"shape","id":"sh/s72xofmh","slide":2,"name":"caution-rule-2","bbox":[353,367,5,63]}
+{"kind":"textbox","id":"sh/76twva5c","slide":2,"name":"caution-2","text":"VO₂peak is not\nautomatically VO₂max.","textPreview":"VO₂peak is not | automatically VO₂max.","textChars":36,"textLines":2,"bbox":[369,367,224,63]}
+{"kind":"shape","id":"sh/65kfmpor","slide":2,"name":"caution-rule-3","bbox":[626,367,5,63]}
+{"kind":"textbox","id":"sh/hcvy14ne","slide":2,"name":"caution-3","text":"Relative intensities are not\nautomatically poolable.","textPreview":"Relative intensities are not | automatically poolable.","textChars":52,"textLines":2,"bbox":[642,367,234,63]}
+{"kind":"textbox","id":"sh/gbmxszmt","slide":2,"name":"problem-consequence","text":"Without explicit evidence states, confident automation can silently convert uncertainty into analysis-ready data.","textPreview":"Without explicit evidence states, confident automation can silently convert uncertainty into analysis-ready data.","textChars":113,"textLines":1,"bbox":[80,452,800,31]}
+{"kind":"notes","id":"nt/hwbqtkby","slide":2,"text":"[Sources]\n- Problem framing and scientific guardrails: README.md.\n- Evidence-flow purpose and interpretation limits: docs/manuscript/metabotyping_agentic_workbench_manuscript.md.\n- VO₂peak/VO₂max rule and pooling boundaries: AGENTS.md.\n[/Sources]"}
+{"kind":"slide","id":"sl/ofy9wn61","slide":3,"title":"METABOTYPING AGENTIC WORKBENCH","textShapes":15}
+{"kind":"textbox","id":"sh/sfix03y9","slide":3,"name":"section-eyebrow","text":"METABOTYPING AGENTIC WORKBENCH","textPreview":"METABOTYPING AGENTIC WORKBENCH","textChars":30,"textLines":1,"bbox":[80,27,470,18]}
+{"kind":"textbox","id":"sh/cza94vmx","slide":3,"name":"slide-title","text":"Metabolites reveal how exercise changes biology","textPreview":"Metabolites reveal how exercise changes biology","textChars":47,"textLines":1,"bbox":[80,50,815,42]}
+{"kind":"shape","id":"sh/d0jax03i","slide":3,"name":"title-rule","bbox":[80,101,805,2]}
+{"kind":"textbox","id":"sh/298ryl4v","slide":3,"name":"problem-thesis","text":"Exercise rapidly shifts fuels, amino acids, lipids, and signaling molecules, while training reshapes metabolism across tissues.","textPreview":"Exercise rapidly shifts fuels, amino acids, lipids, and signaling molecules, while training reshapes metabolism across tissues.","textChars":127,"textLines":1,"bbox":[80,123,800,61]}
+{"kind":"shape","id":"sh/3ah8rqlg","slide":3,"name":"process-baseline","bbox":[124,224,646,4]}
+{"kind":"shape","id":"sh/obq90bml","slide":3,"name":"stage-node-1","bbox":[112,203,46,46]}
+{"kind":"textbox","id":"sh/pcjqtg36","slide":3,"name":"stage-number-1","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[112,211,46,26]}
+{"kind":"textbox","id":"sh/m5cra54z","slide":3,"name":"stage-label-1","text":"Capture rapid\nresponses","textPreview":"Capture rapid | responses","textChars":23,"textLines":2,"bbox":[62,259,146,66]}
+{"kind":"shape","id":"sh/n6ls3alk","slide":3,"name":"stage-node-2","bbox":[326,203,46,46]}
+{"kind":"textbox","id":"sh/n2l4fq98","slide":3,"name":"stage-number-2","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[326,211,46,26]}
+{"kind":"textbox","id":"sh/m1c3mlsn","slide":3,"name":"stage-label-2","text":"Map tissue\ncommunication","textPreview":"Map tissue | communication","textChars":24,"textLines":2,"bbox":[276,259,146,66]}
+{"kind":"shape","id":"sh/943mhgre","slide":3,"name":"stage-node-3","bbox":[540,203,46,46]}
+{"kind":"textbox","id":"sh/83ulovat","slide":3,"name":"stage-number-3","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[540,211,46,26]}
+{"kind":"textbox","id":"sh/v6l4jq94","slide":3,"name":"stage-label-3","text":"Explain response\nvariation","textPreview":"Explain response | variation","textChars":26,"textLines":2,"bbox":[490,259,146,66]}
+{"kind":"shape","id":"sh/a5c3ql8z","slide":3,"name":"stage-node-4","bbox":[754,203,46,46]}
+{"kind":"textbox","id":"sh/x8nml0ra","slide":3,"name":"stage-number-4","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[754,211,46,26]}
+{"kind":"textbox","id":"sh/w7ulsvqp","slide":3,"name":"stage-label-4","text":"Find testable\nbiomarkers","textPreview":"Find testable | biomarkers","textChars":24,"textLines":2,"bbox":[704,259,146,66]}
+{"kind":"shape","id":"sh/ja54na9g","slide":3,"name":"problem-divider","bbox":[80,337,805,2]}
+{"kind":"shape","id":"sh/i9w3u58v","slide":3,"name":"caution-rule-1","bbox":[80,367,5,63]}
+{"kind":"textbox","id":"sh/e10f2twf","slide":3,"name":"caution-1","text":"Timing and intensity change\nthe observed signature.","textPreview":"Timing and intensity change | the observed signature.","textChars":51,"textLines":2,"bbox":[96,367,224,63]}
+{"kind":"shape","id":"sh/f29gbyx0","slide":3,"name":"caution-rule-2","bbox":[353,367,5,63]}
+{"kind":"textbox","id":"sh/03ix43e5","slide":3,"name":"caution-2","text":"Sex, fitness, diet, and assay\ndesign can shift results.","textPreview":"Sex, fitness, diet, and assay | design can shift results.","textChars":55,"textLines":2,"bbox":[369,367,224,63]}
+{"kind":"shape","id":"sh/14ryd8fq","slide":3,"name":"caution-rule-3","bbox":[626,367,5,63]}
+{"kind":"textbox","id":"sh/6d0fytg3","slide":3,"name":"caution-3","text":"Many studies are small,\nsingle-tissue, or sparsely sampled.","textPreview":"Many studies are small, | single-tissue, or sparsely sampled.","textChars":59,"textLines":2,"bbox":[642,367,234,63]}
+{"kind":"textbox","id":"sh/re9g7yxo","slide":3,"name":"problem-consequence","text":"Larger, harmonized studies can separate reproducible biology from context-specific signals and support precision-exercise hypotheses.","textPreview":"Larger, harmonized studies can separate reproducible biology from context-specific signals and support precision-exercise hypotheses.","textChars":133,"textLines":1,"bbox":[80,452,800,31]}
+{"kind":"notes","id":"nt/ofy9wn61","slide":3,"text":"[Sources]\n- Lewis GD et al. Metabolic signatures of exercise in human plasma. Sci Transl Med. 2010;2(33):33ra37. PMID: 20505214. DOI: 10.1126/scitranslmed.3001006.\n- Contrepois K et al. Molecular Choreography of Acute Exercise. Cell. 2020;181(5):1112-1130.e16. PMID: 32470399. DOI: 10.1016/j.cell.2020.04.043.\n- Nayor M et al. Metabolic Architecture of Acute Exercise Response in Middle-Aged Adults in the Community. Circulation. 2020. PMID: 32927962. DOI: 10.1161/CIRCULATIONAHA.120.050281.\n- MoTrPAC Study Group. Temporal dynamics of the multi-omic response to endurance exercise training. Nature. 2024;629:174-183. DOI: 10.1038/s41586-023-06877-w.\n- Darragh IA et al. Within-Subject Variability and the Influence of Exercise Training History on the Resting Plasma Metabolome in Men. Int J Sport Nutr Exerc Metab. 2023;33(3):141-150. PMID: 36963408. DOI: 10.1123/ijsnem.2022-0177.\n[/Sources]"}
+{"kind":"slide","id":"sl/jyx0ra1s","slide":4,"title":"METABOTYPING AGENTIC WORKBENCH","textShapes":18}
+{"kind":"textbox","id":"sh/tsrqlc7u","slide":4,"name":"section-eyebrow","text":"METABOTYPING AGENTIC WORKBENCH","textPreview":"METABOTYPING AGENTIC WORKBENCH","textChars":30,"textLines":1,"bbox":[80,27,470,18]}
+{"kind":"textbox","id":"sh/1cj2d8b6","slide":4,"name":"slide-title","text":"Every decision stays traceable","textPreview":"Every decision stays traceable","textChars":30,"textLines":1,"bbox":[80,50,815,42]}
+{"kind":"shape","id":"sh/0ba143al","slide":4,"name":"title-rule","bbox":[80,101,805,2]}
+{"kind":"textbox","id":"sh/rm1k7yt4","slide":4,"name":"workflow-intro","text":"Heterogeneous records become explicit evidence models before any decision moves downstream.","textPreview":"Heterogeneous records become explicit evidence models before any decision moves downstream.","textChars":91,"textLines":1,"bbox":[80,116,800,24]}
+{"kind":"shape","id":"sh/ql8jytsj","slide":4,"name":"workflow-arrow-1","bbox":[250,229,30,20]}
+{"kind":"shape","id":"sh/doj29oba","slide":4,"name":"workflow-arrow-2","bbox":[454,229,30,20]}
+{"kind":"shape","id":"sh/sna103ap","slide":4,"name":"workflow-arrow-3","bbox":[658,229,30,20]}
+{"kind":"shape","id":"sh/3ihk3et8","slide":4,"name":"workflow-node-01","bbox":[80,153,170,214]}
+{"kind":"textbox","id":"sh/ih8ju9sn","slide":4,"name":"workflow-step-01","text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[96,167,34,20]}
+{"kind":"textbox","id":"sh/kbm987y5","slide":4,"name":"workflow-title-01","text":"Inputs","textPreview":"Inputs","textChars":6,"textLines":1,"bbox":[96,194,138,49]}
+{"kind":"textbox","id":"sh/5cva1cfq","slide":4,"name":"workflow-body-01","text":"Research question\nPublication + repository records\nVariable dictionaries\nAssay + effect tables","textPreview":"Research question | Publication + repository records | Variable dictionaries | Assay + effect tables","textChars":94,"textLines":4,"bbox":[96,250,138,101]}
+{"kind":"shape","id":"sh/i94r6xgz","slide":4,"name":"workflow-node-02","bbox":[284,153,170,214]}
+{"kind":"textbox","id":"sh/jadsz2xk","slide":4,"name":"workflow-step-02","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[300,167,34,20]}
+{"kind":"textbox","id":"sh/w72947yt","slide":4,"name":"workflow-title-02","text":"Evidence models","textPreview":"Evidence models","textChars":15,"textLines":1,"bbox":[300,194,138,49]}
+{"kind":"textbox","id":"sh/x8vaxsfe","slide":4,"name":"workflow-body-02","text":"Inclusion criteria\nSource retrieval plan\nStudy + dataset cards\nChemical + QA/QC fields","textPreview":"Inclusion criteria | Source retrieval plan | Study + dataset cards | Chemical + QA/QC fields","textChars":86,"textLines":4,"bbox":[300,250,138,101]}
+{"kind":"shape","id":"sh/a5kr2xg3","slide":4,"name":"workflow-node-03","bbox":[488,153,170,214]}
+{"kind":"textbox","id":"sh/v6tsv2xo","slide":4,"name":"workflow-step-03","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[504,167,34,20]}
+{"kind":"textbox","id":"sh/g36tgryd","slide":4,"name":"workflow-title-03","text":"Deterministic decisions","textPreview":"Deterministic decisions","textChars":23,"textLines":1,"bbox":[504,194,138,49]}
+{"kind":"textbox","id":"sh/h4fa9wfy","slide":4,"name":"workflow-body-03","text":"Eligibility + gaps\nVariable crosswalks\nIdentity + assay checks\nMoTrPAC readiness","textPreview":"Eligibility + gaps | Variable crosswalks | Identity + assay checks | MoTrPAC readiness","textChars":80,"textLines":4,"bbox":[504,250,138,101]}
+{"kind":"shape","id":"sh/p0batw72","slide":4,"name":"workflow-node-04","bbox":[692,153,170,214]}
+{"kind":"textbox","id":"sh/oz29krqh","slide":4,"name":"workflow-step-04","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[708,167,34,20]}
+{"kind":"textbox","id":"sh/3ytsrmpw","slide":4,"name":"workflow-title-04","text":"Reviewable outputs","textPreview":"Reviewable outputs","textChars":18,"textLines":1,"bbox":[708,194,138,49]}
+{"kind":"textbox","id":"sh/2xkrih8b","slide":4,"name":"workflow-body-04","text":"Ranked candidates\nProvenance-bearing cards\nApproved transforms\nReview queue + plot manifest","textPreview":"Ranked candidates | Provenance-bearing cards | Approved transforms | Review queue + plot manifest","textChars":91,"textLines":4,"bbox":[708,250,138,101]}
+{"kind":"shape","id":"sh/1wbapc7q","slide":4,"name":"review-state-band","bbox":[80,385,782,56]}
+{"kind":"textbox","id":"sh/gv29g7q5","slide":4,"name":"review-state-label","text":"REVIEW STATES","textPreview":"REVIEW STATES","textChars":13,"textLines":1,"bbox":[101,402,130,22]}
+{"kind":"textbox","id":"sh/fu9sn2p0","slide":4,"name":"review-state-values","text":"accepted     |     requires human review     |     non-combinable","textPreview":"accepted     |     requires human review     |     non-combinable","textChars":65,"textLines":1,"bbox":[241,399,594,26]}
+{"kind":"textbox","id":"sh/et0reh8f","slide":4,"name":"workflow-provenance","text":"Every artifact records source location, rule version, rationale, and unresolved evidence.","textPreview":"Every artifact records source location, rule version, rationale, and unresolved evidence.","textChars":89,"textLines":1,"bbox":[80,457,782,28]}
+{"kind":"notes","id":"nt/jyx0ra1s","slide":4,"text":"[Sources]\n- Architecture source: docs/manuscript/figures/metabotyping_agentic_workbench_architecture.png.\n- Deterministic workflow and outputs: README.md and src/metabotyping_agentic/reports/render.py.\n[/Sources]"}
+{"kind":"slide","id":"sl/i107q5of","slide":5,"title":"METABOTYPING AGENTIC WORKBENCH","textShapes":12}
+{"kind":"textbox","id":"sh/sb6xsvu9","slide":5,"name":"section-eyebrow","text":"METABOTYPING AGENTIC WORKBENCH","textPreview":"METABOTYPING AGENTIC WORKBENCH","textChars":30,"textLines":1,"bbox":[80,27,470,18]}
+{"kind":"textbox","id":"sh/dgbulwnm","slide":5,"name":"slide-title","text":"Human review is a hard boundary","textPreview":"Human review is a hard boundary","textChars":31,"textLines":1,"bbox":[80,50,815,42]}
+{"kind":"shape","id":"sh/cf2tcr61","slide":5,"name":"title-rule","bbox":[80,101,805,2]}
+{"kind":"textbox","id":"sh/z2tcnm5s","slide":5,"name":"safety-number-01","text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[80,128,34,23]}
+{"kind":"textbox","id":"sh/yhkbe1o7","slide":5,"name":"safety-heading-01","text":"Contracts propose—never decide","textPreview":"Contracts propose—never decide","textChars":30,"textLines":1,"bbox":[124,126,330,28]}
+{"kind":"textbox","id":"sh/l4bupwny","slide":5,"name":"safety-body-01","text":"Agent and skill interfaces assemble evidence and frame questions for review.","textPreview":"Agent and skill interfaces assemble evidence and frame questions for review.","textChars":76,"textLines":1,"bbox":[124,158,330,49]}
+{"kind":"textbox","id":"sh/032tgr6d","slide":5,"name":"safety-number-02","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[80,222,34,23]}
+{"kind":"textbox","id":"sh/n6dcr65o","slide":5,"name":"safety-heading-02","text":"Schemas enforce advisory output","textPreview":"Schemas enforce advisory output","textChars":31,"textLines":1,"bbox":[124,220,330,28]}
+{"kind":"textbox","id":"sh/m5kbi1oj","slide":5,"name":"safety-body-02","text":"Typed packets require human adjudication and contain no executable actions.","textPreview":"Typed packets require human adjudication and contain no executable actions.","textChars":75,"textLines":1,"bbox":[124,252,330,49]}
+{"kind":"textbox","id":"sh/w32dkbuh","slide":5,"name":"safety-number-03","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[80,316,34,23]}
+{"kind":"textbox","id":"sh/x4vedgvm","slide":5,"name":"safety-heading-03","text":"Code blocks unsafe merges","textPreview":"Code blocks unsafe merges","textChars":25,"textLines":1,"bbox":[124,314,330,28]}
+{"kind":"textbox","id":"sh/ahkvi1cb","slide":5,"name":"safety-body-03","text":"Only approved mappings and transforms can reach ETL or plotting artifacts.","textPreview":"Only approved mappings and transforms can reach ETL or plotting artifacts.","textChars":74,"textLines":1,"bbox":[124,346,330,49]}
+{"kind":"shape","id":"sh/58vehgvy","slide":5,"name":"heatmap-frame","bbox":[490,125,380,286]}
+{"kind":"textbox","id":"sh/j6dwfqds","slide":5,"name":"heatmap-caption","text":"Synthetic, contrast-explicit output. Unreviewed harmonization remains visible; visual similarity is not replication evidence.","textPreview":"Synthetic, contrast-explicit output. Unreviewed harmonization remains visible; visual similarity is not replication evidence.","textChars":125,"textLines":1,"bbox":[502,425,356,55]}
+{"kind":"image","id":"im/uhkvq14z","slide":5,"name":"","bbox":[498,146.72,364,242.56]}
+{"kind":"notes","id":"nt/i107q5of","slide":5,"text":"[Sources]\n- DomainReviewPacket authority boundary: README.md, src/metabotyping_agentic/review/models.py, and src/metabotyping_agentic/review/validation.py.\n- Synthetic heatmap: docs/manuscript/figures/synthetic_motrpac_plot_suite/figures/effect_heatmap.png.\n- CPET and identity/pooling safeguards: AGENTS.md and README.md.\n[/Sources]"}
+{"kind":"slide","id":"sl/x8f69ofe","slide":6,"title":"METABOTYPING AGENTIC WORKBENCH","textShapes":11}
+{"kind":"textbox","id":"sh/47mt0b6x","slide":6,"name":"section-eyebrow","text":"METABOTYPING AGENTIC WORKBENCH","textPreview":"METABOTYPING AGENTIC WORKBENCH","textChars":30,"textLines":1,"bbox":[80,27,470,18]}
+{"kind":"textbox","id":"sh/yhg7epsj","slide":6,"name":"slide-title","text":"The offline prototype passes its synthetic test suite","textPreview":"The offline prototype passes its synthetic test suite","textChars":53,"textLines":1,"bbox":[80,50,815,42]}
+{"kind":"shape","id":"sh/zi98nu94","slide":6,"name":"title-rule","bbox":[80,101,805,2]}
+{"kind":"textbox","id":"sh/87ipkzal","slide":6,"name":"validation-metric","text":"128 / 128","textPreview":"128 / 128","textChars":9,"textLines":1,"bbox":[80,131,305,77]}
+{"kind":"textbox","id":"sh/98rqt4r6","slide":6,"name":"validation-caption","text":"offline synthetic tests passed\nverified 19 August 2026","textPreview":"offline synthetic tests passed | verified 19 August 2026","textChars":54,"textLines":2,"bbox":[84,212,280,50]}
+{"kind":"shape","id":"sh/ml07i9sv","slide":6,"name":"metric-divider","bbox":[80,278,300,2]}
+{"kind":"textbox","id":"sh/7m98ru9g","slide":6,"name":"inventory-summary","text":"21 paired agent roles\n23 paired skill contracts\nNetwork-free offline core","textPreview":"21 paired agent roles | 23 paired skill contracts | Network-free offline core","textChars":73,"textLines":3,"bbox":[84,297,280,82]}
+{"kind":"textbox","id":"sh/oryp8fah","slide":6,"name":"proves-heading","text":"What this demonstrates","textPreview":"What this demonstrates","textChars":22,"textLines":1,"bbox":[430,132,410,27]}
+{"kind":"textbox","id":"sh/pc76hkr2","slide":6,"name":"proves-body","text":"• Reproducible, deterministic rule behavior\n• Provenance retention across evidence artifacts\n• Enforcement of review and network boundaries","textPreview":"• Reproducible, deterministic rule behavior | • Provenance retention across evidence artifacts | • Enforcement of review and network boun...","textChars":139,"textLines":3,"bbox":[430,170,410,83]}
+{"kind":"textbox","id":"sh/h4bupgn6","slide":6,"name":"limits-heading","text":"What this does not demonstrate","textPreview":"What this does not demonstrate","textChars":30,"textLines":1,"bbox":[430,270,410,27]}
+{"kind":"textbox","id":"sh/w32twb6l","slide":6,"name":"limits-body","text":"• Accuracy on independent studies or cohorts\n• Cross-platform assay commutability\n• Biological replication or causal inference","textPreview":"• Accuracy on independent studies or cohorts | • Cross-platform assay commutability | • Biological replication or causal inference","textChars":126,"textLines":3,"bbox":[430,308,410,75]}
+{"kind":"shape","id":"sh/v2tcn650","slide":6,"name":"next-milestone-band","bbox":[80,404,782,80]}
+{"kind":"textbox","id":"sh/u1kbu1ov","slide":6,"name":"next-milestone-label","text":"NEXT MILESTONE","textPreview":"NEXT MILESTONE","textChars":14,"textLines":1,"bbox":[100,417,170,18]}
+{"kind":"textbox","id":"sh/5svutgni","slide":6,"name":"next-milestone-text","text":"Frozen public-record benchmark across diverse assay platforms\n≥2 blinded curators + adjudication","textPreview":"Frozen public-record benchmark across diverse assay platforms | ≥2 blinded curators + adjudication","textChars":96,"textLines":2,"bbox":[100,441,730,36]}
+{"kind":"notes","id":"nt/x8f69ofe","slide":6,"text":"[Sources]\n- Strict synthetic gate: docs/scientific_readiness_report.md; project .venv rerun on 2026-08-19 returned PASS with tests_run=128.\n- Agent and skill inventory: README.md release 0.2.0.\n- External-validation limitations and proposed benchmark: docs/scientific_readiness_report.md and docs/manuscript/metabotyping_agentic_workbench_manuscript.md.\n[/Sources]"}

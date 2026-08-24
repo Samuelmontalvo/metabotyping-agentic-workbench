@@ -23,6 +23,7 @@ NETWORK_BOUNDARY_ALLOWLIST = frozenset(
     {
         "scripts/fetch_live_records.py",
         "scripts/volcano_compare.py",
+        "src/metabotyping_agentic/live_sources/literature_search.py",
         "src/metabotyping_agentic/live_sources/metabolomics_workbench.py",
         "src/metabotyping_agentic/live_sources/motrpac_volcano_compare.py",
     }

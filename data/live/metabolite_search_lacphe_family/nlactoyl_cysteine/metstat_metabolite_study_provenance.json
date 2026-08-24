@@ -1,0 +1,41 @@
+{
+  "analysis_row_count": 0,
+  "metstat_filter_fields": [
+    "analysis_type",
+    "polarity",
+    "chromatography",
+    "species",
+    "sample_source",
+    "disease",
+    "kegg_id",
+    "refmet_name"
+  ],
+  "note": "Retrieval evidence only. A metstat hit shows the study reported this RefMet name; it does not confirm MSI-level identity, comparable quantitation, or harmonization eligibility. Absence of a study is a coverage gap, not evidence the metabolite is unchanged.",
+  "query_original": "N-Lactoyl cysteine",
+  "refmet_identity": {
+    "exactmass": "193.040881",
+    "formula": "C6H11NO4S",
+    "inchi_key": "VPMRTVGJLYJTNF-IMJSIDKUSA-N",
+    "main_class": "Amino acids and peptides",
+    "pubchem_cid": "170835682",
+    "query_original": "N-Lactoyl cysteine",
+    "refmet_id": "RM0158137",
+    "refmet_name": "N-Lactoyl cysteine",
+    "resolved": true,
+    "source_url": "https://www.metabolomicsworkbench.org/rest/refmet/name/N-Lactoyl%20cysteine/all",
+    "sub_class": "Amino acids",
+    "super_class": "Organic acids"
+  },
+  "searched_names": [
+    "N-Lactoyl cysteine"
+  ],
+  "searches": [
+    {
+      "error": "",
+      "queried_name": "N-Lactoyl cysteine",
+      "row_count": 0,
+      "source_url": "https://www.metabolomicsworkbench.org/rest/metstat/;;;;;;;N-Lactoyl%20cysteine"
+    }
+  ],
+  "study_count": 0
+}

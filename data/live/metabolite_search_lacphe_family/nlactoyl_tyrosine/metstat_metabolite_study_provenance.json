@@ -1,0 +1,41 @@
+{
+  "analysis_row_count": 28,
+  "metstat_filter_fields": [
+    "analysis_type",
+    "polarity",
+    "chromatography",
+    "species",
+    "sample_source",
+    "disease",
+    "kegg_id",
+    "refmet_name"
+  ],
+  "note": "Retrieval evidence only. A metstat hit shows the study reported this RefMet name; it does not confirm MSI-level identity, comparable quantitation, or harmonization eligibility. Absence of a study is a coverage gap, not evidence the metabolite is unchanged.",
+  "query_original": "N-Lactoyl tyrosine",
+  "refmet_identity": {
+    "exactmass": "253.095024",
+    "formula": "C12H15NO5",
+    "inchi_key": "XBOGARDIMVJTKF-XVKPBYJWSA-N",
+    "main_class": "Amino acids and peptides",
+    "pubchem_cid": "22167491",
+    "query_original": "N-Lactoyl tyrosine",
+    "refmet_id": "RM0071716",
+    "refmet_name": "N-Lactoyl tyrosine",
+    "resolved": true,
+    "source_url": "https://www.metabolomicsworkbench.org/rest/refmet/name/N-Lactoyl%20tyrosine/all",
+    "sub_class": "Amino acids",
+    "super_class": "Organic acids"
+  },
+  "searched_names": [
+    "N-Lactoyl tyrosine"
+  ],
+  "searches": [
+    {
+      "error": "",
+      "queried_name": "N-Lactoyl tyrosine",
+      "row_count": 42,
+      "source_url": "https://www.metabolomicsworkbench.org/rest/metstat/;;;;;;;N-Lactoyl%20tyrosine"
+    }
+  ],
+  "study_count": 27
+}

@@ -1,0 +1,2 @@
+mw_effect_rows,mw_unique_normalized_labels,motrpac_effect_rows,motrpac_unique_normalized_labels,exact_case_space_label_overlaps,candidate_comparator_key_overlaps,unambiguous_both_sides_overlaps,ambiguous_candidate_overlaps,interpretation
+266,261,1657,1509,99,102,56,46,"Candidate name-key overlap only; neither effect table carries source RefMet IDs, so every overlap requires assay-identity review before harmonization or pooling."

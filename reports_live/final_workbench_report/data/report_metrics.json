@@ -1,0 +1,149 @@
+{
+  "capability": {
+    "benchmark_candidate_precision": 1.0,
+    "benchmark_quality_score_agreement": 0.8,
+    "benchmark_review_capture_rate": 1.0,
+    "benchmark_unsafe_auto_accept_rate": 0.0,
+    "canonical_agent_roles": 22,
+    "deprecated_agent_aliases": 2,
+    "logical_project_skills": 24,
+    "registry_implementation_status_counts": {
+      "core_live_adapter": 4,
+      "core_live_adapter_and_offline_fixtures": 1,
+      "core_offline_snapshot": 1,
+      "core_specialized_adapter_and_offline_fixtures": 1,
+      "life_science_plugin_connector_optional": 11,
+      "registry_only_manual_or_licensed": 1,
+      "registry_only_planned_adapter": 6,
+      "standards_reference": 3
+    },
+    "registry_lanes": 27,
+    "registry_sources": 28,
+    "synthetic_release_gate": "pass",
+    "synthetic_tests_passed": 148,
+    "synthetic_tests_run": 148,
+    "validation_scope": "offline synthetic/local; not independent external validation"
+  },
+  "corpus": {
+    "analyses_without_metabolite_count_record": 1882,
+    "analysis_count": 7367,
+    "analysis_duplicate_rows_removed": 3,
+    "analysis_feature_count_maximum": 11992,
+    "analysis_feature_count_median": 99.0,
+    "analysis_feature_count_minimum": 1,
+    "analysis_feature_row_sum": 1231376,
+    "analysis_metabolite_blank_count_rows": 65,
+    "analysis_metabolite_count_duplicate_rows_removed": 3,
+    "analysis_metabolite_count_rows": 5485,
+    "analysis_metabolite_numeric_count_rows": 5420,
+    "analysis_scope_counts": {
+      "explicit_targeted": 14,
+      "explicit_untargeted": 2385,
+      "unclassified_or_other": 4968
+    },
+    "distinct_latin_name_count": 481,
+    "explicit_untargeted_index_analysis_count": 2385,
+    "explicit_untargeted_index_study_count": 1250,
+    "interpretation": {
+      "feature_rows": "The sum is analysis-level reported feature rows, not unique chemical entities.",
+      "species": "Species percentages may sum above 100% because a study can list multiple organisms.",
+      "targeted": "Explicit text-labelled targeted count is a lower bound; MW exposes no parallel targeted-only bulk index.",
+      "untargeted": "Untargeted counts use the dedicated MW untarg_studies index; analysis-text checks do not replace that index."
+    },
+    "multi_species_study_count": 88,
+    "retrieved_at_utc": "2026-08-24T04:29:22+00:00",
+    "schema_version": "mw-corpus-snapshot-1.0",
+    "scope": "Metabolomics Workbench bulk public REST indexes",
+    "single_species_study_count": 4395,
+    "source_urls": {
+      "analysis": [
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000/analysis",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST001/analysis",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST002/analysis",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003/analysis",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST004/analysis",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST005/analysis"
+      ],
+      "number_of_metabolites": [
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000/number_of_metabolites",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST001/number_of_metabolites",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST002/number_of_metabolites",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003/number_of_metabolites",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST004/number_of_metabolites",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST005/number_of_metabolites"
+      ],
+      "species": "https://www.metabolomicsworkbench.org/rest/study/study_id/ST/species",
+      "summary": [
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST000/summary",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST001/summary",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST002/summary",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST003/summary",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST004/summary",
+        "https://www.metabolomicsworkbench.org/rest/study/study_id/ST005/summary"
+      ],
+      "untarg_studies": "https://www.metabolomicsworkbench.org/rest/study/study_id/X/untarg_studies"
+    },
+    "species_annotated_study_count": 4483,
+    "species_duplicate_pair_rows_removed": 3,
+    "species_index_only_study_count": 2,
+    "species_missing_study_count": 18,
+    "species_source_row_count": 4773,
+    "species_unique_study_latin_name_pair_count": 4770,
+    "study_assay_category_counts": {
+      "neither_explicit_or_no_analysis": 3235,
+      "targeted_explicit_only": 14,
+      "untargeted_explicit_only": 1250
+    },
+    "study_count": 4499,
+    "study_summary_duplicate_rows_removed": 1,
+    "untargeted_duplicate_rows_removed": 0
+  },
+  "lacphe": {
+    "arithmetic_mean_ratio": 1.4007107953477858,
+    "complete_pairs": 116,
+    "fdr": 2.5047225355558747e-14,
+    "geometric_fold": 2.232410913151606,
+    "log2fc": 1.158602604139859,
+    "mean_post": 0.7552617628879312,
+    "mean_pre": 0.5391989305689655,
+    "mw_search_analyses": 60,
+    "mw_search_human_analyses": 24,
+    "mw_search_human_studies": 22,
+    "mw_search_studies": 57,
+    "n_lactoyl_entries_with_mw_hit": 17,
+    "n_lactoyl_labels_in_public_motrpac_human": 0,
+    "n_lactoyl_labels_in_public_motrpac_rat": 0,
+    "n_lactoyl_refmet_entries": 22,
+    "p_value": 2.7324245842427723e-15,
+    "participant_rows": 137,
+    "participants_increased": 92,
+    "rank_of_165": 4
+  },
+  "motrpac_cached_feature_spaces": {
+    "human_effect_rows": 1657,
+    "human_unique_normalized_labels": 1509,
+    "rat_effect_rows": 2154,
+    "rat_unique_normalized_labels": 1071
+  },
+  "mw_motrpac_overlap": {
+    "ambiguous_candidate_overlaps": 46,
+    "candidate_comparator_key_overlaps": 102,
+    "exact_case_space_label_overlaps": 99,
+    "interpretation": "Candidate name-key overlap only; neither effect table carries source RefMet IDs, so every overlap requires assay-identity review before harmonization or pooling.",
+    "motrpac_effect_rows": 1657,
+    "motrpac_unique_normalized_labels": 1509,
+    "mw_effect_rows": 266,
+    "mw_unique_normalized_labels": 261,
+    "unambiguous_both_sides_overlaps": 56
+  },
+  "refmet": {
+    "distinct_nonblank_formulas": 35937,
+    "interpretation": "Reference nomenclature entries, not MW-observed or identity-confirmed analytes.",
+    "main_classes": 333,
+    "reference_entries": 205948,
+    "rows_with_blank_formula": 29,
+    "snapshot_release": "not recorded in local snapshot",
+    "subclasses": 960,
+    "superclasses": 23
+  }
+}

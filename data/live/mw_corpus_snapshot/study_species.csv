@@ -1,0 +1,4771 @@
+Study ID,Latin name,Common name
+ST000001,Arabidopsis thaliana,Arabidopsis thaliana
+ST000002,Homo sapiens,Human
+ST000003,Mus musculus,Mouse
+ST000004,Homo sapiens,Human
+ST000005,Mus musculus,Mouse
+ST000006,Vitis vinifera,Vine
+ST000007,Oryza sativa,Rice
+ST000009,Homo sapiens,Human
+ST000010,Homo sapiens,Human
+ST000011,Homo sapiens,Human
+ST000012,Chlamydomonas reinhardtii,Chlamydomonas reinhardtii
+ST000013,Arabidopsis thaliana,Arabidopsis thaliana
+ST000014,Mus musculus,Mouse
+ST000015,Mus musculus,Mouse
+ST000016,Homo sapiens,Human
+ST000017,Rattus norvegicus,Rat
+ST000020,Homo sapiens,Human
+ST000022,Homo sapiens,Human
+ST000025,Athorix diptoa,Athorix
+ST000025,Centroptilum triangulifer,Mayfly
+ST000026,Mus musculus,Mouse
+ST000027,Mus musculus,Mouse
+ST000028,Mus musculus,Mouse
+ST000029,Mus musculus,Mouse
+ST000030,Mus musculus,Mouse
+ST000031,Mus musculus,Mouse
+ST000032,Mus musculus,Mouse
+ST000033,Mus musculus,Mouse
+ST000034,Mus musculus,Mouse
+ST000035,Mus musculus,Mouse
+ST000036,Mus musculus,Mouse
+ST000037,Mus musculus,Mouse
+ST000038,Mus musculus,Mouse
+ST000039,Mus musculus,Mouse
+ST000040,Caenorhabditis elegans,C. elegans
+ST000041,Homo sapiens,Human
+ST000042,Homo sapiens,Human
+ST000043,Homo sapiens,Human
+ST000044,Homo sapiens,Human
+ST000045,Homo sapiens,Human
+ST000046,Homo sapiens,Human
+ST000047,Homo sapiens,Human
+ST000048,Mirounga angustirostris,Seal
+ST000049,Athorix diptoa,Athorix
+ST000049,Centroptilum triangulifer,Mayfly
+ST000050,Homo sapiens,Human
+ST000051,Homo sapiens,Human
+ST000054,Homo sapiens,Human
+ST000055,Mus musculus,Mouse
+ST000056,Mus musculus,Mouse
+ST000057,Mus musculus,Mouse
+ST000058,Homo sapiens,Human
+ST000061,Homo sapiens,Human
+ST000062,Homo sapiens,Human
+ST000063,Homo sapiens,Human
+ST000065,Homo sapiens,Human
+ST000069,Mus musculus,Mouse
+ST000070,Mus musculus,Mouse
+ST000071,Mus musculus,Mouse
+ST000072,Macaca fascicularis,Macaque monkey
+ST000073,Macaca fascicularis,Macaque monkey
+ST000074,Mus musculus,Mouse
+ST000075,Mus musculus,Mouse
+ST000076,Homo sapiens,Human
+ST000077,Homo sapiens,Human
+ST000081,Homo sapiens,Human
+ST000082,Homo sapiens,Human
+ST000083,Mus musculus,Mouse
+ST000084,Mus musculus,Mouse
+ST000085,Salmonella typhimurium,Salmonella typhimurium
+ST000087,Homo sapiens,Human
+ST000089,Homo sapiens,Human
+ST000090,Mus musculus,Mouse
+ST000091,Homo sapiens,Human
+ST000092,Homo sapiens,Human
+ST000093,Homo sapiens,Human
+ST000095,Mus musculus,Mouse
+ST000096,Homo sapiens,Human
+ST000097,Drosophila melanogaster,Fruit fly
+ST000098,Caenorhabditis elegans,C. elegans
+ST000099,Mus musculus,Mouse
+ST000100,Caenorhabditis elegans,C. elegans
+ST000102,Drosophila melanogaster,Fruit fly
+ST000103,Caenorhabditis elegans,C. elegans
+ST000104,Homo sapiens,Human
+ST000105,Homo sapiens,Human
+ST000106,Homo sapiens,Human
+ST000107,Mirounga angustirostris,Seal
+ST000110,Homo sapiens,Human
+ST000111,Homo sapiens,Human
+ST000113,Homo sapiens,Human
+ST000114,Homo sapiens,Human
+ST000115,Mus musculus,Mouse
+ST000116,Propionibacterium acidipropionici,Propionibacterium
+ST000117,Escherichia coli,Escherichia coli
+ST000117,Salmonella enterica,Salmonella enterica
+ST000118,Escherichia coli,Escherichia coli
+ST000118,Salmonella enterica,Salmonella enterica
+ST000119,Escherichia coli,Escherichia coli
+ST000119,Salmonella enterica,Salmonella enterica
+ST000120,Rattus norvegicus,Rat
+ST000121,Mus musculus,Mouse
+ST000122,Homo sapiens,Human
+ST000133,Mus musculus,Mouse
+ST000134,Homo sapiens,Human
+ST000135,Mus musculus,Mouse
+ST000136,Homo sapiens,Human
+ST000137,Homo sapiens,Human
+ST000138,Homo sapiens,Human
+ST000140,Homo sapiens,Human
+ST000142,Homo sapiens,Human
+ST000143,Mus musculus,Mouse
+ST000144,Homo sapiens,Human
+ST000145,Homo sapiens,Human
+ST000146,Homo sapiens,Human
+ST000147,Homo sapiens,Human
+ST000148,Homo sapiens,Human
+ST000149,Homo sapiens,Human
+ST000150,Homo sapiens,Human
+ST000153,Homo sapiens,Human
+ST000154,Homo sapiens,Human
+ST000155,Drosophila melanogaster,Fruit fly
+ST000156,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST000157,Mus musculus,Mouse
+ST000158,Homo sapiens,Human
+ST000159,Homo sapiens,Human
+ST000160,Mus musculus,Mouse
+ST000161,Homo sapiens,Human
+ST000162,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST000163,Callithrix jacchus,Marmoset
+ST000163,Homo sapiens,Human
+ST000164,Mus musculus,Mouse
+ST000165,Rattus norvegicus,Rat
+ST000166,Homo sapiens,Human
+ST000167,Rattus norvegicus,Rat
+ST000168,Homo sapiens,Human
+ST000169,Mus musculus,Mouse
+ST000170,Mus musculus,Mouse
+ST000171,Mus musculus,Mouse
+ST000172,Homo sapiens,Human
+ST000173,Escherichia coli,Escherichia coli
+ST000174,Mus musculus,Mouse
+ST000176,Mus musculus,Mouse
+ST000178,Mus musculus,Mouse
+ST000180,Ovis aries,Sheep
+ST000181,Mus musculus,Mouse
+ST000182,Mus musculus,Mouse
+ST000183,Mus musculus,Mouse
+ST000185,Ovis aries,Sheep
+ST000188,Mus musculus,Mouse
+ST000189,Homo sapiens,Human
+ST000190,Gallus gallus,Chicken
+ST000191,Rattus norvegicus,Rat
+ST000192,Mus musculus,Mouse
+ST000193,Mus musculus,Mouse
+ST000194,Mus musculus,Mouse
+ST000195,Mus musculus,Mouse
+ST000196,Mus musculus,Mouse
+ST000198,Mus musculus,Mouse
+ST000199,Homo sapiens,Human
+ST000201,Mus musculus,Mouse
+ST000202,Homo sapiens,Human
+ST000203,Mus musculus,Mouse
+ST000206,Mus musculus,Mouse
+ST000207,Mus musculus,Mouse
+ST000209,Mus musculus,Mouse
+ST000211,Mus musculus,Mouse
+ST000212,Mus musculus,Mouse
+ST000213,Mus musculus,Mouse
+ST000215,Mus musculus,Mouse
+ST000218,Homo sapiens,Human
+ST000220,Homo sapiens,Human
+ST000221,Homo sapiens,Human
+ST000222,Mus musculus,Mouse
+ST000223,Homo sapiens,Human
+ST000224,Mus musculus,Mouse
+ST000225,Mus musculus,Mouse
+ST000226,Mus musculus,Mouse
+ST000228,Homo sapiens,Human
+ST000229,Homo sapiens,Human
+ST000230,Homo sapiens,Human
+ST000231,Homo sapiens,Human
+ST000232,Mus musculus,Mouse
+ST000233,Mus musculus,Mouse
+ST000234,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000235,Rattus norvegicus,Rat
+ST000236,Homo sapiens,Human
+ST000236,Rattus norvegicus,Rat
+ST000237,Rattus norvegicus,Rat
+ST000239,Ceratodon purpurues,Moss
+ST000240,Zea mays,Maize
+ST000241,Homo sapiens,Human
+ST000242,Homo sapiens,Human
+ST000243,Candida albicans,Candida albicans
+ST000244,Equus caballus,Horse
+ST000245,Mus musculus,Mouse
+ST000246,Homo sapiens,Human
+ST000247,Staphylococcus aureus,Staphylococcus aureus
+ST000248,Homo sapiens,Human
+ST000249,Homo sapiens,Human
+ST000250,Homo sapiens,Human
+ST000251,Mus musculus,Mouse
+ST000252,Rattus norvegicus,Rat
+ST000253,Rattus norvegicus,Rat
+ST000254,Mus musculus,Mouse
+ST000255,Homo sapiens,Human
+ST000256,Homo sapiens,Human
+ST000257,Mus musculus,Mouse
+ST000258,Sinorhizobium meliloti,Sinorhizobium
+ST000259,Sinorhizobium meliloti,Sinorhizobium
+ST000260,Mus musculus,Mouse
+ST000261,Mus musculus,Mouse
+ST000262,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000263,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000264,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000265,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000266,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000267,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000268,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000269,Mus musculus,Mouse
+ST000270,Homo sapiens,Human
+ST000271,Mus musculus,Mouse
+ST000272,Mus musculus,Mouse
+ST000273,Homo sapiens,Human
+ST000274,Mus musculus,Mouse
+ST000275,Mus musculus,Mouse
+ST000276,Homo sapiens,Human
+ST000277,Homo sapiens,Human
+ST000278,Homo sapiens,Human
+ST000279,Homo sapiens,Human
+ST000282,Homo sapiens,Human
+ST000283,Homo sapiens,Human
+ST000284,Homo sapiens,Human
+ST000285,Homo sapiens,Human
+ST000286,Mus musculus,Mouse
+ST000287,Mus musculus,Mouse
+ST000288,Homo sapiens,Human
+ST000289,Zea mays,Maize
+ST000290,Zea mays,Maize
+ST000291,Homo sapiens,Human
+ST000292,Homo sapiens,Human
+ST000293,Homo sapiens,Human
+ST000294,Sarcophaga crassipalpis,Flesh Fly
+ST000295,Homo sapiens,Human
+ST000295,Mus musculus,Mouse
+ST000296,Mus musculus,Mouse
+ST000297,Rattus norvegicus,Rat
+ST000298,Homo sapiens,Human
+ST000299,Mus musculus,Mouse
+ST000300,Gallus gallus,Chicken
+ST000301,Homo sapiens,Human
+ST000302,Homo sapiens,Human
+ST000303,Homo sapiens,Human
+ST000304,Homo sapiens,Human
+ST000304,Mus musculus,Mouse
+ST000305,Sus scrofa,Pig
+ST000306,Homo sapiens,Human
+ST000307,Mus musculus,Mouse
+ST000308,Mus musculus,Mouse
+ST000309,Staphylococcus aureus,Staphylococcus aureus
+ST000310,Mus musculus,Mouse
+ST000311,Mus musculus,Mouse
+ST000312,Mus musculus,Mouse
+ST000313,Mus musculus,Mouse
+ST000314,Mus musculus,Mouse
+ST000315,Homo sapiens,Human
+ST000316,Mus musculus,Mouse
+ST000317,Bacteria,Bacteria
+ST000318,Synechococcus sp CC9605,Synechococcus
+ST000319,Algae,Algae
+ST000320,Arabidopsis thaliana,Arabidopsis thaliana
+ST000321,Mus musculus,Mouse
+ST000322,Bos taurus,Cow
+ST000323,Bos taurus,Cow
+ST000324,Bos taurus,Cow
+ST000325,Mus musculus,Mouse
+ST000326,Bacteria,Bacteria
+ST000327,Canis lupus familiaris,Dog
+ST000328,Canis lupus familiaris,Dog
+ST000329,Homo sapiens,Human
+ST000330,Mus musculus,Mouse
+ST000331,Mus musculus,Mouse
+ST000332,Mus musculus,Mouse
+ST000335,Bos taurus,Cow
+ST000336,Homo sapiens,Human
+ST000337,Homo sapiens,Human
+ST000338,Mus musculus,Mouse
+ST000339,Mus musculus,Mouse
+ST000340,Mus musculus,Mouse
+ST000341,Mus musculus,Mouse
+ST000342,Homo sapiens,Human
+ST000343,Rattus norvegicus,Rat
+ST000344,Mesocricetus auratus,Golden hamster
+ST000346,Homo sapiens,Human
+ST000347,Rattus norvegicus,Rat
+ST000348,Rattus norvegicus,Rat
+ST000349,Rattus norvegicus,Rat
+ST000350,Rattus norvegicus,Rat
+ST000351,Streptococcus mutans,Streptococcus mutans
+ST000352,Mus musculus,Mouse
+ST000353,Clathrus transvaalensis,Bermudagrass
+ST000354,Mus musculus,Mouse
+ST000355,Homo sapiens,Human
+ST000356,Homo sapiens,Human
+ST000357,Mus musculus,Mouse
+ST000358,Mus musculus,Mouse
+ST000359,Mus musculus,Mouse
+ST000361,Homo sapiens,Human
+ST000362,Homo sapiens,Human
+ST000363,Mus musculus,Mouse
+ST000364,Homo sapiens,Human
+ST000365,Danio rerio,Zebrafish
+ST000366,Homo sapiens,Human
+ST000367,Homo sapiens,Human
+ST000368,Homo sapiens,Human
+ST000369,Homo sapiens,Human
+ST000370,Homo sapiens,Human
+ST000371,Mus musculus,Mouse
+ST000372,Drosophila melanogaster,Fruit fly
+ST000373,Drosophila melanogaster,Fruit fly
+ST000374,Mus musculus,Mouse
+ST000375,Mus musculus,Mouse
+ST000376,Mus musculus,Mouse
+ST000377,Rattus norvegicus,Rat
+ST000378,Mus musculus,Mouse
+ST000379,Homo sapiens,Human
+ST000380,Homo sapiens,Human
+ST000381,Homo sapiens,Human
+ST000382,Homo sapiens,Human
+ST000383,Homo sapiens,Human
+ST000384,Porphyromonas gingivalis,Porphyromonas gingivalis
+ST000385,Homo sapiens,Human
+ST000386,Homo sapiens,Human
+ST000387,Homo sapiens,Human
+ST000388,Homo sapiens,Human
+ST000389,Homo sapiens,Human
+ST000390,Homo sapiens,Human
+ST000391,Homo sapiens,Human
+ST000392,Homo sapiens,Human
+ST000393,Mus musculus,Mouse
+ST000394,Synechococcus elongatus,Synechococcus elongatus
+ST000395,Synechococcus elongatus,Synechococcus elongatus
+ST000396,Homo sapiens,Human
+ST000397,Homo sapiens,Human
+ST000398,Homo sapiens,Human
+ST000399,Escherichia coli,Escherichia coli
+ST000400,Escherichia coli,Escherichia coli
+ST000401,Rattus norvegicus,Rat
+ST000402,Chlorella minutissima,Chlorella
+ST000403,Homo sapiens,Human
+ST000404,Homo sapiens,Human
+ST000405,Homo sapiens,Human
+ST000406,Felis catus,Cat
+ST000407,Homo sapiens,Human
+ST000408,Mus musculus,Mouse
+ST000409,Mus musculus,Mouse
+ST000410,Mus musculus,Mouse
+ST000411,Homo sapiens,Human
+ST000412,Homo sapiens,Human
+ST000413,Homo sapiens,Human
+ST000414,Plasmodium falciparum,Plasmodium falciparum
+ST000415,Rattus norvegicus,Rat
+ST000416,Homo sapiens,Human
+ST000417,Homo sapiens,Human
+ST000418,Homo sapiens,Human
+ST000419,Mus musculus,Mouse
+ST000420,Homo sapiens,Human
+ST000421,Homo sapiens,Human
+ST000422,Homo sapiens,Human
+ST000423,Mus musculus,Mouse
+ST000424,Homo sapiens,Human
+ST000425,Mus musculus,Mouse
+ST000426,Mus musculus,Mouse
+ST000427,Mus musculus,Mouse
+ST000428,Mus musculus,Mouse
+ST000429,Mus musculus,Mouse
+ST000430,Mus musculus,Mouse
+ST000431,Mus musculus,Mouse
+ST000432,Homo sapiens,Human
+ST000433,Homo sapiens,Human
+ST000434,Homo sapiens,Human
+ST000435,Homo sapiens,Human
+ST000436,Homo sapiens,Human
+ST000437,Homo sapiens,Human
+ST000438,Homo sapiens,Human
+ST000439,Homo sapiens,Human
+ST000440,Homo sapiens,Human
+ST000441,Plasmodium falciparum,Plasmodium falciparum
+ST000442,Homo sapiens,Human
+ST000443,Homo sapiens,Human
+ST000444,Homo sapiens,Human
+ST000445,Homo sapiens,Human
+ST000446,Escherichia coli,Escherichia coli
+ST000448,Homo sapiens,Human
+ST000449,Bacillus subtilis,Bacillus subtilis
+ST000450,Homo sapiens,Human
+ST000451,Mus musculus,Mouse
+ST000452,Mus musculus,Mouse
+ST000453,Staphylococcus aureus,Staphylococcus aureus
+ST000454,Homo sapiens,Human
+ST000455,Homo sapiens,Human
+ST000456,Rattus norvegicus,Rat
+ST000457,Mus musculus,Mouse
+ST000458,Homo sapiens,Human
+ST000459,Mus musculus,Mouse
+ST000460,Mus musculus,Mouse
+ST000461,Mus musculus,Mouse
+ST000462,Mus musculus,Mouse
+ST000463,Mus musculus,Mouse
+ST000464,Homo sapiens,Human
+ST000465,Homo sapiens,Human
+ST000466,Streptococcus mutans,Streptococcus mutans
+ST000467,Homo sapiens,Human
+ST000468,Enterococcus faecalis,Enterococcus faecalis
+ST000469,Enterococcus faecalis,Enterococcus faecalis
+ST000474,Homo sapiens,Human
+ST000475,Homo sapiens,Human
+ST000476,Mus musculus,Mouse
+ST000477,Homo sapiens,Human
+ST000478,Mus musculus,Mouse
+ST000479,Mus musculus,Mouse
+ST000480,Mus musculus,Mouse
+ST000481,Mus musculus,Mouse
+ST000482,Homo sapiens,Human
+ST000483,Homo sapiens,Human
+ST000484,Homo sapiens,Human
+ST000485,Homo sapiens,Human
+ST000486,Plants,Plants
+ST000487,Megalobrama amblycephala,Wuchang bream
+ST000488,Homo sapiens,Human
+ST000489,Homo sapiens,Human
+ST000490,Homo sapiens,Human
+ST000491,Homo sapiens,Human
+ST000492,Homo sapiens,Human
+ST000493,Homo sapiens,Human
+ST000494,Homo sapiens,Human
+ST000495,Canis lupus familiaris,Dog
+ST000496,Homo sapiens,Human
+ST000497,Nicotiana tabacum,Tobacco
+ST000498,Rattus norvegicus,Rat
+ST000499,Homo sapiens,Human
+ST000500,Mus musculus,Mouse
+ST000501,Mus musculus,Mouse
+ST000502,Homo sapiens,Human
+ST000503,Equus caballus,Horse
+ST000504,Homo sapiens,Human
+ST000505,Homo sapiens,Human
+ST000506,Homo sapiens,Human
+ST000507,Homo sapiens,Human
+ST000508,Phoenix dactylifera,Date palm
+ST000509,Rattus norvegicus,Rat
+ST000510,Mus musculus,Mouse
+ST000511,Mus musculus,Mouse
+ST000512,Mus musculus,Mouse
+ST000513,Mus musculus,Mouse
+ST000514,Mus musculus,Mouse
+ST000515,Macaca mulatta,Rhesus monkey
+ST000516,Mus musculus,Mouse
+ST000517,Mus musculus,Mouse
+ST000518,Mus musculus,Mouse
+ST000519,Mus musculus,Mouse
+ST000520,Mus musculus,Mouse
+ST000521,Mus musculus,Mouse
+ST000522,Megalobrama amblycephala,Wuchang bream
+ST000523,Homo sapiens,Human
+ST000524,Homo sapiens,Human
+ST000525,Homo sapiens,Human
+ST000526,Homo sapiens,Human
+ST000527,Homo sapiens,Human
+ST000528,Homo sapiens,Human
+ST000529,Homo sapiens,Human
+ST000530,Mus musculus,Mouse
+ST000531,Homo sapiens,Human
+ST000532,Homo sapiens,Human
+ST000533,Homo sapiens,Human
+ST000534,Homo sapiens,Human
+ST000535,Homo sapiens,Human
+ST000536,Homo sapiens,Human
+ST000537,Homo sapiens,Human
+ST000538,Homo sapiens,Human
+ST000539,Homo sapiens,Human
+ST000540,Mus musculus,Mouse
+ST000541,Canis lupus familiaris,Dog
+ST000542,Homo sapiens,Human
+ST000543,Homo sapiens,Human
+ST000544,Homo sapiens,Human
+ST000545,Homo sapiens,Human
+ST000546,Plasmodium falciparum,Plasmodium falciparum
+ST000547,Mus musculus,Mouse
+ST000548,Homo sapiens,Human
+ST000549,Mus musculus,Mouse
+ST000550,Homo sapiens,Human
+ST000551,Mus musculus,Mouse
+ST000552,Homo sapiens,Human
+ST000553,Homo sapiens,Human
+ST000554,Mus musculus,Mouse
+ST000555,Rattus norvegicus,Rat
+ST000556,Danio rerio,Zebrafish
+ST000557,Homo sapiens,Human
+ST000558,Mus musculus,Mouse
+ST000559,Mus musculus,Mouse
+ST000560,Homo sapiens,Human
+ST000561,Solanum lycopersicum,Tomato
+ST000562,Mus musculus,Mouse
+ST000563,Homo sapiens,Human
+ST000564,Zea mays,Maize
+ST000565,Homo sapiens,Human
+ST000566,Homo sapiens,Human
+ST000567,Homo sapiens,Human
+ST000568,Homo sapiens,Human
+ST000569,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST000570,Mus musculus,Mouse
+ST000571,Bos taurus,Cow
+ST000572,Bacteria,Bacteria
+ST000573,Homo sapiens,Human
+ST000574,Mus musculus,Mouse
+ST000575,Mus musculus,Mouse
+ST000576,Mus musculus,Mouse
+ST000577,Mus musculus,Mouse
+ST000578,Homo sapiens,Human
+ST000579,Mus musculus,Mouse
+ST000580,Mus musculus,Mouse
+ST000581,Mus musculus,Mouse
+ST000582,Mus musculus,Mouse
+ST000583,Homo sapiens,Human
+ST000584,Danio rerio,Zebrafish
+ST000585,Homo sapiens,Human
+ST000586,Homo sapiens,Human
+ST000587,Homo sapiens,Human
+ST000588,Homo sapiens,Human
+ST000589,Homo sapiens,Human
+ST000590,Homo sapiens,Human
+ST000591,Arabidopsis thaliana,Arabidopsis thaliana
+ST000592,Macaca mulatta,Rhesus monkey
+ST000593,Mus musculus,Mouse
+ST000594,Mus musculus,Mouse
+ST000595,Homo sapiens,Human
+ST000596,Homo sapiens,Human
+ST000597,Mus musculus,Mouse
+ST000598,Mus musculus,Mouse
+ST000599,Macaca mulatta,Rhesus monkey
+ST000600,Rattus norvegicus,Rat
+ST000601,Homo sapiens,Human
+ST000603,Homo sapiens,Human
+ST000604,Mus musculus,Mouse
+ST000605,Homo sapiens,Human
+ST000606,Plants,Plants
+ST000607,Mus musculus,Mouse
+ST000608,Homo sapiens,Human
+ST000609,Homo sapiens,Human
+ST000610,Homo sapiens,Human
+ST000611,Homo sapiens,Human
+ST000612,Homo sapiens,Human
+ST000613,Homo sapiens,Human
+ST000614,Homo sapiens,Human
+ST000615,Homo sapiens,Human
+ST000616,Homo sapiens,Human
+ST000617,Homo sapiens,Human
+ST000618,Homo sapiens,Human
+ST000620,Mus musculus,Mouse
+ST000621,Chlamydomonas reinhardtii,Chlamydomonas reinhardtii
+ST000622,Chlamydomonas reinhardtii,Chlamydomonas reinhardtii
+ST000623,Canis lupus familiaris,Dog
+ST000624,Homo sapiens,Human
+ST000625,Homo sapiens,Human
+ST000625,Mus musculus,Mouse
+ST000626,Homo sapiens,Human
+ST000626,Mus musculus,Mouse
+ST000627,Homo sapiens,Human
+ST000627,Mus musculus,Mouse
+ST000628,Homo sapiens,Human
+ST000629,Homo sapiens,Human
+ST000630,Homo sapiens,Human
+ST000631,Rattus norvegicus,Rat
+ST000632,Rattus norvegicus,Rat
+ST000633,Rattus norvegicus,Rat
+ST000634,Homo sapiens,Human
+ST000635,Homo sapiens,Human
+ST000636,Homo sapiens,Human
+ST000637,Rattus norvegicus,Rat
+ST000638,Rattus norvegicus,Rat
+ST000639,Rattus norvegicus,Rat
+ST000640,Homo sapiens,Human
+ST000641,Homo sapiens,Human
+ST000642,Homo sapiens,Human
+ST000643,Homo sapiens,Human
+ST000644,Homo sapiens,Human
+ST000645,Mus musculus,Mouse
+ST000646,Mus musculus,Mouse
+ST000647,Mus musculus,Mouse
+ST000648,Mus musculus,Mouse
+ST000649,Mus musculus,Mouse
+ST000650,Mus musculus,Mouse
+ST000651,Mus musculus,Mouse
+ST000652,Mus musculus,Mouse
+ST000653,Mus musculus,Mouse
+ST000654,Mus musculus,Mouse
+ST000655,Mus musculus,Mouse
+ST000656,Mus musculus,Mouse
+ST000657,Mus musculus,Mouse
+ST000658,Mus musculus,Mouse
+ST000659,Homo sapiens,Human
+ST000660,Mus musculus,Mouse
+ST000661,Homo sapiens,Human
+ST000661,Rattus norvegicus,Rat
+ST000662,Homo sapiens,Human
+ST000663,Homo sapiens,Human
+ST000664,Homo sapiens,Human
+ST000665,Homo sapiens,Human
+ST000666,Rattus norvegicus,Rat
+ST000667,Mus musculus,Mouse
+ST000668,Homo sapiens,Human
+ST000669,Homo sapiens,Human
+ST000670,Mus musculus,Mouse
+ST000671,Rattus norvegicus,Rat
+ST000672,Mus musculus,Mouse
+ST000673,Homo sapiens,Human
+ST000674,Mus musculus,Mouse
+ST000675,Homo sapiens,Human
+ST000676,Mus musculus,Mouse
+ST000677,Homo sapiens,Human
+ST000678,Homo sapiens,Human
+ST000679,Homo sapiens,Human
+ST000680,Homo sapiens,Human
+ST000681,Mus musculus,Mouse
+ST000682,Mus musculus,Mouse
+ST000683,Mus musculus,Mouse
+ST000684,Mus musculus,Mouse
+ST000685,Homo sapiens,Human
+ST000686,Ovis aries,Sheep
+ST000687,Homo sapiens,Human
+ST000688,Homo sapiens,Human
+ST000689,Homo sapiens,Human
+ST000690,Homo sapiens,Human
+ST000691,Homo sapiens,Human
+ST000692,Treponema pectinovorum,Treponema
+ST000693,Mus musculus,Mouse
+ST000694,Mus musculus,Mouse
+ST000695,Homo sapiens,Human
+ST000696,Mus musculus,Mouse
+ST000697,Homo sapiens,Human
+ST000698,Homo sapiens,Human
+ST000699,Homo sapiens,Human
+ST000701,Mus musculus,Mouse
+ST000702,Mus musculus,Mouse
+ST000703,Homo sapiens,Human
+ST000704,Mus musculus,Mouse
+ST000705,Mus musculus,Mouse
+ST000706,Homo sapiens,Human
+ST000707,Mesocricetus auratus,Golden hamster
+ST000708,Homo sapiens,Human
+ST000710,Rattus norvegicus,Rat
+ST000711,Homo sapiens,Human
+ST000712,Mus musculus,Mouse
+ST000713,Homo sapiens,Human
+ST000714,Mus musculus,Mouse
+ST000715,Homo sapiens,Human
+ST000717,Mus musculus,Mouse
+ST000718,Homo sapiens,Human
+ST000720,Mus musculus,Mouse
+ST000721,Homo sapiens,Human
+ST000722,Aedes albopictus,Mosquito
+ST000723,Mus musculus,Mouse
+ST000724,Tamiasciurus hudsonicus,Squirrel
+ST000725,Homo sapiens,Human
+ST000726,Homo sapiens,Human
+ST000727,Mus musculus,Mouse
+ST000728,Mus musculus,Mouse
+ST000729,Mus musculus,Mouse
+ST000732,Mus musculus,Mouse
+ST000733,Homo sapiens,Human
+ST000734,Mus musculus,Mouse
+ST000735,Mus musculus,Mouse
+ST000736,Mus musculus,Mouse
+ST000737,Mus musculus,Mouse
+ST000740,Homo sapiens,Human
+ST000741,Homo sapiens,Human
+ST000742,Homo sapiens,Human
+ST000743,Homo sapiens,Human
+ST000744,Homo sapiens,Human
+ST000745,Mus musculus,Mouse
+ST000746,Mus musculus,Mouse
+ST000747,Mus musculus,Mouse
+ST000748,Homo sapiens,Human
+ST000749,Rattus norvegicus,Rat
+ST000750,Rattus norvegicus,Rat
+ST000751,Mus musculus,Mouse
+ST000752,Homo sapiens,Human
+ST000753,Mus musculus,Mouse
+ST000755,Rattus norvegicus,Rat
+ST000756,Rattus norvegicus,Rat
+ST000757,Rattus norvegicus,Rat
+ST000758,Rattus norvegicus,Rat
+ST000759,Rattus norvegicus,Rat
+ST000760,Mus musculus,Mouse
+ST000761,Mus musculus,Mouse
+ST000762,Homo sapiens,Human
+ST000763,Homo sapiens,Human
+ST000766,Glycine max,Soybean
+ST000767,Mus musculus,Mouse
+ST000768,Homo sapiens,Human
+ST000769,Mus musculus,Mouse
+ST000770,Homo sapiens,Human
+ST000771,Homo sapiens,Human
+ST000774,Homo sapiens,Human
+ST000775,Homo sapiens,Human
+ST000776,Rattus norvegicus,Rat
+ST000777,Homo sapiens,Human
+ST000778,Rattus norvegicus,Rat
+ST000779,Mus musculus,Mouse
+ST000780,Mus musculus,Mouse
+ST000781,Oryctolagus cuniculus,Rabbit
+ST000782,Mus musculus,Mouse
+ST000783,Homo sapiens,Human
+ST000784,Homo sapiens,Human
+ST000785,Homo sapiens,Human
+ST000786,Homo sapiens,Human
+ST000787,Homo sapiens,Human
+ST000788,Homo sapiens,Human
+ST000789,Homo sapiens,Human
+ST000790,Homo sapiens,Human
+ST000791,Homo sapiens,Human
+ST000792,Mus musculus,Mouse
+ST000793,Mus musculus,Mouse
+ST000794,Mus musculus,Mouse
+ST000795,Mus musculus,Mouse
+ST000796,Mus musculus,Mouse
+ST000797,Mus musculus,Mouse
+ST000798,Mus musculus,Mouse
+ST000799,Mus musculus,Mouse
+ST000800,Homo sapiens,Human
+ST000801,Homo sapiens,Human
+ST000802,Homo sapiens,Human
+ST000813,Homo sapiens,Human
+ST000814,Homo sapiens,Human
+ST000815,Mus musculus,Mouse
+ST000816,Homo sapiens,Human
+ST000817,Toxoplasma gondii,Toxoplasma gondii
+ST000818,Homo sapiens,Human
+ST000819,Homo sapiens,Human
+ST000820,Mus musculus,Mouse
+ST000821,Homo sapiens,Human
+ST000822,Homo sapiens,Human
+ST000823,Homo sapiens,Human
+ST000824,Homo sapiens,Human
+ST000825,Homo sapiens,Human
+ST000826,Homo sapiens,Human
+ST000827,Mus musculus,Mouse
+ST000828,Homo sapiens,Human
+ST000829,Mus musculus,Mouse
+ST000830,Mus musculus,Mouse
+ST000831,Mus musculus,Mouse
+ST000832,Rattus norvegicus,Rat
+ST000833,Mus musculus,Mouse
+ST000834,Rattus norvegicus,Rat
+ST000835,Mus musculus,Mouse
+ST000836,Homo sapiens,Human
+ST000837,Homo sapiens,Human
+ST000838,Mus musculus,Mouse
+ST000839,Homo sapiens,Human
+ST000840,Mus musculus,Mouse
+ST000841,Homo sapiens,Human
+ST000842,Homo sapiens,Human
+ST000843,Macaca mulatta,Rhesus monkey
+ST000844,Macaca mulatta,Rhesus monkey
+ST000845,Macaca mulatta,Rhesus monkey
+ST000846,Macaca mulatta,Rhesus monkey
+ST000847,Macaca mulatta,Rhesus monkey
+ST000848,Mus musculus,Mouse
+ST000849,Mus musculus,Mouse
+ST000850,Mus musculus,Mouse
+ST000851,Mus musculus,Mouse
+ST000852,Mus musculus,Mouse
+ST000853,Mus musculus,Mouse
+ST000854,Mus musculus,Mouse
+ST000855,Homo sapiens,Human
+ST000856,Mus musculus,Mouse
+ST000857,Mus musculus,Mouse
+ST000858,Mus musculus,Mouse
+ST000859,Mus musculus,Mouse
+ST000860,Mus musculus,Mouse
+ST000861,Mus musculus,Mouse
+ST000862,Mus musculus,Mouse
+ST000863,Mus musculus,Mouse
+ST000864,Mus musculus,Mouse
+ST000865,Homo sapiens,Human
+ST000866,Mus musculus,Mouse
+ST000867,Phoenix dactylifera,Date palm
+ST000868,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST000869,Mus musculus,Mouse
+ST000870,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST000871,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST000872,Ovis aries,Sheep
+ST000873,Ovis aries,Sheep
+ST000875,Nesterenkonia flava,Actinobacteria
+ST000876,Homo sapiens,Human
+ST000877,Homo sapiens,Human
+ST000878,Mus musculus,Mouse
+ST000879,Mus musculus,Mouse
+ST000880,Mus musculus,Mouse
+ST000881,Homo sapiens,Human
+ST000882,Homo sapiens,Human
+ST000883,Homo sapiens,Human
+ST000884,Escherichia coli,Escherichia coli
+ST000885,Mus musculus,Mouse
+ST000886,Triticum aestivum,Wheat
+ST000887,Acidithiobacillus ferrooxidans,Acidithiobacillus
+ST000888,Homo sapiens,Human
+ST000889,Quercus ilex,Oak
+ST000890,Mus musculus,Mouse
+ST000891,Homo sapiens,Human
+ST000892,Homo sapiens,Human
+ST000893,Mus musculus,Mouse
+ST000894,Mus musculus,Mouse
+ST000895,Mus musculus,Mouse
+ST000896,Mus musculus,Mouse
+ST000897,Rattus norvegicus,Rat
+ST000898,Homo sapiens,Human
+ST000899,Homo sapiens,Human
+ST000900,Escherichia coli,Escherichia coli
+ST000901,Mus musculus,Mouse
+ST000902,Mus musculus,Mouse
+ST000903,Rattus norvegicus,Rat
+ST000904,Homo sapiens,Human
+ST000905,Mus musculus,Mouse
+ST000906,Mus musculus,Mouse
+ST000907,Mus musculus,Mouse
+ST000908,Mus musculus,Mouse
+ST000909,Homo sapiens,Human
+ST000910,Homo sapiens,Human
+ST000911,Homo sapiens,Human
+ST000912,Homo sapiens,Human
+ST000913,Homo sapiens,Human
+ST000914,Microbacterium sediminis,Microbacterium sediminis
+ST000915,Homo sapiens,Human
+ST000916,Homo sapiens,Human
+ST000917,Homo sapiens,Human
+ST000918,Homo sapiens,Human
+ST000919,Homo sapiens,Human
+ST000920,Rattus norvegicus,Rat
+ST000921,Karenia brevis,Karenia brevis
+ST000921,Thalassiosira pseudonana,Thalassiosira pseudonana
+ST000922,Callinectes sapidus,Maryland blue crab
+ST000923,Homo sapiens,Human
+ST000924,Mus musculus,Mouse
+ST000925,Mus musculus,Mouse
+ST000926,Homo sapiens,Human
+ST000927,Homo sapiens,Human
+ST000928,Homo sapiens,Human
+ST000929,Oryctolagus cuniculus,Rabbit
+ST000930,Mus musculus,Mouse
+ST000931,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000932,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000934,Homo sapiens,Human
+ST000935,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000936,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000937,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000939,Homo sapiens,Human
+ST000940,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000941,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000942,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000943,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST000944,Homo sapiens,Human
+ST000945,Equus caballus,Horse
+ST000946,Homo sapiens,Human
+ST000947,Homo sapiens,Human
+ST000948,Homo sapiens,Human
+ST000949,Homo sapiens,Human
+ST000950,Homo sapiens,Human
+ST000951,Homo sapiens,Human
+ST000952,Homo sapiens,Human
+ST000953,Aphaenogaster picea,Ant
+ST000954,Homo sapiens,Human
+ST000955,Mus musculus,Mouse
+ST000956,Homo sapiens,Human
+ST000957,Homo sapiens,Human
+ST000958,Rattus norvegicus,Rat
+ST000959,Rattus norvegicus,Rat
+ST000960,Rattus norvegicus,Rat
+ST000961,Rattus norvegicus,Rat
+ST000962,Mus musculus,Mouse
+ST000963,Rattus norvegicus,Rat
+ST000964,Mus musculus,Mouse
+ST000965,Mus musculus,Mouse
+ST000966,Megalobrama amblycephala,Wuchang bream
+ST000967,Mus musculus,Mouse
+ST000968,Auxenochlorella protothecoides,Auxenochlorella
+ST000969,Auxenochlorella protothecoides,Auxenochlorella
+ST000971,Rattus norvegicus,Rat
+ST000972,Papio hamadryas,Baboon
+ST000973,Homo sapiens,Human
+ST000974,Homo sapiens,Human
+ST000975,Homo sapiens,Human
+ST000976,Homo sapiens,Human
+ST000977,Homo sapiens,Human
+ST000978,Homo sapiens,Human
+ST000979,Felis catus,Cat
+ST000980,Homo sapiens,Human
+ST000981,Felis catus,Cat
+ST000982,Megalobrama amblycephala,Wuchang bream
+ST000983,Homo sapiens,Human
+ST000984,Homo sapiens,Human
+ST000985,Homo sapiens,Human
+ST000986,Homo sapiens,Human
+ST000987,Homo sapiens,Human
+ST000988,Homo sapiens,Human
+ST000989,Homo sapiens,Human
+ST000990,Homo sapiens,Human
+ST000991,Homo sapiens,Human
+ST000992,Homo sapiens,Human
+ST000993,Rattus norvegicus,Rat
+ST000994,Rattus norvegicus,Rat
+ST000995,Homo sapiens,Human
+ST000996,Homo sapiens,Human
+ST000997,Homo sapiens,Human
+ST000998,Homo sapiens,Human
+ST000999,Caenorhabditis elegans,C. elegans
+ST001000,Homo sapiens,Human
+ST001002,Homo sapiens,Human
+ST001003,Homo sapiens,Human
+ST001004,Homo sapiens,Human
+ST001005,Homo sapiens,Human
+ST001006,Homo sapiens,Human
+ST001007,Mus musculus,Mouse
+ST001008,Mus musculus,Mouse
+ST001009,Homo sapiens,Human
+ST001010,Homo sapiens,Human
+ST001011,Homo sapiens,Human
+ST001012,Homo sapiens,Human
+ST001013,Homo sapiens,Human
+ST001014,Homo sapiens,Human
+ST001015,Homo sapiens,Human
+ST001016,Homo sapiens,Human
+ST001017,Homo sapiens,Human
+ST001018,Homo sapiens,Human
+ST001019,Mus musculus,Mouse
+ST001020,Rattus norvegicus,Rat
+ST001021,Rattus norvegicus,Rat
+ST001022,Rattus norvegicus,Rat
+ST001023,Homo sapiens,Human
+ST001024,Homo sapiens,Human
+ST001025,Homo sapiens,Human
+ST001026,Homo sapiens,Human
+ST001027,Homo sapiens,Human
+ST001028,Xenopus laevis,Frog
+ST001029,Homo sapiens,Human
+ST001031,Oryza sativa Japonica Group,Rice
+ST001032,Xenopus laevis,Frog
+ST001033,Plasmodium falciparum,Plasmodium falciparum
+ST001034,Arabidopsis thaliana,Arabidopsis thaliana
+ST001035,Homo sapiens,Human
+ST001036,Homo sapiens,Human
+ST001037,Homo sapiens,Human
+ST001038,Homo sapiens,Human
+ST001039,Homo sapiens,Human
+ST001040,Homo sapiens,Human
+ST001041,Sus scrofa,Pig
+ST001042,Homo sapiens,Human
+ST001044,Mus musculus,Mouse
+ST001045,Homo sapiens,Human
+ST001046,Homo sapiens,Human
+ST001047,Homo sapiens,Human
+ST001048,Homo sapiens,Human
+ST001049,Homo sapiens,Human
+ST001050,Homo sapiens,Human
+ST001051,Rattus norvegicus,Rat
+ST001052,Oreochromis mossambicus,Mozambique tilapia
+ST001053,Tursiops truncatus,Dolphin
+ST001054,Homo sapiens,Human
+ST001055,Mus musculus,Mouse
+ST001056,Triticum durum,Wheat
+ST001057,Synechococcus,Synechococcus
+ST001058,Mus musculus,Mouse
+ST001059,Oreochromis mossambicus,Mozambique tilapia
+ST001060,Ovis aries,Sheep
+ST001061,Ovis aries,Sheep
+ST001062,Arabidopsis thaliana,Arabidopsis thaliana
+ST001063,Mus musculus,Mouse
+ST001064,Mus musculus,Mouse
+ST001065,Mus musculus,Mouse
+ST001066,Mus musculus,Mouse
+ST001067,Mus musculus,Mouse
+ST001068,Homo sapiens,Human
+ST001069,Homo sapiens,Human
+ST001070,Homo sapiens,Human
+ST001071,Panicum maximum(Megathyrsis maximus (Jacq.)),Guinea Grass
+ST001072,Homo sapiens,Human
+ST001073,Mus musculus,Mouse
+ST001074,Homo sapiens,Human
+ST001075,Rattus norvegicus,Rat
+ST001076,Mus musculus,Mouse
+ST001077,Mus musculus,Mouse
+ST001078,Mus musculus,Mouse
+ST001079,Homo sapiens,Human
+ST001080,Synechococcus sp. PCC 7002,Synechococcus
+ST001081,Homo sapiens,Human
+ST001082,Homo sapiens,Human
+ST001083,Homo sapiens,Human
+ST001084,Mus musculus,Mouse
+ST001085,Mus musculus,Mouse
+ST001086,Homo sapiens,Human
+ST001087,Homo sapiens,Human
+ST001088,Metacarcinus magister,Dungeness crab
+ST001089,Mus musculus,Mouse
+ST001090,Homo sapiens,Human
+ST001091,Homo sapiens,Human
+ST001092,Mus musculus,Mouse
+ST001093,Homo sapiens,Human
+ST001094,Mus musculus,Mouse
+ST001095,Allium cepa,Onion
+ST001095,Arabidopsis thaliana,Arabidopsis thaliana
+ST001095,Glycine max,Soybean
+ST001095,Glycyrrhiza glabra,Glycyrrhiza glabra
+ST001096,Arabidopsis thaliana,Arabidopsis thaliana
+ST001097,Homo sapiens,Human
+ST001098,Homo sapiens,Human
+ST001099,Homo sapiens,Human
+ST001101,Mus musculus,Mouse
+ST001102,Metacarcinus magister,Dungeness crab
+ST001103,Neurospora crassa,Fungi
+ST001104,Homo sapiens,Human
+ST001105,Mus musculus,Mouse
+ST001106,Ovis aries,Sheep
+ST001107,Ovis aries,Sheep
+ST001108,Ovis aries,Sheep
+ST001109,Ovis aries,Sheep
+ST001110,Drosophila melanogaster,Fruit fly
+ST001111,Homo sapiens,Human
+ST001112,Megalobrama amblycephala,Wuchang bream
+ST001113,Homo sapiens,Human
+ST001114,Homo sapiens,Human
+ST001115,Mus musculus,Mouse
+ST001116,Acropora cervicornis,Acropora cervicornis
+ST001117,Mesocricetus auratus,Golden hamster
+ST001118,Homo sapiens,Human
+ST001119,Mus musculus,Mouse
+ST001120,Homo sapiens,Human
+ST001121,Homo sapiens,Human
+ST001122,Homo sapiens,Human
+ST001124,Mus musculus,Mouse
+ST001125,Bacteroides ovatus ATCC 8483,Bacteroides ovatus
+ST001125,Bacteroides thetaiotaomicron,Bacteroides thetaiotaomicron
+ST001126,Bacteroides thetaiotaomicron VPI-5482,Bacteroides thetaiotaomicron
+ST001127,Mus musculus,Mouse
+ST001128,Bacteroides thetaiotaomicron VPI-5482,Bacteroides thetaiotaomicron
+ST001129,Homo sapiens,Human
+ST001130,Mus musculus,Mouse
+ST001131,Homo sapiens,Human
+ST001132,Homo sapiens,Human
+ST001133,Homo sapiens,Human
+ST001134,Brassica nigra,Black mustard
+ST001135,Homo sapiens,Human
+ST001136,Rattus norvegicus,Rat
+ST001138,Homo sapiens,Human
+ST001139,Homo sapiens,Human
+ST001140,Canis lupus familiaris,Dog
+ST001141,Mortierella alpina,Mortierella alpina
+ST001142,Homo sapiens,Human
+ST001143,Mus musculus,Mouse
+ST001144,Mus musculus,Mouse
+ST001145,Mus musculus,Mouse
+ST001146,Macaca mulatta,Rhesus monkey
+ST001147,Macaca mulatta,Rhesus monkey
+ST001148,Homo sapiens,Human
+ST001149,Plasmodium falciparum,Plasmodium falciparum
+ST001150,Mus musculus,Mouse
+ST001151,Homo sapiens,Human
+ST001152,Homo sapiens,Human
+ST001153,Mus musculus,Mouse
+ST001154,Mus musculus,Mouse
+ST001155,Phoenix dactylifera,Date palm
+ST001156,Phoenix dactylifera,Date palm
+ST001157,Mus musculus,Mouse
+ST001158,Mus musculus,Mouse
+ST001159,Macaca mulatta,Rhesus monkey
+ST001160,Macaca mulatta,Rhesus monkey
+ST001163,Acropora cervicornis,Acropora cervicornis
+ST001164,Homo sapiens,Human
+ST001165,Metacarcinus magister,Dungeness crab
+ST001166,Metacarcinus magister,Dungeness crab
+ST001167,Homo sapiens,Human
+ST001168,Homo sapiens,Human
+ST001169,Homo sapiens,Human
+ST001170,Homo sapiens,Human
+ST001171,Homo sapiens,Human
+ST001172,Mus musculus,Mouse
+ST001173,Escherichia coli,Escherichia coli
+ST001174,Staphylococcus aureus,Staphylococcus aureus
+ST001175,Plasmodium falciparum,Plasmodium falciparum
+ST001176,Homo sapiens,Human
+ST001177,Cricetulus griseus,Chinese hamster
+ST001178,Mus musculus,Mouse
+ST001179,Mus musculus,Mouse
+ST001180,Synechococcus elongatus PCC 11802,Synechococcus elongatus
+ST001181,Homo sapiens,Human
+ST001182,Caenorhabditis elegans,C. elegans
+ST001183,Caenorhabditis elegans,C. elegans
+ST001184,Various marine planktons,Phytoplankton
+ST001185,Homo sapiens,Human
+ST001186,Mus musculus,Mouse
+ST001187,Apis mellifera,Honey bee
+ST001188,Plasmodium falciparum,Plasmodium falciparum
+ST001189,Cordyceps militaris,Cordyceps
+ST001189,Ophiocordyceps sinensis,Ophiocordyceps
+ST001190,Sus scrofa,Pig
+ST001191,Homo sapiens,Human
+ST001192,Homo sapiens,Human
+ST001193,Homo sapiens,Human
+ST001194,Ginkgo biloba,Ginkgo biloba
+ST001195,Synechocystis sp. PCC 6803,Synechococcus
+ST001196,Synechocystis sp. PCC 6803,Synechococcus
+ST001197,Synechocystis sp. PCC 6803,Synechococcus
+ST001198,Synechocystis sp. PCC 6803,Synechococcus
+ST001199,Synechocystis sp. PCC 6803,Synechococcus
+ST001200,Homo sapiens,Human
+ST001201,Homo sapiens,Human
+ST001201,Plasmodium falciparum,Plasmodium falciparum
+ST001202,Homo sapiens,Human
+ST001202,Plasmodium falciparum,Plasmodium falciparum
+ST001204,Homo sapiens,Human
+ST001204,Plasmodium falciparum,Plasmodium falciparum
+ST001205,Homo sapiens,Human
+ST001205,Plasmodium falciparum,Plasmodium falciparum
+ST001206,Mus musculus,Mouse
+ST001207,Mus musculus,Mouse
+ST001208,Homo sapiens,Human
+ST001209,Homo sapiens,Human
+ST001210,Homo sapiens,Human
+ST001211,Homo sapiens,Human
+ST001212,Homo sapiens,Human
+ST001213,Mus musculus,Mouse
+ST001214,Homo sapiens,Human
+ST001215,Homo sapiens,Human
+ST001216,Homo sapiens,Human
+ST001217,Homo sapiens,Human
+ST001218,Mus musculus,Mouse
+ST001219,Mus musculus,Mouse
+ST001220,Bombus impatiens,Bumble Bee
+ST001221,Bombus impatiens,Bumble Bee
+ST001222,Apis mellifera,Honey bee
+ST001223,Homo sapiens,Human
+ST001224,Sus scrofa,Pig
+ST001225,Homo sapiens,Human
+ST001226,Homo sapiens,Human
+ST001227,Homo sapiens,Human
+ST001228,Homo sapiens,Human
+ST001229,Homo sapiens,Human
+ST001230,Homo sapiens,Human
+ST001231,Homo sapiens,Human
+ST001232,Plasmodium falciparum,Plasmodium falciparum
+ST001234,Bos indicus,Cow
+ST001235,Homo sapiens,Human
+ST001236,Homo sapiens,Human
+ST001237,Homo sapiens,Human
+ST001238,Plasmodium falciparum,Plasmodium falciparum
+ST001239,Synthetic,Synthetic
+ST001240,Homo sapiens,Human
+ST001241,Homo sapiens,Human
+ST001242,Homo sapiens,Human
+ST001243,Homo sapiens,Human
+ST001244,Escherichia coli,Escherichia coli
+ST001245,Bos taurus,Cow
+ST001246,Homo sapiens,Human
+ST001247,Canis lupus familiaris,Dog
+ST001248,Equus caballus,Horse
+ST001249,Mus musculus,Mouse
+ST001250,Mus musculus,Mouse
+ST001251,Homo sapiens,Human
+ST001252,Mus musculus,Mouse
+ST001253,Mus musculus,Mouse
+ST001254,Mus musculus,Mouse
+ST001255,Mus musculus,Mouse
+ST001256,Mus musculus,Mouse
+ST001257,Homo sapiens,Human
+ST001258,Brugia malayi,Roundworm
+ST001259,Homo sapiens,Human
+ST001260,Fusobacterium nucleatum,Fusobacterium nucleatum
+ST001261,Fusobacterium nucleatum,Fusobacterium nucleatum
+ST001262,Homo sapiens,Human
+ST001263,Lactobacillus,Lactobacillus
+ST001264,Rattus norvegicus,Rat
+ST001265,Homo sapiens,Human
+ST001266,Mus musculus,Mouse
+ST001267,Homo sapiens,Human
+ST001268,Homo sapiens,Human
+ST001269,Homo sapiens,Human
+ST001270,Homo sapiens,Human
+ST001271,Homo sapiens,Human
+ST001272,Mus musculus,Mouse
+ST001273,Mus musculus,Mouse
+ST001274,Trypanosoma brucei brucei,Trypanosoma brucei
+ST001275,Trypanosoma brucei brucei,Trypanosoma brucei
+ST001276,Trypanosoma brucei brucei,Trypanosoma brucei
+ST001277,Homo sapiens,Human
+ST001278,Homo sapiens,Human
+ST001279,Plasmodium falciparum,Plasmodium falciparum
+ST001280,Mus musculus,Mouse
+ST001281,Mus musculus,Mouse
+ST001282,Mus musculus,Mouse
+ST001283,Mus musculus,Mouse
+ST001284,Homo sapiens,Human
+ST001285,Homo sapiens,Human
+ST001286,Bos taurus,Cow
+ST001287,Mus musculus,Mouse
+ST001288,Mus musculus,Mouse
+ST001289,Mus musculus,Mouse
+ST001290,Mus musculus,Mouse
+ST001291,Mus musculus,Mouse
+ST001292,Mus musculus,Mouse
+ST001293,Ilyonectria estremocensis,Ilyonectria estremocensis
+ST001293,Ilyonectria mors-panacis,Ilyonectria mors-panacis
+ST001293,Ilyonectria robusta,Ilyonectria robusta
+ST001293,Ilyonectria rufa,Ilyonectria rufa
+ST001293,Ilyonectria torresensis,Ilyonectria torresensis
+ST001293,Neonectria obtusispora,Neonectria obtusispora
+ST001294,Homo sapiens,Human
+ST001295,Homo sapiens,Human
+ST001296,Corylus americana,Corylus americana
+ST001296,Corylus avellana,Corylus avellana
+ST001297,Mus musculus,Mouse
+ST001298,Synechococcus elongatus PCC 11801,Synechococcus elongatus
+ST001299,Mus musculus,Mouse
+ST001300,Mus musculus,Mouse
+ST001301,Mus musculus,Mouse
+ST001302,Synechococcus,Synechococcus
+ST001303,Mus musculus,Mouse
+ST001304,Toxoplasma gondii,Toxoplasma gondii
+ST001305,Salmonella enterica,Salmonella enterica
+ST001306,Homo sapiens,Human
+ST001307,Homo sapiens,Human
+ST001308,Salmonella enterica subsp. enterica serovar Typhimurium,Salmonella enterica
+ST001309,Rattus norvegicus,Rat
+ST001310,Mus musculus,Mouse
+ST001311,Rattus norvegicus,Rat
+ST001312,Rattus norvegicus,Rat
+ST001313,Rattus norvegicus,Rat
+ST001314,Mus musculus,Mouse
+ST001315,Plasmodium falciparum,Plasmodium falciparum
+ST001316,Nannochloropsis gaditana,Nannochloropsis
+ST001317,Homo sapiens,Human
+ST001318,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST001319,Homo sapiens,Human
+ST001320,Homo sapiens,Human
+ST001321,Escherichia coli,Escherichia coli
+ST001322,Homo sapiens,Human
+ST001323,Mus musculus,Mouse
+ST001324,Haliotis discus hannai,Pacific Abalone
+ST001325,Homo sapiens,Human
+ST001326,Chlamydomonas reinhardtii,Chlamydomonas reinhardtii
+ST001327,Mus musculus,Mouse
+ST001328,Mus musculus,Mouse
+ST001329,Mus musculus,Mouse
+ST001330,Oryza sativa Japonica Group,Rice
+ST001331,Oryza sativa Japonica Group,Rice
+ST001332,Caenorhabditis elegans,C. elegans
+ST001333,Mus musculus,Mouse
+ST001334,Mus musculus,Mouse
+ST001335,Homo sapiens,Human
+ST001336,Mus musculus,Mouse
+ST001337,Homo sapiens,Human
+ST001338,Mus musculus,Mouse
+ST001339,Homo sapiens,Human
+ST001341,Mus musculus,Mouse
+ST001342,Mus musculus,Mouse
+ST001343,Mus musculus,Mouse
+ST001344,Mus musculus,Mouse
+ST001345,Mus musculus,Mouse
+ST001346,Mus musculus,Mouse
+ST001347,Mus musculus,Mouse
+ST001348,Mus musculus,Mouse
+ST001349,Bos taurus,Cow
+ST001350,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST001351,Escherichia coli,Escherichia coli
+ST001353,Mus musculus,Mouse
+ST001354,Homo sapiens,Human
+ST001355,Homo sapiens,Human
+ST001356,Ilyonectria estremocensis,Ilyonectria estremocensis
+ST001356,Ilyonectria mors-panacis,Ilyonectria mors-panacis
+ST001356,Ilyonectria robusta,Ilyonectria robusta
+ST001356,Ilyonectria rufa,Ilyonectria rufa
+ST001356,Ilyonectria torresensis,Ilyonectria torresensis
+ST001356,Neonectria obtusispora,Neonectria obtusispora
+ST001359,Homo sapiens,Human
+ST001360,Homo sapiens,Human
+ST001361,Mus musculus,Mouse
+ST001362,Peromyscus californicus,Mouse
+ST001363,Homo sapiens,Human
+ST001364,Homo sapiens,Human
+ST001365,Homo sapiens,Human
+ST001366,Mus musculus,Mouse
+ST001367,Mus musculus,Mouse
+ST001368,Mus musculus,Mouse
+ST001369,Homo sapiens,Human
+ST001370,Alternaria sp.,Fungi
+ST001371,Quercus ilex,Oak
+ST001372,Natural mixed marine microbial community,Phytoplankton
+ST001373,Mus musculus,Mouse
+ST001374,Citrus sinensis,Orange
+ST001374,Malus domestica,Apple
+ST001375,Homo sapiens,Human
+ST001376,Mus musculus,Mouse
+ST001377,Homo sapiens,Human
+ST001378,Homo sapiens,Human
+ST001379,Mus musculus,Mouse
+ST001380,Homo sapiens,Human
+ST001381,Mus musculus,Mouse
+ST001382,Escherichia coli,Escherichia coli
+ST001383,Homo sapiens,Human
+ST001384,Homo sapiens,Human
+ST001385,Homo sapiens,Human
+ST001386,Homo sapiens,Human
+ST001387,Myotis lucifugus,Little brown bat
+ST001388,Mus musculus,Mouse
+ST001389,Mus musculus,Mouse
+ST001390,Sus scrofa,Pig
+ST001391,Homo sapiens,Human
+ST001393,Nitzschia lecointei,Nitzschia lecointei
+ST001394,Escherichia coli,Escherichia coli
+ST001395,Microchloropsis gaditana,Microchloropsis gaditana
+ST001396,Mus musculus,Mouse
+ST001397,Mus musculus,Mouse
+ST001398,Homo sapiens,Human
+ST001399,Mus musculus,Mouse
+ST001400,Homo sapiens,Human
+ST001401,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST001402,Homo sapiens,Human
+ST001403,Homo sapiens,Human
+ST001404,Homo sapiens,Human
+ST001405,Homo sapiens,Human
+ST001406,Homo sapiens,Human
+ST001407,Homo sapiens,Human
+ST001408,Homo sapiens,Human
+ST001409,Natural mixed marine microbial community,Phytoplankton
+ST001410,Natural mixed marine microbial community,Phytoplankton
+ST001411,Homo sapiens,Human
+ST001412,Homo sapiens,Human
+ST001413,Mus musculus,Mouse
+ST001414,Pseudomonas aeruginosa,Pseudomonas aeruginosa
+ST001415,Mus musculus,Mouse
+ST001420,Homo sapiens,Human
+ST001421,Escherichia coli,Escherichia coli
+ST001422,Homo sapiens,Human
+ST001423,Homo sapiens,Human
+ST001426,Staphylococcus epidermidis,Staphylococcus epidermidis
+ST001427,Sus scrofa,Pig
+ST001428,Homo sapiens,Human
+ST001429,Homo sapiens,Human
+ST001430,Homo sapiens,Human
+ST001431,Homo sapiens,Human
+ST001432,Homo sapiens,Human
+ST001433,Multi-species non-defined biofilm consortium,Bacteria
+ST001434,Mus musculus,Mouse
+ST001435,Acer Saccharum,Sugar Maple
+ST001436,Mus musculus,Mouse
+ST001437,Homo sapiens,Human
+ST001438,Homo sapiens,Human
+ST001439,Mus musculus,Mouse
+ST001440,Homo sapiens,Human
+ST001441,Homo sapiens,Human
+ST001442,Homo sapiens,Human
+ST001443,Homo sapiens,Human
+ST001445,Mus musculus,Mouse
+ST001446,Mus musculus,Mouse
+ST001447,Mus musculus,Mouse
+ST001448,Ovis aries,Sheep
+ST001449,Mus musculus,Mouse
+ST001450,Homo sapiens,Human
+ST001451,Homo sapiens,Human
+ST001452,Drosophila melanogaster,Fruit fly
+ST001453,Homo sapiens,Human
+ST001455,Mus musculus,Mouse
+ST001456,Mus musculus,Mouse
+ST001459,Mus musculus,Mouse
+ST001460,Mus musculus,Mouse
+ST001461,Mus musculus,Mouse
+ST001462,Mus musculus,Mouse
+ST001463,Mus musculus,Mouse
+ST001465,Mus musculus,Mouse
+ST001466,Mus musculus,Mouse
+ST001467,Mus musculus,Mouse
+ST001468,Mus musculus,Mouse
+ST001469,Mus musculus,Mouse
+ST001470,Mus musculus,Mouse
+ST001471,Mus musculus,Mouse
+ST001472,Mus musculus,Mouse
+ST001473,Mus musculus,Mouse
+ST001474,Mus musculus,Mouse
+ST001475,Mus musculus,Mouse
+ST001476,Homo sapiens,Human
+ST001477,Mus musculus,Mouse
+ST001478,Arabidopsis thaliana,Arabidopsis thaliana
+ST001479,Mus musculus,Mouse
+ST001480,Fragilariopsis cylindrus,Fragilariopsis cylindrus
+ST001480,Navicula cf. perminuta,Navicula cf. perminuta
+ST001480,Navicula pelliculosa,Navicula pelliculosa
+ST001480,Nitzschia lecointei,Nitzschia lecointei
+ST001481,Mus musculus,Mouse
+ST001483,Mus musculus,Mouse
+ST001484,Mus musculus,Mouse
+ST001485,Mus musculus,Mouse
+ST001486,Mus musculus,Mouse
+ST001487,Mus musculus,Mouse
+ST001488,Mus musculus,Mouse
+ST001489,Zea mays,Maize
+ST001490,Homo sapiens,Human
+ST001491,Homo sapiens,Human
+ST001492,Rattus norvegicus,Rat
+ST001493,Homo sapiens,Human
+ST001494,Mus musculus,Mouse
+ST001495,Canis lupus familiaris,Dog
+ST001496,Bacteria,Bacteria
+ST001497,Bacteria,Bacteria
+ST001498,Bacteria,Bacteria
+ST001499,Mus musculus,Mouse
+ST001500,Mus musculus,Mouse
+ST001502,Mus musculus,Mouse
+ST001503,Mus musculus,Mouse
+ST001504,Mus musculus,Mouse
+ST001505,Mus musculus,Mouse
+ST001507,Mus musculus,Mouse
+ST001508,Mus musculus,Mouse
+ST001511,Bacteria,Bacteria
+ST001512,Thalassiosira pseudonana,Thalassiosira pseudonana
+ST001514,Algae,Algae
+ST001515,Homo sapiens,Human
+ST001516,Homo sapiens,Human
+ST001517,Homo sapiens,Human
+ST001518,Homo sapiens,Human
+ST001519,Homo sapiens,Human
+ST001520,Homo sapiens,Human
+ST001521,Homo sapiens,Human
+ST001522,Homo sapiens,Human
+ST001523,Mus musculus,Mouse
+ST001524,Algae,Algae
+ST001525,Mus musculus,Mouse
+ST001526,Rattus norvegicus,Rat
+ST001527,Homo sapiens,Human
+ST001547,Homo sapiens,Human
+ST001548,Homo sapiens,Human
+ST001549,Homo sapiens,Human
+ST001606,Mus musculus,Mouse
+ST001607,Mus musculus,Mouse
+ST001608,Rothia mucilaginosa,Rothia
+ST001609,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST001610,Homo sapiens,Human
+ST001611,Mus musculus,Mouse
+ST001612,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST001613,Rothia mucilaginosa,Rothia
+ST001614,Mus musculus,Mouse
+ST001615,Homo sapiens,Human
+ST001616,Homo sapiens,Human
+ST001617,Homo sapiens,Human
+ST001618,Homo sapiens,Human
+ST001619,Homo sapiens,Human
+ST001621,Mus musculus,Mouse
+ST001622,Mus musculus,Mouse
+ST001623,Mus musculus,Mouse
+ST001624,Mus musculus,Mouse
+ST001625,Mus musculus,Mouse
+ST001626,Mus musculus,Mouse
+ST001627,Mus musculus,Mouse
+ST001628,Mus musculus,Mouse
+ST001629,Mus musculus,Mouse
+ST001630,Mus musculus,Mouse
+ST001631,Mus musculus,Mouse
+ST001632,Rattus norvegicus,Rat
+ST001633,Mus musculus,Mouse
+ST001634,Glycine max,Soybean
+ST001635,Mus musculus,Mouse
+ST001636,Homo sapiens,Human
+ST001637,Mus musculus,Mouse
+ST001638,Mus musculus,Mouse
+ST001639,Homo sapiens,Human
+ST001640,Homo sapiens,Human
+ST001641,Homo sapiens,Human
+ST001642,Homo sapiens,Human
+ST001643,Mus musculus,Mouse
+ST001644,Homo sapiens,Human
+ST001645,Acropora cervicornis,Acropora cervicornis
+ST001648,Hordeum vulgare,Barley
+ST001649,Homo sapiens,Human
+ST001650,Mus musculus,Mouse
+ST001651,Mus musculus,Mouse
+ST001652,Plasmodium falciparum,Plasmodium falciparum
+ST001653,Homo sapiens,Human
+ST001654,Mus musculus,Mouse
+ST001654,Peromyscus leucopus,White-footed mouse
+ST001655,Homo sapiens,Human
+ST001656,Homo sapiens,Human
+ST001657,Escherichia coli,Escherichia coli
+ST001658,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST001660,Plasmodium falciparum,Plasmodium falciparum
+ST001662,Homo sapiens,Human
+ST001663,Escherichia coli,Escherichia coli
+ST001664,Escherichia coli,Escherichia coli
+ST001665,Rattus norvegicus,Rat
+ST001666,Mus musculus,Mouse
+ST001667,Mus musculus,Mouse
+ST001668,Rattus norvegicus,Rat
+ST001669,Homo sapiens,Human
+ST001670,Danio rerio,Zebrafish
+ST001671,Bacteria,Bacteria
+ST001672,Homo sapiens,Human
+ST001673,Homo sapiens,Human
+ST001674,Homo sapiens,Human
+ST001675,Homo sapiens,Human
+ST001676,Homo sapiens,Human
+ST001677,Homo sapiens,Human
+ST001678,Homo sapiens,Human
+ST001679,Homo sapiens,Human
+ST001680,Mus musculus,Mouse
+ST001681,Homo sapiens,Human
+ST001682,Homo sapiens,Human
+ST001683,Mus musculus,Mouse
+ST001684,Oryctolagus cuniculus,Rabbit
+ST001685,Homo sapiens,Human
+ST001686,Homo sapiens,Human
+ST001687,Mus musculus,Mouse
+ST001688,Bacteria,Bacteria
+ST001689,Homo sapiens,Human
+ST001690,Homo sapiens,Human
+ST001691,Homo sapiens,Human
+ST001692,Homo sapiens,Human
+ST001699,Mus musculus,Mouse
+ST001700,Mus musculus,Mouse
+ST001701,Mus musculus,Mouse
+ST001702,Mus musculus,Mouse
+ST001703,Mus musculus,Mouse
+ST001704,Mus musculus,Mouse
+ST001705,Homo sapiens,Human
+ST001706,Homo sapiens,Human
+ST001707,Mus musculus,Mouse
+ST001708,Mus musculus,Mouse
+ST001709,Homo sapiens,Human
+ST001710,Homo sapiens,Human
+ST001711,Homo sapiens,Human
+ST001712,Mus musculus,Mouse
+ST001713,Panax notoginseng,Ginseng
+ST001714,Plasmodium falciparum,Plasmodium falciparum
+ST001715,Homo sapiens,Human
+ST001716,Homo sapiens,Human
+ST001717,Homo sapiens,Human
+ST001718,Homo sapiens,Human
+ST001719,Homo sapiens,Human
+ST001720,Homo sapiens,Human
+ST001721,Cherax tenuimanus,Crayfish
+ST001722,Sus scrofa,Pig
+ST001723,Sus scrofa,Pig
+ST001724,Sus scrofa,Pig
+ST001725,Danio rerio,Zebrafish
+ST001726,Escherichia coli,Escherichia coli
+ST001727,Homo sapiens,Human
+ST001728,Homo sapiens,Human
+ST001729,Homo sapiens,Human
+ST001730,Homo sapiens,Human
+ST001731,Homo sapiens,Human
+ST001732,Homo sapiens,Human
+ST001733,Homo sapiens,Human
+ST001734,Homo sapiens,Human
+ST001735,Homo sapiens,Human
+ST001736,Homo sapiens,Human
+ST001737,Homo sapiens,Human
+ST001738,Homo sapiens,Human
+ST001739,Mus musculus,Mouse
+ST001740,Mus musculus,Mouse
+ST001741,Mus musculus,Mouse
+ST001742,Canis lupus familiaris,Dog
+ST001743,Mus musculus,Mouse
+ST001744,Rattus norvegicus,Rat
+ST001745,Rattus norvegicus,Rat
+ST001746,Mus musculus,Mouse
+ST001747,Mus musculus,Mouse
+ST001748,Mus musculus,Mouse
+ST001749,Homo sapiens,Human
+ST001750,Homo sapiens,Human
+ST001751,Mus musculus,Mouse
+ST001752,Vibrio cholerae,Vibrio cholerae
+ST001753,Homo sapiens,Human
+ST001754,Canis lupus familiaris,Dog
+ST001755,Homo sapiens,Human
+ST001756,Mus musculus,Mouse
+ST001757,Mus musculus,Mouse
+ST001758,Mus musculus,Mouse
+ST001759,Mus musculus,Mouse
+ST001760,Mus musculus,Mouse
+ST001761,Mus musculus,Mouse
+ST001762,Mus musculus,Mouse
+ST001763,Mus musculus,Mouse
+ST001764,Homo sapiens,Human
+ST001765,Homo sapiens,Human
+ST001766,Mus musculus,Mouse
+ST001767,Mus musculus,Mouse
+ST001768,Mus musculus,Mouse
+ST001769,Homo sapiens,Human
+ST001770,Homo sapiens,Human
+ST001771,Homo sapiens,Human
+ST001772,Homo sapiens,Human
+ST001773,Mus musculus,Mouse
+ST001774,Homo sapiens,Human
+ST001775,Mus musculus,Mouse
+ST001776,Homo sapiens,Human
+ST001777,Caenorhabditis elegans,C. elegans
+ST001778,Caenorhabditis elegans,C. elegans
+ST001779,Homo sapiens,Human
+ST001780,Homo sapiens,Human
+ST001781,Mus musculus,Mouse
+ST001782,Mus musculus,Mouse
+ST001783,Mus musculus,Mouse
+ST001784,Mus musculus,Mouse
+ST001785,Homo sapiens,Human
+ST001786,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST001787,Homo sapiens,Human
+ST001788,Homo sapiens,Human
+ST001789,Homo sapiens,Human
+ST001790,Mus musculus,Mouse
+ST001791,Mus musculus,Mouse
+ST001792,Mus musculus,Mouse
+ST001793,Mus musculus,Mouse
+ST001794,Homo sapiens,Human
+ST001795,Mus musculus,Mouse
+ST001796,Mus musculus,Mouse
+ST001797,Homo sapiens,Human
+ST001798,Homo sapiens,Human
+ST001799,Homo sapiens,Human
+ST001800,Homo sapiens,Human
+ST001801,Homo sapiens,Human
+ST001802,Homo sapiens,Human
+ST001803,Homo sapiens,Human
+ST001804,Homo sapiens,Human
+ST001805,Exidia glandulosa,Exidia glandulosa
+ST001805,Mucidula mucida,Mucidula mucida
+ST001806,Mus musculus,Mouse
+ST001807,Daphnia magna,Water flea
+ST001808,Mus musculus,Mouse
+ST001809,Mus musculus,Mouse
+ST001810,Mus musculus,Mouse
+ST001811,Arabidopsis thaliana,Arabidopsis thaliana
+ST001812,Arabidopsis thaliana,Arabidopsis thaliana
+ST001813,Homo sapiens,Human
+ST001814,Homo sapiens,Human
+ST001815,Homo sapiens,Human
+ST001816,Mus musculus,Mouse
+ST001817,Mus musculus,Mouse
+ST001818,Mus musculus,Mouse
+ST001819,Mus musculus,Mouse
+ST001820,Mus musculus,Mouse
+ST001822,Trypanosoma brucei brucei,Trypanosoma brucei
+ST001823,Equus caballus,Horse
+ST001824,Homo sapiens,Human
+ST001825,Homo sapiens,Human
+ST001826,Homo sapiens,Human
+ST001827,Homo sapiens,Human
+ST001828,Homo sapiens,Human
+ST001829,Synthetic,Synthetic
+ST001830,Mus musculus,Mouse
+ST001831,Homo sapiens,Human
+ST001832,Rattus norvegicus,Rat
+ST001833,Rattus norvegicus,Rat
+ST001834,Bos taurus,Cow
+ST001835,Homo sapiens,Human
+ST001836,Rattus norvegicus,Rat
+ST001837,Rattus norvegicus,Rat
+ST001838,Mus musculus,Mouse
+ST001839,Gracilaria edulis,Malaysian red seaweed
+ST001840,Mus musculus,Mouse
+ST001841,Mus musculus,Mouse
+ST001842,Homo sapiens,Human
+ST001843,Homo sapiens,Human
+ST001844,Homo sapiens,Human
+ST001845,Homo sapiens,Human
+ST001846,Mus musculus,Mouse
+ST001847,Mus musculus,Mouse
+ST001848,Mus musculus,Mouse
+ST001849,Homo sapiens,Human
+ST001850,Mus musculus,Mouse
+ST001851,Homo sapiens,Human
+ST001852,Bacteria,Bacteria
+ST001853,Mesocricetus auratus,Golden hamster
+ST001854,Tetrastigma loheri,Woody vine
+ST001855,Mus musculus,Mouse
+ST001856,Mus musculus,Mouse
+ST001857,Homo sapiens,Human
+ST001857,Mus musculus,Mouse
+ST001858,Mus musculus,Mouse
+ST001859,Drosophila melanogaster,Fruit fly
+ST001860,Homo sapiens,Human
+ST001861,Homo sapiens,Human
+ST001862,Bacteria,Bacteria
+ST001863,Homo sapiens,Human
+ST001864,Homo sapiens,Human
+ST001865,Mus musculus,Mouse
+ST001866,Mus musculus,Mouse
+ST001867,Ovis aries,Sheep
+ST001868,Ovis aries,Sheep
+ST001869,Rattus norvegicus,Rat
+ST001870,Rattus norvegicus,Rat
+ST001871,Mus musculus,Mouse
+ST001872,Mus musculus,Mouse
+ST001873,Homo sapiens,Human
+ST001874,Homo sapiens,Human
+ST001875,Mus musculus,Mouse
+ST001876,Mus musculus,Mouse
+ST001877,Homo sapiens,Human
+ST001878,Babesia divergens,Blood parasite
+ST001879,Saccharum spp,Sugarcane
+ST001880,Alexandrium minutum,Alexandrium minutum
+ST001881,Alexandrium minutum,Alexandrium minutum
+ST001882,Alexandrium minutum,Alexandrium minutum
+ST001883,Mus musculus,Mouse
+ST001884,Mus musculus,Mouse
+ST001885,Alexandrium catenella,Alexandrium catenella
+ST001885,Alexandrium tamarense,Alexandrium tamarense
+ST001886,Homo sapiens,Human
+ST001887,Homo sapiens,Human
+ST001888,Mus musculus,Mouse
+ST001889,Homo sapiens,Human
+ST001890,Homo sapiens,Human
+ST001891,Mus musculus,Mouse
+ST001892,Mus musculus,Mouse
+ST001893,Homo sapiens,Human
+ST001894,Mus musculus,Mouse
+ST001895,Alexandrium catenella,Alexandrium catenella
+ST001895,Alexandrium tamarense,Alexandrium tamarense
+ST001896,Alexandrium pacificum,Alexandrium pacificum
+ST001896,Alexandrium tamarense,Alexandrium tamarense
+ST001897,Mus musculus,Mouse
+ST001898,Aphyosemion striatum,Red-striped killifish
+ST001898,Nothobranchius furzeri,Turquoise killifish
+ST001899,Mus musculus,Mouse
+ST001900,Mus musculus,Mouse
+ST001901,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST001902,Homo sapiens,Human
+ST001903,Mus musculus,Mouse
+ST001904,Bacteroides thetaiotaomicron,Bacteroides thetaiotaomicron
+ST001905,Homo sapiens,Human
+ST001906,Homo sapiens,Human
+ST001907,Homo sapiens,Human
+ST001908,Homo sapiens,Human
+ST001909,Homo sapiens,Human
+ST001910,Mus musculus,Mouse
+ST001911,Mus musculus,Mouse
+ST001912,Chlamydomonas reinhardtii,Chlamydomonas reinhardtii
+ST001913,Homo sapiens,Human
+ST001914,Homo sapiens,Human
+ST001915,Mus musculus,Mouse
+ST001916,Mus musculus,Mouse
+ST001917,Mus musculus,Mouse
+ST001918,Homo sapiens,Human
+ST001919,Mus musculus,Mouse
+ST001920,Homo sapiens,Human
+ST001921,Homo sapiens,Human
+ST001922,Homo sapiens,Human
+ST001923,Homo sapiens,Human
+ST001924,Homo sapiens,Human
+ST001925,Homo sapiens,Human
+ST001926,Drosophila melanogaster,Fruit fly
+ST001927,Beauveria bassiana,Fungi
+ST001928,Homo sapiens,Human
+ST001929,Homo sapiens,Human
+ST001930,Homo sapiens,Human
+ST001931,Homo sapiens,Human
+ST001932,Homo sapiens,Human
+ST001933,Homo sapiens,Human
+ST001934,Equisetum arvense,Equisetum arvense
+ST001934,Equisetum hyemale,Equisetum hyemale
+ST001934,Equisetum telmateia,Equisetum telmateia
+ST001935,Macaca fascicularis,Macaque monkey
+ST001936,Homo sapiens,Human
+ST001937,Homo sapiens,Human
+ST001938,Escherichia coli,Escherichia coli
+ST001939,Escherichia coli,Escherichia coli
+ST001940,Homo sapiens,Human
+ST001941,Homo sapiens,Human
+ST001942,Homo sapiens,Human
+ST001943,Homo sapiens,Human
+ST001944,Thalassiosira pseudonana,Thalassiosira pseudonana
+ST001945,Hydrochoerus hydrochaeris,Capybara
+ST001946,Homo sapiens,Human
+ST001947,Zea mays,Maize
+ST001948,Homo sapiens,Human
+ST001949,Homo sapiens,Human
+ST001950,Rattus norvegicus,Rat
+ST001951,Mus musculus,Mouse
+ST001952,Mus musculus,Mouse
+ST001953,Homo sapiens,Human
+ST001954,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST001955,Zea mays,Maize
+ST001956,Rubrivivax benzoatilyticus,Rubrivivax benzoatilyticus
+ST001957,Homo sapiens,Human
+ST001958,Homo sapiens,Human
+ST001959,Mus musculus,Mouse
+ST001960,Mus musculus,Mouse
+ST001961,Mus musculus,Mouse
+ST001962,Populus,Poplar
+ST001963,Homo sapiens,Human
+ST001964,Homo sapiens,Human
+ST001965,Microchloropsis gaditana,Microchloropsis gaditana
+ST001966,Bacillus cereus,Bacillus cereus
+ST001967,Capra hircus,Goat
+ST001968,Capra hircus,Goat
+ST001969,Capra hircus,Goat
+ST001970,Capra hircus,Goat
+ST001971,Homo sapiens,Human
+ST001972,Capra hircus,Goat
+ST001973,Capra hircus,Goat
+ST001974,Mus musculus,Mouse
+ST001975,Mus musculus,Mouse
+ST001976,Mus musculus,Mouse
+ST001977,Homo sapiens,Human
+ST001978,Homo sapiens,Human
+ST001979,Mus musculus,Mouse
+ST001980,Streptococcus,Streptococcus
+ST001981,Homo sapiens,Human
+ST001982,Candida albicans,Candida albicans
+ST001983,Homo sapiens,Human
+ST001984,Mus musculus,Mouse
+ST001985,Homo sapiens,Human
+ST001985,Plasmodium falciparum,Plasmodium falciparum
+ST001986,Mus musculus,Mouse
+ST001987,Faecalibacterium prausnitzii,Faecalibacterium prausnitzii
+ST001988,Homo sapiens,Human
+ST001989,Homo sapiens,Human
+ST001990,Duponchelia fovealis,European pepper moth
+ST001991,Homo sapiens,Human
+ST001992,Homo sapiens,Human
+ST001993,Homo sapiens,Human
+ST001994,Escherichia coli,Escherichia coli
+ST001995,Escherichia coli,Escherichia coli
+ST001996,Mus musculus,Mouse
+ST001997,Mus musculus,Mouse
+ST001998,Mus musculus,Mouse
+ST001999,Mus musculus,Mouse
+ST002000,Homo sapiens,Human
+ST002001,Homo sapiens,Human
+ST002002,Homo sapiens,Human
+ST002003,Homo sapiens,Human
+ST002004,Abiotic,Abiotic
+ST002007,Mus musculus,Mouse
+ST002008,Marine microbes,Marine microbes
+ST002009,Mus musculus,Mouse
+ST002010,Homo sapiens,Human
+ST002011,Plasmodium falciparum,Plasmodium falciparum
+ST002012,Arabidopsis thaliana,Arabidopsis thaliana
+ST002014,Swine colonic microbiota,Swine colonic microbiota
+ST002015,Homo sapiens,Human
+ST002016,Homo sapiens,Human
+ST002017,Homo sapiens,Human
+ST002018,Homo sapiens,Human
+ST002019,Homo sapiens,Human
+ST002020,Homo sapiens,Human
+ST002021,Alkanna tinctoria,Alkanet
+ST002022,Homo sapiens,Human
+ST002023,Rattus norvegicus,Rat
+ST002024,Plasmodium falciparum,Plasmodium falciparum
+ST002025,Homo sapiens,Human
+ST002026,Homo sapiens,Human
+ST002027,Homo sapiens,Human
+ST002028,Homo sapiens,Human
+ST002029,Homo sapiens,Human
+ST002030,Homo sapiens,Human
+ST002031,Mus musculus,Mouse
+ST002032,Mus musculus,Mouse
+ST002033,Mus musculus,Mouse
+ST002034,Mus musculus,Mouse
+ST002035,Mus musculus,Mouse
+ST002036,Mus musculus,Mouse
+ST002037,Mus musculus,Mouse
+ST002038,Mus musculus,Mouse
+ST002039,Mus musculus,Mouse
+ST002040,Mus musculus,Mouse
+ST002041,Mus musculus,Mouse
+ST002042,Mus musculus,Mouse
+ST002043,Ovis aries,Sheep
+ST002044,Homo sapiens,Human
+ST002045,Mus musculus,Mouse
+ST002046,Caenorhabditis elegans,C. elegans
+ST002047,Rattus norvegicus,Rat
+ST002048,Homo sapiens,Human
+ST002049,Homo sapiens,Human
+ST002050,Homo sapiens,Human
+ST002051,Toxoplasma gondii,Toxoplasma gondii
+ST002052,Homo sapiens,Human
+ST002053,Toxoplasma gondii,Toxoplasma gondii
+ST002054,Homo sapiens,Human
+ST002055,Homo sapiens,Human
+ST002056,Mus musculus,Mouse
+ST002057,Homo sapiens,Human
+ST002058,Mus musculus,Mouse
+ST002059,Homo sapiens,Human
+ST002060,Arabidopsis thaliana,Arabidopsis thaliana
+ST002061,Mus musculus,Mouse
+ST002062,Lithospermum officinale,Common gromwell
+ST002063,Bos taurus,Cow
+ST002064,Mus musculus,Mouse
+ST002065,Mus musculus,Mouse
+ST002066,Mus musculus,Mouse
+ST002067,Mus musculus,Mouse
+ST002068,Mus musculus,Mouse
+ST002069,Drosophila melanogaster,Fruit fly
+ST002070,Homo sapiens,Human
+ST002071,Mus musculus,Mouse
+ST002072,Mus musculus,Mouse
+ST002073,Homo sapiens,Human
+ST002075,Homo sapiens,Human
+ST002076,Escherichia coli,Escherichia coli
+ST002077,Phaeodactylum tricornutum,Phaeodactylum tricornutum
+ST002078,Plasmodium falciparum,Plasmodium falciparum
+ST002079,Mus musculus,Mouse
+ST002080,Rattus norvegicus,Rat
+ST002081,Homo sapiens,Human
+ST002082,Homo sapiens,Human
+ST002083,Mus musculus,Mouse
+ST002084,Homo sapiens,Human
+ST002085,Homo sapiens,Human
+ST002086,Homo sapiens,Human
+ST002087,Homo sapiens,Human
+ST002088,Homo sapiens,Human
+ST002089,Homo sapiens,Human
+ST002090,Mus musculus,Mouse
+ST002091,Homo sapiens,Human
+ST002092,Caenorhabditis elegans,C. elegans
+ST002093,Mus musculus,Mouse
+ST002094,Homo sapiens,Human
+ST002095,Caenorhabditis elegans,C. elegans
+ST002096,Caenorhabditis elegans,C. elegans
+ST002097,Mus musculus,Mouse
+ST002098,Mus musculus,Mouse
+ST002099,Mus musculus,Mouse
+ST002100,Homo sapiens,Human
+ST002101,Mus musculus,Mouse
+ST002102,Zingiberaceae,Ginger
+ST002103,Homo sapiens,Human
+ST002104,Homo sapiens,Human
+ST002106,Plasmodium falciparum,Plasmodium falciparum
+ST002107,Plasmodium falciparum,Plasmodium falciparum
+ST002108,Plasmodium falciparum,Plasmodium falciparum
+ST002109,Homo sapiens,Human
+ST002110,Homo sapiens,Human
+ST002111,Mus musculus,Mouse
+ST002112,Homo sapiens,Human
+ST002113,Homo sapiens,Human
+ST002114,Homo sapiens,Human
+ST002115,Homo sapiens,Human
+ST002116,Homo sapiens,Human
+ST002117,Bacteroides xylanisolvens,Bacteroides
+ST002118,Homo sapiens,Human
+ST002119,Danio rerio,Zebrafish
+ST002120,Homo sapiens,Human
+ST002121,Mus musculus,Mouse
+ST002122,Homo sapiens,Human
+ST002123,Mus musculus,Mouse
+ST002124,Mus musculus,Mouse
+ST002125,Mus musculus,Mouse
+ST002126,Mus musculus,Mouse
+ST002127,Mus musculus,Mouse
+ST002128,Escherichia coli,Escherichia coli
+ST002129,Escherichia coli,Escherichia coli
+ST002130,Escherichia coli,Escherichia coli
+ST002131,Escherichia coli,Escherichia coli
+ST002132,Papio hamadryas,Baboon
+ST002133,Homo sapiens,Human
+ST002134,Homo sapiens,Human
+ST002135,Homo sapiens,Human
+ST002136,Synthetic,Synthetic
+ST002137,Mus musculus,Mouse
+ST002138,Gastrolobium bilobum,Heart-leaved poison
+ST002139,Gastrolobium bilobum,Heart-leaved poison
+ST002140,Mus musculus,Mouse
+ST002141,Homo sapiens,Human
+ST002142,Homo sapiens,Human
+ST002143,Homo sapiens,Human
+ST002144,Piper longum,Long pepper
+ST002145,Mus musculus,Mouse
+ST002146,Mus musculus,Mouse
+ST002147,Mus musculus,Mouse
+ST002148,Quercus ilex,Oak
+ST002149,Mus musculus,Mouse
+ST002150,Homo sapiens,Human
+ST002151,Homo sapiens,Human
+ST002152,Mus musculus,Mouse
+ST002153,Mus musculus,Mouse
+ST002154,Epinephelus coioides,Orange-spotted grouper
+ST002155,Homo sapiens,Human
+ST002156,Mus musculus,Mouse
+ST002157,Homo sapiens,Human
+ST002158,Mus musculus,Mouse
+ST002159,Marine plankton,Marine plankton
+ST002160,Mus musculus,Mouse
+ST002161,Mus musculus,Mouse
+ST002162,Mus musculus,Mouse
+ST002163,Mus musculus,Mouse
+ST002164,Homo sapiens,Human
+ST002165,Mus musculus,Mouse
+ST002166,Mus musculus,Mouse
+ST002167,Mus musculus,Mouse
+ST002168,Setaria italica,Millet
+ST002169,Oryza sativa,Rice
+ST002170,Mus musculus,Mouse
+ST002171,Mus musculus,Mouse
+ST002172,Mus musculus,Mouse
+ST002173,Homo sapiens,Human
+ST002174,Abiotic,Abiotic
+ST002175,Mus musculus,Mouse
+ST002176,Mus musculus,Mouse
+ST002177,Mus musculus,Mouse
+ST002178,Mus musculus,Mouse
+ST002179,Mus musculus,Mouse
+ST002180,Homo sapiens,Human
+ST002181,Plasmodium falciparum,Plasmodium falciparum
+ST002182,Mus musculus,Mouse
+ST002183,Homo sapiens,Human
+ST002184,Mus musculus,Mouse
+ST002185,Homo sapiens,Human
+ST002186,Mus musculus,Mouse
+ST002187,Staphylococcus aureus,Staphylococcus aureus
+ST002188,Mus musculus,Mouse
+ST002189,Mus musculus,Mouse
+ST002190,Homo sapiens,Human
+ST002191,Mus musculus,Mouse
+ST002192,Mus musculus,Mouse
+ST002193,Mus musculus,Mouse
+ST002194,Homo sapiens,Human
+ST002195,Mus musculus,Mouse
+ST002196,Homo sapiens,Human
+ST002197,Mus musculus,Mouse
+ST002198,Pinus pinaster,Maritime pine
+ST002199,Mus musculus,Mouse
+ST002200,Homo sapiens,Human
+ST002201,Arabidopsis thaliana,Arabidopsis thaliana
+ST002202,Mus musculus,Mouse
+ST002203,Homo sapiens,Human
+ST002204,Mus musculus,Mouse
+ST002205,Mus musculus,Mouse
+ST002206,Caenorhabditis elegans,C. elegans
+ST002207,Mus musculus,Mouse
+ST002208,Mus musculus,Mouse
+ST002209,Mus musculus,Mouse
+ST002210,Sus scrofa,Pig
+ST002211,Homo sapiens,Human
+ST002212,Homo sapiens,Human
+ST002213,Homo sapiens,Human
+ST002214,Homo sapiens,Human
+ST002215,Aurantiochytrium limacinum,Aurantiochytrium limacinum
+ST002216,Mus musculus,Mouse
+ST002217,Mus musculus,Mouse
+ST002218,Mus musculus,Mouse
+ST002219,Mus musculus,Mouse
+ST002220,Homo sapiens,Human
+ST002221,Homo sapiens,Human
+ST002222,Homo sapiens,Human
+ST002223,Mus musculus,Mouse
+ST002224,Homo sapiens,Human
+ST002225,Homo sapiens,Human
+ST002226,Homo sapiens,Human
+ST002227,Homo sapiens,Human
+ST002228,Mus musculus,Mouse
+ST002229,Mus musculus,Mouse
+ST002230,Mus musculus,Mouse
+ST002231,Homo sapiens,Human
+ST002232,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST002233,Homo sapiens,Human
+ST002234,Homo sapiens,Human
+ST002235,Homo sapiens,Human
+ST002236,Mus musculus,Mouse
+ST002237,Mus musculus,Mouse
+ST002238,Homo sapiens,Human
+ST002239,Camelina sativa,Camelina
+ST002240,Arabidopsis thaliana,Arabidopsis thaliana
+ST002241,Mus musculus,Mouse
+ST002242,Mus musculus,Mouse
+ST002243,Homo sapiens,Human
+ST002244,Homo sapiens,Human
+ST002245,Synechococcus elongatus,Synechococcus elongatus
+ST002246,Homo sapiens,Human
+ST002247,Homo sapiens,Human
+ST002248,Homo sapiens,Human
+ST002249,Mus musculus,Mouse
+ST002250,Homo sapiens,Human
+ST002251,Homo sapiens,Human
+ST002252,Arabidopsis thaliana,Arabidopsis thaliana
+ST002253,Mus musculus,Mouse
+ST002254,Papio hamadryas,Baboon
+ST002255,Homo sapiens,Human
+ST002256,Homo sapiens,Human
+ST002257,Mus musculus,Mouse
+ST002258,Mus musculus,Mouse
+ST002259,Mus musculus,Mouse
+ST002260,Mus musculus,Mouse
+ST002261,Homo sapiens,Human
+ST002262,Homo sapiens,Human
+ST002263,Mus musculus,Mouse
+ST002264,Mus musculus,Mouse
+ST002265,Homo sapiens,Human
+ST002266,Plankton,Plankton
+ST002267,Vitis vinifera,Vine
+ST002268,Mus musculus,Mouse
+ST002269,Homo sapiens,Human
+ST002270,Xenopus tropicalis,Western clawed frog
+ST002271,Xenopus tropicalis,Western clawed frog
+ST002272,Hordeum vulgare,Barley
+ST002273,Homo sapiens,Human
+ST002274,Homo sapiens,Human
+ST002275,Mus musculus,Mouse
+ST002276,Mus musculus,Mouse
+ST002277,Staphylococcus epidermidis,Staphylococcus epidermidis
+ST002278,Oncorhynchus mykiss,Rainbow trout
+ST002279,Oncorhynchus mykiss,Rainbow trout
+ST002280,Mus musculus,Mouse
+ST002281,Homo sapiens,Human
+ST002282,Arabidopsis thaliana,Arabidopsis thaliana
+ST002283,Homo sapiens,Human
+ST002284,Homo sapiens,Human
+ST002285,Homo sapiens,Human
+ST002286,Mus musculus,Mouse
+ST002287,Escherichia coli,Escherichia coli
+ST002289,Bacteria,Bacteria
+ST002290,Mus musculus,Mouse
+ST002291,Homo sapiens,Human
+ST002292,Seawater,Seawater
+ST002293,Mus musculus,Mouse
+ST002294,Mus musculus,Mouse
+ST002295,Mus musculus,Mouse
+ST002296,Homo sapiens,Human
+ST002297,Homo sapiens,Human
+ST002298,Mus musculus,Mouse
+ST002299,Homo sapiens,Human
+ST002300,Homo sapiens,Human
+ST002301,Homo sapiens,Human
+ST002302,Homo sapiens,Human
+ST002303,Mus musculus,Mouse
+ST002304,Myotis lucifugus,Little brown bat
+ST002306,Bacillus megaterium,Bacillus megaterium
+ST002306,Enterococcus faecium,Enterococcus faecium
+ST002307,Bacillus megaterium,Bacillus megaterium
+ST002307,Enterococcus faecium,Enterococcus faecium
+ST002308,Multiple bacterial species,Multiple bacterial species
+ST002309,Plasmodium falciparum,Plasmodium falciparum
+ST002310,Gallus gallus,Chicken
+ST002311,Gallus gallus,Chicken
+ST002312,Gallus gallus,Chicken
+ST002313,Mus musculus,Mouse
+ST002314,Mus musculus,Mouse
+ST002315,Mus musculus,Mouse
+ST002316,Mus musculus,Mouse
+ST002317,Homo sapiens,Human
+ST002318,Homo sapiens,Human
+ST002319,Homo sapiens,Human
+ST002320,Homo sapiens,Human
+ST002321,Thalassiosira pseudonana,Thalassiosira pseudonana
+ST002322,Mus musculus,Mouse
+ST002323,Homo sapiens,Human
+ST002324,Caenorhabditis elegans,C. elegans
+ST002325,Caenorhabditis elegans,C. elegans
+ST002326,Caenorhabditis elegans,C. elegans
+ST002327,Homo sapiens,Human
+ST002328,Homo sapiens,Human
+ST002329,Rattus norvegicus,Rat
+ST002330,Brassica napus,Rapeseed
+ST002331,Homo sapiens,Human
+ST002332,Homo sapiens,Human
+ST002333,Rattus norvegicus,Rat
+ST002334,Homo sapiens,Human
+ST002335,Drosophila melanogaster,Fruit fly
+ST002336,Homo sapiens,Human
+ST002337,Homo sapiens,Human
+ST002338,Homo sapiens,Human
+ST002339,Mus musculus,Mouse
+ST002340,Mus musculus,Mouse
+ST002341,Homo sapiens,Human
+ST002342,Mus musculus,Mouse
+ST002343,Mus musculus,Mouse
+ST002344,Mus musculus,Mouse
+ST002345,Mus musculus,Mouse
+ST002346,Homo sapiens,Human
+ST002347,Mesocricetus auratus,Golden hamster
+ST002348,Escherichia coli,Escherichia coli
+ST002349,Mus musculus,Mouse
+ST002350,Mus musculus,Mouse
+ST002351,Homo sapiens,Human
+ST002352,Mus musculus,Mouse
+ST002353,Synthetic,Synthetic
+ST002354,Rattus norvegicus,Rat
+ST002355,Homo sapiens,Human
+ST002356,Mus musculus,Mouse
+ST002357,Cystophora cristata,Hooded seal
+ST002358,Cystophora cristata,Hooded seal
+ST002359,Cystophora cristata,Hooded seal
+ST002360,Mus musculus,Mouse
+ST002361,Mus musculus,Mouse
+ST002362,Mus musculus,Mouse
+ST002363,Mus musculus,Mouse
+ST002364,Mus musculus,Mouse
+ST002365,Mus musculus,Mouse
+ST002366,Homo sapiens,Human
+ST002367,Homo sapiens,Human
+ST002368,Homo sapiens,Human
+ST002369,Mus musculus,Mouse
+ST002370,Mus musculus,Mouse
+ST002371,Mus musculus,Mouse
+ST002372,Mus musculus,Mouse
+ST002373,Mus musculus,Mouse
+ST002374,Mus musculus,Mouse
+ST002375,Mus musculus,Mouse
+ST002376,Mus musculus,Mouse
+ST002377,Mus musculus,Mouse
+ST002378,Mus musculus,Mouse
+ST002379,Mus musculus,Mouse
+ST002380,Acinetobacter,Acinetobacter
+ST002381,Ruegeria pomeroyi,Ruegeria pomeroyi
+ST002382,Rattus norvegicus,Rat
+ST002383,Homo sapiens,Human
+ST002384,Rattus norvegicus,Rat
+ST002385,Scyliorhinus canicula,Catshark
+ST002386,Scyliorhinus canicula,Catshark
+ST002387,Scyliorhinus canicula,Catshark
+ST002388,Scyliorhinus canicula,Catshark
+ST002389,Homo sapiens,Human
+ST002390,Mus musculus,Mouse
+ST002391,Homo sapiens,Human
+ST002392,Candida albicans,Candida albicans
+ST002393,Mus musculus,Mouse
+ST002394,Mus musculus,Mouse
+ST002395,Homo sapiens,Human
+ST002396,Mus musculus,Mouse
+ST002397,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST002398,Danio rerio,Zebrafish
+ST002399,Mus musculus,Mouse
+ST002400,Homo sapiens,Human
+ST002401,Homo sapiens,Human
+ST002402,Homo sapiens,Human
+ST002403,Rattus norvegicus,Rat
+ST002404,Homo sapiens,Human
+ST002405,Homo sapiens,Human
+ST002406,Brassica napus,Rapeseed
+ST002407,Homo sapiens,Human
+ST002408,Homo sapiens,Human
+ST002409,Homo sapiens,Human
+ST002411,Homo sapiens,Human
+ST002412,Mus musculus,Mouse
+ST002413,Homo sapiens,Human
+ST002414,Xenopus laevis,Frog
+ST002415,Mus musculus,Mouse
+ST002416,Mus musculus,Mouse
+ST002417,Homo sapiens,Human
+ST002418,Homo sapiens,Human
+ST002419,Escherichia coli,Escherichia coli
+ST002420,Homo sapiens,Human
+ST002421,Homo sapiens,Human
+ST002422,Homo sapiens,Human
+ST002423,Mus musculus,Mouse
+ST002424,Mus musculus,Mouse
+ST002425,Mus musculus,Mouse
+ST002426,Mus musculus,Mouse
+ST002427,Homo sapiens,Human
+ST002428,Homo sapiens,Human
+ST002429,Elaeis guineensis Jacq.,Oil palm
+ST002430,Elaeis guineensis Jacq.,Oil palm
+ST002431,Escherichia coli,Escherichia coli
+ST002432,Homo sapiens,Human
+ST002433,Clostridioides difficile,C. difficile
+ST002434,Mus musculus,Mouse
+ST002435,Mus musculus,Mouse
+ST002436,Homo sapiens,Human
+ST002437,Mus musculus,Mouse
+ST002438,Mus musculus,Mouse
+ST002439,Homo sapiens,Human
+ST002440,Homo sapiens,Human
+ST002441,Homo sapiens,Human
+ST002442,Homo sapiens,Human
+ST002443,Homo sapiens,Human
+ST002444,Danio rerio,Zebrafish
+ST002445,Mus musculus,Mouse
+ST002446,Mus musculus,Mouse
+ST002447,Pseudomonas aeruginosa,Pseudomonas aeruginosa
+ST002448,Homo sapiens,Human
+ST002449,Homo sapiens,Human
+ST002450,Mus musculus,Mouse
+ST002451,Mus musculus,Mouse
+ST002452,Homo sapiens,Human
+ST002453,Mus musculus,Mouse
+ST002454,Homo sapiens,Human
+ST002455,Mus musculus,Mouse
+ST002456,Ruditapes philippinarum,Clam
+ST002457,Mus musculus,Mouse
+ST002458,Mus musculus,Mouse
+ST002459,Homo sapiens,Human
+ST002460,Palaemon serratus,Common prawn
+ST002461,Homo sapiens,Human
+ST002462,Homo sapiens,Human
+ST002463,Mus musculus,Mouse
+ST002465,Mus musculus,Mouse
+ST002466,Synechococcus elongatus,Synechococcus elongatus
+ST002467,Mus musculus,Mouse
+ST002468,Homo sapiens,Human
+ST002469,Homo sapiens,Human
+ST002470,Homo sapiens,Human
+ST002471,Homo sapiens,Human
+ST002472,Veillonella parvula,Veillonella parvula
+ST002473,Veillonella parvula,Veillonella parvula
+ST002474,Mus musculus,Mouse
+ST002475,Homo sapiens,Human
+ST002476,Mus musculus,Mouse
+ST002477,Homo sapiens,Human
+ST002478,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST002479,Mus musculus,Mouse
+ST002480,Homo sapiens,Human
+ST002481,Mus musculus,Mouse
+ST002482,Alpinaria cf. rhododendri,Alpinaria cf. rhododendri
+ST002482,Alternaria alternata,Alternaria alternata
+ST002482,Alternaria arborescens,Alternaria arborescens
+ST002482,Alternaria cf. alternata,Alternaria cf. alternata
+ST002482,Alternaria infectoria,Alternaria infectoria
+ST002482,Anthostomella sp.,Anthostomella sp.
+ST002482,Aposphaeria corallinolutea,Aposphaeria corallinolutea
+ST002482,Articulospora atra,Articulospora atra
+ST002482,Aspergillus amstelodami,Aspergillus amstelodami
+ST002482,Aureobasidium cf. subglaciale,Aureobasidium cf. subglaciale
+ST002482,Barbatosphaeriaceae sp.,Barbatosphaeriaceae sp.
+ST002482,Botrytis cinerea,Botrytis cinerea
+ST002482,Camaropella sp.,Camaropella sp.
+ST002482,Casaresia cf. sphagnorum,Casaresia cf. sphagnorum
+ST002482,Chaetopsis sp.,Chaetopsis sp.
+ST002482,Cladosporium allicinum,Cladosporium allicinum
+ST002482,Cladosporium cf. cladosporioides,Cladosporium cf. cladosporioides
+ST002482,Colletotrichum cf. truncatum,Colletotrichum cf. truncatum
+ST002482,Colletotrichum fioriniae,Colletotrichum fioriniae
+ST002482,Coniochaeta cf. marina,Coniochaeta cf. marina
+ST002482,Coniothyrium ferrarisianum,Coniothyrium ferrarisianum
+ST002482,Creosphaeria sassafras,Creosphaeria sassafras
+ST002482,Cryptosporella sp.,Cryptosporella sp.
+ST002482,Cytospora cf. cedri,Cytospora cf. cedri
+ST002482,Cytospora ribis,Cytospora ribis
+ST002482,Diaporthe phaseolorum,Diaporthe phaseolorum
+ST002482,Diaporthe vaccinii,Diaporthe vaccinii
+ST002482,Didymella pomorum,Didymella pomorum
+ST002482,Didymella sp.,Didymella sp.
+ST002482,Discosia rubi,Discosia rubi
+ST002482,Dothideaceae sp.,Dothideaceae sp.
+ST002482,Epicoccum nigrum,Epicoccum nigrum
+ST002482,Epicoleosporium ramularioides,Epicoleosporium ramularioides
+ST002482,Fusarium tricinctum,Fusarium tricinctum
+ST002482,Geastrumia polystigmatis,Geastrumia polystigmatis
+ST002482,Gloeophyllum sepiarium,Gloeophyllum sepiarium
+ST002482,Godronia cassandrae,Godronia cassandrae
+ST002482,Godronia cf. cassandrae,Godronia cf. cassandrae
+ST002482,Hyaloscyphaceae sp.,Hyaloscyphaceae sp.
+ST002482,Hypoderma cf. rubi,Hypoderma cf. rubi
+ST002482,Hypoxylon submonticulosum,Hypoxylon submonticulosum
+ST002482,Kretzschmaria hedjaroudei,Kretzschmaria hedjaroudei
+ST002482,Lachnellula calyciformis,Lachnellula calyciformis
+ST002482,Lachnum sp.,Lachnum sp.
+ST002482,Leptodontidium sp.,Leptodontidium sp.
+ST002482,Lophiotrema mucilaginosis,Lophiotrema mucilaginosis
+ST002482,Microdochium neoqueenslandicum,Microdochium neoqueenslandicum
+ST002482,Mollisia cf. melaleuca,Mollisia cf. melaleuca
+ST002482,Mollisia cf. nigrescens,Mollisia cf. nigrescens
+ST002482,Mollisia sp.,Mollisia sp.
+ST002482,Nemania diffusa,Nemania diffusa
+ST002482,Nemania serpens,Nemania serpens
+ST002482,Nemania sp.,Nemania sp.
+ST002482,Neocucurbitaria sp.,Neocucurbitaria sp.
+ST002482,Neodevriesiaceae sp.,Neodevriesiaceae sp.
+ST002482,Neovaginatispora sp.,Neovaginatispora sp.
+ST002482,Nigrospora sp.,Nigrospora sp.
+ST002482,Nigrospora sphaerica,Nigrospora sphaerica
+ST002482,Paramycosphaerella sp.,Paramycosphaerella sp.
+ST002482,Paraphaeosphaeria neglecta,Paraphaeosphaeria neglecta
+ST002482,Penicillium camponotum,Penicillium camponotum
+ST002482,Phaeoacremonium fraxinopennsylvanicum,Phaeoacremonium fraxinopennsylvanicum
+ST002482,Phaeomoniellales sp.,Phaeomoniellales sp.
+ST002482,Phialocephala sp.,Phialocephala sp.
+ST002482,Phyllosticta cf. pyrolae,Phyllosticta cf. pyrolae
+ST002482,Phyllosticta pyrolae,Phyllosticta pyrolae
+ST002482,Phyllostictina vaccinii,Phyllostictina vaccinii
+ST002482,Pilidium concavum,Pilidium concavum
+ST002482,Plagiostoma petiolophilum,Plagiostoma petiolophilum
+ST002482,Pleosporales sp.,Pleosporales sp.
+ST002482,Proliferodiscus sp.,Proliferodiscus sp.
+ST002482,Pseudoplectania nigrella,Pseudoplectania nigrella
+ST002482,Pyrenopeziza sp.,Pyrenopeziza sp.
+ST002482,Ramularia sp.,Ramularia sp.
+ST002482,Rhytismataceae sp.,Rhytismataceae sp.
+ST002482,Sarea difformis,Sarea difformis
+ST002482,Seimatosporium lichenicola,Seimatosporium lichenicola
+ST002482,Setomelanomma holmii,Setomelanomma holmii
+ST002482,Sphaerulina vaccinii,Sphaerulina vaccinii
+ST002482,Stemphylium globuliferum,Stemphylium globuliferum
+ST002482,Thyronectria cucurbitula,Thyronectria cucurbitula
+ST002482,Trichaptum abietinum,Trichaptum abietinum
+ST002482,Tympanidaceae sp.,Tympanidaceae sp.
+ST002482,Unknown,Unknown
+ST002482,Venturia sp.,Venturia sp.
+ST002482,Xylaria corniformis,Xylaria corniformis
+ST002482,Xylaria ellisii,Xylaria ellisii
+ST002482,Xylaria sp.,Xylaria sp.
+ST002482,Xylariaceae sp.,Xylariaceae sp.
+ST002483,Rattus norvegicus,Rat
+ST002484,Homo sapiens,Human
+ST002485,Mus musculus,Mouse
+ST002486,Mus musculus,Mouse
+ST002487,Mus musculus,Mouse
+ST002488,Mus musculus,Mouse
+ST002489,Mus musculus,Mouse
+ST002490,Homo sapiens,Human
+ST002491,Mus musculus,Mouse
+ST002492,Allium cepa,Onion
+ST002492,Allium sativum,Garlic
+ST002492,Beta vulgaris,Beet
+ST002492,Capsicum annuum,Chili pepper
+ST002492,Cicer arietinum,Chickpea
+ST002492,Daucus carota,Carrot
+ST002492,Fragaria x ananassa,Strawberry
+ST002492,Glycine max,Soybean
+ST002492,Lactuca sativa,Lettuce
+ST002492,Malus domestica,Apple
+ST002492,Musa acuminata,Banana
+ST002492,Ocimum basilicum,Basil
+ST002492,Olea europaea,Olive
+ST002492,Phaseolus vulgaris,Common bean
+ST002492,Prunus persica,Peach
+ST002492,Pyrus communis,Pear
+ST002492,Solanum lycopersicum,Tomato
+ST002492,Solanum tuberosum,Plant
+ST002492,Spinacia oleracea,Spinach
+ST002492,Zea mays,Maize
+ST002493,Allium sativum,Garlic
+ST002493,Fragaria x ananassa,Strawberry
+ST002493,Lactuca sativa,Lettuce
+ST002493,Malus domestica,Apple
+ST002493,Ocimum basilicum,Basil
+ST002493,Solanum lycopersicum,Tomato
+ST002494,Homo sapiens,Human
+ST002495,Homo sapiens,Human
+ST002496,Homo sapiens,Human
+ST002497,Mus musculus,Mouse
+ST002498,Homo sapiens,Human
+ST002499,Mus musculus,Mouse
+ST002500,Homo sapiens,Human
+ST002501,Homo sapiens,Human
+ST002502,Homo sapiens,Human
+ST002503,Mus musculus,Mouse
+ST002504,Caenorhabditis elegans,C. elegans
+ST002505,Homo sapiens,Human
+ST002506,Mus musculus,Mouse
+ST002507,Mus musculus,Mouse
+ST002508,Mus musculus,Mouse
+ST002509,Eggerthella lenta,Eggerthella lenta
+ST002510,Eggerthella lenta,Eggerthella lenta
+ST002511,Aspergillus niger,Aspergillus niger
+ST002511,Bacillus subtilis,Bacillus subtilis
+ST002512,Mus musculus,Mouse
+ST002513,Mus musculus,Mouse
+ST002514,Mus musculus,Mouse
+ST002515,Eggerthella lenta,Eggerthella lenta
+ST002516,Eggerthella lenta,Eggerthella lenta
+ST002517,Eggerthella lenta,Eggerthella lenta
+ST002518,Eggerthella lenta,Eggerthella lenta
+ST002519,Eggerthella lenta,Eggerthella lenta
+ST002520,Mus musculus,Mouse
+ST002521,Homo sapiens,Human
+ST002522,Mus musculus,Mouse
+ST002523,Homo sapiens,Human
+ST002524,Mus musculus,Mouse
+ST002525,Mus musculus,Mouse
+ST002526,Mus musculus,Mouse
+ST002527,Mus musculus,Mouse
+ST002528,Mus musculus,Mouse
+ST002529,Mus musculus,Mouse
+ST002530,Mus musculus,Mouse
+ST002531,Mus musculus,Mouse
+ST002532,Mus musculus,Mouse
+ST002533,Homo sapiens,Human
+ST002534,Mus musculus,Mouse
+ST002535,Homo sapiens,Human
+ST002536,Homo sapiens,Human
+ST002537,Portulaca oleracea,Purslane
+ST002539,Marine microbes,Marine microbes
+ST002540,Homo sapiens,Human
+ST002541,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST002542,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST002543,Homo sapiens,Human
+ST002544,Mus musculus,Mouse
+ST002545,Mus musculus,Mouse
+ST002546,Mus musculus,Mouse
+ST002547,Mus musculus,Mouse
+ST002548,Homo sapiens,Human
+ST002549,Mus musculus,Mouse
+ST002550,Homo sapiens,Human
+ST002551,Mus musculus,Mouse
+ST002552,Homo sapiens,Human
+ST002553,Homo sapiens,Human
+ST002554,Homo sapiens,Human
+ST002555,Homo sapiens,Human
+ST002556,Bos taurus,Cow
+ST002557,Homo sapiens,Human
+ST002558,Homo sapiens,Human
+ST002559,Homo sapiens,Human
+ST002560,Homo sapiens,Human
+ST002561,Danio rerio,Zebrafish
+ST002562,Homo sapiens,Human
+ST002563,Homo sapiens,Human
+ST002564,Homo sapiens,Human
+ST002565,Homo sapiens,Human
+ST002566,Homo sapiens,Human
+ST002567,Homo sapiens,Human
+ST002568,Sus scrofa,Pig
+ST002569,Mus musculus,Mouse
+ST002570,Pitcairnia flammea,Flame Bromeliad
+ST002571,Arabidopsis thaliana,Arabidopsis thaliana
+ST002572,Mus musculus,Mouse
+ST002573,Mus musculus,Mouse
+ST002575,Homo sapiens,Human
+ST002576,Homo sapiens,Human
+ST002577,Homo sapiens,Human
+ST002578,Homo sapiens,Human
+ST002579,Rattus norvegicus,Rat
+ST002580,Rattus norvegicus,Rat
+ST002581,Rattus norvegicus,Rat
+ST002582,Rattus norvegicus,Rat
+ST002583,Rattus norvegicus,Rat
+ST002584,Homo sapiens,Human
+ST002585,Rattus norvegicus,Rat
+ST002586,Homo sapiens,Human
+ST002587,Homo sapiens,Human
+ST002588,Rattus norvegicus,Rat
+ST002589,Rattus norvegicus,Rat
+ST002590,Rattus norvegicus,Rat
+ST002591,Rattus norvegicus,Rat
+ST002592,Rattus norvegicus,Rat
+ST002593,Rattus norvegicus,Rat
+ST002594,Rattus norvegicus,Rat
+ST002595,Rattus norvegicus,Rat
+ST002596,Rattus norvegicus,Rat
+ST002597,Rattus norvegicus,Rat
+ST002598,Rattus norvegicus,Rat
+ST002599,Rattus norvegicus,Rat
+ST002600,Rattus norvegicus,Rat
+ST002601,Rattus norvegicus,Rat
+ST002602,Rattus norvegicus,Rat
+ST002603,Rattus norvegicus,Rat
+ST002604,Rattus norvegicus,Rat
+ST002605,Rattus norvegicus,Rat
+ST002606,Rattus norvegicus,Rat
+ST002607,Rattus norvegicus,Rat
+ST002608,Rattus norvegicus,Rat
+ST002609,Rattus norvegicus,Rat
+ST002610,Rattus norvegicus,Rat
+ST002611,Rattus norvegicus,Rat
+ST002612,Rattus norvegicus,Rat
+ST002613,Rattus norvegicus,Rat
+ST002614,Rattus norvegicus,Rat
+ST002615,Rattus norvegicus,Rat
+ST002616,Rattus norvegicus,Rat
+ST002617,Rattus norvegicus,Rat
+ST002618,Rattus norvegicus,Rat
+ST002619,Rattus norvegicus,Rat
+ST002620,Rattus norvegicus,Rat
+ST002621,Rattus norvegicus,Rat
+ST002622,Rattus norvegicus,Rat
+ST002623,Rattus norvegicus,Rat
+ST002624,Rattus norvegicus,Rat
+ST002625,Rattus norvegicus,Rat
+ST002626,Rattus norvegicus,Rat
+ST002627,Rattus norvegicus,Rat
+ST002628,Rattus norvegicus,Rat
+ST002629,Rattus norvegicus,Rat
+ST002630,Rattus norvegicus,Rat
+ST002631,Rattus norvegicus,Rat
+ST002632,Rattus norvegicus,Rat
+ST002633,Rattus norvegicus,Rat
+ST002634,Rattus norvegicus,Rat
+ST002635,Rattus norvegicus,Rat
+ST002636,Rattus norvegicus,Rat
+ST002637,Rattus norvegicus,Rat
+ST002638,Rattus norvegicus,Rat
+ST002639,Rattus norvegicus,Rat
+ST002640,Rattus norvegicus,Rat
+ST002641,Rattus norvegicus,Rat
+ST002642,Rattus norvegicus,Rat
+ST002643,Rattus norvegicus,Rat
+ST002644,Rattus norvegicus,Rat
+ST002645,Rattus norvegicus,Rat
+ST002646,Rattus norvegicus,Rat
+ST002647,Rattus norvegicus,Rat
+ST002648,Rattus norvegicus,Rat
+ST002649,Rattus norvegicus,Rat
+ST002650,Rattus norvegicus,Rat
+ST002651,Rattus norvegicus,Rat
+ST002652,Rattus norvegicus,Rat
+ST002653,Rattus norvegicus,Rat
+ST002654,Rattus norvegicus,Rat
+ST002655,Rattus norvegicus,Rat
+ST002656,Rattus norvegicus,Rat
+ST002657,Rattus norvegicus,Rat
+ST002658,Rattus norvegicus,Rat
+ST002659,Rattus norvegicus,Rat
+ST002660,Rattus norvegicus,Rat
+ST002661,Rattus norvegicus,Rat
+ST002662,Rattus norvegicus,Rat
+ST002663,Rattus norvegicus,Rat
+ST002664,Rattus norvegicus,Rat
+ST002665,Rattus norvegicus,Rat
+ST002666,Rattus norvegicus,Rat
+ST002667,Rattus norvegicus,Rat
+ST002668,Rattus norvegicus,Rat
+ST002669,Rattus norvegicus,Rat
+ST002670,Rattus norvegicus,Rat
+ST002671,Rattus norvegicus,Rat
+ST002672,Rattus norvegicus,Rat
+ST002673,Rattus norvegicus,Rat
+ST002674,Rattus norvegicus,Rat
+ST002675,Rattus norvegicus,Rat
+ST002676,Rattus norvegicus,Rat
+ST002677,Rattus norvegicus,Rat
+ST002678,Rattus norvegicus,Rat
+ST002679,Rattus norvegicus,Rat
+ST002680,Rattus norvegicus,Rat
+ST002681,Homo sapiens,Human
+ST002682,Rattus norvegicus,Rat
+ST002683,Rattus norvegicus,Rat
+ST002684,Rattus norvegicus,Rat
+ST002685,Rattus norvegicus,Rat
+ST002686,Rattus norvegicus,Rat
+ST002687,Rattus norvegicus,Rat
+ST002688,Rattus norvegicus,Rat
+ST002689,Rattus norvegicus,Rat
+ST002690,Rattus norvegicus,Rat
+ST002691,Rattus norvegicus,Rat
+ST002692,Homo sapiens,Human
+ST002693,Rattus norvegicus,Rat
+ST002694,Rattus norvegicus,Rat
+ST002695,Rattus norvegicus,Rat
+ST002696,Mus musculus,Mouse
+ST002697,Mus musculus,Mouse
+ST002698,Plasmodium berghei ANKA,Plasmodium berghei
+ST002699,Mus musculus,Mouse
+ST002700,Homo sapiens,Human
+ST002701,Mus musculus,Mouse
+ST002702,Homo sapiens,Human
+ST002703,Homo sapiens,Human
+ST002704,Homo sapiens,Human
+ST002705,Mus musculus,Mouse
+ST002706,Mus musculus,Mouse
+ST002707,Mus musculus,Mouse
+ST002708,Mus musculus,Mouse
+ST002709,Homo sapiens,Human
+ST002710,Mus musculus,Mouse
+ST002711,Homo sapiens,Human
+ST002712,Homo sapiens,Human
+ST002713,Homo sapiens,Human
+ST002714,Mus musculus,Mouse
+ST002715,Homo sapiens,Human
+ST002716,Homo sapiens,Human
+ST002717,Homo sapiens,Human
+ST002718,Homo sapiens,Human
+ST002719,Homo sapiens,Human
+ST002720,Homo sapiens,Human
+ST002721,Rattus norvegicus,Rat
+ST002722,Homo sapiens,Human
+ST002723,Mus musculus,Mouse
+ST002724,Homo sapiens,Human
+ST002725,Mus musculus,Mouse
+ST002726,Mus musculus,Mouse
+ST002727,Mus musculus,Mouse
+ST002728,Homo sapiens,Human
+ST002729,Mus musculus,Mouse
+ST002730,Candida albicans,Candida albicans
+ST002731,Homo sapiens,Human
+ST002732,Homo sapiens,Human
+ST002733,Homo sapiens,Human
+ST002734,Homo sapiens,Human
+ST002735,Homo sapiens,Human
+ST002736,Homo sapiens,Human
+ST002737,Bifidobacterium longum,Bifidobacterium
+ST002738,Mus musculus,Mouse
+ST002739,Mus musculus,Mouse
+ST002740,Mus musculus,Mouse
+ST002741,Lentilactobacillus kefiri,Lentilactobacillus kefiri
+ST002742,Banisteriopsis caapi,Chacrona
+ST002742,Psychotria viridis,Chacrona
+ST002743,Homo sapiens,Human
+ST002743,Pteropus alecto,Black flying fox fruit bat
+ST002744,Mus musculus,Mouse
+ST002745,Mus musculus,Mouse
+ST002746,Mus musculus,Mouse
+ST002747,Homo sapiens,Human
+ST002747,Rickettsia parkeri,Rickettsia parkeri
+ST002748,Mus musculus,Mouse
+ST002749,Pitcairnia flammea,Flame Bromeliad
+ST002750,Homo sapiens,Human
+ST002751,Mus musculus,Mouse
+ST002752,Mus musculus,Mouse
+ST002753,Mus musculus,Mouse
+ST002754,Mus musculus,Mouse
+ST002755,Homo sapiens,Human
+ST002756,Mus musculus,Mouse
+ST002757,Homo sapiens,Human
+ST002758,Rattus norvegicus,Rat
+ST002759,Rattus norvegicus,Rat
+ST002760,Rattus norvegicus,Rat
+ST002761,Rattus norvegicus,Rat
+ST002762,Homo sapiens,Human
+ST002763,Haemophilus influenzae,Haemophilus influenzae
+ST002764,Homo sapiens,Human
+ST002765,Rattus norvegicus,Rat
+ST002766,Homo sapiens,Human
+ST002767,Homo sapiens,Human
+ST002768,Danio rerio,Zebrafish
+ST002769,Homo sapiens,Human
+ST002770,Bacillus pumilus,Bacillus pumilus
+ST002772,Rattus norvegicus,Rat
+ST002773,Homo sapiens,Human
+ST002774,Mus musculus,Mouse
+ST002775,Danio rerio,Zebrafish
+ST002776,Danio rerio,Zebrafish
+ST002777,Homo sapiens,Human
+ST002778,Xenopus laevis,Frog
+ST002779,Arabidopsis thaliana,Arabidopsis thaliana
+ST002780,Homo sapiens,Human
+ST002781,Mus musculus,Mouse
+ST002782,Mus musculus,Mouse
+ST002783,Sus scrofa,Pig
+ST002784,Sus scrofa,Pig
+ST002785,Homo sapiens,Human
+ST002786,Sus scrofa,Pig
+ST002787,Homo sapiens,Human
+ST002788,Marine microbes,Marine microbes
+ST002789,Marine microbes,Marine microbes
+ST002790,Various marine planktons,Phytoplankton
+ST002791,Mus musculus,Mouse
+ST002792,Plasmodium falciparum,Plasmodium falciparum
+ST002793,Fusobacterium nucleatum,Fusobacterium nucleatum
+ST002794,Rattus norvegicus,Rat
+ST002795,Salvia,Sage
+ST002796,Homo sapiens,Human
+ST002797,Homo sapiens,Human
+ST002798,Homo sapiens,Human
+ST002799,Rattus norvegicus,Rat
+ST002800,Mus musculus,Mouse
+ST002801,Mus musculus,Mouse
+ST002802,Mus musculus,Mouse
+ST002803,Mus musculus,Mouse
+ST002804,Microbacterium sediminis,Microbacterium sediminis
+ST002805,Homo sapiens,Human
+ST002806,Homo sapiens,Human
+ST002807,Other Organism,Biofilm Microbial Community
+ST002808,Homo sapiens,Human
+ST002809,Canis lupus familiaris,Dog
+ST002809,Mus musculus,Mouse
+ST002810,Arabidopsis thaliana,Arabidopsis thaliana
+ST002811,Homo sapiens,Human
+ST002812,Homo sapiens,Human
+ST002813,Mus musculus,Mouse
+ST002814,Mus musculus,Mouse
+ST002815,Mus musculus,Mouse
+ST002816,Homo sapiens,Human
+ST002817,Mus musculus,Mouse
+ST002818,Homo sapiens,Human
+ST002819,Homo sapiens,Human
+ST002820,Homo sapiens,Human
+ST002821,Homo sapiens,Human
+ST002822,Mus musculus,Mouse
+ST002823,Mus musculus,Mouse
+ST002824,Mus musculus,Mouse
+ST002825,Homo sapiens,Human
+ST002826,Homo sapiens,Human
+ST002827,Homo sapiens,Human
+ST002828,Mus musculus,Mouse
+ST002829,Homo sapiens,Human
+ST002830,Mus musculus,Mouse
+ST002831,Homo sapiens,Human
+ST002832,Bacteroides fragilis,Bacteroides fragilis
+ST002832,Bacteroides thetaiotaomicron,Bacteroides thetaiotaomicron
+ST002832,Bacteroides uniformis,Bacteroides uniformis
+ST002832,Blautia producta,Blautia producta
+ST002832,Clostridium clostridioforme,Clostridium clostridioforme
+ST002832,Clostridium hathewayi,Clostridium hathewayi
+ST002832,Clostridium hylemonae,Clostridium hylemonae
+ST002832,Clostridium scindens,Clostridium scindens
+ST002832,Clostridium symbiosum,Clostridium symbiosum
+ST002832,Enterococcus faecalis,Enterococcus faecalis
+ST002832,Enterococcus faecium,Enterococcus faecium
+ST002832,Enterococcus hirae,Enterococcus hirae
+ST002832,Escherichia fergusonii,Escherichia fergusonii
+ST002832,Flavonifractor plautii,Flavonifractor plautii
+ST002832,Parabacteroides distasonis,Parabacteroides distasonis
+ST002833,Bacteroides fragilis,Bacteroides fragilis
+ST002833,Bacteroides thetaiotaomicron,Bacteroides thetaiotaomicron
+ST002833,Bacteroides uniformis,Bacteroides uniformis
+ST002833,Blautia producta,Blautia producta
+ST002833,Clostridium clostridioforme,Clostridium clostridioforme
+ST002833,Clostridium hathewayi,Clostridium hathewayi
+ST002833,Clostridium hylemonae,Clostridium hylemonae
+ST002833,Clostridium scindens,Clostridium scindens
+ST002833,Clostridium symbiosum,Clostridium symbiosum
+ST002833,Enterococcus faecalis,Enterococcus faecalis
+ST002833,Enterococcus faecium,Enterococcus faecium
+ST002833,Enterococcus hirae,Enterococcus hirae
+ST002833,Escherichia fergusonii,Escherichia fergusonii
+ST002833,Flavonifractor plautii,Flavonifractor plautii
+ST002833,Parabacteroides distasonis,Parabacteroides distasonis
+ST002834,Bacteroides fragilis,Bacteroides fragilis
+ST002834,Bacteroides thetaiotaomicron,Bacteroides thetaiotaomicron
+ST002834,Bacteroides uniformis,Bacteroides uniformis
+ST002834,Blautia producta,Blautia producta
+ST002834,Clostridium clostridioforme,Clostridium clostridioforme
+ST002834,Clostridium hathewayi,Clostridium hathewayi
+ST002834,Clostridium hylemonae,Clostridium hylemonae
+ST002834,Clostridium scindens,Clostridium scindens
+ST002834,Clostridium symbiosum,Clostridium symbiosum
+ST002834,Enterococcus faecalis,Enterococcus faecalis
+ST002834,Enterococcus faecium,Enterococcus faecium
+ST002834,Enterococcus hirae,Enterococcus hirae
+ST002834,Escherichia fergusonii,Escherichia fergusonii
+ST002834,Flavonifractor plautii,Flavonifractor plautii
+ST002834,Parabacteroides distasonis,Parabacteroides distasonis
+ST002835,Homo sapiens,Human
+ST002836,Mus musculus,Mouse
+ST002837,Mus musculus,Mouse
+ST002838,Homo sapiens,Human
+ST002839,Homo sapiens,Human
+ST002840,Bacillus subtilis,Bacillus subtilis
+ST002841,Bacillus subtilis,Bacillus subtilis
+ST002842,Mus musculus,Mouse
+ST002843,Mus musculus,Mouse
+ST002844,Mus musculus,Mouse
+ST002845,Homo sapiens,Human
+ST002846,Mus musculus,Mouse
+ST002847,Mus musculus,Mouse
+ST002848,Homo sapiens,Human
+ST002849,Homo sapiens,Human
+ST002850,Homo sapiens,Human
+ST002851,Mus musculus,Mouse
+ST002852,Mus musculus,Mouse
+ST002853,Homo sapiens,Human
+ST002854,Acinetobacter baumannii,Acinetobacter baumannii
+ST002854,Enterococcus faecium,Enterococcus faecium
+ST002854,Pseudomonas aeruginosa,Pseudomonas aeruginosa
+ST002854,Staphylococcus aureus,Staphylococcus aureus
+ST002855,Mus musculus,Mouse
+ST002856,Homo sapiens,Human
+ST002857,Homo sapiens,Human
+ST002858,Homo sapiens,Human
+ST002859,Homo sapiens,Human
+ST002860,Homo sapiens,Human
+ST002861,Homo sapiens,Human
+ST002862,Homo sapiens,Human
+ST002863,Homo sapiens,Human
+ST002864,Homo sapiens,Human
+ST002865,Homo sapiens,Human
+ST002867,Arabidopsis thaliana,Arabidopsis thaliana
+ST002868,Staphylococcus epidermidis,Staphylococcus epidermidis
+ST002869,Bacteria,Bacteria
+ST002870,Cassiopea andromeda,Cassiopea andromeda
+ST002870,Exaiptasia diaphana,Sea anemone
+ST002870,Stylophora pistillata,Stylophora pistillata
+ST002871,Homo sapiens,Human
+ST002872,Mus musculus,Mouse
+ST002873,Homo sapiens,Human
+ST002874,Homo sapiens,Human
+ST002875,Homo sapiens,Human
+ST002876,Homo sapiens,Human
+ST002877,Mus musculus,Mouse
+ST002878,Mus musculus,Mouse
+ST002879,Porphyromonas gingivalis ATCC33277,Porphyromonas gingivalis
+ST002880,Lycopersicon esculentum,Tomato
+ST002881,Mus musculus,Mouse
+ST002882,Mus musculus,Mouse
+ST002883,Mus musculus,Mouse
+ST002884,Mus musculus,Mouse
+ST002885,Mus musculus,Mouse
+ST002886,Mus musculus,Mouse
+ST002887,Mus musculus,Mouse
+ST002888,Mus musculus,Mouse
+ST002889,Mus musculus,Mouse
+ST002890,Escherichia coli,Escherichia coli
+ST002891,Mus musculus,Mouse
+ST002892,Homo sapiens,Human
+ST002893,Mus musculus,Mouse
+ST002894,Mus musculus,Mouse
+ST002895,Homo sapiens,Human
+ST002896,Mus musculus,Mouse
+ST002897,Homo sapiens,Human
+ST002898,Mus musculus,Mouse
+ST002899,Mus musculus,Mouse
+ST002900,Mus musculus,Mouse
+ST002901,Rattus norvegicus,Rat
+ST002902,Bos taurus,Cow
+ST002903,Homo sapiens,Human
+ST002904,Mus musculus,Mouse
+ST002905,Homo sapiens,Human
+ST002906,Homo sapiens,Human
+ST002907,Homo sapiens,Human
+ST002908,Ovis aries,Sheep
+ST002909,Homo sapiens,Human
+ST002910,Homo sapiens,Human
+ST002911,Mus musculus,Mouse
+ST002912,Mus musculus,Mouse
+ST002913,Homo sapiens,Human
+ST002914,Homo sapiens,Human
+ST002915,Rattus norvegicus,Rat
+ST002916,Rattus norvegicus,Rat
+ST002917,Arabidopsis thaliana,Arabidopsis thaliana
+ST002918,Mus musculus,Mouse
+ST002919,Homo sapiens,Human
+ST002920,Homo sapiens,Human
+ST002921,Homo sapiens,Human
+ST002922,Homo sapiens,Human
+ST002923,Homo sapiens,Human
+ST002924,Homo sapiens,Human
+ST002925,Mus musculus,Mouse
+ST002926,Plasmodium falciparum,Plasmodium falciparum
+ST002927,Homo sapiens,Human
+ST002928,Homo sapiens,Human
+ST002929,Mus musculus,Mouse
+ST002930,Mus musculus,Mouse
+ST002931,Mus musculus,Mouse
+ST002932,Mus musculus,Mouse
+ST002933,Symbiodiniaceae,Symbiodiniaceae
+ST002934,Homo sapiens,Human
+ST002935,Homo sapiens,Human
+ST002936,Homo sapiens,Human
+ST002937,Homo sapiens,Human
+ST002938,Homo sapiens,Human
+ST002939,Mus musculus,Mouse
+ST002940,Homo sapiens,Human
+ST002941,Homo sapiens,Human
+ST002942,Homo sapiens,Human
+ST002943,Homo sapiens,Human
+ST002944,Mus musculus,Mouse
+ST002945,Homo sapiens,Human
+ST002946,Homo sapiens,Human
+ST002947,Mus musculus,Mouse
+ST002948,Homo sapiens,Human
+ST002949,Homo sapiens,Human
+ST002950,Mus musculus,Mouse
+ST002952,Mus musculus,Mouse
+ST002953,Mus musculus,Mouse
+ST002954,Thalassiosira pseudonana,Thalassiosira pseudonana
+ST002955,Homo sapiens,Human
+ST002956,Mus musculus,Mouse
+ST002957,Thalassiosira pseudonana,Thalassiosira pseudonana
+ST002958,Mus musculus,Mouse
+ST002959,Homo sapiens,Human
+ST002960,Homo sapiens,Human
+ST002961,Homo sapiens,Human
+ST002962,Mus musculus,Mouse
+ST002963,Mus musculus,Mouse
+ST002964,Homo sapiens,Human
+ST002965,Homo sapiens,Human
+ST002966,Corydalis yanhusuo,Corydalis yanhusuo
+ST002967,Homo sapiens,Human
+ST002968,Rattus norvegicus,Rat
+ST002969,Mus musculus,Mouse
+ST002970,Escherichia coli,Escherichia coli
+ST002971,Escherichia coli,Escherichia coli
+ST002972,Escherichia coli,Escherichia coli
+ST002973,Other abiotic sample,Other abiotic sample
+ST002974,Mus musculus,Mouse
+ST002975,Mus musculus,Mouse
+ST002976,Mus musculus,Mouse
+ST002977,Homo sapiens,Human
+ST002978,Gardenerella vaginalis,Gardenerella vaginalis
+ST002978,Lactobacillus crispatus,Lactobacillus crispatus
+ST002978,Lactobacillus iners,Lactobacillus iners
+ST002979,Homo sapiens,Human
+ST002980,Mus musculus,Mouse
+ST002981,Danio rerio,Zebrafish
+ST002982,Homo sapiens,Human
+ST002983,Mus musculus,Mouse
+ST002984,Homo sapiens,Human
+ST002985,Homo sapiens,Human
+ST002986,Mus musculus,Mouse
+ST002987,Homo sapiens,Human
+ST002988,Homo sapiens,Human
+ST002989,Mus musculus,Mouse
+ST002990,Homo sapiens,Human
+ST002991,Homo sapiens,Human
+ST002992,Homo sapiens,Human
+ST002993,Homo sapiens,Human
+ST002994,Bos taurus,Cow
+ST002995,Quercus ilex,Oak
+ST002996,Homo sapiens,Human
+ST002997,Rattus norvegicus,Rat
+ST002998,Faecalibacterium prausnitzii,Faecalibacterium prausnitzii
+ST002998,Lacticaseibacillus rhamnosus,Lacticaseibacillus rhamnosus
+ST002999,Mus musculus,Mouse
+ST003000,Mus musculus,Mouse
+ST003001,Bos taurus,Cow
+ST003002,Homo sapiens,Human
+ST003003,Rattus norvegicus,Rat
+ST003004,Mus musculus,Mouse
+ST003005,Mus musculus,Mouse
+ST003006,Mus musculus,Mouse
+ST003007,Mus musculus,Mouse
+ST003008,Mus musculus,Mouse
+ST003009,Mus musculus,Mouse
+ST003010,Mus musculus,Mouse
+ST003011,Mus musculus,Mouse
+ST003012,Homo sapiens,Human
+ST003013,Homo sapiens,Human
+ST003014,Homo sapiens,Human
+ST003015,Homo sapiens,Human
+ST003016,Cormus domestica,Cormus domestica
+ST003017,Trichechus manatus latirostris,Florida manatee
+ST003018,Homo sapiens,Human
+ST003019,Homo sapiens,Human
+ST003020,Mus musculus,Mouse
+ST003021,Homo sapiens,Human
+ST003022,Mus musculus,Mouse
+ST003023,Homo sapiens,Human
+ST003024,Pseudomonas aeruginosa,Pseudomonas aeruginosa
+ST003025,Homo sapiens,Human
+ST003026,Homo sapiens,Human
+ST003027,Homo sapiens,Human
+ST003028,Mus musculus,Mouse
+ST003029,Homo sapiens,Human
+ST003030,Mus musculus,Mouse
+ST003031,Homo sapiens,Human
+ST003032,Homo sapiens,Human
+ST003033,Homo sapiens,Human
+ST003034,Homo sapiens,Human
+ST003035,Picochlorum celeri,Picochlorum celeri
+ST003036,Pseudomonas aeruginosa,Pseudomonas aeruginosa
+ST003038,Mus musculus,Mouse
+ST003039,Homo sapiens,Human
+ST003040,Homo sapiens,Human
+ST003041,Echium vulgare,Echium vulgare
+ST003042,Mus musculus,Mouse
+ST003043,Mus musculus,Mouse
+ST003044,Homo sapiens,Human
+ST003045,Homo sapiens,Human
+ST003046,Sus scrofa,Pig
+ST003047,Mus musculus,Mouse
+ST003048,Homo sapiens,Human
+ST003049,Homo sapiens,Human
+ST003050,Homo sapiens,Human
+ST003051,Homo sapiens,Human
+ST003052,Mus musculus,Mouse
+ST003053,Staphylococcus aureus,Staphylococcus aureus
+ST003054,Mus musculus,Mouse
+ST003055,Mus musculus,Mouse
+ST003056,Homo sapiens,Human
+ST003057,Mus musculus,Mouse
+ST003058,Mus musculus,Mouse
+ST003059,Sus scrofa,Pig
+ST003060,Homo sapiens,Human
+ST003061,Camellia sinensis,Tea plant
+ST003062,Homo sapiens,Human
+ST003063,Mus musculus,Mouse
+ST003064,Amaranthus caudatus L.,Pendant amaranth
+ST003065,Homo sapiens,Human
+ST003066,Homo sapiens,Human
+ST003067,Homo sapiens,Human
+ST003068,Homo sapiens,Human
+ST003069,Homo sapiens,Human
+ST003070,Homo sapiens,Human
+ST003071,Homo sapiens,Human
+ST003072,Mus musculus,Mouse
+ST003073,Mus musculus,Mouse
+ST003074,Synthetic,Synthetic
+ST003075,Homo sapiens,Human
+ST003076,Mus musculus,Mouse
+ST003077,Mus musculus,Mouse
+ST003078,Staphylococcus epidermidis,Staphylococcus epidermidis
+ST003079,Mus musculus,Mouse
+ST003080,Mus musculus,Mouse
+ST003081,Mus musculus,Mouse
+ST003082,Mus musculus,Mouse
+ST003083,Mus musculus,Mouse
+ST003084,Mus musculus,Mouse
+ST003085,Mus musculus,Mouse
+ST003086,Mus musculus,Mouse
+ST003087,Mus musculus,Mouse
+ST003088,Mus musculus,Mouse
+ST003089,Mus musculus,Mouse
+ST003090,Mus musculus,Mouse
+ST003091,Mus musculus,Mouse
+ST003092,Homo sapiens,Human
+ST003093,Rattus norvegicus,Rat
+ST003094,Mus musculus,Mouse
+ST003095,Mus musculus,Mouse
+ST003096,Mus musculus,Mouse
+ST003097,Mus musculus,Mouse
+ST003098,Mus musculus,Mouse
+ST003099,Mus musculus,Mouse
+ST003100,Mus musculus,Mouse
+ST003101,Apis mellifera,Honey bee
+ST003102,Homo sapiens,Human
+ST003103,Homo sapiens,Human
+ST003104,Homo sapiens,Human
+ST003105,Mus musculus,Mouse
+ST003106,Homo sapiens,Human
+ST003107,Mus musculus,Mouse
+ST003108,Homo sapiens,Human
+ST003109,Homo sapiens,Human
+ST003110,Homo sapiens,Human
+ST003111,Mus musculus,Mouse
+ST003112,Mus musculus,Mouse
+ST003113,Mus musculus,Mouse
+ST003114,Homo sapiens,Human
+ST003115,Homo sapiens,Human
+ST003116,Homo sapiens,Human
+ST003117,Homo sapiens,Human
+ST003118,Mus musculus,Mouse
+ST003119,Algae,Algae
+ST003120,Mus musculus,Mouse
+ST003121,Homo sapiens,Human
+ST003122,Homo sapiens,Human
+ST003123,Homo sapiens,Human
+ST003124,Homo sapiens,Human
+ST003125,Mus musculus,Mouse
+ST003126,Mus musculus,Mouse
+ST003127,Mus musculus,Mouse
+ST003128,Mus musculus,Mouse
+ST003129,Mus musculus,Mouse
+ST003130,Mus musculus,Mouse
+ST003131,Mus musculus,Mouse
+ST003132,Mus musculus,Mouse
+ST003133,Homo sapiens,Human
+ST003134,Homo sapiens,Human
+ST003135,Homo sapiens,Human
+ST003136,Homo sapiens,Human
+ST003137,Homo sapiens,Human
+ST003138,Homo sapiens,Human
+ST003139,Homo sapiens,Human
+ST003140,Mus musculus,Mouse
+ST003141,Mus musculus,Mouse
+ST003142,Mus musculus,Mouse
+ST003143,Homo sapiens,Human
+ST003144,Plasmodium falciparum,Plasmodium falciparum
+ST003145,Mus musculus,Mouse
+ST003146,Homo sapiens,Human
+ST003147,Homo sapiens,Human
+ST003148,Homo sapiens,Human
+ST003149,Mus musculus,Mouse
+ST003150,Mus musculus,Mouse
+ST003151,Homo sapiens,Human
+ST003152,Mus musculus,Mouse
+ST003153,Homo sapiens,Human
+ST003154,Mus musculus,Mouse
+ST003155,Homo sapiens,Human
+ST003156,Mus musculus,Mouse
+ST003157,Mus musculus,Mouse
+ST003159,Homo sapiens,Human
+ST003160,Plasmodium falciparum,Plasmodium falciparum
+ST003161,Homo sapiens,Human
+ST003162,Drosophila melanogaster,Fruit fly
+ST003165,Rattus norvegicus,Rat
+ST003166,Mus musculus,Mouse
+ST003167,Homo sapiens,Human
+ST003168,Homo sapiens,Human
+ST003169,Mus musculus,Mouse
+ST003170,Mus musculus,Mouse
+ST003171,Homo sapiens,Human
+ST003172,Capsicum Chinense,Habanero pepper
+ST003173,"Malus domestica, Pyrus communis, Apple-pear intergeneric hybrid",Apple-pear hybrid
+ST003174,Homo sapiens,Human
+ST003175,Mus musculus,Mouse
+ST003176,Mus musculus,Mouse
+ST003177,Homo sapiens,Human
+ST003178,Homo sapiens,Human
+ST003179,Plasmodium falciparum,Plasmodium falciparum
+ST003181,Homo sapiens,Human
+ST003182,Homo sapiens,Human
+ST003183,Homo sapiens,Human
+ST003184,Mus musculus,Mouse
+ST003185,Mus musculus,Mouse
+ST003186,Mus musculus,Mouse
+ST003187,Escherichia coli,Escherichia coli
+ST003188,Mus musculus,Mouse
+ST003189,Homo sapiens,Human
+ST003190,Arabidopsis thaliana,Arabidopsis thaliana
+ST003191,Homo sapiens,Human
+ST003192,Homo sapiens,Human
+ST003193,Homo sapiens,Human
+ST003194,Homo sapiens,Human
+ST003195,Homo sapiens,Human
+ST003196,Homo sapiens,Human
+ST003197,Mus musculus,Mouse
+ST003198,Homo sapiens,Human
+ST003199,Mus musculus,Mouse
+ST003200,Homo sapiens,Human
+ST003201,Mus musculus,Mouse
+ST003202,Escherichia coli,Escherichia coli
+ST003203,Homo sapiens,Human
+ST003204,Homo sapiens,Human
+ST003205,Homo sapiens,Human
+ST003206,Homo sapiens,Human
+ST003207,Homo sapiens,Human
+ST003208,Homo sapiens,Human
+ST003210,Homo sapiens,Human
+ST003211,Mus musculus,Mouse
+ST003212,Apis mellifera,Honey bee
+ST003213,Homo sapiens,Human
+ST003214,Mus musculus,Mouse
+ST003215,Mus musculus,Mouse
+ST003216,Mus musculus,Mouse
+ST003217,Homo sapiens,Human
+ST003218,Homo sapiens,Human
+ST003219,Psychotria viridis,Chacrona
+ST003220,Mus musculus,Mouse
+ST003221,Mus musculus,Mouse
+ST003222,Mus musculus,Mouse
+ST003223,Psychotria viridis,Chacrona
+ST003224,Plasmodium falciparum,Plasmodium falciparum
+ST003225,Xenopus laevis,Frog
+ST003226,Xenopus laevis,Frog
+ST003237,Homo sapiens,Human
+ST003238,Mus musculus,Mouse
+ST003239,Mus musculus,Mouse
+ST003240,Mus musculus,Mouse
+ST003241,Mus musculus,Mouse
+ST003242,Mus musculus,Mouse
+ST003243,Mus musculus,Mouse
+ST003244,Mus musculus,Mouse
+ST003245,Homo sapiens,Human
+ST003246,Mus musculus,Mouse
+ST003247,Mus musculus,Mouse
+ST003248,Mus musculus,Mouse
+ST003249,Mus musculus,Mouse
+ST003250,Xenopus laevis,Frog
+ST003251,Mycoplasma mycoides,Mycoplasma mycoides
+ST003252,Mus musculus,Mouse
+ST003253,Mus musculus,Mouse
+ST003254,Bos taurus,Cow
+ST003255,Homo sapiens,Human
+ST003256,Homo sapiens,Human
+ST003257,Mus musculus,Mouse
+ST003258,Mus musculus,Mouse
+ST003259,Mus musculus,Mouse
+ST003260,Homo sapiens,Human
+ST003261,Homo sapiens,Human
+ST003262,Homo sapiens,Human
+ST003263,Homo sapiens,Human
+ST003264,Mus musculus,Mouse
+ST003265,Mus musculus,Mouse
+ST003266,Homo sapiens,Human
+ST003267,Homo sapiens,Human
+ST003268,Mus musculus,Mouse
+ST003269,Mus musculus,Mouse
+ST003270,Mus musculus,Mouse
+ST003271,Mus musculus,Mouse
+ST003272,Mus musculus,Mouse
+ST003273,Mus musculus,Mouse
+ST003274,Homo sapiens,Human
+ST003275,Homo sapiens,Human
+ST003276,Homo sapiens,Human
+ST003277,Mus musculus,Mouse
+ST003278,Xenopus laevis,Frog
+ST003279,Xenopus laevis,Frog
+ST003280,Xenopus laevis,Frog
+ST003281,Cryptococcus neoformans,Cryptococcus neoformans
+ST003282,Bos taurus,Cow
+ST003283,Mus musculus,Mouse
+ST003284,Mus musculus,Mouse
+ST003285,Homo sapiens,Human
+ST003286,Homo sapiens,Human
+ST003287,Homo sapiens,Human
+ST003288,Mus musculus,Mouse
+ST003289,Hordeum vulgare,Barley
+ST003290,Mus musculus,Mouse
+ST003291,Homo sapiens,Human
+ST003292,Brassica oleracea,Cabbage
+ST003293,Rattus norvegicus,Rat
+ST003294,Oncorhynchus kisutch,Coho salmon
+ST003294,Oncorhynchus mykiss,Rainbow trout
+ST003294,Oncorhynchus tshawytscha,Chinook salmon
+ST003295,Aurantiochytrium limacinum,Aurantiochytrium limacinum
+ST003296,Oncorhynchus kisutch,Coho salmon
+ST003296,Oncorhynchus mykiss,Rainbow trout
+ST003296,Oncorhynchus tshawytscha,Chinook salmon
+ST003297,Mus musculus,Mouse
+ST003298,Hevea brasiliensis,Rubber tree
+ST003299,Mus musculus,Mouse
+ST003300,Mus musculus,Mouse
+ST003301,Homo sapiens,Human
+ST003302,Rattus norvegicus,Rat
+ST003303,Homo sapiens,Human
+ST003304,Mus musculus,Mouse
+ST003305,Homo sapiens,Human
+ST003306,Homo sapiens,Human
+ST003307,Panax ginseng,Panax ginseng
+ST003308,Avena sativa,Oat
+ST003309,Pinus koraiensis,Pine
+ST003310,Avena sativa,Oat
+ST003311,Mus musculus,Mouse
+ST003312,Homo sapiens,Human
+ST003313,Homo sapiens,Human
+ST003315,Homo sapiens,Human
+ST003316,Mus musculus,Mouse
+ST003317,Mus musculus,Mouse
+ST003318,Mus musculus,Mouse
+ST003319,Mus musculus,Mouse
+ST003320,Mus musculus,Mouse
+ST003321,Mus musculus,Mouse
+ST003322,Homo sapiens,Human
+ST003323,Mus musculus,Mouse
+ST003324,Homo sapiens,Human
+ST003325,Homo sapiens,Human
+ST003326,Mus musculus,Mouse
+ST003327,Homo sapiens,Human
+ST003328,Homo sapiens,Human
+ST003329,Caenorhabditis elegans,C. elegans
+ST003330,Homo sapiens,Human
+ST003331,Homo sapiens,Human
+ST003332,Homo sapiens,Human
+ST003333,Homo sapiens,Human
+ST003334,Mus musculus,Mouse
+ST003335,Mus musculus,Mouse
+ST003336,Mus musculus,Mouse
+ST003337,Mus musculus,Mouse
+ST003338,Homo sapiens,Human
+ST003339,Mus musculus,Mouse
+ST003340,Caenorhabditis elegans,C. elegans
+ST003341,Canis lupus familiaris,Dog
+ST003342,Brassica oleracea,Cabbage
+ST003343,Staphylococcus aureus,Staphylococcus aureus
+ST003344,Bacteroides uniformis,Bacteroides uniformis
+ST003345,Homo sapiens,Human
+ST003346,Homo sapiens,Human
+ST003347,Homo sapiens,Human
+ST003348,Homo sapiens,Human
+ST003349,Homo sapiens,Human
+ST003350,Oryza sativa,Rice
+ST003351,Homo sapiens,Human
+ST003352,Homo sapiens,Human
+ST003353,Homo sapiens,Human
+ST003354,Homo sapiens,Human
+ST003355,Homo sapiens,Human
+ST003356,Homo sapiens,Human
+ST003357,Homo sapiens,Human
+ST003358,Homo sapiens,Human
+ST003359,Homo sapiens,Human
+ST003360,Homo sapiens,Human
+ST003361,Mus musculus,Mouse
+ST003362,Homo sapiens,Human
+ST003363,Homo sapiens,Human
+ST003364,Homo sapiens,Human
+ST003365,Homo sapiens,Human
+ST003366,Danio rerio,Zebrafish
+ST003367,Homo sapiens,Human
+ST003368,Homo sapiens,Human
+ST003369,Homo sapiens,Human
+ST003370,Homo sapiens,Human
+ST003371,Homo sapiens,Human
+ST003372,Homo sapiens,Human
+ST003373,Homo sapiens,Human
+ST003374,Homo sapiens,Human
+ST003375,Mus musculus,Mouse
+ST003376,Mus musculus,Mouse
+ST003377,Homo sapiens,Human
+ST003378,Mus musculus,Mouse
+ST003379,Mus musculus,Mouse
+ST003380,Rattus norvegicus,Rat
+ST003381,Mus musculus,Mouse
+ST003382,Homo sapiens,Human
+ST003383,Mus musculus,Mouse
+ST003384,Mus musculus,Mouse
+ST003385,Danio rerio,Zebrafish
+ST003386,Danio rerio,Zebrafish
+ST003387,Homo sapiens,Human
+ST003388,Homo sapiens,Human
+ST003389,Mus musculus,Mouse
+ST003390,Homo sapiens,Human
+ST003391,Mus musculus,Mouse
+ST003392,Mus musculus,Mouse
+ST003393,Mus musculus,Mouse
+ST003394,Mus musculus,Mouse
+ST003395,Mus musculus,Mouse
+ST003397,Mus musculus,Mouse
+ST003398,Homo sapiens,Human
+ST003399,Hordeum vulgare,Barley
+ST003400,Mus musculus,Mouse
+ST003401,Streptococcus pyogenes,Streptococcus pyogenes
+ST003403,Streptococcus pyogenes,Streptococcus pyogenes
+ST003404,Homo sapiens,Human
+ST003405,Homo sapiens,Human
+ST003407,Mus musculus,Mouse
+ST003409,Homo sapiens,Human
+ST003410,Homo sapiens,Human
+ST003411,Homo sapiens,Human
+ST003412,Homo sapiens,Human
+ST003413,Lethenteron camtschaticum,Arctic lamprey
+ST003414,Mus musculus,Mouse
+ST003415,Homo sapiens,Human
+ST003416,Homo sapiens,Human
+ST003417,Homo sapiens,Human
+ST003418,Homo sapiens,Human
+ST003419,Homo sapiens,Human
+ST003420,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST003421,Mus musculus,Mouse
+ST003422,Mus musculus,Mouse
+ST003423,Mus musculus,Mouse
+ST003424,Homo sapiens,Human
+ST003425,Mus musculus,Mouse
+ST003426,Mus musculus,Mouse
+ST003427,Homo sapiens,Human
+ST003428,Homo sapiens,Human
+ST003429,Homo sapiens,Human
+ST003430,Homo sapiens,Human
+ST003431,Homo sapiens,Human
+ST003432,Homo sapiens,Human
+ST003433,Homo sapiens,Human
+ST003434,Mus musculus,Mouse
+ST003435,Danio rerio,Zebrafish
+ST003436,Mus musculus,Mouse
+ST003437,Myotis lucifugus,Little brown bat
+ST003438,Drosophila melanogaster,Fruit fly
+ST003439,Homo sapiens,Human
+ST003440,Enterobacter sp.,Enterobacter sp.
+ST003441,Mus musculus,Mouse
+ST003442,Homo sapiens,Human
+ST003443,Homo sapiens,Human
+ST003444,Homo sapiens,Human
+ST003445,Mus musculus,Mouse
+ST003446,Mus musculus,Mouse
+ST003447,Homo sapiens,Human
+ST003448,Homo sapiens,Human
+ST003449,Homo sapiens,Human
+ST003450,Homo sapiens,Human
+ST003451,Mus musculus,Mouse
+ST003452,Homo sapiens,Human
+ST003453,Rattus norvegicus,Rat
+ST003454,Homo sapiens,Human
+ST003455,Homo sapiens,Human
+ST003456,Homo sapiens,Human
+ST003457,Mus musculus,Mouse
+ST003458,Mus musculus,Mouse
+ST003459,Mus musculus,Mouse
+ST003460,Mus musculus,Mouse
+ST003461,Mus musculus,Mouse
+ST003462,Mus musculus,Mouse
+ST003464,Mus musculus,Mouse
+ST003465,Mus musculus,Mouse
+ST003466,Mus musculus,Mouse
+ST003467,Mus musculus,Mouse
+ST003468,Mus musculus,Mouse
+ST003469,Mus musculus,Mouse
+ST003470,Mus musculus,Mouse
+ST003471,Mus musculus,Mouse
+ST003472,Mus musculus,Mouse
+ST003473,Gammarus locusta,Amphipods
+ST003474,Homo sapiens,Human
+ST003475,Homo sapiens,Human
+ST003476,Mus musculus,Mouse
+ST003477,Homo sapiens,Human
+ST003479,Mus musculus,Mouse
+ST003480,Homo sapiens,Human
+ST003481,Mus musculus,Mouse
+ST003482,Mus musculus,Mouse
+ST003483,Mus musculus,Mouse
+ST003484,Homo sapiens,Human
+ST003485,Homo sapiens,Human
+ST003486,Homo sapiens,Human
+ST003487,Homo sapiens,Human
+ST003488,Homo sapiens,Human
+ST003489,Homo sapiens,Human
+ST003490,Homo sapiens,Human
+ST003491,Homo sapiens,Human
+ST003492,Homo sapiens,Human
+ST003493,Homo sapiens,Human
+ST003495,Mus musculus,Mouse
+ST003496,Mus musculus,Mouse
+ST003497,Homo sapiens,Human
+ST003498,Homo sapiens,Human
+ST003499,Homo sapiens,Human
+ST003500,Homo sapiens,Human
+ST003501,Mus musculus,Mouse
+ST003502,Mus musculus,Mouse
+ST003504,Homo sapiens,Human
+ST003505,Homo sapiens,Human
+ST003505,Mus musculus,Mouse
+ST003506,Homo sapiens,Human
+ST003507,Mus musculus,Mouse
+ST003508,Homo sapiens,Human
+ST003509,Mus musculus,Mouse
+ST003510,Mus musculus,Mouse
+ST003511,Malassezia globosa,Malassezia globosa
+ST003512,Mus musculus,Mouse
+ST003514,Homo sapiens,Human
+ST003515,Mus musculus,Mouse
+ST003516,Mus musculus,Mouse
+ST003517,Homo sapiens,Human
+ST003518,Mus musculus,Mouse
+ST003519,Rattus norvegicus,Rat
+ST003520,Homo sapiens,Human
+ST003521,Acinetobacter baumannii,Acinetobacter baumannii
+ST003522,Mus musculus,Mouse
+ST003523,Homo sapiens,Human
+ST003524,Homo sapiens,Human
+ST003525,Mus musculus,Mouse
+ST003526,Mus musculus,Mouse
+ST003527,Homo sapiens,Human
+ST003528,Mus musculus,Mouse
+ST003529,Mus musculus,Mouse
+ST003530,Callithrix jacchus,Marmoset
+ST003531,Homo sapiens,Human
+ST003532,Homo sapiens,Human
+ST003533,Mus musculus,Mouse
+ST003534,Mus musculus,Mouse
+ST003535,Pteris vittata,Chinese brake fern
+ST003536,Mus musculus,Mouse
+ST003537,Glycine max,Soybean
+ST003538,Glycine max,Soybean
+ST003539,Glycine max,Soybean
+ST003540,Glycine max,Soybean
+ST003541,Glycine max,Soybean
+ST003542,Homo sapiens,Human
+ST003544,Homo sapiens,Human
+ST003546,Bos taurus,Cow
+ST003547,Homo sapiens,Human
+ST003548,Mus musculus,Mouse
+ST003549,Mus musculus,Mouse
+ST003550,Homo sapiens,Human
+ST003550,Mus musculus,Mouse
+ST003551,Homo sapiens,Human
+ST003552,Apis mellifera,Honey bee
+ST003553,Apis mellifera,Honey bee
+ST003554,Apis mellifera,Honey bee
+ST003555,Homo sapiens,Human
+ST003556,Homo sapiens,Human
+ST003557,Mus musculus,Mouse
+ST003558,Homo sapiens,Human
+ST003559,Homo sapiens,Human
+ST003560,Populus trichocarpa,Populus trichocarpa
+ST003561,Homo sapiens,Human
+ST003562,Plasmodium falciparum,Plasmodium falciparum
+ST003563,Hordeum vulgare,Barley
+ST003564,Homo sapiens,Human
+ST003565,Plasmodium falciparum,Plasmodium falciparum
+ST003566,Mus musculus,Mouse
+ST003567,Zea mays,Maize
+ST003568,Mus musculus,Mouse
+ST003569,Mus musculus,Mouse
+ST003570,Homo sapiens,Human
+ST003570,Mus musculus,Mouse
+ST003571,Homo sapiens,Human
+ST003571,Mus musculus,Mouse
+ST003572,Mus musculus,Mouse
+ST003575,Mus musculus,Mouse
+ST003576,Homo sapiens,Human
+ST003577,Lake water,Lake water
+ST003578,Homo sapiens,Human
+ST003579,Homo sapiens,Human
+ST003580,Mus musculus,Mouse
+ST003581,Homo sapiens,Human
+ST003583,Scenedesmus obliquus,Scenedesmus obliquus
+ST003584,Homo sapiens,Human
+ST003585,Homo sapiens,Human
+ST003586,Mus musculus,Mouse
+ST003587,Homo sapiens,Human
+ST003588,Mus musculus,Mouse
+ST003589,Drosophila melanogaster,Fruit fly
+ST003590,Drosophila melanogaster,Fruit fly
+ST003595,Mus musculus,Mouse
+ST003596,Mus musculus,Mouse
+ST003597,Homo sapiens,Human
+ST003598,Homo sapiens,Human
+ST003598,Mus musculus,Mouse
+ST003599,Homo sapiens,Human
+ST003600,Gallus gallus,Chicken
+ST003601,Mus musculus,Mouse
+ST003602,Mesocricetus auratus,Golden hamster
+ST003603,Mus musculus,Mouse
+ST003604,Mus musculus,Mouse
+ST003605,Mus musculus,Mouse
+ST003606,Mus musculus,Mouse
+ST003607,Mus musculus,Mouse
+ST003608,Escherichia coli,Escherichia coli
+ST003609,Escherichia coli,Escherichia coli
+ST003610,Mus musculus,Mouse
+ST003611,Mus musculus,Mouse
+ST003612,Candida auris,Candida auris
+ST003613,Homo sapiens,Human
+ST003614,Mus musculus,Mouse
+ST003615,Mus musculus,Mouse
+ST003616,Homo sapiens,Human
+ST003617,Homo sapiens,Human
+ST003622,Mus musculus,Mouse
+ST003623,Homo sapiens,Human
+ST003624,Homo sapiens,Human
+ST003625,Homo sapiens,Human
+ST003626,Homo sapiens,Human
+ST003627,Homo sapiens,Human
+ST003629,Homo sapiens,Human
+ST003630,Homo sapiens,Human
+ST003632,Homo sapiens,Human
+ST003633,Artemia salina,Brine shrimp
+ST003634,Mus musculus,Mouse
+ST003635,Mus musculus,Mouse
+ST003636,Homo sapiens,Human
+ST003637,Homo sapiens,Human
+ST003638,Homo sapiens,Human
+ST003639,Homo sapiens,Human
+ST003641,Mus musculus,Mouse
+ST003642,Plasmodium falciparum,Plasmodium falciparum
+ST003643,Brassica napus,Rapeseed
+ST003644,Mus musculus,Mouse
+ST003645,Homo sapiens,Human
+ST003647,Mus musculus,Mouse
+ST003648,Mus musculus,Mouse
+ST003649,Homo sapiens,Human
+ST003650,Mus musculus,Mouse
+ST003651,Homo sapiens,Human
+ST003652,Mus musculus,Mouse
+ST003653,Bacteria,Bacteria
+ST003654,Homo sapiens,Human
+ST003655,Homo sapiens,Human
+ST003655,Mus musculus,Mouse
+ST003656,Homo sapiens,Human
+ST003657,Homo sapiens,Human
+ST003658,Homo sapiens,Human
+ST003659,Escherichia coli,Escherichia coli
+ST003660,Homo sapiens,Human
+ST003661,Homo sapiens,Human
+ST003662,Homo sapiens,Human
+ST003663,Gallus gallus,Chicken
+ST003664,Mus musculus,Mouse
+ST003665,Homo sapiens,Human
+ST003666,Homo sapiens,Human
+ST003667,Homo sapiens,Human
+ST003669,Homo sapiens,Human
+ST003670,Homo sapiens,Human
+ST003671,Homo sapiens,Human
+ST003672,Mesocricetus auratus,Golden hamster
+ST003673,Rattus norvegicus,Rat
+ST003674,Homo sapiens,Human
+ST003675,Ovis canadensis canadensis,Bighorn sheep
+ST003678,Homo sapiens,Human
+ST003679,Mus musculus,Mouse
+ST003680,Mus musculus,Mouse
+ST003681,Homo sapiens,Human
+ST003683,Mus musculus,Mouse
+ST003685,Caenorhabditis elegans,C. elegans
+ST003686,Homo sapiens,Human
+ST003687,Homo sapiens,Human
+ST003688,Rattus norvegicus,Rat
+ST003689,Rattus norvegicus,Rat
+ST003691,Homo sapiens,Human
+ST003692,Brucella abortus,Brucella abortus
+ST003694,Homo sapiens,Human
+ST003695,Mus musculus,Mouse
+ST003696,Brucella abortus,Brucella abortus
+ST003697,Homo sapiens,Human
+ST003698,Mus musculus,Mouse
+ST003699,Homo sapiens,Human
+ST003700,Mus musculus,Mouse
+ST003701,Mus musculus,Mouse
+ST003702,Mus musculus,Mouse
+ST003703,Mus musculus,Mouse
+ST003704,Homo sapiens,Human
+ST003705,Homo sapiens,Human
+ST003706,Homo sapiens,Human
+ST003707,Centella asiatica,Centella asiatica
+ST003708,Quercus ilex,Oak
+ST003709,Homo sapiens,Human
+ST003710,Homo sapiens,Human
+ST003711,Vibrio cholerae,Vibrio cholerae
+ST003712,Danio rerio,Zebrafish
+ST003713,Homo sapiens,Human
+ST003714,Mus musculus,Mouse
+ST003715,Mus musculus,Mouse
+ST003716,Mus musculus,Mouse
+ST003717,Mus musculus,Mouse
+ST003718,Mus musculus,Mouse
+ST003719,Rattus norvegicus,Rat
+ST003720,Homo sapiens,Human
+ST003721,Mus musculus,Mouse
+ST003722,Mus musculus,Mouse
+ST003723,Mus musculus,Mouse
+ST003724,Mus musculus,Mouse
+ST003725,Thermococcus kodakarensis,Thermococcus kodakarensis
+ST003726,Escherichia coli,Escherichia coli
+ST003726,Homo sapiens,Human
+ST003726,Methanococcus maripaludis,Methanococcus maripaludis
+ST003726,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST003726,Sulfolobus acidocaldarius,Sulfolobus acidocaldarius
+ST003726,Sulfolobus islandicus,Sulfolobus islandicus
+ST003726,Thermococcus kodakarensis,Thermococcus kodakarensis
+ST003726,Thermococcus sp. AM4,Thermococcus
+ST003727,Methanococcus maripaludis,Methanococcus maripaludis
+ST003727,Sulfolobus acidocaldarius,Sulfolobus acidocaldarius
+ST003727,Sulfolobus islandicus,Sulfolobus islandicus
+ST003727,Thermococcus kodakarensis,Thermococcus kodakarensis
+ST003727,Thermococcus sp. AM4,Thermococcus
+ST003728,Thermococcus kodakarensis,Thermococcus kodakarensis
+ST003729,Apis mellifera,Honey bee
+ST003730,Apis mellifera,Honey bee
+ST003731,Mus musculus,Mouse
+ST003732,Homo sapiens,Human
+ST003733,Rattus norvegicus,Rat
+ST003734,Homo sapiens,Human
+ST003735,Escherichia coli,Escherichia coli
+ST003736,Rumex patientia,Rumex patientia
+ST003737,Homo sapiens,Human
+ST003738,Mus musculus,Mouse
+ST003739,Mus musculus,Mouse
+ST003740,Homo sapiens,Human
+ST003741,Homo sapiens,Human
+ST003743,Mus musculus,Mouse
+ST003744,Taxus wallichiana,Yew
+ST003745,Bos taurus,Cow
+ST003746,Mus musculus,Mouse
+ST003747,Mus musculus,Mouse
+ST003748,Mus musculus,Mouse
+ST003749,Mus musculus,Mouse
+ST003750,Mus musculus,Mouse
+ST003751,Homo sapiens,Human
+ST003753,Solanum lycopersicum,Tomato
+ST003756,Homo sapiens,Human
+ST003757,Homo sapiens,Human
+ST003758,Homo sapiens,Human
+ST003759,Mus musculus,Mouse
+ST003760,Homo sapiens,Human
+ST003761,Homo sapiens,Human
+ST003762,Homo sapiens,Human
+ST003763,Homo sapiens,Human
+ST003764,Homo sapiens,Human
+ST003765,Homo sapiens,Human
+ST003766,Mus musculus,Mouse
+ST003767,Mus musculus,Mouse
+ST003768,Rumex patientia L.× Rumex tianschanicus A. LOS,Grass
+ST003769,Homo sapiens,Human
+ST003770,Homo sapiens,Human
+ST003773,Homo sapiens,Human
+ST003774,Homo sapiens,Human
+ST003775,Mus musculus,Mouse
+ST003776,Mus musculus,Mouse
+ST003777,Staphylococcus epidermidis,Staphylococcus epidermidis
+ST003778,Mus musculus,Mouse
+ST003779,Homo sapiens,Human
+ST003780,Homo sapiens,Human
+ST003781,Scophthalmus maximus,Turbot fish
+ST003782,Ailuropoda melanoleuca,Giant Panda
+ST003783,Ailuropoda melanoleuca,Giant Panda
+ST003784,Mus musculus,Mouse
+ST003785,Mus musculus,Mouse
+ST003786,Homo sapiens,Human
+ST003788,Homo sapiens,Human
+ST003789,Mus musculus,Mouse
+ST003790,Mus musculus,Mouse
+ST003791,Homo sapiens,Human
+ST003792,Homo sapiens,Human
+ST003793,Homo sapiens,Human
+ST003794,Homo sapiens,Human
+ST003795,Mus musculus,Mouse
+ST003796,Mus musculus,Mouse
+ST003797,Zea mays,Maize
+ST003798,Homo sapiens,Human
+ST003799,Dorea longicatena,Dorea longicatena
+ST003800,Homo sapiens,Human
+ST003801,Homo sapiens,Human
+ST003802,Capsicum,Capsicum
+ST003803,Mus musculus,Mouse
+ST003804,Danio rerio,Zebrafish
+ST003805,Mus musculus,Mouse
+ST003806,Homo sapiens,Human
+ST003807,Homo sapiens,Human
+ST003808,Homo sapiens,Human
+ST003809,Homo sapiens,Human
+ST003810,Homo sapiens,Human
+ST003811,Homo sapiens,Human
+ST003812,Mus musculus,Mouse
+ST003813,Mus musculus,Mouse
+ST003814,Mus musculus,Mouse
+ST003815,Homo sapiens,Human
+ST003817,Mus musculus,Mouse
+ST003818,Mus musculus,Mouse
+ST003819,Homo sapiens,Human
+ST003820,Homo sapiens,Human
+ST003821,Homo sapiens,Human
+ST003822,Homo sapiens,Human
+ST003823,Homo sapiens,Human
+ST003824,Homo sapiens,Human
+ST003825,Homo sapiens,Human
+ST003826,Homo sapiens,Human
+ST003827,Mus musculus,Mouse
+ST003828,Drosophila melanogaster,Fruit fly
+ST003829,Homo sapiens,Human
+ST003830,Homo sapiens,Human
+ST003831,Homo sapiens,Human
+ST003832,Homo sapiens,Human
+ST003833,Homo sapiens,Human
+ST003834,Cerastium regelii,Regel's chickweed
+ST003834,Stellaria longipes,Longstalk starwort
+ST003835,Mus musculus,Mouse
+ST003836,Homo sapiens,Human
+ST003837,Equus caballus,Horse
+ST003838,Homo sapiens,Human
+ST003839,Oryctolagus cuniculus,Rabbit
+ST003841,Mus musculus,Mouse
+ST003842,Bombyx mori,Silkworm
+ST003843,Bombyx mori,Silkworm
+ST003845,Mus musculus,Mouse
+ST003846,Mus musculus,Mouse
+ST003847,Homo sapiens,Human
+ST003848,Eriobotrya japonica,Loquat
+ST003849,Homo sapiens,Human
+ST003850,Homo sapiens,Human
+ST003851,Mus musculus,Mouse
+ST003852,Homo sapiens,Human
+ST003853,Homo sapiens,Human
+ST003854,Saccharomyces cerevisiae,Saccharomyces cerevisiae
+ST003855,Mus musculus,Mouse
+ST003857,Homo sapiens,Human
+ST003858,Xenopus tropicalis,Western clawed frog
+ST003859,Homo sapiens,Human
+ST003861,Arabidopsis thaliana,Arabidopsis thaliana
+ST003862,Sus scrofa,Pig
+ST003863,Sus scrofa,Pig
+ST003865,Homo sapiens,Human
+ST003866,Escherichia coli,Escherichia coli
+ST003867,Homo sapiens,Human
+ST003868,Bacteria,Bacteria
+ST003869,Homo sapiens,Human
+ST003870,Homo sapiens,Human
+ST003871,Bacteria,Bacteria
+ST003872,Mus musculus,Mouse
+ST003873,Bacteria,Bacteria
+ST003874,Homo sapiens,Human
+ST003875,Drosophila melanogaster,Fruit fly
+ST003876,Mus musculus,Mouse
+ST003877,Rattus norvegicus,Rat
+ST003878,Mus musculus,Mouse
+ST003879,Homo sapiens,Human
+ST003880,Homo sapiens,Human
+ST003881,Homo sapiens,Human
+ST003882,Homo sapiens,Human
+ST003883,Mus musculus,Mouse
+ST003884,Mus musculus,Mouse
+ST003885,Mus musculus,Mouse
+ST003886,Mus musculus,Mouse
+ST003887,Mus musculus,Mouse
+ST003888,Mus musculus,Mouse
+ST003889,Mus musculus,Mouse
+ST003890,Mus musculus,Mouse
+ST003891,Mus musculus,Mouse
+ST003892,Mus musculus,Mouse
+ST003893,Mus musculus,Mouse
+ST003894,Homo sapiens,Human
+ST003895,Homo sapiens,Human
+ST003896,Homo sapiens,Human
+ST003897,Homo sapiens,Human
+ST003898,Homo sapiens,Human
+ST003899,Drosophila melanogaster,Fruit fly
+ST003900,Drosophila melanogaster,Fruit fly
+ST003902,Plasmodium falciparum,Plasmodium falciparum
+ST003903,Mus musculus,Mouse
+ST003904,Plasmodium falciparum,Plasmodium falciparum
+ST003905,Homo sapiens,Human
+ST003906,Plasmodium falciparum,Plasmodium falciparum
+ST003907,Other,Other
+ST003908,Mus musculus,Mouse
+ST003909,Mus musculus,Mouse
+ST003910,Bifidobacteria,Bifidobacteria
+ST003910,Clostridium,Clostridium
+ST003910,Escherichia coli,Escherichia coli
+ST003910,Streptococcus,Streptococcus
+ST003911,Eggerthella lenta,Eggerthella lenta
+ST003911,Fusobacterium nucleatum,Fusobacterium nucleatum
+ST003912,Homo sapiens,Human
+ST003913,Homo sapiens,Human
+ST003914,Mus musculus,Mouse
+ST003917,Homo sapiens,Human
+ST003918,Vigna unguiculata,Cowpea
+ST003919,Mus musculus,Mouse
+ST003920,Mus musculus,Mouse
+ST003921,Homo sapiens,Human
+ST003922,Homo sapiens,Human
+ST003923,Mus musculus,Mouse
+ST003924,Homo sapiens,Human
+ST003925,Homo sapiens,Human
+ST003926,Mus musculus,Mouse
+ST003927,Mus musculus,Mouse
+ST003928,Mus musculus,Mouse
+ST003929,Homo sapiens,Human
+ST003930,Mus musculus,Mouse
+ST003931,Mus musculus,Mouse
+ST003932,Mus musculus,Mouse
+ST003933,Pico Synechococcus sp.,Pico Synechococcus sp.
+ST003934,Homo sapiens,Human
+ST003935,Mus musculus,Mouse
+ST003936,Homo sapiens,Human
+ST003937,Homo sapiens,Human
+ST003938,Homo sapiens,Human
+ST003939,Homo sapiens,Human
+ST003940,Homo sapiens,Human
+ST003941,Bacteroides thetaiotaomicron,Bacteroides thetaiotaomicron
+ST003942,Homo sapiens,Human
+ST003943,Haloxylon salicornicum,Haloxylon salicornicum
+ST003944,Homo sapiens,Human
+ST003945,Homo sapiens,Human
+ST003946,Homo sapiens,Human
+ST003947,Homo sapiens,Human
+ST003949,Mus musculus,Mouse
+ST003950,Homo sapiens,Human
+ST003951,Homo sapiens,Human
+ST003952,Homo sapiens,Human
+ST003953,Homo sapiens,Human
+ST003954,Homo sapiens,Human
+ST003955,Prunus armeniaca,Plant
+ST003957,Mus musculus,Mouse
+ST003958,Hevea brasiliensis,Rubber tree
+ST003958,Hevea brasiliensis strain:RRIM 600,Rubber tree
+ST003958,Hevea guianensis pauciflora,Rubber tree
+ST003958,Hevea guianensis pauciflora var. coriacea,Rubber tree
+ST003958,Hevea guianensis var. collina,Rubber tree
+ST003958,Hevea guianensis var. guianensis,Rubber tree
+ST003958,Hevea spruceana,Rubber tree
+ST003959,Homo sapiens,Human
+ST003960,Homo sapiens,Human
+ST003961,Homo sapiens,Human
+ST003962,Homo sapiens,Human
+ST003963,Homo sapiens,Human
+ST003964,Homo sapiens,Human
+ST003965,Homo sapiens,Human
+ST003966,Homo sapiens,Human
+ST003967,Homo sapiens,Human
+ST003968,Homo sapiens,Human
+ST003969,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST003970,Homo sapiens,Human
+ST003972,Homo sapiens,Human
+ST003973,Mycobacterium tuberculosis,Mycobacterium tuberculosis
+ST003974,Trichinella spiralis,Trichinella spiralis
+ST003975,Trichinella spiralis,Trichinella spiralis
+ST003976,Mus musculus,Mouse
+ST003977,Mus musculus,Mouse
+ST003978,Mus musculus,Mouse
+ST003979,Mus musculus,Mouse
+ST003980,Mus musculus,Mouse
+ST003981,Mus musculus,Mouse
+ST003982,Mus musculus,Mouse
+ST003983,Mus musculus,Mouse
+ST003984,Homo sapiens,Human
+ST003985,Mus musculus,Mouse
+ST003987,Mus musculus,Mouse
+ST003988,Homo sapiens,Human
+ST003989,Homo sapiens,Human
+ST003991,Homo sapiens,Human
+ST003994,Homo sapiens,Human
+ST003995,Homo sapiens,Human
+ST003996,Mus musculus,Mouse
+ST003997,Other,Other
+ST003998,Sisymbrium officinale,Mustard
+ST003999,Homo sapiens,Human
+ST004000,Homo sapiens,Human
+ST004001,Helicoverpa armigera,Insect
+ST004002,Homo sapiens,Human
+ST004002,Mus musculus,Mouse
+ST004003,Homo sapiens,Human
+ST004004,Homo sapiens,Human
+ST004005,Mus musculus,Mouse
+ST004006,Mus musculus,Mouse
+ST004007,Mus musculus,Mouse
+ST004008,Mus musculus,Mouse
+ST004009,Mus musculus,Mouse
+ST004010,Homo sapiens,Human
+ST004011,Helicoverpa armigera,Insect
+ST004012,Homo sapiens,Human
+ST004013,Synthetic,Synthetic
+ST004014,Mus musculus,Mouse
+ST004015,Homo sapiens,Human
+ST004016,Mus musculus,Mouse
+ST004017,Plasmodium falciparum,Plasmodium falciparum
+ST004018,Mus musculus,Mouse
+ST004019,Homo sapiens,Human
+ST004020,Homo sapiens,Human
+ST004021,Homo sapiens,Human
+ST004022,Mus musculus,Mouse
+ST004023,Homo sapiens,Human
+ST004026,Acinetobacter baumannii,Acinetobacter baumannii
+ST004027,Homo sapiens,Human
+ST004027,Mus musculus,Mouse
+ST004028,Staphylococcus aureus,Staphylococcus aureus
+ST004029,Homo sapiens,Human
+ST004030,Mus musculus,Mouse
+ST004031,Mus musculus,Mouse
+ST004032,Homo sapiens,Human
+ST004033,Homo sapiens,Human
+ST004034,Mus musculus,Mouse
+ST004035,Mus musculus,Mouse
+ST004036,Megachile rotundata,Megachile rotundata
+ST004037,Homo sapiens,Human
+ST004038,Homo sapiens,Human
+ST004039,Caenorhabditis elegans,C. elegans
+ST004040,Lens culinaris,Lentil
+ST004041,Other abiotic sample,Other abiotic sample
+ST004042,Mus musculus,Mouse
+ST004047,Homo sapiens,Human
+ST004049,Mus musculus,Mouse
+ST004050,Oryctolagus cuniculus,Rabbit
+ST004051,Streptococcus mutans,Streptococcus mutans
+ST004054,Homo sapiens,Human
+ST004055,Homo sapiens,Human
+ST004056,Homo sapiens,Human
+ST004057,Homo sapiens,Human
+ST004057,Mus musculus,Mouse
+ST004058,Homo sapiens,Human
+ST004059,Mus musculus,Mouse
+ST004060,Mus musculus,Mouse
+ST004061,Mus musculus,Mouse
+ST004062,Abiotic,Abiotic
+ST004064,Oryctolagus cuniculus,Rabbit
+ST004065,Mus musculus,Mouse
+ST004066,Homo sapiens,Human
+ST004067,Mus musculus,Mouse
+ST004069,Oryctolagus cuniculus,Rabbit
+ST004070,Mus musculus,Mouse
+ST004071,Mus musculus,Mouse
+ST004072,Mus musculus,Mouse
+ST004073,Homo sapiens,Human
+ST004074,Danio rerio,Zebrafish
+ST004075,Danio rerio,Zebrafish
+ST004076,Danio rerio,Zebrafish
+ST004077,Homo sapiens,Human
+ST004078,Bos taurus,Cow
+ST004080,Homo sapiens,Human
+ST004081,Prochlorococcus marinus,Prochlorococcus marinus
+ST004082,Homo sapiens,Human
+ST004083,Mus musculus,Mouse
+ST004084,Mus musculus,Mouse
+ST004085,Mus musculus,Mouse
+ST004086,Mus musculus,Mouse
+ST004087,Abiotic,Abiotic
+ST004088,Homo sapiens,Human
+ST004089,Escherichia coli,Escherichia coli
+ST004090,Mus musculus,Mouse
+ST004091,Chromobacterium vaccinii,Chromobacterium vaccinii
+ST004091,Chromobacterium violaceum,Chromobacterium violaceum
+ST004092,Homo sapiens,Human
+ST004093,Mus musculus,Mouse
+ST004094,Homo sapiens,Human
+ST004095,Homo sapiens,Human
+ST004096,Mus musculus,Mouse
+ST004097,Homo sapiens,Human
+ST004098,Homo sapiens,Human
+ST004099,Homo sapiens,Human
+ST004100,Mus musculus,Mouse
+ST004101,Mus musculus,Mouse
+ST004103,Homo sapiens,Human
+ST004105,Homo sapiens,Human
+ST004106,Mus musculus,Mouse
+ST004107,Homo sapiens,Human
+ST004108,Xenopus laevis,Frog
+ST004109,Mus musculus,Mouse
+ST004110,Mus musculus,Mouse
+ST004111,Homo sapiens,Human
+ST004112,Bacteroides thetaiotaomicron,Bacteroides thetaiotaomicron
+ST004113,Homo sapiens,Human
+ST004114,Mus musculus,Mouse
+ST004115,Mus musculus,Mouse
+ST004116,Mus musculus,Mouse
+ST004117,Mus musculus,Mouse
+ST004118,Homo sapiens,Human
+ST004119,Rattus norvegicus,Rat
+ST004120,Mus musculus,Mouse
+ST004121,Mus musculus,Mouse
+ST004122,Artemisia argyi,Artemisia argyi
+ST004123,Artemisia argyi,Artemisia argyi
+ST004124,Mus musculus,Mouse
+ST004125,Homo sapiens,Human
+ST004126,Mus musculus,Mouse
+ST004127,Homo sapiens,Human
+ST004128,Mus musculus,Mouse
+ST004129,Mus musculus,Mouse
+ST004131,Homo sapiens,Human
+ST004131,Mus musculus,Mouse
+ST004132,Mus musculus,Mouse
+ST004133,Mus musculus,Mouse
+ST004134,Mus musculus,Mouse
+ST004135,Homo sapiens,Human
+ST004136,Homo sapiens,Human
+ST004137,Homo sapiens,Human
+ST004138,Homo sapiens,Human
+ST004139,Homo sapiens,Human
+ST004140,Homo sapiens,Human
+ST004141,Homo sapiens,Human
+ST004143,Clavularia inflata,Coral
+ST004143,Galaxea fascicularis,Coral
+ST004144,Homo sapiens,Human
+ST004145,Homo sapiens,Human
+ST004147,Homo sapiens,Human
+ST004148,Homo sapiens,Human
+ST004149,Mus musculus,Mouse
+ST004151,Arabidopsis thaliana,Arabidopsis thaliana
+ST004153,Rattus norvegicus,Rat
+ST004156,Homo sapiens,Human
+ST004159,Plasmodium falciparum,Plasmodium falciparum
+ST004160,Homo sapiens,Human
+ST004161,Homo sapiens,Human
+ST004162,Mus musculus,Mouse
+ST004163,Homo sapiens,Human
+ST004164,Mus musculus,Mouse
+ST004165,Mus musculus,Mouse
+ST004166,Homo sapiens,Human
+ST004167,Homo sapiens,Human
+ST004168,Homo sapiens,Human
+ST004169,Mus musculus,Mouse
+ST004170,Rattus norvegicus,Rat
+ST004172,Homo sapiens,Human
+ST004173,Lacticaseibacillus casei,Lacticaseibacillus casei
+ST004174,Homo sapiens,Human
+ST004175,Rattus norvegicus,Rat
+ST004176,Rattus norvegicus,Rat
+ST004177,Homo sapiens,Human
+ST004178,Homo sapiens,Human
+ST004179,Staphylococcus aureus,Staphylococcus aureus
+ST004181,Mus musculus,Mouse
+ST004182,Mus musculus,Mouse
+ST004183,Mus musculus,Mouse
+ST004184,Homo sapiens,Human
+ST004185,Homo sapiens,Human
+ST004186,Homo sapiens,Human
+ST004187,Homo sapiens,Human
+ST004188,Homo sapiens,Human
+ST004189,Homo sapiens,Human
+ST004190,Mus musculus,Mouse
+ST004191,Mus musculus,Mouse
+ST004192,Homo sapiens,Human
+ST004194,Plasmodium falciparum,Plasmodium falciparum
+ST004195,Homo sapiens,Human
+ST004196,Mus musculus,Mouse
+ST004197,Homo sapiens,Human
+ST004198,Homo sapiens,Human
+ST004199,Homo sapiens,Human
+ST004200,Mus musculus,Mouse
+ST004201,Mus musculus,Mouse
+ST004202,Homo sapiens,Human
+ST004203,Mus musculus,Mouse
+ST004204,Staphylococcus aureus,Staphylococcus aureus
+ST004205,Homo sapiens,Human
+ST004206,Mus musculus,Mouse
+ST004207,Homo sapiens,Human
+ST004207,Mus musculus,Mouse
+ST004208,Homo sapiens,Human
+ST004209,Homo sapiens,Human
+ST004210,Homo sapiens,Human
+ST004211,Zea mays,Maize
+ST004212,Homo sapiens,Human
+ST004215,Mus musculus,Mouse
+ST004216,Mus musculus,Mouse
+ST004217,Homo sapiens,Human
+ST004219,Vitis vinifera,Vine
+ST004220,Homo sapiens,Human
+ST004221,Homo sapiens,Human
+ST004222,Plasmodium falciparum,Plasmodium falciparum
+ST004223,Mus musculus,Mouse
+ST004224,Homo sapiens,Human
+ST004225,Homo sapiens,Human
+ST004226,Mus musculus,Mouse
+ST004227,Triticum aestivum,Wheat
+ST004228,Mus musculus,Mouse
+ST004229,Mus musculus,Mouse
+ST004230,Mus musculus,Mouse
+ST004231,Rattus norvegicus,Rat
+ST004232,Fraxinus chinensis,Chinese ash
+ST004232,Fraxinus excelsior,European ash
+ST004232,Fraxinus mandshurica,Manchurian ash
+ST004232,Fraxinus platypoda,Chinese red ash
+ST004233,Plasmodium falciparum,Plasmodium falciparum
+ST004234,Caenorhabditis elegans,C. elegans
+ST004236,Homo sapiens,Human
+ST004237,Mus musculus,Mouse
+ST004238,Mus musculus,Mouse
+ST004239,Plasmodium falciparum,Plasmodium falciparum
+ST004240,Plasmodium falciparum,Plasmodium falciparum
+ST004241,Homo sapiens,Human
+ST004242,Mus musculus,Mouse
+ST004243,Homo sapiens,Human
+ST004244,Plasmodium falciparum,Plasmodium falciparum
+ST004245,Mus musculus,Mouse
+ST004248,Homo sapiens,Human
+ST004249,Homo sapiens,Human
+ST004251,Paradoxurus hermaphroditus,Civet
+ST004252,Drosophila melanogaster,Fruit fly
+ST004253,Homo sapiens,Human
+ST004255,Mus musculus,Mouse
+ST004256,Mus musculus,Mouse
+ST004258,Mus musculus,Mouse
+ST004259,Homo sapiens,Human
+ST004262,Homo sapiens,Human
+ST004263,Homo sapiens,Human
+ST004264,Sorex araneus,Shrew
+ST004265,Asparagopsis taxiformis,Red algae
+ST004266,Homo sapiens,Human
+ST004267,Homo sapiens,Human
+ST004268,Drosophila melanogaster,Fruit fly
+ST004269,Homo sapiens,Human
+ST004270,Salmonella enterica,Salmonella enterica
+ST004271,Ipomoea batatas,Sweet potato
+ST004272,Homo sapiens,Human
+ST004274,Schistosoma mansoni,Worm
+ST004275,Homo sapiens,Human
+ST004276,Homo sapiens,Human
+ST004277,Homo sapiens,Human
+ST004278,Mus musculus,Mouse
+ST004279,Homo sapiens,Human
+ST004280,Homo sapiens,Human
+ST004281,Mus musculus,Mouse
+ST004282,Homo sapiens,Human
+ST004284,Drosophila melanogaster,Fruit fly
+ST004286,Homo sapiens,Human
+ST004287,Homo sapiens,Human
+ST004290,Plasmodium falciparum,Plasmodium falciparum
+ST004291,Plasmodium falciparum,Plasmodium falciparum
+ST004294,Bacillus licheniformis,Bacillus licheniformis
+ST004296,Homo sapiens,Human
+ST004297,Homo sapiens,Human
+ST004299,Quercus coccifera,Oak
+ST004299,Quercus faginea,Oak
+ST004299,Quercus ilex subsp. ballota,Oak
+ST004299,Quercus ilex subsp. ilex,Oak
+ST004299,Quercus petraea,Oak
+ST004299,Quercus pubescens,Oak
+ST004299,Quercus robur,Oak
+ST004299,Quercus suber,Oak
+ST004300,Mus musculus,Mouse
+ST004301,Fraxinus americana,White ash
+ST004301,Fraxinus nigra,Black ash
+ST004301,Fraxinus pennsylvanica,Green ash
+ST004302,Mus musculus,Mouse
+ST004303,Homo sapiens,Human
+ST004304,Bos taurus,Cow
+ST004305,Homo sapiens,Human
+ST004306,Mus musculus,Mouse
+ST004308,Homo sapiens,Human
+ST004309,Macaca mulatta,Rhesus monkey
+ST004311,Mus musculus,Mouse
+ST004314,Akkermansia muciniphila,Akkermansia muciniphila
+ST004315,Mus musculus,Mouse
+ST004317,Mus musculus,Mouse
+ST004318,Homo sapiens,Human
+ST004319,Other,Other
+ST004321,Mus musculus,Mouse
+ST004322,Homo sapiens,Human
+ST004323,Homo sapiens,Human
+ST004324,Cobetia marina,Cobetia marina
+ST004325,Homo sapiens,Human
+ST004327,Mus musculus,Mouse
+ST004329,Acropora hyacinthus,Stony coral
+ST004329,Pocillopora damicornis,Stony coral
+ST004329,Porites lutea,Stony coral
+ST004331,Danio rerio,Zebrafish
+ST004333,Mus musculus,Mouse
+ST004334,Mus musculus,Mouse
+ST004337,Ruegeria pomeroyi,Ruegeria pomeroyi
+ST004338,Mus musculus,Mouse
+ST004339,Rattus norvegicus,Rat
+ST004341,Mus musculus,Mouse
+ST004344,Myracrodruon urundeuva,Aroeira tree
+ST004345,Homo sapiens,Human
+ST004346,Homo sapiens,Human
+ST004347,Other,Other
+ST004350,Rattus norvegicus,Rat
+ST004351,Loktanella vestfoldensis,Loktanella vestfoldensis
+ST004351,Phaeodactylum tricornutum,Phaeodactylum tricornutum
+ST004352,Other abiotic sample,Other abiotic sample
+ST004353,Other abiotic sample,Other abiotic sample
+ST004354,Other abiotic sample,Other abiotic sample
+ST004356,Homo sapiens,Human
+ST004357,Mus musculus,Mouse
+ST004360,Homo sapiens,Human
+ST004369,Canis lupus familiaris,Dog
+ST004370,Canis lupus familiaris,Dog
+ST004371,Homo sapiens,Human
+ST004372,Homo sapiens; Mus musculus,Human
+ST004373,Mus musculus,Mouse
+ST004374,Mycobacterium tuberculosis,Mycobacterium tuberculosis
+ST004375,Homo sapiens,Human
+ST004376,Drosophila melanogaster,Fruit fly
+ST004377,Homo sapiens,Human
+ST004378,Homo sapiens,Human
+ST004383,Capreolus pygargus, Asian roe deer
+ST004383,Cervus nippon,Sika deer
+ST004383,Ovis aries,Sheep
+ST004384,Capreolus pygargus, Asian roe deer
+ST004384,Cervus nippon,Sika deer
+ST004384,Ovis aries,Sheep
+ST004385,Mus musculus,Mouse
+ST004386,Homo sapiens,Human
+ST004387,Apis mellifera,Honey bee
+ST004388,Haloxylon salicornicum,Haloxylon salicornicum
+ST004389,Sus scrofa,Pig
+ST004390,Homo sapiens,Human
+ST004391,Homo sapiens,Human
+ST004392,Mus musculus,Mouse
+ST004393,Homo sapiens,Human
+ST004394,Homo sapiens,Human
+ST004395,Homo sapiens,Human
+ST004396,Homo sapiens,Human
+ST004397,Homo sapiens,Human
+ST004398,Homo sapiens,Human
+ST004399,Homo sapiens,Human
+ST004400,Homo sapiens,Human
+ST004401,Homo sapiens,Human
+ST004402,Homo sapiens,Human
+ST004403,Homo sapiens,Human
+ST004404,Homo sapiens,Human
+ST004405,Mus musculus,Mouse
+ST004406,Mus musculus,Mouse
+ST004407,Mus musculus,Mouse
+ST004408,Apis mellifera,Honey bee
+ST004409,Homo sapiens,Human
+ST004410,Homo sapiens,Human
+ST004411,Homo sapiens,Human
+ST004412,Mus musculus,Mouse
+ST004413,Mus musculus,Mouse
+ST004414,Mus musculus,Mouse
+ST004416,Homo sapiens,Human
+ST004417,Homo sapiens,Human
+ST004418,Homo sapiens,Human
+ST004421,Homo sapiens,Human
+ST004422,Solanum tuberosum,Plant
+ST004423,Homo sapiens,Human
+ST004424,Plasmodium falciparum,Plasmodium falciparum
+ST004425,Plasmodium falciparum,Plasmodium falciparum
+ST004427,Homo sapiens,Human
+ST004428,Apis mellifera,Honey bee
+ST004429,Homo sapiens,Human
+ST004430,Homo sapiens,Human
+ST004431,Homo sapiens,Human
+ST004432,Mus musculus,Mouse
+ST004436,Mus musculus,Mouse
+ST004438,Mus musculus,Mouse
+ST004439,Mus musculus,Mouse
+ST004440,Homo sapiens,Human
+ST004441,Homo sapiens,Human
+ST004442,Homo sapiens,Human
+ST004443,Other Organism,Biofilm Microbial Community
+ST004445,Mus musculus,Mouse
+ST004446,Mus musculus,Mouse
+ST004447,Homo sapiens,Human
+ST004448,Homo sapiens,Human
+ST004449,Homo sapiens,Human
+ST004450,Homo sapiens,Human
+ST004451,Mus musculus,Mouse
+ST004453,Caenorhabditis elegans,C. elegans
+ST004454,Arma chinensis,Arma chinensis
+ST004454,Halyomorpha halys,Halyomorpha halys
+ST004455,Mus musculus,Mouse
+ST004457,Mus musculus,Mouse
+ST004458,Homo sapiens,Human
+ST004459,Astragalus mongholicus,Plant
+ST004460,Homo sapiens,Human
+ST004462,Mus musculus,Mouse
+ST004463,Homo sapiens,Human
+ST004464,Mus musculus,Mouse
+ST004466,Escherichia coli,Escherichia coli
+ST004468,Homo sapiens,Human
+ST004469,Synechococcus sp. SAG2156,Synechococcus
+ST004470,Mus musculus,Mouse
+ST004471,Rattus norvegicus,Rat
+ST004472,Rattus norvegicus,Rat
+ST004473,Rattus norvegicus,Rat
+ST004474,Rattus norvegicus,Rat
+ST004475,Rattus norvegicus,Rat
+ST004476,Rattus norvegicus,Rat
+ST004477,Rattus norvegicus,Rat
+ST004478,Homo sapiens,Human
+ST004479,Food item,Food item
+ST004483,Homo sapiens,Human
+ST004485,Homo sapiens,Human
+ST004486,Homo sapiens,Human
+ST004487,Homo sapiens,Human
+ST004488,Homo sapiens,Human
+ST004489,Mus musculus,Mouse
+ST004490,Homo sapiens,Human
+ST004491,Mus musculus,Mouse
+ST004492,Homo sapiens,Human
+ST004493,Homo sapiens,Human
+ST004494,Homo sapiens,Human
+ST004495,Mus musculus,Mouse
+ST004496,Mus musculus,Mouse
+ST004499,Abiotic,Abiotic
+ST004500,Homo sapiens,Human
+ST004501,Homo sapiens,Human
+ST004502,Homo sapiens,Human
+ST004503,Homo sapiens,Human
+ST004504,Homo sapiens,Human
+ST004506,Homo sapiens,Human
+ST004507,Homo sapiens,Human
+ST004508,Medicago sativa L.,Alfalfa
+ST004509,Mus musculus,Mouse
+ST004512,Doryteuthis pealeii,Longfin inshore squid
+ST004518,Homo sapiens,Human
+ST004519,Mus musculus,Mouse
+ST004520,Homo sapiens,Human
+ST004524,Homo sapiens,Human
+ST004526,Capra hircus,Goat
+ST004527,Capra hircus,Goat
+ST004529,Homo sapiens,Human
+ST004530,Drosophila melanogaster,Fruit fly
+ST004531,Sus scrofa,Pig
+ST004533,Mus musculus,Mouse
+ST004534,Mycoplasma gallisepticum,Bacteria
+ST004535,Bacteroides thetaiotaomicron,Bacteroides thetaiotaomicron
+ST004535,Collinsella aerofaciens,Collinsella aerofaciens
+ST004536,Mus musculus,Mouse
+ST004537,Mus musculus,Mouse
+ST004538,Mus musculus,Mouse
+ST004539,Bacteroides thetaiotaomicron,Bacteroides thetaiotaomicron
+ST004539,Collinsella aerofaciens,Collinsella aerofaciens
+ST004540,Homo sapiens,Human
+ST004541,Lactobacillus plantarum,Lactobacillus plantarum
+ST004541,Lactobacillus reuter,Lactobacillus reuter
+ST004542,Escherichia coli,Escherichia coli
+ST004544,Sus scrofa,Pig
+ST004545,Mus musculus,Mouse
+ST004547,Homo sapiens,Human
+ST004548,Bacteroides thetaiotaomicron,Bacteroides thetaiotaomicron
+ST004548,Collinsella aerofaciens,Collinsella aerofaciens
+ST004549,Mus musculus,Mouse
+ST004551,Homo sapiens,Human
+ST004552,Mus musculus,Mouse
+ST004558,Homo sapiens,Human
+ST004559,Homo sapiens,Human
+ST004560,Mus musculus,Mouse
+ST004561,Mus musculus,Mouse
+ST004562,Mus musculus,Mouse
+ST004563,Mus musculus,Mouse
+ST004564,Mus musculus,Mouse
+ST004565,Mus musculus,Mouse
+ST004566,Mus musculus,Mouse
+ST004567,Mus musculus,Mouse
+ST004569,Mus musculus,Mouse
+ST004570,Other abiotic sample,Other abiotic sample
+ST004571,Homo sapiens,Human
+ST004572,Mus musculus,Mouse
+ST004573,Homo sapiens,Human
+ST004574,Homo sapiens,Human
+ST004575,Homo sapiens,Human
+ST004576,Other,Other
+ST004577,Mus musculus,Mouse
+ST004578,Other,Other
+ST004579,Hordeum vulgare,Barley
+ST004581,Homo sapiens,Human
+ST004582,Homo sapiens,Human
+ST004583,Homo sapiens,Human
+ST004584,Homo sapiens,Human
+ST004585,Glycine max,Soybean
+ST004587,Abiotic,Abiotic
+ST004592,Mus musculus,Mouse
+ST004593,Mus musculus,Mouse
+ST004594,Mus musculus,Mouse
+ST004595,Mus musculus,Mouse
+ST004596,Mus musculus,Mouse
+ST004597,Mus musculus,Mouse
+ST004598,Homo sapiens,Human
+ST004599,Mus musculus,Mouse
+ST004602,Homo sapiens,Human
+ST004603,Rattus norvegicus,Rat
+ST004604,Homo sapiens,Human
+ST004605,Rattus norvegicus,Rat
+ST004606,Homo sapiens,Human
+ST004607,Mustela putorius furo,Ferret
+ST004608,Homo sapiens,Human
+ST004609,Homo sapiens,Human
+ST004610,Rattus norvegicus,Rat
+ST004611,Homo sapiens,Human
+ST004612,Homo sapiens,Human
+ST004615,Homo sapiens,Human
+ST004616,Homo sapiens,Human
+ST004617,Escherichia coli,Escherichia coli
+ST004618,Homo sapiens,Human
+ST004619,Chaetomium globosum,Chaetomium globosum
+ST004620,Rattus norvegicus,Rat
+ST004621,Homo sapiens,Human
+ST004622,Homo sapiens,Human
+ST004624,Homo sapiens,Human
+ST004625,Mus musculus,Mouse
+ST004626,Homo sapiens,Human
+ST004627,Caenorhabditis elegans,C. elegans
+ST004628,Homo sapiens,Human
+ST004629,Other abiotic sample,Other abiotic sample
+ST004630,Homo sapiens,Human
+ST004632,Danio rerio,Zebrafish
+ST004636,Bacteria,Bacteria
+ST004637,Lemnoideae,Plant
+ST004639,Escherichia coli,Escherichia coli
+ST004640,Plasmodium falciparum,Plasmodium falciparum
+ST004641,Mus musculus,Mouse
+ST004642,Homo sapiens,Human
+ST004642,Mus musculus,Mouse
+ST004643,Diadema antillarum,Sea urchin
+ST004644,Homo sapiens,Human
+ST004646,Homo sapiens,Human
+ST004647,Homo sapiens,Human
+ST004650,Homo sapiens,Human
+ST004651,Homo sapiens,Human
+ST004652,Rattus norvegicus,Rat
+ST004653,Mus musculus,Mouse
+ST004654,Equus caballus,Horse
+ST004655,Mycobacterium tuberculosis H37Rv,Mycobacterium tuberculosis
+ST004657,Mus musculus,Mouse
+ST004658,Homo sapiens,Human
+ST004659,Homo sapiens,Human
+ST004660,Homo sapiens,Human
+ST004661,Triticum durum,Wheat
+ST004662,Homo sapiens,Human
+ST004663,Homo sapiens,Human
+ST004667,Homo sapiens,Human
+ST004668,Mus musculus,Mouse
+ST004671,Waste water,Waste water
+ST004674,Drosophila melanogaster,Fruit fly
+ST004675,Mus musculus,Mouse
+ST004676,Drosophila melanogaster,Fruit fly
+ST004677,Drosophila melanogaster,Fruit fly
+ST004678,Haloxylon salicornicum,Haloxylon salicornicum
+ST004679,Homo sapiens,Human
+ST004681,Mus musculus,Mouse
+ST004682,Staphylococcus aureus,Staphylococcus aureus
+ST004683,Plasmodium falciparum,Parasite
+ST004684,Homo sapiens,Human
+ST004685,Drosophila melanogaster,Fruit fly
+ST004686,Drosophila melanogaster,Fruit fly
+ST004687,Drosophila melanogaster,Fruit fly
+ST004688,Mus musculus,Mouse
+ST004689,Rattus norvegicus,Rat
+ST004690,Homo sapiens,Human
+ST004691,Homo sapiens,Human
+ST004692,Homo sapiens,Human
+ST004693,Coelastrella tenuitheca,Microalga 
+ST004696,Lacticaseibacillus rhamnosus GG,Lacticaseibacillus rhamnosus
+ST004699,Mus musculus,Mouse
+ST004700,Homo sapiens,Human
+ST004701,Homo sapiens,Human
+ST004703,Homo sapiens,Human
+ST004704,Homo sapiens,Human
+ST004705,Homo sapiens,Human
+ST004706,Homo sapiens,Human
+ST004707,Homo sapiens,Human
+ST004708,Homo sapiens,Human
+ST004709,Mus musculus,Mouse
+ST004710,Homo sapiens,Human
+ST004713,Mus musculus,Mouse
+ST004714,Homo sapiens,Human
+ST004715,Homo sapiens,Human
+ST004717,Pinus pinaster,Pine
+ST004718,Homo sapiens,Human
+ST004719,Mus musculus,Mouse
+ST004720,Mus musculus,Mouse
+ST004721,Pipistrellus nathusii,Bat
+ST004722,Macaca mulatta,Rhesus monkey
+ST004724,Mus musculus,Mouse
+ST004725,Mus musculus,Mouse
+ST004726,Mus musculus,Mouse
+ST004728,Other,Other
+ST004730,Mus musculus,Mouse
+ST004731,Mus musculus,Mouse
+ST004732,Mus musculus,Mouse
+ST004734,Homo sapiens,Human
+ST004736,Homo sapiens,Human
+ST004737,Homo sapiens,Human
+ST004738,Microcoleus vaginatus,Microcoleus vaginatus
+ST004739,Homo sapiens,Human
+ST004741,Homo sapiens,Human
+ST004742,Mus musculus,Mouse
+ST004746,Homo sapiens,Human
+ST004747,Homo sapiens,Human
+ST004750,Homo sapiens,Human
+ST004751,Mus musculus,Mouse
+ST004752,Cucumis sativus,Cucumber
+ST004753,Capsicum annuum,Pepper
+ST004754,Solanum lycopersicum,Tomato
+ST004757,Homo sapiens,Human
+ST004760,Homo sapiens,Human
+ST004762,Apis mellifera,Insect
+ST004763,Mus musculus,Mouse
+ST004766,Mus musculus,Mouse
+ST004767,Homo sapiens,Human
+ST004768,Mus musculus,Mouse
+ST004769,Mus musculus,Mouse
+ST004771,Lactobacillus plantarum,Lactobacillus plantarum
+ST004772,Mus musculus,Mouse
+ST004773,Homo sapiens,Human
+ST004775,Mus musculus,Mouse
+ST004776,Mus musculus,Mouse
+ST004780,Escherichia coli,E coli
+ST004781,Mus musculus,Mouse
+ST004782,Mus musculus,Mouse
+ST004783,Ovis aries,Sheep
+ST004784,Candida albicans,Yeast
+ST004785,Mus musculus,Mouse
+ST004787,Manihot esculenta,Cassava
+ST004790,Mus musculus,Mouse
+ST004791,Macrobrachium rosenbergii,Prawn
+ST004792,Sus scrofa,Pig
+ST004793,Mus musculus,Mouse
+ST004794,Saccharomyces cerevisiae,Yeast
+ST004795,Homo sapiens,Human
+ST004796,Rattus norvegicus,Rat
+ST004797,Rattus norvegicus,Rat
+ST004798,Rattus norvegicus,Rat
+ST004800,Homo sapiens,Human
+ST004801,Mus musculus,Mouse
+ST004802,Mus musculus,Mouse
+ST004803,Escherichia coli,Escherichia coli
+ST004803,Pseudomonas aeruginosa,Pseudomonas aeruginosa
+ST004804,Mus musculus,Mouse
+ST004805,Mus musculus,Mouse
+ST004806,Mus musculus,Mouse
+ST004807,Mus musculus,Mouse
+ST004808,Mus musculus,Mouse
+ST004809,Mus musculus,Mouse
+ST004810,Mus musculus,Mouse
+ST004811,Mus musculus,Mouse
+ST004813,Carassius cuvieri,Japanese crucian carp
+ST004814,Homo sapiens,Human
+ST004816,Mus musculus,Mouse
+ST004817,Mus musculus,Mouse
+ST004818,Homo sapiens,Human
+ST004819,Soil,Soil
+ST004821,Mus musculus,Mouse
+ST004822,Mus musculus,Mouse
+ST004826,Homo sapiens,Human
+ST004827,Homo sapiens,Human
+ST004828,Mus musculus,Mouse
+ST004830,Homo sapiens,Human
+ST004831,Homo sapiens,Human
+ST004834,Staphylococcus epidermidis,Bacteria
+ST004835,Mus musculus,Mouse
+ST004836,Homo sapiens,Human
+ST004837,Mus musculus,Mouse
+ST004839,Mus musculus,Mouse
+ST004840,Homo sapiens,Human
+ST004841,Mus musculus,Mouse
+ST004842,Homo sapiens,Human
+ST004843,Homo sapiens,Human
+ST004846,Mus musculus,Mouse
+ST004847,Mus musculus,Mouse
+ST004848,Mus musculus,Mouse
+ST004849,Homo sapiens,Human
+ST004850,Chromochloris zofingiensis,Algae
+ST004851,Homo sapiens,Human
+ST004854,Homo sapiens,Human
+ST004855,Mus musculus,Mouse
+ST004863,Homo sapiens,Human
+ST004866,Homo sapiens,Human
+ST004867,Homo sapiens,Human
+ST004868,Homo sapiens,Human
+ST004869,Homo sapiens,Human
+ST004871,Mus musculus,Mouse
+ST004873,Homo sapiens,Human
+ST004882,Mus musculus,Mouse
+ST004883,Mus musculus,Mouse
+ST004884,Other abiotic sample,Other
+ST004885,Homo sapiens,Human
+ST004887,Staphylococcus aureus,Staphylococcus aureus
+ST004888,Homo sapiens,Human
+ST004889,Mus musculus,Mouse
+ST004890,Lacticaseibacillus paracasei,Lacticaseibacillus paracasei
+ST004891,Gemella morbillorum,Gemella morbillorum
+ST004891,Neisseria flava,Neisseria flava
+ST004891,Porphyromonas gingivalis,Porphyromonas gingivalis
+ST004891,Prevotella intermedia,Prevotella intermedia
+ST004891,Rothia dentocariosa,Rothia dentocariosa
+ST004891,Streptococcus salivarius,Streptococcus salivarius
+ST004892,Paramecium bursaria,Ciliate
+ST004893,Mus musculus,Mouse
+ST004898,Staphylococcus aureus,Staphylococcus aureus
+ST004901,Homo sapiens,Human
+ST004903,Homo sapiens,Human
+ST004904,Homo sapiens,Human
+ST004905,Mus musculus,Mouse
+ST004907,Mus musculus,Mouse
+ST004908,Mus musculus,Mouse
+ST004909,Triticum aestivum,Plant
+ST004911,Mus musculus,Mouse
+ST004912,"Callinectus sapidus, Crassostrea virginica, Panopeus herbstii","Blue Crabs, Eastern oysters, Mud Crabs"
+ST004913,Crassostrea virginica; Pogonias cromis; Archosargus probatocephalus,Eastern oysters; Black drum; Sheepshead
+ST004914,Mus musculus,Mouse
+ST004915,Mus musculus,Mouse
+ST004916,Mus musculus,Mouse
+ST004917,Botrytis cinerea,Gray fruit mold
+ST004918,Mus musculus,Mouse
+ST004922,Homo sapiens,Human
+ST004923,Pseudomonas aeruginosa,Pseudomonas aeruginosa
+ST004924,Mus musculus,Mouse
+ST004925,Zea mays,Maize
+ST004928,Mus musculus,Mouse
+ST004929,Xenopus laevis,Frog
+ST004931,Homo sapiens,Human
+ST004933,Caenorhabditis elegans,Roundworm
+ST004934,Homo sapiens,Human
+ST004935,Homo sapiens,Human
+ST004936,Nothobranchius furzeri,Killifish
+ST004937,Nothobranchius furzeri,Killifish
+ST004939,Mus musculus,Mouse
+ST004940,Homo sapiens,Human
+ST004941,Homo sapiens,Human
+ST004942,Drosophila melanogaster,Fruit fly
+ST004943,Mus musculus,Mouse
+ST004944,Homo sapiens,Human
+ST004945,Mus musculus,Mouse
+ST004946,Mus musculus,Mouse
+ST004954,Homo sapiens,Human
+ST004955,Homo sapiens,Human
+ST004956,Pontastacus leptodactylus,Narrow-clawed crayfish
+ST004957,Tetradesmus lagerheimii; Blastomonas natatoria; Erythrobacter colymbi,Algae; Bacteria
+ST004958,Homo sapiens,Human
+ST004960,Homo sapiens,Human
+ST004962,Ophiocordyceps sinensis,Ophiocordyceps sinensis
+ST004963,Ophiocordyceps sinensis,Ophiocordyceps sinensis
+ST004965,"Callinectus sapidus, Crassostrea virginica, Panopeus herbstii","Blue Crabs, Eastern oysters, Mud Crabs"
+ST004966,Mus musculus,Mouse
+ST004967,Homo sapiens,Human
+ST004971,Mus musculus,Mouse
+ST004972,Homo sapiens,Human
+ST004973,Homo sapiens,Human
+ST004974,Homo sapiens,Human
+ST004975,Homo sapiens,Human
+ST004976,Homo sapiens,Human
+ST004979,Homo sapiens,Human
+ST004980,Homo sapiens,Human
+ST004981,Cervus nippon,Sika deer
+ST004982,Cervus nippon,Sika deer
+ST004983,Cervus nippon,Sika deer
+ST004985,Homo sapiens,Human
+ST004988,Homo sapiens,Human
+ST004989,Other,Other
+ST004990,Other,Other
+ST004992,Mus musculus,Mouse
+ST004993,Rattus norvegicus,Rat
+ST004994,Mus musculus,Mouse
+ST004995,Mus musculus,Mouse
+ST004997,Homo sapiens,Human
+ST004998,Homo sapiens,Human
+ST004999,Homo sapiens,Human
+ST005000,Homo sapiens,Human
+ST005002,Homo sapiens,Human
+ST005003,Drosophila melanogaster,Insect
+ST005005,Homo sapiens,Human
+ST005006,Homo sapiens,Human
+ST005007,Homo sapiens,Human
+ST005008,Homo sapiens,Human
+ST005010,Homo sapiens,Human
+ST005011,Homo sapiens,Human
+ST005015,Mus musculus,Mouse
+ST005016,Homo sapiens,Human
+ST005017,Homo sapiens,Human
+ST005020,Homo sapiens,Human
+ST005021,Homo sapiens,Human
+ST005022,Mus musculus,Mouse
+ST005024,Quercus ilex,Oak
+ST005025,Escherichia coli,E coli
+ST005026,Homo sapiens,Human
+ST005032,Homo sapiens,Human
+ST005040,Rattus norvegicus,Rat
+ST005044,Leptospira interrogans,Leptospira interrogans
+ST005045,Other abiotic sample,Other
+ST005046,Other abiotic sample,Other
+ST005051,Auxenochlorella pyrenoidosa,Algae
+ST005052,Equus ferus caballus; Bos grunniens; Equus africanus asinus; Camelus bactrianus,Horse; Yak; Donkey; Camel
+ST005059,Other abiotic sample,Other
+ST005066,Homo sapiens,Human
+ST005067,Homo sapiens,Human
+ST005077,Homo sapiens,Human
+ST005080,Homo sapiens,Human
+ST005081,Mus musculus,Mouse
+ST005084,Mus musculus,Mouse
+ST005094,Homo sapiens,Human
+ST005097,Mus musculus,Mouse
+ST005099,Candida albicans,Yeast
+ST005100,Mus musculus,Mouse
+ST005104,Mus musculus,Mouse
+ST005105,Homo sapiens,Human
+ST005110,Mus musculus,Mouse
+ST005121,Panax notoginseng,Panax notoginseng
+ST005132,Mus musculus,Mouse

@@ -1,0 +1,63 @@
+{
+  "artifacts": {
+    "analyses.csv": {
+      "bytes": 1830868,
+      "sha256": "ec31bd624b7b132a917be14e0d7999cfda3e35a0e3bc8a606f27d05e1d111da5"
+    },
+    "analyses.json": {
+      "bytes": 4386701,
+      "sha256": "f0e8933bc689e8f923756442ab2c32bbf2576f65e164db9336058373564cca80"
+    },
+    "analysis_metabolite_counts.csv": {
+      "bytes": 834652,
+      "sha256": "86b88bc9ed8a4995a8e91c05b31e55e4f7a1f10b266bbb580ae62f234d3fec15"
+    },
+    "analysis_metabolite_counts.json": {
+      "bytes": 1613452,
+      "sha256": "4bb97dc3100b4a6a4b5e5218d9158e6c1ca5f8df398fd61614c5faa387a5fb61"
+    },
+    "corpus_summary.json": {
+      "bytes": 3820,
+      "sha256": "70e08400fcf16a466e3076e17a26996e13c90ccd47b550589bb0cadd124bfd35"
+    },
+    "species_distribution.csv": {
+      "bytes": 22823,
+      "sha256": "0d656a29059df6c97343b00298735d2bbf145f42e242f7adb946475242256966"
+    },
+    "study_assay_scope.csv": {
+      "bytes": 241915,
+      "sha256": "19db115a9786aa817db15aa0a225b410733514a0fc43d962b4d59757c11c0fef"
+    },
+    "study_species.csv": {
+      "bytes": 158284,
+      "sha256": "caa32c4108f7c23bd0f6de3fb31329c86b59b02fcb183e84a3c1966e81a85c96"
+    },
+    "study_species.json": {
+      "bytes": 487390,
+      "sha256": "1306a477459a34b9fefdcdace9d9cfee4768ce438ae312fc894dece935e0de46"
+    },
+    "study_summaries.csv": {
+      "bytes": 1448277,
+      "sha256": "d19fe5f53d5cce94eea1220c40c5cef8b3d20f845f6273f3508e91dfb47901d3"
+    },
+    "study_summaries.json": {
+      "bytes": 2986234,
+      "sha256": "7d608f4bd750f4b3eddbab9dd69ac85c968afad89bd1b84ad1727f463cce2311"
+    },
+    "untargeted_analyses.csv": {
+      "bytes": 464040,
+      "sha256": "1c3534782b90add89543c01a45f654b71cc73729a67f6feb9f150acc8668a8a6"
+    },
+    "untargeted_analyses.json": {
+      "bytes": 804837,
+      "sha256": "efc0489548f64e2e6f176b66e117b8977dee7def7ed1471fa2cfb96bc4b8da07"
+    }
+  },
+  "notes": [
+    "Additional source rows sharing a stable study_id or analysis_id are counted and removed; content identity is not assumed.",
+    "No per-study quantitative matrix was fetched.",
+    "RefMet taxonomy is intentionally not folded into this corpus snapshot."
+  ],
+  "retrieved_at_utc": "2026-08-24T04:29:22+00:00",
+  "schema_version": "mw-corpus-snapshot-manifest-1.0"
+}

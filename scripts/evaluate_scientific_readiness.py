@@ -74,6 +74,11 @@ GATES = (
         ("test_scientific_readiness",),
     ),
     Gate(
+        "literature_evidence_integrity",
+        "Validates that an unreachable literature index is recorded as unavailable rather than as zero hits, that truncated or relevance-ranked sweeps are never declared complete, that unscreenable records and unlocated subject names stay unresolved instead of excluded, and that preprint, peer-reviewed and retracted records keep separate evidence tiers.",
+        ("test_literature_review",),
+    ),
+    Gate(
         "network_boundary_integrity",
         "Validates that only allowlisted live-ingestion modules import a network client, that offline pilot modules stay offline, and that the documented allowlist matches the enforced one.",
         ("test_network_boundary",),
