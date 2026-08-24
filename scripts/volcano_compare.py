@@ -32,6 +32,8 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
+import re
 import urllib.parse
 import urllib.request
 from datetime import UTC, datetime
@@ -49,8 +51,10 @@ MW_REST = "https://www.metabolomicsworkbench.org/rest/study/study_id/{sid}/{scop
 MOTRPAC_SEARCH = "https://search.motrpac-data.org/api/search_public"
 MOTRPAC_SIGNEDURL = "https://services.motrpac-data.org/v1/signedurl"
 MOTRPAC_BUCKET = "motrpac-data-hub"
-# Public API-gateway key baked into the DataHub web app (not a secret).
-MOTRPAC_KEY = "AIzaSyBwfwfqDmVq6PG7BTlv7bPFOsbngGP7BN8"
+MOTRPAC_HOME_URL = "https://motrpac-data.org"
+MOTRPAC_KEY_ENV = "MOTRPAC_API_KEY"
+USER_AGENT = "metabotyping-agentic-workbench/0.2"
+_MOTRPAC_KEY_CACHE: str | None = None
 
 HUMAN_SID = "ST004303"
 HUMAN_PRE, HUMAN_POST = "1P", "4P"           # pre / post timepoints
@@ -87,6 +91,52 @@ OUT_REPORTS = Path("reports_live")
 PROVENANCE = []
 
 
+def _get_text(url: str) -> str:
+    """Fetch a text resource and record the request in provenance."""
+
+    PROVENANCE.append({"method": "GET", "url": url})
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(request, timeout=TIMEOUT) as resp:
+        return resp.read().decode("utf-8", "replace")
+
+
+def _motrpac_key() -> str:
+    """Resolve MoTrPAC's public API-gateway key at run time.
+
+    The key is not confidential: MoTrPAC ships it in the Data Hub web bundle.
+    It is still their credential rather than ours, so a committed copy
+    republishes someone else's key, trips secret scanners on every public clone,
+    and breaks silently whenever they rotate it. Prefer an explicit
+    MOTRPAC_API_KEY override, otherwise discover it from the published bundle.
+    """
+
+    global _MOTRPAC_KEY_CACHE
+    if _MOTRPAC_KEY_CACHE:
+        return _MOTRPAC_KEY_CACHE
+
+    override = os.environ.get(MOTRPAC_KEY_ENV, "").strip()
+    if override:
+        _MOTRPAC_KEY_CACHE = override
+        return _MOTRPAC_KEY_CACHE
+
+    home = _get_text(MOTRPAC_HOME_URL)
+    asset = re.search(r'<script[^>]+src="(?P<src>/assets/[^"]+\.js)"', home)
+    if not asset:
+        raise RuntimeError(
+            "Could not locate the MoTrPAC Data Hub JavaScript bundle. "
+            f"Set {MOTRPAC_KEY_ENV} to supply the signed-url API key explicitly."
+        )
+    keys = re.findall(r"AIza[0-9A-Za-z_-]+", _get_text(MOTRPAC_HOME_URL + asset.group("src")))
+    if not keys:
+        raise RuntimeError(
+            "Could not find the MoTrPAC signed-url API key in the Data Hub bundle. "
+            f"Set {MOTRPAC_KEY_ENV} to supply it explicitly."
+        )
+    _MOTRPAC_KEY_CACHE = keys[0]
+    return _MOTRPAC_KEY_CACHE
+
+
+
 # --------------------------------------------------------------------------- #
 # HTTP helpers (mirrors scripts/fetch_live_records.py style)
 # --------------------------------------------------------------------------- #
@@ -107,7 +157,7 @@ def _post(url: str, payload: dict):
 def _signed_url(obj: str) -> str:
     """Resolve a MoTrPAC DataHub object path to a temporary signed download URL."""
     url = (f"{MOTRPAC_SIGNEDURL}?bucket={MOTRPAC_BUCKET}"
-           f"&object={urllib.parse.quote(obj)}&key={MOTRPAC_KEY}")
+           f"&object={urllib.parse.quote(obj)}&key={_motrpac_key()}")
     PROVENANCE.append({"method": "GET", "url": f"{MOTRPAC_SIGNEDURL}?bucket={MOTRPAC_BUCKET}&object={obj}&key=<key>"})
     with urllib.request.urlopen(url, timeout=TIMEOUT) as resp:
         return json.loads(resp.read().decode("utf-8"))["url"]

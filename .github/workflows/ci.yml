@@ -27,12 +27,26 @@ jobs:
         run: PYTHONPATH=src python scripts/evaluate_skills.py
       - name: Run strict scientific-readiness gate
         run: PYTHONPATH=src python scripts/evaluate_scientific_readiness.py
+      - name: Regenerate the offline pilot
+        # Regenerating the pilot in place is the reproducibility claim under test:
+        # the committed reports/ tree must be exactly what this code produces on
+        # the declared minimum Python. The drift check below fails if it is not.
+        run: PYTHONPATH=src python -m metabotyping_agentic.cli run-pilot --out reports
+
       - name: Regenerate canonical benchmark artifacts
         run: >-
           PYTHONPATH=src python -m metabotyping_agentic.cli benchmark
           --predicted data/extracted
           --gold data/examples
           --out reports
+
+      - name: Check that no command wrote outside its output directory
+        # discover and score-quality once rendered into a hardcoded reports/,
+        # ignoring --out, so running the test suite rewrote a committed artifact.
+        # Any tracked file modified by the steps above that is not in the
+        # generated-artifact list below is an out-of-scope write.
+        run: git diff --exit-code -- data/examples
+
       - name: Check generated contract, readiness, and benchmark reports
         run: |
           generated_artifacts=(
@@ -40,6 +54,14 @@ jobs:
             docs/skill_evaluation_results.json
             docs/scientific_readiness_report.md
             docs/scientific_readiness_results.json
+            reports/aim1_catalog_report.md
+            reports/aim2_assay_harmonization_plan.json
+            reports/aim2_harmonization_report.md
+            reports/aim3_evaluation_report.md
+            reports/human_review_packet.md
+            reports/literature_report.md
+            reports/motrpac_alignment.json
+            reports/motrpac_alignment_report.md
             reports/benchmark_results.json
             reports/benchmark_case_results.json
             reports/benchmark_disagreements.csv

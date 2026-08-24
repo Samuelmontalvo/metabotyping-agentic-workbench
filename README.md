@@ -22,17 +22,54 @@ adjudication.
 
 ## Install
 
-```bash
-pip install -e ".[dev]"
-```
-
-Install the optional rendering stack for PNG heatmaps, volcano plots, and single-feature figures:
+Requires Python 3.11 or newer.
 
 ```bash
 pip install -e ".[dev,plotting]"
 ```
 
+This is the environment the CI workflow and the strict readiness gate expect.
+`plotting` carries matplotlib, numpy, and scipy, which back the figure renderers
+and the paired-effect statistics in `scripts/volcano_compare.py`. With the base
+`[dev]` install the figure tests skip, and because the release gate fails on any
+skip, `scripts/evaluate_scientific_readiness.py` will report `FAIL` with the
+reason named under "Nonpassing tests".
+
+Add `docs` only if you need the `.docx` and `.pdf` manuscript renders:
+
+```bash
+pip install -e ".[dev,plotting,docs]"
+```
+
 The implementation is intentionally deterministic. The core offline pilot can run through the standard-library compatibility layer, but the complete test suite and metabolite-effect workflow require the declared project dependencies.
+
+## Activating the agents and skills
+
+The skill and agent contracts are project-scoped, so there is nothing to install
+and no configuration file to edit. What matters is which directory you open.
+
+**Claude Code.** Open this repository root as the working directory. Claude Code
+discovers `.claude/skills/*/SKILL.md` and `.claude/agents/*.md` automatically and
+reads `CLAUDE.md` as project memory. Confirm with `/agents` and `/skills`; you
+should see 24 agent files (22 canonical roles plus 2 deprecated aliases) and 24
+skills. Invoke a skill by name with `/<skill-name>`, or just describe the task and
+let the dispatcher route it. Eight advisory and critic agents declare
+`tools: Read, Grep, Glob, Bash` so they are not dispatched holding `Write` or
+`Edit`; that is defence in depth, not the real boundary, which is enforced
+deterministically by `review/validation.py` when a packet is ingested.
+
+**Codex.** Open the repository root and read `AGENTS.md`. The mirrored contracts
+live in `.agents/skills/*/SKILL.md` and `.codex/agents/*.toml`, byte-identical in
+content to the Claude pair. Treat `.codex/agents/*.toml` as a contract
+specification: this repository ships no Codex loader, and the only consumer in
+the tree is the parity audit in `scripts/evaluate_skills.py`.
+
+The contracts are host-neutral by design. No skill or agent references a Claude
+tool name, MCP server, or slash command, so the same procedure is followable by a
+human reading it.
+
+New here? Start with [docs/QUICKSTART.md](docs/QUICKSTART.md), which walks one
+question end to end using only offline fixtures.
 
 ## CLI
 
@@ -205,7 +242,13 @@ the synthetic publication fixtures at `reports/literature_report.md`.
 
 Set `METABOTYPING_CONTACT_EMAIL` for polite-pool identification and `NCBI_API_KEY`
 for a higher E-utilities rate limit. Both are optional and are sent only to the
-queried API.
+queried API. Both are masked as `<redacted>` in the endpoint URLs recorded in
+`literature_provenance.json`, so committing a provenance file never republishes
+a key or a contact address.
+
+`scripts/volcano_compare.py` needs MoTrPAC's public signed-url API key. It
+discovers that key from the Data Hub web bundle at run time rather than shipping
+a copy; set `MOTRPAC_API_KEY` to override.
 
 For the full test suite after installation:
 

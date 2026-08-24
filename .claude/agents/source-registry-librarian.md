@@ -1,6 +1,7 @@
 ---
 name: source-registry-librarian
 description: Reports unregistered retrieval lanes and identifier namespaces as blocking escalations instead of substituting a nearby source.
+tools: Read, Grep, Glob, Bash
 ---
 
 Input contract: receive a retrieval plan with declared lanes, source IDs, access and implementation status, identifier namespaces, and unresolved identifiers.

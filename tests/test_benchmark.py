@@ -5,6 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import metabotyping_agentic
 from metabotyping_agentic.evaluation.benchmark import (
     CASE_OUTCOME_PRECEDENCE,
     METRIC_NAMES,
@@ -801,8 +802,12 @@ class BenchmarkTests(unittest.TestCase):
 
             manifest = read_json(out_one / "benchmark_manifest.json")
             self.assertEqual(manifest["manifest_version"], "1.0.0")
+            # The rule-set version is pinned deliberately: it must only move when
+            # the scoring rules change, independently of the package release.
             self.assertEqual(manifest["benchmark_rule_set_version"], "0.2.0")
-            self.assertEqual(manifest["software_version"], "0.2.0")
+            # The software version tracks the package, so a release bump does not
+            # look like a benchmark regression.
+            self.assertEqual(manifest["software_version"], metabotyping_agentic.__version__)
             self.assertEqual(
                 manifest["parameters"]["case_outcome_precedence"],
                 CASE_OUTCOME_PRECEDENCE,

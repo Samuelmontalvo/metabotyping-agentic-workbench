@@ -26,7 +26,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.parse import quote, urlencode
+from urllib.parse import parse_qsl, quote, urlencode, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
 from ..io import ensure_dir, write_csv_rows, write_json
@@ -88,6 +88,30 @@ class SourceOutcome:
     retrieved_count: int
     pagination_complete: bool
     detail: str = ""
+
+
+# Query parameters that must never reach a committed provenance file. The
+# endpoint URLs recorded for each source are serialized to
+# literature_provenance.json and published alongside the results, so an NCBI
+# API key or a contact email embedded in a URL would be republished with the
+# artifact. The request still carries the real values; only the recorded copy
+# is masked.
+REDACTED_QUERY_PARAMS = ("api_key", "email", "mailto", "tool_key")
+
+
+def redact_url(url: str) -> str:
+    """Return *url* with credential and contact parameters masked."""
+
+    split = urlsplit(url)
+    if not split.query:
+        return url
+    pairs = parse_qsl(split.query, keep_blank_values=True)
+    if not any(key in REDACTED_QUERY_PARAMS for key, _ in pairs):
+        return url
+    masked = [
+        (key, "<redacted>" if key in REDACTED_QUERY_PARAMS else value) for key, value in pairs
+    ]
+    return urlunsplit(split._replace(query=urlencode(masked)))
 
 
 def _contact_email() -> str:
@@ -249,7 +273,7 @@ def search_europe_pmc(
     hit_count: int | None = None
     while len(records) < max_records:
         url = _europe_pmc_url(expression, page_size=page_size, cursor_mark=cursor_mark)
-        endpoints.append(url)
+        endpoints.append(redact_url(url))
         try:
             payload = fetcher(url)
         except RuntimeError as exc:
@@ -362,7 +386,7 @@ def search_pubmed(
         **_eutils_params(),
     }
     search_url = f"{PUBMED_BASE}/esearch.fcgi?{urlencode(search_params)}"
-    endpoints.append(search_url)
+    endpoints.append(redact_url(search_url))
     try:
         payload = fetcher(search_url)
     except RuntimeError as exc:
@@ -378,7 +402,7 @@ def search_pubmed(
         batch = uids[start : start + page_size]
         summary_params = {"db": "pubmed", "id": ",".join(batch), "retmode": "json", **_eutils_params()}
         summary_url = f"{PUBMED_BASE}/esummary.fcgi?{urlencode(summary_params)}"
-        endpoints.append(summary_url)
+        endpoints.append(redact_url(summary_url))
         try:
             summary_payload = fetcher(summary_url)
         except RuntimeError as exc:
@@ -495,7 +519,7 @@ def search_crossref(
         if email:
             params["mailto"] = email
         url = f"{CROSSREF_BASE}/works?{urlencode(params)}"
-        endpoints.append(url)
+        endpoints.append(redact_url(url))
         try:
             payload = fetcher(url)
         except RuntimeError as exc:
@@ -558,7 +582,7 @@ def enrich_preprint_records(
     for doi in candidates:
         for server in ("biorxiv", "medrxiv"):
             url = f"{BIORXIV_BASE}/details/{server}/{quote(doi, safe='/')}"
-            endpoints.append(url)
+            endpoints.append(redact_url(url))
             try:
                 payload = fetcher(url)
             except RuntimeError as exc:
