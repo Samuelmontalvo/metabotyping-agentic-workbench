@@ -5,8 +5,8 @@ metadata extraction, multi-database routing, variable and assay-platform
 harmonization review, dataset-readiness scoring, MoTrPAC-style analysis plots
 and metadata-readiness assessment, and benchmarking.
 
-The repository is designed for both Codex and Claude Code. Release 0.2.0 contains
-21 canonical paired agent roles and 23 paired skill contracts for both runtimes:
+The repository is designed for both Codex and Claude Code. The current worktree contains
+22 canonical paired agent roles and 24 paired skill contracts for both runtimes:
 
 - Codex: `AGENTS.md`, `.agents/skills/*/SKILL.md`, `.codex/agents/*.toml`
 - Claude Code: `CLAUDE.md`, `.claude/skills/*/SKILL.md`, `.claude/agents/*.md`, `.claude/commands/*.md`
@@ -132,6 +132,41 @@ python3 scripts/render_markdown_pdf.py \
 python3 scripts/render_markdown_html.py \
   reports_live/lacphe/lacphe_report.md reports_live/lacphe/lacphe_report.html
 ```
+
+## Worked example: repository-scale evidence report
+
+The repository includes a five-page worked example that combines a frozen
+Metabolomics Workbench corpus audit, RefMet hierarchy summaries, a Lac-Phe case
+study, a review-gated MW-MoTrPAC label-overlap screen, and a concise inventory of
+the workbench's agents and skills. The HTML is self-contained, while the R
+Markdown source, derived metrics, and frozen-source manifest keep the result
+auditable and reproducible.
+
+- [Final five-page PDF](output/pdf/metabotyping_agentic_workbench_final_report.pdf)
+- [Self-contained HTML report](reports_live/final_workbench_report/final_report.html)
+- [R Markdown source](reports_live/final_workbench_report/final_report.Rmd)
+- [Audited evidence bundle](reports_live/final_workbench_report/data/report_metrics.json)
+- [Frozen Metabolomics Workbench provenance manifest](data/live/mw_corpus_snapshot/manifest.json)
+
+Rebuild the derived tables and figures from the frozen local evidence, then
+render the two report formats:
+
+```bash
+MPLCONFIGDIR=/private/tmp/metabotyping-mpl \
+  python3 scripts/build_final_workbench_report.py
+python3 scripts/render_markdown_html.py \
+  reports_live/final_workbench_report/final_report.Rmd \
+  reports_live/final_workbench_report/final_report.html
+python3 scripts/render_markdown_pdf.py \
+  reports_live/final_workbench_report/final_report.Rmd \
+  output/pdf/metabotyping_agentic_workbench_final_report.pdf
+```
+
+The worked example is an evidence snapshot, not benchmark ground truth. Its
+reported MW feature total is analysis-level feature incidence rather than a
+unique-metabolite count, RefMet entries are reference nomenclature rather than
+MW observations, and every MW-MoTrPAC name overlap remains identity-review
+required.
 
 To ask what the published record says about the same subject, use the literature
 lane. Retrieval covers Europe PMC (which indexes MEDLINE/PubMed, PMC and
