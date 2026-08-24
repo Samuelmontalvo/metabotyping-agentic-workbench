@@ -1,0 +1,42 @@
+{
+  "artifact": "data/live/refmet_annotations.csv",
+  "role": "RefMet chemical hierarchy annotation table backing every RefMet class and enrichment result",
+  "provenance_status": "unresolved_retrieval_provenance",
+  "provenance_status_detail": "This snapshot predates the provenance convention used by the other live artifacts. It was committed without a recorded source URL, retrieval timestamp, or database release. Those facts are unknown to this repository, not absent from the source. They are recorded here as unresolved rather than reconstructed, because inventing a plausible endpoint or release string would be indistinguishable from a real one to a later reader.",
+  "measured_properties": {
+    "sha256": "c9faa02c6091ebce3b8f6a9a7feca5c9af4e41dffcea556391d49e042f0d1cca",
+    "bytes": 16524200,
+    "data_rows": 205948,
+    "columns": ["name", "super_class", "main_class", "sub_class", "refmet_id", "formula"]
+  },
+  "source_identification": {
+    "source": "Metabolomics Workbench RefMet",
+    "basis": "text_inference",
+    "evidence": "Every row carries an RM-prefixed identifier in the refmet_id column (for example RM0153417), and the super_class / main_class / sub_class columns reproduce the RefMet chemical hierarchy. No other database uses this identifier namespace and column set.",
+    "not_established": [
+      "the exact REST endpoint or bulk download used",
+      "the retrieval date",
+      "the RefMet database release or version",
+      "whether the table was filtered or transformed after download"
+    ]
+  },
+  "release": {
+    "value": null,
+    "state": "not_recorded_in_local_snapshot",
+    "note": "Downstream reports emit this state explicitly rather than substituting a file timestamp for a database release. See scripts/run_metabolite_effect_search.py and the RefMet notes in reports_live/refmet_enrichment_*.md."
+  },
+  "license": {
+    "value": null,
+    "state": "not_recorded",
+    "note": "Metabolomics Workbench terms apply to the underlying records. This repository's MIT licence does not cover them. See data/README.md."
+  },
+  "review": {
+    "human_review_status": "required",
+    "questions": [
+      "Re-retrieve the RefMet table from a recorded endpoint and pin the release, so class and enrichment results become attributable to a specific database version.",
+      "Until then, treat every RefMet class assignment in this repository as annotation from an unversioned snapshot: reproducible against this file by checksum, but not attributable to a dated RefMet release.",
+      "Confirm the Metabolomics Workbench redistribution terms before this file is republished outside this repository."
+    ]
+  },
+  "scientific_consequence": "Results derived from this table are internally reproducible, because the file is checksummed and committed. They are not externally reproducible against RefMet itself, because the release is unknown and RefMet class assignments change between releases. An enrichment result computed here therefore cannot be compared to one computed against a named RefMet version without first resolving this gap."
+}

@@ -347,7 +347,7 @@ Known limitations at 0.2.1, stated so they are not discovered later:
 - Reproducibility is verified on CPython 3.11 (arm64), 3.12 (x86_64) and 3.14
   (arm64). Figure binaries depend on the matplotlib version and are not
   byte-reproducible across matplotlib releases.
-- 25 of 28 `data/live` provenance files do not record a source licence.
+- 25 of 29 `data/live` provenance files do not record a source licence, and `refmet_annotations.csv` has no recorded retrieval provenance or RefMet release at all.
 - The R toolchain is required only by the optional MoTrPAC plot helpers and by
   CI; it is not needed for the offline pilot or the test suite.
 

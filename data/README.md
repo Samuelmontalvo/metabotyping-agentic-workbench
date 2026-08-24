@@ -27,7 +27,21 @@ The two largest files:
 | File | Size | Source | Terms |
 |---|---|---|---|
 | `metabolite_scan/n_lactoyl_phenylalanine/rat_pass1b06_metabolomics_timewise_all_rows.csv` | 34 MB | MoTrPAC Data Hub, `pass1b-06` public release | MoTrPAC data use terms; cite the MoTrPAC consortium |
-| `refmet_annotations.csv` | 16 MB | Metabolomics Workbench RefMet | Metabolomics Workbench terms; cite RefMet and the release used |
+| `refmet_annotations.csv` | 16 MB | Metabolomics Workbench RefMet (identified by inference, see below) | Metabolomics Workbench terms; release unknown |
+
+`refmet_annotations.csv` deserves a specific warning, because every RefMet class
+and enrichment result in this repository depends on it. It was committed before
+the provenance convention used by the other live artifacts, so it has **no
+recorded source URL, retrieval date, or RefMet release**. Its identity as RefMet
+is an inference from the `RM`-prefixed identifiers and the class hierarchy, not a
+recorded fact. `refmet_annotations_provenance.json` states this explicitly rather
+than reconstructing a plausible endpoint.
+
+The practical consequence: results derived from this table are reproducible
+*here*, because the file is committed and checksummed, but they are **not**
+externally reproducible against RefMet, because class assignments change between
+releases and this snapshot's release is unknown. Re-retrieving the table from a
+recorded endpoint with a pinned release is open work.
 
 Per-study records under `metabolite_scan/`, `metabolite_search_*/`, `literature/`,
 and `mw_corpus_snapshot/` come from Metabolomics Workbench REST, the MoTrPAC
@@ -38,7 +52,7 @@ study's `provenance.json` (for example `ST003662` is CC BY 4.0).
 
 Before redistributing anything from `data/live/`, read the accompanying
 `*provenance*.json` for the exact source URLs and, where recorded, the licence.
-**Only 3 of 28 provenance files currently record a licence field.** For the other
+**Only 4 of 29 provenance files currently record a licence field.** For the other
 25 the licence is unresolved in our records rather than confirmed absent, which
 is exactly the distinction this project refuses to collapse elsewhere. Resolving
 them is tracked work; until then, treat an unrecorded licence as unknown and

@@ -95,7 +95,7 @@ this, trust its outputs, and reproduce them.
   project's distinguishing contribution undiscoverable.
 - `data/README.md`: licence terms stated separately for the synthetic fixtures
   (MIT, ours) and the 68 MB of redistributed MoTrPAC and Metabolomics Workbench
-  records (not ours to relicense). Records that only 3 of 28 provenance files
+  records (not ours to relicense). Records that only 4 of 29 provenance files
   currently carry a licence field, and treats the rest as unresolved rather than
   absent.
 - Eight advisory and critic agents now declare `tools: Read, Grep, Glob, Bash`,
@@ -108,16 +108,64 @@ this, trust its outputs, and reproduce them.
   bioRxiv/medRxiv) with offline screening and appraisal held separate from
   retrieval, its skill and agent contracts, and 23 tests.
 
+### Fixed — defects found by independent verification of the above
+
+Four verifiers re-checked the fixes above from clean clones. These were wrong or
+incomplete and are now corrected:
+
+- **`review-literature` was only half fixed.** The argparse defaults moved, but
+  the typer command still pointed at `data/extracted` and `reports/`. typer is a
+  required dependency, so that was the live path and a no-flag run still
+  overwrote four committed offline-pilot artifacts. Both frontends now agree, and
+  `tests/test_cli_frontend_parity.py` asserts every shared option default matches
+  and that no live lane defaults into a protected tree.
+- **Redaction was too narrow.** It covered the endpoints list only. The NCBI key
+  still reached provenance through raised error text, and the contact email
+  reached every record through `source_url`, then propagated into the screened
+  CSVs and the rendered report. Redaction now happens at all five error sites and
+  every `source_url`, with an end-to-end test that drives the lane under both
+  environment variables and asserts neither value reaches disk.
+- **Three more float accumulations fed published numbers**, not just the quality
+  score: the paired-effect variance, the Pearson r behind the Lac-Phe
+  lactate-coupling result, and the Fisher enrichment p-value. The first two now
+  use `math.fsum`. The Fisher p needed more — even with `fsum`, the x86_64 and
+  arm64 `libm` builds of `math.exp`/`math.lgamma` disagreed in the 13th digit, so
+  the divergence was upstream of the sum. It now uses exact integer arithmetic
+  via `math.comb` with a single final division, and is bit-identical on 3.11.15
+  arm64, 3.12.8 x86_64 and 3.14.4 arm64.
+- **`metabolite_effects_leucine.md` published two mappings as `accepted_exact`
+  that the current code classifies `requires_human_review`** — a published
+  classification more permissive than the code produces, against the stated
+  escalation non-negotiable. Regenerated, along with the acylcarnitine and
+  kynurenine reports and the enrichment artifacts affected by the Fisher change.
+- **`docs/QUICKSTART.md` claimed `--out` is honoured strictly by every
+  subcommand.** It is not: `run-pilot` always writes `data/extracted/` and
+  `data/review/` relative to the working directory and discards uncommitted edits
+  there. Documented the real behaviour with a scratch-directory recipe instead.
+- **`data/live/refmet_annotations.csv` had no provenance record at all** — 16 MB
+  and 205,948 rows backing every RefMet class and enrichment result, with no
+  source URL, retrieval date, or release. Added
+  `refmet_annotations_provenance.json`, which records the RefMet identification
+  as a text inference from the `RM` identifier namespace and states the missing
+  fields as unresolved rather than reconstructing a plausible endpoint.
+
 ### Known limitations
 
-- The Google API key removed above is still present in git history.
-- 25 of 28 `data/live` provenance files do not record a licence.
+- The Google API key removed above is still present in git history, including in
+  `.pyc` blobs committed in an earlier commit. Only rotation by MoTrPAC actually
+  revokes it.
+- 25 of 29 `data/live` provenance files do not record a licence, and
+  `refmet_annotations.csv` has no recorded retrieval provenance or RefMet
+  release, so its class assignments are reproducible here by checksum but not
+  attributable to a named RefMet version.
 - Each live lane has exactly one worked example (Lac-Phe, plus one literature
   query), so generalisation to other studies' factor conventions is untested. The
   Metabolomics Workbench timepoint classifier infers "pre-exercise" from a bare
   `pre` or `:b` substring and has no test coverage.
-- Reproducibility is verified on Python 3.11 and 3.14 only.
-- No DOI yet.
+- Reproducibility is verified on CPython 3.11.15 (arm64), 3.12.8 (x86_64) and
+  3.14.4 (arm64). Figure binaries depend on the matplotlib version and are not
+  byte-reproducible across matplotlib releases.
+- No DOI and no git tag yet, so there is nothing citable to pin a manuscript to.
 
 ## [0.2.0]
 
