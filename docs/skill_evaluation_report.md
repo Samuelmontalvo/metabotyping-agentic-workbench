@@ -4,14 +4,14 @@ This deterministic audit evaluates project-scoped skill and agent contracts. It 
 
 ## Summary
 
-- Skill files: 48 (24 paired skill names).
+- Skill files: 50 (25 paired skill names).
 - Mean skill structural score: 1.000.
 - Mean skill operational-linkage score: 1.000.
-- Canonical agent files: 44 (22 paired canonical names).
+- Canonical agent files: 46 (23 paired canonical names).
 - Mean agent contract score: 1.000.
 - Deprecated alias files: 4 (2 paired alias names).
 - Mean deprecated-alias contract score: 1.000.
-- Host-addressable manifests: 48 (24 names).
+- Host-addressable manifests: 50 (25 names).
 - Inventory issues: 0.
 
 ## Inventory Issues
@@ -27,6 +27,7 @@ This deterministic audit evaluates project-scoped skill and agent contracts. It 
 | `.agents/skills/biospecimen-preanalytics-reviewer/SKILL.md` | 1.000 | 1.000 | 1.000 | pass | linked | none |
 | `.agents/skills/define-inclusion-criteria/SKILL.md` | 1.000 | 1.000 | 1.000 | pass | linked | none |
 | `.agents/skills/exercise-phenotype-harmonization-reviewer/SKILL.md` | 1.000 | 1.000 | 1.000 | pass | linked | none |
+| `.agents/skills/gene-centric-metabolite-lookup/SKILL.md` | 1.000 | 1.000 | 1.000 | pass | linked | none |
 | `.agents/skills/grant-aims-refiner/SKILL.md` | 1.000 | 1.000 | 1.000 | pass | agent_only_declared | none |
 | `.agents/skills/harmonization-plan/SKILL.md` | 1.000 | 1.000 | 1.000 | pass | linked | none |
 | `.agents/skills/harmonization-skeptic/SKILL.md` | 1.000 | 1.000 | 1.000 | pass | linked | none |
@@ -51,6 +52,7 @@ This deterministic audit evaluates project-scoped skill and agent contracts. It 
 | `.claude/skills/biospecimen-preanalytics-reviewer/SKILL.md` | 1.000 | 1.000 | 1.000 | pass | linked | none |
 | `.claude/skills/define-inclusion-criteria/SKILL.md` | 1.000 | 1.000 | 1.000 | pass | linked | none |
 | `.claude/skills/exercise-phenotype-harmonization-reviewer/SKILL.md` | 1.000 | 1.000 | 1.000 | pass | linked | none |
+| `.claude/skills/gene-centric-metabolite-lookup/SKILL.md` | 1.000 | 1.000 | 1.000 | pass | linked | none |
 | `.claude/skills/grant-aims-refiner/SKILL.md` | 1.000 | 1.000 | 1.000 | pass | agent_only_declared | none |
 | `.claude/skills/harmonization-plan/SKILL.md` | 1.000 | 1.000 | 1.000 | pass | linked | none |
 | `.claude/skills/harmonization-skeptic/SKILL.md` | 1.000 | 1.000 | 1.000 | pass | linked | none |
@@ -82,6 +84,7 @@ This deterministic audit evaluates project-scoped skill and agent contracts. It 
 | `.codex/agents/dataset-readiness-reviewer.toml` | 1.000 | pass | none |
 | `.codex/agents/discovery-orchestrator.toml` | 1.000 | pass | none |
 | `.codex/agents/exercise-phenotype-harmonization-reviewer.toml` | 1.000 | pass | none |
+| `.codex/agents/gene-metabolite-association-auditor.toml` | 1.000 | pass | none |
 | `.codex/agents/harmonization-skeptic.toml` | 1.000 | pass | none |
 | `.codex/agents/literature-evidence-appraiser.toml` | 1.000 | pass | none |
 | `.codex/agents/literature-retrieval.toml` | 1.000 | pass | none |
@@ -104,6 +107,7 @@ This deterministic audit evaluates project-scoped skill and agent contracts. It 
 | `.claude/agents/dataset-readiness-reviewer.md` | 1.000 | pass | none |
 | `.claude/agents/discovery-orchestrator.md` | 1.000 | pass | none |
 | `.claude/agents/exercise-phenotype-harmonization-reviewer.md` | 1.000 | pass | none |
+| `.claude/agents/gene-metabolite-association-auditor.md` | 1.000 | pass | none |
 | `.claude/agents/harmonization-skeptic.md` | 1.000 | pass | none |
 | `.claude/agents/literature-evidence-appraiser.md` | 1.000 | pass | none |
 | `.claude/agents/literature-retrieval.md` | 1.000 | pass | none |

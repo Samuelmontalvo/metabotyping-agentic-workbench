@@ -30,6 +30,7 @@ EXPECTED_CANONICAL_AGENT_NAMES = {
     "dataset-readiness-reviewer",
     "discovery-orchestrator",
     "exercise-phenotype-harmonization-reviewer",
+    "gene-metabolite-association-auditor",
     "harmonization-skeptic",
     "literature-evidence-appraiser",
     "literature-retrieval",
@@ -135,6 +136,11 @@ EXPECTED_IMPLEMENTATIONS: dict[str, tuple[str, ...]] = {
     "exercise-phenotype-harmonization-reviewer": (
         "src/metabotyping_agentic/review/validation.py",
         "src/metabotyping_agentic/review/models.py",
+    ),
+    "gene-centric-metabolite-lookup": (
+        "src/metabotyping_agentic/live_sources/metgene.py",
+        "src/metabotyping_agentic/live_sources/metabolomics_workbench.py",
+        "src/metabotyping_agentic/discovery/gene_metabolite_evidence.py",
     ),
     "grant-aims-refiner": (),
     "harmonization-plan": ("src/metabotyping_agentic/harmonization/harmonization_plan.py",),

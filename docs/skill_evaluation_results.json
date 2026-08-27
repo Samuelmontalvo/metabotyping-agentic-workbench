@@ -232,6 +232,25 @@
       "score": 1.0
     },
     {
+      "canonical_name": "gene-metabolite-association-auditor",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "gene-metabolite-association-auditor",
+      "path": ".codex/agents/gene-metabolite-association-auditor.toml",
+      "platform": "codex",
+      "score": 1.0
+    },
+    {
       "canonical_name": "harmonization-skeptic",
       "checks": {
         "description_present": true,
@@ -646,6 +665,25 @@
       "issues": [],
       "name": "exercise-phenotype-harmonization-reviewer",
       "path": ".claude/agents/exercise-phenotype-harmonization-reviewer.md",
+      "platform": "claude",
+      "score": 1.0
+    },
+    {
+      "canonical_name": "gene-metabolite-association-auditor",
+      "checks": {
+        "description_present": true,
+        "evidence_language": true,
+        "input_output_review_contract": true,
+        "name_matches_filename": true,
+        "paired_contract_parity": true,
+        "paired_counterpart_exists": true,
+        "safety_language": true,
+        "valid_config": true
+      },
+      "is_deprecated_alias": false,
+      "issues": [],
+      "name": "gene-metabolite-association-auditor",
+      "path": ".claude/agents/gene-metabolite-association-auditor.md",
       "platform": "claude",
       "score": 1.0
     },
@@ -1105,6 +1143,45 @@
       "operational_score": 1.0,
       "overall_score": 1.0,
       "path": ".agents/skills/exercise-phenotype-harmonization-reviewer/SKILL.md",
+      "platform": "codex",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
+      "implementation_paths": [
+        "src/metabotyping_agentic/live_sources/metgene.py",
+        "src/metabotyping_agentic/live_sources/metabolomics_workbench.py",
+        "src/metabotyping_agentic/discovery/gene_metabolite_evidence.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "gene-centric-metabolite-lookup",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".agents/skills/gene-centric-metabolite-lookup/SKILL.md",
       "platform": "codex",
       "structural_checks": {
         "description_present": true,
@@ -2029,6 +2106,45 @@
       "structural_score": 1.0
     },
     {
+      "implementation_paths": [
+        "src/metabotyping_agentic/live_sources/metgene.py",
+        "src/metabotyping_agentic/live_sources/metabolomics_workbench.py",
+        "src/metabotyping_agentic/discovery/gene_metabolite_evidence.py"
+      ],
+      "implementation_status": "linked",
+      "issues": [],
+      "name": "gene-centric-metabolite-lookup",
+      "operational_checks": {
+        "implementation_declared": true,
+        "implementation_paths_exist": true,
+        "paired_contract_exact": true,
+        "paired_counterpart_exists": true
+      },
+      "operational_score": 1.0,
+      "overall_score": 1.0,
+      "path": ".claude/skills/gene-centric-metabolite-lookup/SKILL.md",
+      "platform": "claude",
+      "structural_checks": {
+        "description_present": true,
+        "gate:critical_evidence": true,
+        "gate:fair_data": true,
+        "gate:human_review": true,
+        "gate:reproducibility": true,
+        "gate:structured_scoring": true,
+        "name_matches_directory": true,
+        "section:Evaluation Gates": true,
+        "section:Failure Modes": true,
+        "section:Human-Review Triggers": true,
+        "section:Inputs": true,
+        "section:Outputs": true,
+        "section:Purpose": true,
+        "section:Steps": true,
+        "section:Validation Checks": true,
+        "valid_frontmatter": true
+      },
+      "structural_score": 1.0
+    },
+    {
       "implementation_paths": [],
       "implementation_status": "agent_only_declared",
       "issues": [],
@@ -2743,19 +2859,19 @@
     }
   ],
   "summary": {
-    "addressable_agent_files": 48,
-    "addressable_agent_names": 24,
-    "agent_files": 44,
+    "addressable_agent_files": 50,
+    "addressable_agent_names": 25,
+    "agent_files": 46,
     "deprecated_agent_alias_files": 4,
     "inventory_issue_count": 0,
     "mean_agent_contract_score": 1.0,
     "mean_deprecated_agent_alias_contract_score": 1.0,
     "mean_skill_operational_score": 1.0,
     "mean_skill_structural_score": 1.0,
-    "paired_addressable_agent_names": 24,
-    "paired_agent_names": 22,
+    "paired_addressable_agent_names": 25,
+    "paired_agent_names": 23,
     "paired_deprecated_agent_alias_names": 2,
-    "paired_skill_names": 24,
-    "skill_files": 48
+    "paired_skill_names": 25,
+    "skill_files": 50
   }
 }

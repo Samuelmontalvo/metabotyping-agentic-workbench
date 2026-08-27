@@ -16,9 +16,10 @@ Use the `.claude/skills/*/SKILL.md` workflows and `.claude/agents/*.md` subagent
 
 Live ingestion of real public records is permitted as a **separate, opt-in mode**, distinct from the offline pilot. Rules:
 
-- Network access is confined to the declared network-boundary allowlist: `scripts/fetch_live_records.py`, `scripts/volcano_compare.py`, `src/metabotyping_agentic/live_sources/literature_search.py`, `src/metabotyping_agentic/live_sources/metabolomics_workbench.py`, and `src/metabotyping_agentic/live_sources/motrpac_volcano_compare.py`. These are reachable only through `scripts/fetch_live_records.py` and the `live-*` CLI subcommands. No other module, script, or test may import a network client or open a socket. `tests/test_network_boundary.py` enforces the allowlist by AST scan; adding a module to it is a reviewed change to this file.
+- Network access is confined to the declared network-boundary allowlist: `scripts/fetch_live_records.py`, `scripts/volcano_compare.py`, `src/metabotyping_agentic/live_sources/literature_search.py`, `src/metabotyping_agentic/live_sources/metabolomics_workbench.py`, `src/metabotyping_agentic/live_sources/metgene.py`, and `src/metabotyping_agentic/live_sources/motrpac_volcano_compare.py`. These are reachable only through `scripts/fetch_live_records.py` and the `live-*` CLI subcommands. No other module, script, or test may import a network client or open a socket. `tests/test_network_boundary.py` enforces the allowlist by AST scan; adding a module to it is a reviewed change to this file.
 - Live data is written under `data/live/` and live reports under `reports_live/`. Never overwrite `data/examples/` (synthetic fixtures) or `reports/` (offline pilot output).
 - Sources are public, released, openly licensed records only (e.g. Metabolomics Workbench REST; MoTrPAC metabolomics hosted on MW; Europe PMC, PubMed E-utilities, Crossref, and bioRxiv/medRxiv for bibliographic records). Record exact source URLs in `data/live/provenance.json`.
+- **One reviewed exception to the open-licence rule:** MetGENE (`bdcw.org`) is public and released but is *not* openly licensed — its output is KEGG-derived and its terms permit personal, non-commercial use only. It is registered with `open_access=False`, so default routing excludes it, and its adapter writes no KEGG-derived row to disk unless a reviewer passes `--acknowledge-licence-review`. See the gene-centric lane below.
 - Do not fabricate records for embargoed/access-controlled data (e.g. the human MoTrPAC DataHub arm). Represent unavailable data as an availability gap / mirage risk, never as a synthetic stand-in.
 - All scientific guardrails (mirage detection, human-review escalation, missing-codebook = risk) apply identically to live records.
 
@@ -93,6 +94,58 @@ Retrieval (`live_sources/literature_search.py`, allowlisted) is separate from sc
 
 Set `METABOTYPING_CONTACT_EMAIL` for polite-pool identification and `NCBI_API_KEY` for a higher
 E-utilities rate limit. Neither is required, and neither is sent anywhere except the queried API.
+
+### Gene-centric lane (MetGENE) and the Metabolomics Workbench tool contexts
+
+Start from a gene and ask which compounds, reactions, and MW studies are *annotated* to it, and
+crosswalk compound identifiers or an m/z against the MW metabolite database:
+
+```bash
+# MetGENE: gene -> reactions, compounds, MW study candidates, precomputed pathway count.
+# Without --acknowledge-licence-review only provenance and escalations are written.
+PYTHONPATH=src python3 -m metabotyping_agentic.cli live-lookup-gene-metabolites \
+  --gene HMGCR --species hsa --gene-id-type SYMBOL
+
+# MW compound context: identifier crosswalk (regno, pubchem_cid, inchi_key, hmdb_id, kegg_id, lm_id, ...)
+PYTHONPATH=src python3 -m metabotyping_agentic.cli live-lookup-compound \
+  --input-item hmdb_id --value HMDB0000122
+
+# MW gene/protein (MGP) annotation records - human only
+PYTHONPATH=src python3 -m metabotyping_agentic.cli live-lookup-mw-gene-protein \
+  --context protein --input-item uniprot_id --value Q13085
+
+# MW moverz precursor search, or the exactmass calculator for a lipid abbreviation
+PYTHONPATH=src python3 -m metabotyping_agentic.cli live-search-mass --mz 255.2 --adduct M+H --tolerance 0.02
+PYTHONPATH=src python3 -m metabotyping_agentic.cli live-search-mass --abbreviation "PC(34:1)" --adduct M+H
+```
+
+Retrieval (`live_sources/metgene.py` and the compound/gene/protein/moverz/exactmass helpers in
+`live_sources/metabolomics_workbench.py`, both allowlisted) is separate from appraisal
+(`discovery/gene_metabolite_evidence.py`, offline). Lane rules:
+
+- An annotation is not a measurement. Every emitted row across the lane carries
+  `measurement_established=not_established`, and the appraisal ledger records each hop — gene to reaction, reaction to compound, compound to
+  standardized name, name to study accession — as a separate labeled inference with an explicit
+  "does not establish" statement. A MetGENE study accession is an annotation-derived candidate and
+  must be re-fetched from Metabolomics Workbench before anything is said about what the study reported.
+- MetGENE exposes no REST pathways context. Only a precomputed integer pathway count is retrievable;
+  the listing is recorded as `not_retrievable_by_api`, never inferred.
+- MetGENE distinguishes six retrieval states: `ok`, `no_hits`, `gene_not_annotated`,
+  `gene_unresolved_or_source_error` (HTTP 500, returned both for a wrong-case symbol and for an
+  outage), `indeterminate_empty_body` (a zero-length 200 that an unrecognised anatomy term also
+  produces), and `unavailable` (the source could not be reached, so its coverage is unknown). None
+  of them is evidence of absence. A context excluded from the request is recorded separately as
+  `not_requested`, writes no table, and gets no row count — "never asked" is not "answered with
+  nothing".
+- The MW REST contexts return every application error as HTTP 200, so classification reads the
+  content type and body, never the status code. An unrecognised adduct is silently computed as the
+  neutral mass, so every emitted mass match has its echoed ion label verified against the request.
+- The MW gene/protein (MGP) tables are human-only and hold no compound field, so they cannot link a
+  gene to a metabolite; a non-human taxid is refused as `species_not_covered_by_source` rather than
+  queried and reported as empty.
+- `metgene`, `mw_compound_database`, and `mw_metabolome_gene_protein` are registered in
+  `knowledge/source_registry.py` under the `gene_metabolite_association`, `chemical_identity`,
+  `mass_spectral_search`, and `gene_annotation` lanes.
 
 ## Pilot
 
