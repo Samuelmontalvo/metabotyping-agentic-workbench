@@ -648,3 +648,904 @@ def search_metabolite_studies(
         "provenance_path": provenance_path,
         "searches": searches,
     }
+
+
+# ---------------------------------------------------------------------------
+# Compound, gene/protein (MGP), and mass-search contexts
+#
+# These share the base URL, host, and terms of the study/refmet/metstat contexts
+# above, so they widen the declared network boundary by zero modules. They do not
+# share an error taxonomy: every application error is returned as HTTP 200 with a
+# ``text/html`` body, so status codes cannot be used to detect failure.
+# ---------------------------------------------------------------------------
+
+MW_TERMS_URL = "https://www.metabolomicsworkbench.org/about/termsofuse.php"
+MW_REST_DOC_URL = "https://www.metabolomicsworkbench.org/tools/mw_rest.php"
+# The doc page carries the only version string the service publishes; there is no
+# version endpoint, so the string is recorded rather than queried.
+MW_REST_API_VERSION = "MW REST API v1.2, 07/22/2025"
+
+COMPOUND_INPUT_ITEMS = (
+    "regno",
+    "formula",
+    "inchi_key",
+    "lm_id",
+    "pubchem_cid",
+    "hmdb_id",
+    "kegg_id",
+    "smiles",
+)
+# Accepted by the live service but absent from every published input list, so a
+# query using one is flagged rather than presented as a supported contract.
+COMPOUND_UNDOCUMENTED_INPUT_ITEMS = ("chebi_id", "metacyc_id")
+# molfile, sdf, and png are deliberately out of scope: png redirects out of /rest/
+# into a display page, and structure files are not evidence this lane needs.
+COMPOUND_OUTPUT_ITEMS = (
+    "all",
+    "classification",
+    "regno",
+    "formula",
+    "exactmass",
+    "inchi_key",
+    "name",
+    "sys_name",
+    "smiles",
+    "lm_id",
+    "pubchem_cid",
+    "hmdb_id",
+    "kegg_id",
+    "chebi_id",
+    "metacyc_id",
+)
+
+GENE_INPUT_ITEMS = ("mgp_id", "gene_id", "gene_name", "gene_symbol", "taxid")
+PROTEIN_INPUT_ITEMS = GENE_INPUT_ITEMS + (
+    "mrna_id",
+    "refseq_id",
+    "uniprot_id",
+    "protein_entry",
+    "protein_name",
+)
+# The MGP tables hold human records only; every other taxid answers with an empty
+# list, which would otherwise be recorded as a coverage gap for that species.
+MW_MGP_SUPPORTED_TAXIDS = ("9606",)
+
+MOVERZ_DATABASES = ("MB", "LIPIDS", "REFMET")
+# Documented but broken upstream: the service accepts it and answers with the
+# neutral mass, so it is refused here rather than silently mis-recorded.
+MOVERZ_REFUSED_ION_TYPES = ("M.KFormate-H",)
+
+
+@dataclass(frozen=True)
+class MwRawResponse:
+    """A Metabolomics Workbench response before interpretation."""
+
+    url: str
+    http_status: int | None
+    content_type: str
+    body: str
+    transport_error: str = ""
+
+
+MwRawFetcher = Callable[[str], MwRawResponse]
+
+
+def fetch_mw_raw(url: str, timeout: int = DEFAULT_TIMEOUT_SECONDS) -> MwRawResponse:
+    """Fetch a Metabolomics Workbench URL without interpreting the body.
+
+    Required for moverz and exactmass, which never return JSON, and for detecting
+    the HTML error bodies the JSON contexts return under HTTP 200.
+    """
+
+    request = Request(url, headers={"Accept": "*/*", "User-Agent": USER_AGENT})
+    try:
+        with urlopen(request, timeout=timeout) as response:  # nosec B310 - explicit public data adapter
+            body = response.read().decode("utf-8", "replace")
+            content_type = str(response.headers.get("Content-Type") or "")
+            return MwRawResponse(url, int(response.status), content_type, body)
+    except HTTPError as exc:
+        content_type = str(exc.headers.get("Content-Type") or "") if exc.headers else ""
+        return MwRawResponse(url, int(exc.code), content_type, "")
+    except (URLError, TimeoutError) as exc:
+        return MwRawResponse(url, None, "", "", transport_error=str(exc))
+
+
+def classify_mw_response(response: MwRawResponse) -> tuple[str, Any, str]:
+    """Return ``(status, payload_or_None, detail)`` for a JSON-context response.
+
+    Status codes carry almost no information here: a bad input item, a bad output
+    item, and a genuine miss all answer HTTP 200. Classification therefore reads
+    the content type and the body prefix.
+    """
+
+    if response.transport_error:
+        return "unavailable", None, f"transport error: {response.transport_error}"
+    if response.http_status is not None and response.http_status >= 400:
+        return "unavailable", None, f"HTTP {response.http_status}"
+    body = response.body.strip()
+    if not body:
+        return "unavailable", None, "empty response body"
+    if "text/html" in response.content_type.lower() or body.startswith("<"):
+        detail = " ".join(re.sub(r"<[^>]+>", " ", body)[:200].split())
+        return "request_rejected", None, detail
+    if body == "[]":
+        return "no_hits", [], ""
+    try:
+        payload = json.loads(body)
+    except json.JSONDecodeError:
+        return "unavailable", None, "non-JSON body: " + " ".join(body[:200].split())
+    rows = mw_rows(payload)
+    if not rows:
+        return "no_hits", payload, ""
+    return "ok", payload, ""
+
+
+def mw_rows(payload: Any) -> list[dict[str, Any]]:
+    """Normalize the flat, ``Row1..RowN``, and integer-keyed response shapes."""
+
+    if isinstance(payload, list):
+        return [item for item in payload if isinstance(item, dict)]
+    if not isinstance(payload, dict) or not payload:
+        # An empty object carries no record; emitting it as a row would fabricate a
+        # compound whose every field reads "not_reported".
+        return []
+    values = list(payload.values())
+    if values and all(isinstance(item, dict) for item in values):
+        return values
+    return [payload]
+
+
+def normalize_compound_identifier(input_item: str, value: str) -> tuple[str, str]:
+    """Return ``(normalized_value, normalization_applied)``.
+
+    An unnormalized identifier answers with an empty list, which would otherwise
+    be written as a coverage gap for a compound the database actually holds. Every
+    normalization is reported so a formatting fix is never mistaken for a finding.
+    """
+
+    text = str(value).strip()
+    if input_item == "hmdb_id":
+        match = re.fullmatch(r"HMDB0*(\d+)", text, flags=re.IGNORECASE)
+        if match:
+            padded = f"HMDB{int(match.group(1)):07d}"
+            return padded, ("none" if padded == text else f"zero_padded_hmdb_id:{text}->{padded}")
+    if input_item == "chebi_id":
+        match = re.fullmatch(r"CHEBI:\s*(\d+)", text, flags=re.IGNORECASE)
+        if match:
+            return match.group(1), f"stripped_chebi_prefix:{text}->{match.group(1)}"
+    if input_item in {"inchi_key", "kegg_id"}:
+        upper = text.upper()
+        return upper, ("none" if upper == text else f"upper_cased_{input_item}:{text}->{upper}")
+    return text, "none"
+
+
+def _mw_context_url(context: str, input_item: str, value: str, output_item: str) -> str:
+    # A forward slash inside a value is untransmittable: raw it splits the path and
+    # percent-encoded it is rejected by the front end before the handler runs.
+    if "/" in value:
+        raise ValueError(
+            f"A forward slash in a {context} query value is not transmittable to the "
+            f"Metabolomics Workbench REST API: {value!r}"
+        )
+    return f"{BASE_URL}/{context}/{input_item}/{quote(value, safe='()')}/{output_item}"
+
+
+COMPOUND_FIELDNAMES = [
+    "query_input_item",
+    "query_value",
+    "query_value_normalized",
+    "identifier_normalization_applied",
+    "input_item_support",
+    "regno",
+    "name",
+    "sys_name",
+    "formula",
+    "exactmass",
+    "inchi_key",
+    "smiles",
+    "pubchem_cid",
+    "hmdb_id",
+    "kegg_id",
+    "chebi_id",
+    "lm_id",
+    "metacyc_id",
+    "record_index",
+    "candidate_set_size",
+    "identity_status",
+    "evidence_type",
+    "measurement_established",
+    "review_status",
+    "decision_scope",
+    "source_system",
+    "source_url",
+]
+
+COMPOUND_RECORD_FIELDS = (
+    "regno",
+    "name",
+    "sys_name",
+    "formula",
+    "exactmass",
+    "inchi_key",
+    "smiles",
+    "pubchem_cid",
+    "hmdb_id",
+    "kegg_id",
+    "chebi_id",
+    "lm_id",
+    "metacyc_id",
+)
+
+
+def lookup_compound(
+    value: str,
+    out_dir: str | Path,
+    *,
+    input_item: str = "pubchem_cid",
+    output_item: str = "all",
+    fetcher: MwRawFetcher = fetch_mw_raw,
+    generated_utc: str | None = None,
+) -> dict[str, Any]:
+    """Retrieve Metabolomics Workbench compound records for one identifier.
+
+    Identifier crosswalk retrieval only. Two identifiers that resolve to different
+    registry numbers are emitted as a candidate set for human review, never merged:
+    KEGG ``C00031`` and ``HMDB0000122`` both read as "glucose" and resolve to
+    different registry numbers with different stereochemistry.
+    """
+
+    supported = COMPOUND_INPUT_ITEMS + COMPOUND_UNDOCUMENTED_INPUT_ITEMS
+    if input_item not in supported:
+        raise ValueError(
+            f"Unsupported compound input item {input_item!r}. Supported: " + ", ".join(supported)
+        )
+    if output_item not in COMPOUND_OUTPUT_ITEMS:
+        raise ValueError(
+            f"Unsupported compound output item {output_item!r}. Supported: "
+            + ", ".join(COMPOUND_OUTPUT_ITEMS)
+        )
+    out_dir = ensure_dir(out_dir)
+    normalized, normalization = normalize_compound_identifier(input_item, value)
+    url = _mw_context_url("compound", input_item, normalized, output_item)
+    status, payload, detail = classify_mw_response(fetcher(url))
+    records = mw_rows(payload) if status == "ok" else []
+    support = (
+        "undocumented_may_be_withdrawn"
+        if input_item in COMPOUND_UNDOCUMENTED_INPUT_ITEMS
+        else "documented"
+    )
+
+    rows: list[dict[str, Any]] = []
+    for index, record in enumerate(records, start=1):
+        rows.append(
+            {
+                "query_input_item": input_item,
+                "query_value": value,
+                "query_value_normalized": normalized,
+                "identifier_normalization_applied": normalization,
+                "input_item_support": support,
+                # ``all`` is sparse: an absent cross-reference is a dropped key, so
+                # every field is read with a default rather than indexed.
+                **{
+                    field: str(record.get(field, "") or "not_reported")
+                    for field in COMPOUND_RECORD_FIELDS
+                },
+                "record_index": index,
+                "candidate_set_size": len(records),
+                "identity_status": (
+                    "single_candidate_requires_human_review"
+                    if len(records) == 1
+                    else "multiple_candidates_requires_human_review"
+                ),
+                "evidence_type": "compound_registry_record",
+                "measurement_established": "not_established",
+                "review_status": "requires_human_review",
+                "decision_scope": "identifier_crosswalk_retrieval_only",
+                "source_system": "metabolomics_workbench_compound",
+                "source_url": url,
+            }
+        )
+
+    records_path = write_csv_rows(out_dir / "mw_compound_records.csv", rows, COMPOUND_FIELDNAMES)
+    provenance_path = write_json(
+        out_dir / "mw_compound_provenance.json",
+        {
+            "generated_utc": generated_utc or "",
+            "context": "compound",
+            "query_input_item": input_item,
+            "input_item_support": support,
+            "query_value": value,
+            "query_value_normalized": normalized,
+            "identifier_normalization_applied": normalization,
+            "output_item": output_item,
+            "source_url": url,
+            "status": status,
+            "detail": detail,
+            "record_count": len(rows),
+            "registered_source_ids": ["mw_compound_database"],
+            "api_version_string": MW_REST_API_VERSION,
+            "api_documentation_url": MW_REST_DOC_URL,
+            "terms_url": MW_TERMS_URL,
+            "decision_scope": "identifier_crosswalk_retrieval_only",
+            "review_status": "requires_human_review",
+            "coverage_gap_semantics": (
+                "status=unavailable means the service could not be reached and coverage is "
+                "unknown. status=request_rejected means the input or output item was refused and "
+                "nothing was searched, which is a query defect and not a coverage fact. "
+                "status=no_hits means the service answered and holds no record for the normalized "
+                "identifier."
+            ),
+            "note": (
+                "Identifier crosswalk retrieval only. A shared name or a shared formula across "
+                "records is not identity: distinct registry numbers with distinct InChIKeys are "
+                "emitted as a candidate set for human review and are never merged."
+            ),
+        },
+    )
+    return {
+        "status": status,
+        "detail": detail,
+        "rows": rows,
+        "records_path": records_path,
+        "provenance_path": provenance_path,
+        "source_url": url,
+    }
+
+
+MGP_FIELDNAMES = [
+    "query_context",
+    "query_input_item",
+    "query_value",
+    "mgp_id",
+    "gene_id",
+    "gene_symbol",
+    "gene_name",
+    "gene_synonyms",
+    "taxid",
+    "species",
+    "mrna_id",
+    "refseq_id",
+    "uniprot_id",
+    "protein_entry",
+    "record_index",
+    "match_basis",
+    "evidence_type",
+    "measurement_established",
+    "metabolite_link_established",
+    "annotation_currency",
+    "upstream_provenance",
+    "species_coverage",
+    "review_status",
+    "decision_scope",
+    "source_system",
+    "source_url",
+]
+
+MGP_RECORD_FIELDS = (
+    "mgp_id",
+    "gene_id",
+    "gene_symbol",
+    "gene_name",
+    "gene_synonyms",
+    "taxid",
+    "species",
+    "mrna_id",
+    "refseq_id",
+    "uniprot_id",
+    "protein_entry",
+)
+
+
+def lookup_mgp_gene_protein(
+    value: str,
+    out_dir: str | Path,
+    *,
+    context: str = "gene",
+    input_item: str = "gene_symbol",
+    fetcher: MwRawFetcher = fetch_mw_raw,
+    generated_utc: str | None = None,
+) -> dict[str, Any]:
+    """Retrieve Human Metabolome Gene/Protein annotation records.
+
+    Annotation retrieval only. These contexts carry no compound, pathway, or study
+    field, so they cannot link a gene to a metabolite; that bridge is MetGENE's,
+    and it is an annotation bridge rather than a measurement.
+    """
+
+    if context not in {"gene", "protein"}:
+        raise ValueError(f"Unsupported MGP context {context!r}. Supported: gene, protein")
+    allowed = GENE_INPUT_ITEMS if context == "gene" else PROTEIN_INPUT_ITEMS
+    if input_item not in allowed:
+        raise ValueError(
+            f"Unsupported {context} input item {input_item!r}. Supported: " + ", ".join(allowed)
+        )
+    text = str(value).strip()
+    if input_item == "taxid" and text not in MW_MGP_SUPPORTED_TAXIDS:
+        raise ValueError(
+            "The Metabolomics Workbench gene/protein tables hold records for taxid "
+            + ", ".join(MW_MGP_SUPPORTED_TAXIDS)
+            + f" only; taxid {text!r} is species_not_covered_by_source and is not queried, "
+            "because an empty answer would otherwise be recorded as a coverage gap for that "
+            "species."
+        )
+
+    out_dir = ensure_dir(out_dir)
+    # The gene context rejects ``gene_id`` as an output item, so the full record is
+    # always requested and projected locally.
+    url = _mw_context_url(context, input_item, text, "all")
+    status, payload, detail = classify_mw_response(fetcher(url))
+    records = mw_rows(payload) if status == "ok" else []
+    match_basis = (
+        "unanchored_substring_match"
+        if input_item in {"gene_name", "protein_name"}
+        else "exact_identifier_match"
+    )
+
+    rows: list[dict[str, Any]] = []
+    for index, record in enumerate(records, start=1):
+        rows.append(
+            {
+                "query_context": context,
+                "query_input_item": input_item,
+                "query_value": text,
+                **{
+                    field: str(record.get(field, "") or "not_reported")
+                    for field in MGP_RECORD_FIELDS
+                },
+                "record_index": index,
+                "match_basis": match_basis,
+                "evidence_type": f"{context}_annotation_record",
+                "measurement_established": "not_established",
+                "metabolite_link_established": "not_established_no_compound_field_in_source",
+                "annotation_currency": "unknown_no_build_date",
+                "upstream_provenance": "ncbi_refseq_and_uniprot",
+                "species_coverage": "human_only_taxid_9606",
+                "review_status": "requires_human_review",
+                "decision_scope": "annotation_retrieval_only",
+                "source_system": f"metabolomics_workbench_{context}",
+                "source_url": url,
+            }
+        )
+
+    records_path = write_csv_rows(out_dir / "mw_mgp_records.csv", rows, MGP_FIELDNAMES)
+    provenance_path = write_json(
+        out_dir / "mw_mgp_provenance.json",
+        {
+            "generated_utc": generated_utc or "",
+            "context": context,
+            "query_input_item": input_item,
+            "query_value": text,
+            "match_basis": match_basis,
+            "source_url": url,
+            "status": status,
+            "detail": detail,
+            "record_count": len(rows),
+            "registered_source_ids": ["mw_metabolome_gene_protein"],
+            "api_version_string": MW_REST_API_VERSION,
+            "api_documentation_url": MW_REST_DOC_URL,
+            "terms_url": MW_TERMS_URL,
+            "species_coverage": "human_only_taxid_9606",
+            "decision_scope": "annotation_retrieval_only",
+            "review_status": "requires_human_review",
+            "note": (
+                "These contexts hold gene and protein annotation only. They contain no compound, "
+                "pathway, or study field, so a record here never establishes that a gene is "
+                "linked to a metabolite, and a substring name match is never identifier "
+                "resolution."
+            ),
+        },
+    )
+    return {
+        "status": status,
+        "detail": detail,
+        "rows": rows,
+        "records_path": records_path,
+        "provenance_path": provenance_path,
+        "source_url": url,
+    }
+
+
+MOVERZ_FIELDNAMES = [
+    "query_mz",
+    "query_adduct",
+    "echoed_adduct",
+    "adduct_verified",
+    "query_tolerance_da",
+    "query_database",
+    "matched_mz",
+    "delta",
+    "name",
+    "systematic_name",
+    "formula",
+    "category",
+    "main_class",
+    "sub_class",
+    "column_recovery_applied",
+    "evidence_type",
+    "identification_status",
+    "measurement_established",
+    "review_status",
+    "decision_scope",
+    "source_system",
+    "source_url",
+]
+
+
+def _adducts_match(requested: str, echoed: str) -> bool:
+    """Compare a requested adduct with the ion label the service echoed back.
+
+    The service rewrites a path-safe '.' to '+', wraps the adduct in brackets, and
+    appends the charge state: ``M.Cl`` comes back as ``[M+Cl]-`` and ``M-2H`` as
+    ``[M-2H]2-``. The charge is stripped by unwrapping the brackets rather than by
+    trimming trailing characters, because a trailing trim also eats the digit in a
+    formula such as ``M+NH4`` and would discard every genuine ammonium match.
+    """
+
+    def canon(value: str) -> str:
+        text = re.sub(r"\s", "", str(value).strip().upper()).replace(".", "+")
+        bracketed = re.fullmatch(r"\[(.+?)\]\d*[+-]*", text)
+        if bracketed:
+            return bracketed.group(1)
+        return text
+
+    return bool(str(echoed).strip()) and canon(requested) == canon(echoed)
+
+
+def _split_matched_and_delta(input_mz: str, merged: str) -> tuple[str, str] | None:
+    """Recover the concatenated ``Matched m/z`` and ``Delta`` fields of a LIPIDS row.
+
+    Splitting on the second decimal point alone is wrong once the delta reaches one
+    dalton, because the greedy match then borrows a digit from the delta's integer
+    part. Every candidate split point is therefore checked against the row's own
+    input m/z, and the recovery is reported as unapplied when none is consistent.
+    """
+
+    try:
+        target = float(input_mz)
+    except (TypeError, ValueError):
+        return None
+    best: tuple[float, str, str] | None = None
+    # The two values are concatenated with no separator, so the boundary is not
+    # necessarily at a decimal point: a delta of one dalton or more puts its integer
+    # digits immediately after the matched m/z. Every split is tried and scored.
+    for position in range(1, len(merged)):
+        matched, delta = merged[:position], merged[position:]
+        try:
+            matched_value = float(matched)
+            delta_value = abs(float(delta))
+        except ValueError:
+            continue
+        residual = abs(abs(matched_value - target) - delta_value)
+        if residual > 1e-4:
+            continue
+        if best is None or residual < best[0]:
+            best = (residual, matched, delta)
+    return (best[1], best[2]) if best else None
+
+
+def _parse_moverz_table(body: str, database: str) -> tuple[list[dict[str, str]], bool]:
+    """Parse the tab-delimited moverz body.
+
+    The LIPIDS table declares six columns but emits five fields per row: the tab
+    between the matched m/z and the delta is missing and a spurious trailing tab
+    follows the ion. The two values are recovered by splitting at the second
+    decimal point, and the recovery is reported rather than applied silently.
+    """
+
+    lines = [line for line in body.splitlines() if line.strip()]
+    if not lines:
+        return [], False
+    header = [cell.strip() for cell in lines[0].split("\t")]
+    recovery_applied = False
+    rows: list[dict[str, str]] = []
+    for line in lines[1:]:
+        cells = [cell.strip() for cell in line.split("\t")]
+        while cells and not cells[-1]:
+            # The LIPIDS rows carry a spurious trailing tab, so the row can look
+            # correctly sized while being one field short.
+            cells.pop()
+        if database == "LIPIDS" and len(cells) >= 2 and len(cells) < len(header):
+            split = _split_matched_and_delta(cells[0], cells[1])
+            if split:
+                cells = [cells[0], split[0], split[1], *cells[2:]]
+                recovery_applied = True
+        rows.append({header[index]: cells[index] for index in range(min(len(header), len(cells)))})
+    return rows, recovery_applied
+
+
+def search_moverz(
+    mz: float | str,
+    out_dir: str | Path,
+    *,
+    adduct: str = "M+H",
+    tolerance_da: float | str = 0.02,
+    database: str = "REFMET",
+    fetcher: MwRawFetcher = fetch_mw_raw,
+    generated_utc: str | None = None,
+) -> dict[str, Any]:
+    """Search a precursor m/z against a Metabolomics Workbench mass database.
+
+    A mass match is a candidate, never an identification. An unrecognised adduct
+    is silently computed as neutral by the service, so every emitted row has its
+    echoed ion label verified against the requested adduct.
+    """
+
+    database = str(database).strip().upper()
+    if database not in MOVERZ_DATABASES:
+        raise ValueError(
+            f"Unsupported moverz database {database!r}. Supported: " + ", ".join(MOVERZ_DATABASES)
+        )
+    if str(adduct).strip() in MOVERZ_REFUSED_ION_TYPES:
+        raise ValueError(
+            f"Ion type {adduct!r} is documented but returns the neutral mass, so it is refused "
+            "rather than recorded as a match."
+        )
+    try:
+        mz_value = float(str(mz).strip())
+        tolerance_value = float(str(tolerance_da).strip())
+    except ValueError as exc:
+        raise ValueError("m/z and tolerance must be numeric.") from exc
+    if tolerance_value <= 0:
+        # An empty or zero tolerance returns a header-only body that is
+        # indistinguishable from a genuine zero-match.
+        raise ValueError("Mass tolerance must be a positive number of daltons.")
+
+    out_dir = ensure_dir(out_dir)
+    path_adduct = str(adduct).strip()
+    url = (
+        f"{BASE_URL}/moverz/{database}/{mz_value}"
+        f"/{quote(path_adduct, safe='+-.')}/{tolerance_value}"
+    )
+    response = fetcher(url)
+    table: list[dict[str, str]] = []
+    recovery = False
+    body = response.body
+    if response.transport_error or (response.http_status or 200) >= 400:
+        status = "unavailable"
+        detail = response.transport_error or f"HTTP {response.http_status}"
+    elif not body.strip():
+        # A zero-length body is not a zero-match: the expected zero-match shape is a
+        # header row with no data rows.
+        status = "unavailable"
+        detail = "empty response body; the zero-match shape is a header row with no data rows"
+    elif "does not exist" in body or "not allowed" in body or "Internal error" in body:
+        status = "request_rejected"
+        detail = " ".join(re.sub(r"<[^>]+>", " ", body)[:200].split())
+    elif body.lstrip().startswith("<"):
+        # The service returns application errors as HTTP 200 HTML, so an HTML body is
+        # a rejected request rather than an absent match.
+        status = "request_rejected"
+        detail = "HTML body returned in place of the tab-delimited table: " + " ".join(
+            re.sub(r"<[^>]+>", " ", body)[:200].split()
+        )
+    elif "\t" not in body.splitlines()[0]:
+        status = "unavailable"
+        detail = "response is not the expected tab-delimited table: " + " ".join(body[:200].split())
+    else:
+        table, recovery = _parse_moverz_table(body, database)
+        status = "ok" if table else "no_hits"
+        detail = "" if table else "header row returned with no data rows"
+
+    rows: list[dict[str, Any]] = []
+    unverified = 0
+    for record in table:
+        echoed = record.get("Ion", "")
+        if not _adducts_match(path_adduct, echoed):
+            unverified += 1
+            continue
+        rows.append(
+            {
+                "query_mz": mz_value,
+                "query_adduct": adduct,
+                "echoed_adduct": echoed,
+                "adduct_verified": True,
+                "query_tolerance_da": tolerance_value,
+                "query_database": database,
+                "matched_mz": record.get("Matched m/z", "not_reported"),
+                "delta": record.get("Delta", "not_reported"),
+                "name": record.get("Name", "not_reported"),
+                "systematic_name": record.get("Systematic name", "not_reported"),
+                "formula": record.get("Formula", "not_reported"),
+                "category": record.get("Category", "not_reported"),
+                "main_class": record.get("Main class", "not_reported"),
+                "sub_class": record.get("Sub class", "not_reported"),
+                "column_recovery_applied": recovery,
+                "evidence_type": "precursor_ion_mass_match",
+                "identification_status": "candidate_not_an_identification",
+                "measurement_established": "not_established",
+                "review_status": "requires_human_review",
+                "decision_scope": "mass_search_retrieval_only",
+                "source_system": f"metabolomics_workbench_moverz_{database.lower()}",
+                "source_url": url,
+            }
+        )
+    if unverified and not rows:
+        status = "adduct_not_supported_silent_neutral_fallback"
+        detail = (
+            f"{unverified} row(s) echoed an ion label that does not match the requested adduct "
+            f"{adduct!r}; the service computes an unrecognised adduct as neutral, so the result "
+            "was discarded rather than reported as a match."
+        )
+
+    records_path = write_csv_rows(out_dir / "mw_moverz_matches.csv", rows, MOVERZ_FIELDNAMES)
+    provenance_path = write_json(
+        out_dir / "mw_mass_provenance.json",
+        {
+            "generated_utc": generated_utc or "",
+            "context": "moverz",
+            "query_mz": mz_value,
+            "requested_adduct": adduct,
+            "echoed_adducts": sorted({str(record.get("Ion", "")) for record in table}),
+            "adduct_verified": bool(rows),
+            "discarded_unverified_adduct_rows": unverified,
+            "query_tolerance_da": tolerance_value,
+            "query_database": database,
+            "databases_available": list(MOVERZ_DATABASES),
+            "column_recovery_applied": recovery,
+            "source_url": url,
+            "status": status,
+            "detail": detail,
+            "match_count": len(rows),
+            "registered_source_ids": ["mw_compound_database"],
+            "api_version_string": MW_REST_API_VERSION,
+            "api_documentation_url": MW_REST_DOC_URL,
+            "terms_url": MW_TERMS_URL,
+            "decision_scope": "mass_search_retrieval_only",
+            "review_status": "requires_human_review",
+            "note": (
+                "A precursor-ion mass match is a candidate, not an identification. Confirming an "
+                "identity requires orthogonal evidence such as retention time, fragmentation "
+                "spectra, or an authentic standard analysed in the same run."
+            ),
+        },
+    )
+    return {
+        "status": status,
+        "detail": detail,
+        "rows": rows,
+        "records_path": records_path,
+        "provenance_path": provenance_path,
+        "source_url": url,
+    }
+
+
+EXACTMASS_FIELDNAMES = [
+    "query_abbreviation",
+    "query_abbreviation_normalized",
+    "notation_rewrite_applied",
+    "resolved_name",
+    "resolved_bulk_composition",
+    "requested_adduct",
+    "echoed_adduct",
+    "adduct_verified",
+    "exact_mz",
+    "ion_formula",
+    "evidence_type",
+    "identification_status",
+    "measurement_established",
+    "review_status",
+    "decision_scope",
+    "source_system",
+    "source_url",
+]
+
+
+def compute_exact_mass(
+    abbreviation: str,
+    out_dir: str | Path,
+    *,
+    adduct: str = "M+H",
+    fetcher: MwRawFetcher = fetch_mw_raw,
+    generated_utc: str | None = None,
+) -> dict[str, Any]:
+    """Compute the exact m/z and ion formula for a lipid abbreviation.
+
+    ``PC(16:0/18:1)`` is rewritten to the underscore form because a slash cannot be
+    transmitted in a path value; ``PC(16:0-18:1)`` is refused, because the hyphen
+    yields a chemically unrelated answer with HTTP 200.
+    """
+
+    text = str(abbreviation).strip()
+    rewrite = "none"
+    if re.search(r"\d\s*-\s*\d", text):
+        raise ValueError(
+            f"Lipid abbreviation {text!r} uses a hyphen chain separator, which the service "
+            "resolves to a chemically unrelated species; use '/' or '_' instead."
+        )
+    if "/" in text:
+        rewritten = text.replace("/", "_")
+        rewrite = f"slash_to_underscore:{text}->{rewritten}"
+        text = rewritten
+    if str(adduct).strip() in MOVERZ_REFUSED_ION_TYPES:
+        raise ValueError(
+            f"Ion type {adduct!r} is documented but returns the neutral mass, so it is refused."
+        )
+
+    out_dir = ensure_dir(out_dir)
+    path_adduct = str(adduct).strip()
+    url = f"{BASE_URL}/moverz/exactmass/{quote(text, safe='()_:')}/{quote(path_adduct, safe='+-.')}"
+    response = fetcher(url)
+
+    record: dict[str, Any] = {}
+    if response.transport_error or (response.http_status or 200) >= 400:
+        status = "unavailable"
+        detail = response.transport_error or f"HTTP {response.http_status}"
+    elif not response.body.strip():
+        # Nothing came back, which is not the same as the request being refused.
+        status = "unavailable"
+        detail = "empty response body"
+    else:
+        # The body is '</br>'-separated and its line count varies with the input
+        # notation, so it is parsed from the end: formula, m/z, ion label.
+        parts = [part.strip() for part in re.split(r"</br>", response.body) if part.strip()]
+        if len(parts) < 3 or "does not exist" in response.body:
+            status = "request_rejected"
+            detail = " ".join(response.body[:200].split())
+        elif not _adducts_match(path_adduct, parts[-3]):
+            status = "adduct_not_supported_silent_neutral_fallback"
+            detail = (
+                f"echoed ion label {parts[-3]!r} does not match the requested adduct {adduct!r}; "
+                "the service computes an unrecognised adduct as the neutral mass"
+            )
+        else:
+            status = "ok"
+            detail = ""
+            record = {
+                "query_abbreviation": abbreviation,
+                "query_abbreviation_normalized": text,
+                "notation_rewrite_applied": rewrite,
+                "resolved_name": parts[0],
+                # Bulk notation returns 4 parts and molecular-species notation 5; only
+                # the 5-part form carries a separate resolved bulk composition line.
+                "resolved_bulk_composition": parts[1] if len(parts) >= 5 else parts[0],
+                "requested_adduct": adduct,
+                "echoed_adduct": parts[-3],
+                "adduct_verified": True,
+                "exact_mz": parts[-2],
+                "ion_formula": parts[-1],
+                "evidence_type": "computed_exact_mass",
+                "identification_status": "computed_value_not_a_measurement",
+                "measurement_established": "not_established",
+                "review_status": "requires_human_review",
+                "decision_scope": "mass_calculation_only",
+                "source_system": "metabolomics_workbench_exactmass",
+                "source_url": url,
+            }
+
+    rows = [record] if record else []
+    records_path = write_csv_rows(out_dir / "mw_exactmass.csv", rows, EXACTMASS_FIELDNAMES)
+    provenance_path = write_json(
+        out_dir / "mw_exactmass_provenance.json",
+        {
+            "generated_utc": generated_utc or "",
+            "context": "exactmass",
+            "query_abbreviation": abbreviation,
+            "query_abbreviation_normalized": text,
+            "notation_rewrite_applied": rewrite,
+            "requested_adduct": adduct,
+            "echoed_adduct": record.get("echoed_adduct", ""),
+            "adduct_verified": bool(record),
+            "source_url": url,
+            "status": status,
+            "detail": detail,
+            "registered_source_ids": ["mw_compound_database"],
+            "api_version_string": MW_REST_API_VERSION,
+            "api_documentation_url": MW_REST_DOC_URL,
+            "terms_url": MW_TERMS_URL,
+            "decision_scope": "mass_calculation_only",
+            "review_status": "requires_human_review",
+            "note": (
+                "A computed exact mass describes a formula, not a measured feature, and a bulk "
+                "lipid abbreviation does not specify the acyl chain positions that a measurement "
+                "would have to resolve."
+            ),
+        },
+    )
+    return {
+        "status": status,
+        "detail": detail,
+        "rows": rows,
+        "records_path": records_path,
+        "provenance_path": provenance_path,
+        "source_url": url,
+    }

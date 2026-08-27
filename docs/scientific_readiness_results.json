@@ -3,7 +3,7 @@
     "error": 0,
     "expected_failure": 0,
     "failed": 0,
-    "passed": 148,
+    "passed": 202,
     "skipped": 0,
     "unexpected_success": 0
   },
@@ -211,6 +211,29 @@
         "error": 0,
         "expected_failure": 0,
         "failed": 0,
+        "passed": 54,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_live_sources_metgene",
+        "test_live_sources_mw_rest_contexts"
+      ],
+      "name": "gene_centric_annotation_integrity",
+      "observed_modules": [
+        "test_live_sources_metgene",
+        "test_live_sources_mw_rest_contexts"
+      ],
+      "purpose": "Validates that a gene-to-metabolite annotation is never emitted as a measurement, that an unreachable source, a zero-row answer, an unannotated gene, an ambiguous server error, an indeterminate empty body and an unrequested context stay distinct states, that KEGG-derived rows are withheld until the licence question is settled, and that an unverified adduct or a rejected request is never written as a match or as a coverage gap.",
+      "status": "pass",
+      "tests": 54
+    },
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
         "passed": 4,
         "skipped": 0,
         "unexpected_success": 0
@@ -238,7 +261,7 @@
   "nonpassing_tests": [],
   "schema_version": "1.0",
   "strict_release_gate_status": "pass",
-  "tests_run": 148,
+  "tests_run": 202,
   "unmapped_nonpassing_tests": [],
   "validation_scope": "offline synthetic and deterministic repository regression tests"
 }

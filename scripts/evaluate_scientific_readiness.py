@@ -79,6 +79,11 @@ GATES = (
         ("test_literature_review",),
     ),
     Gate(
+        "gene_centric_annotation_integrity",
+        "Validates that a gene-to-metabolite annotation is never emitted as a measurement, that an unreachable source, a zero-row answer, an unannotated gene, an ambiguous server error, an indeterminate empty body and an unrequested context stay distinct states, that KEGG-derived rows are withheld until the licence question is settled, and that an unverified adduct or a rejected request is never written as a match or as a coverage gap.",
+        ("test_live_sources_metgene", "test_live_sources_mw_rest_contexts"),
+    ),
+    Gate(
         "network_boundary_integrity",
         "Validates that only allowlisted live-ingestion modules import a network client, that offline pilot modules stay offline, and that the documented allowlist matches the enforced one.",
         ("test_network_boundary",),

@@ -123,6 +123,38 @@ python3 scripts/render_lacphe_figures.py
 python3 scripts/render_lacphe_report.py
 ```
 
+To go the other way — from a gene to the compounds, reactions, and studies that are
+*annotated* to it — use the gene-centric lane, which wraps MetGENE and the
+Metabolomics Workbench compound, gene/protein, moverz, and exactmass REST contexts:
+
+```bash
+PYTHONPATH=src python3 -m metabotyping_agentic.cli live-lookup-gene-metabolites \
+  --gene HMGCR --species hsa --gene-id-type SYMBOL
+
+PYTHONPATH=src python3 -m metabotyping_agentic.cli live-lookup-compound \
+  --input-item hmdb_id --value HMDB0000122
+
+PYTHONPATH=src python3 -m metabotyping_agentic.cli live-lookup-mw-gene-protein \
+  --context protein --input-item uniprot_id --value Q13085
+
+PYTHONPATH=src python3 -m metabotyping_agentic.cli live-search-mass \
+  --mz 255.2 --adduct M+H --tolerance 0.02
+```
+
+MetGENE output is KEGG-derived and its terms of use permit personal, non-commercial
+use only, so the lane writes no KEGG-derived row to disk unless a reviewer passes
+`--acknowledge-licence-review`; the provenance record and the escalation queue are
+written either way. An annotation is never reported as a measurement: every emitted
+row carries `measurement_established=not_established`, and the offline ledger records
+each hop — gene to reaction, reaction to compound, compound to standardized name,
+standardized name to study accession — as a separate labeled inference with an
+explicit statement of what it does not establish. MetGENE exposes no REST pathway
+listing, so the pathway count is recorded as a precomputed integer and the listing
+as `not_retrievable_by_api`. An unreachable source, a zero-row answer, an
+unannotated gene, an ambiguous HTTP 500, and a zero-length body stay five distinct
+states, none of which is evidence of absence; a context left out of the request is a
+sixth state that writes no table at all.
+
 Any report can also be rendered as a PDF or as a single self-contained HTML file with
 its figures inlined, so the same Markdown source is the only source of truth:
 

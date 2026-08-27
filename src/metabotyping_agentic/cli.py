@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from .discovery.criteria import define_inclusion_criteria
+from .discovery.gene_metabolite_evidence import build_gene_metabolite_evidence
 from .discovery.literature import load_publications
 from .discovery.literature_review import (
     load_literature_records,
@@ -31,8 +32,16 @@ from .io import ensure_dir, read_json, read_text, to_plain, write_csv_rows, writ
 from .knowledge.source_registry import build_retrieval_plan
 from .live_sources.literature_search import LITERATURE_SOURCES, search_literature
 from .live_sources.metabolomics_workbench import (
+    compute_exact_mass,
     ingest_metabolomics_workbench_study,
+    lookup_compound,
+    lookup_mgp_gene_protein,
     search_metabolite_studies,
+    search_moverz,
+)
+from .live_sources.metgene import (
+    METGENE_CONTEXTS,
+    lookup_gene_metabolite_annotations,
 )
 from .live_sources.motrpac_volcano_compare import compare_mw_motrpac_volcano
 from .models import InclusionCriteria
@@ -161,6 +170,97 @@ def live_search_metabolite_studies_command(
 ) -> Any:
     variants = [item.strip() for item in name_variants.split(";") if item.strip()]
     return search_metabolite_studies(query, out, name_variants=variants)
+
+
+def _gene_lookup_slug(species: str, gene_id_type: str, gene: str) -> str:
+    return re.sub(r"[^A-Za-z0-9]+", "_", f"{species}__{gene_id_type}__{gene}").strip("_")
+
+
+def live_lookup_gene_metabolites_command(
+    gene: str,
+    out: str | None = None,
+    species: str = "human",
+    gene_id_type: str = "SYMBOL",
+    anatomy: str = "NA",
+    disease: str = "NA",
+    contexts: str = "",
+    acknowledge_licence_review: bool = False,
+    review_out: str | None = None,
+) -> Any:
+    requested = [item.strip() for item in contexts.split(";") if item.strip()] or list(
+        METGENE_CONTEXTS
+    )
+    out_dir = out or f"data/live/metgene/{_gene_lookup_slug(species, gene_id_type, gene)}"
+    result = lookup_gene_metabolite_annotations(
+        gene,
+        out_dir,
+        species=species,
+        gene_id_type=gene_id_type,
+        contexts=requested,
+        anatomy=anatomy,
+        disease=disease,
+        acknowledge_licence_review=acknowledge_licence_review,
+    )
+    if acknowledge_licence_review:
+        # The offline appraisal reads the persisted rows, so it can only run once the
+        # licence question has been answered and those rows exist.
+        result["evidence"] = build_gene_metabolite_evidence(out_dir, review_out or out_dir)
+    return result
+
+
+def live_lookup_compound_command(
+    value: str,
+    out: str | None = None,
+    input_item: str = "pubchem_cid",
+    output_item: str = "all",
+) -> Any:
+    slug = re.sub(r"[^A-Za-z0-9]+", "_", f"{input_item}__{value}").strip("_")
+    return lookup_compound(
+        value,
+        out or f"data/live/mw_compound/{slug}",
+        input_item=input_item,
+        output_item=output_item,
+    )
+
+
+def live_lookup_mgp_command(
+    value: str,
+    out: str | None = None,
+    context: str = "gene",
+    input_item: str = "gene_symbol",
+) -> Any:
+    slug = re.sub(r"[^A-Za-z0-9]+", "_", f"{context}__{input_item}__{value}").strip("_")
+    return lookup_mgp_gene_protein(
+        value,
+        out or f"data/live/mw_mgp/{slug}",
+        context=context,
+        input_item=input_item,
+    )
+
+
+def live_search_mass_command(
+    mz: str = "",
+    abbreviation: str = "",
+    out: str | None = None,
+    adduct: str = "M+H",
+    tolerance: float = 0.02,
+    database: str = "REFMET",
+) -> Any:
+    mz = str(mz).strip()
+    abbreviation = str(abbreviation).strip()
+    if bool(mz) == bool(abbreviation):
+        raise ValueError("Provide exactly one of --mz (precursor search) or --abbreviation (exact mass).")
+    if mz:
+        slug = re.sub(r"[^A-Za-z0-9]+", "_", f"{database}__{mz}__{adduct}").strip("_")
+        return search_moverz(
+            mz,
+            out or f"data/live/mw_mass/{slug}",
+            adduct=adduct,
+            tolerance_da=tolerance,
+            database=database,
+        )
+    slug = re.sub(r"[^A-Za-z0-9]+", "_", f"exactmass__{abbreviation}__{adduct}").strip("_")
+    return compute_exact_mass(abbreviation, out or f"data/live/mw_mass/{slug}", adduct=adduct)
 
 
 def live_compare_mw_motrpac_volcano_command(
@@ -501,6 +601,63 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
     ) -> None:
         live_search_metabolite_studies_command(query, out, name_variants)
 
+    @app.command("live-lookup-gene-metabolites")
+    def typer_live_lookup_gene_metabolites(
+        gene: str = typer.Option(..., "--gene"),
+        out: str | None = typer.Option(None, "--out"),
+        species: str = typer.Option("human", "--species"),
+        gene_id_type: str = typer.Option("SYMBOL", "--gene-id-type"),
+        anatomy: str = typer.Option("NA", "--anatomy"),
+        disease: str = typer.Option("NA", "--disease"),
+        contexts: str = typer.Option("", "--contexts", help="; separated subset of " + ", ".join(METGENE_CONTEXTS)),
+        acknowledge_licence_review: bool = typer.Option(
+            False,
+            "--acknowledge-licence-review/--withhold-kegg-derived-rows",
+            help="Without this flag no KEGG-derived row is written to disk.",
+        ),
+        review_out: str | None = typer.Option(None, "--review-out"),
+    ) -> None:
+        live_lookup_gene_metabolites_command(
+            gene,
+            out,
+            species,
+            gene_id_type,
+            anatomy,
+            disease,
+            contexts,
+            acknowledge_licence_review,
+            review_out,
+        )
+
+    @app.command("live-lookup-compound")
+    def typer_live_lookup_compound(
+        value: str = typer.Option(..., "--value"),
+        out: str | None = typer.Option(None, "--out"),
+        input_item: str = typer.Option("pubchem_cid", "--input-item"),
+        output_item: str = typer.Option("all", "--output-item"),
+    ) -> None:
+        live_lookup_compound_command(value, out, input_item, output_item)
+
+    @app.command("live-lookup-mw-gene-protein")
+    def typer_live_lookup_mgp(
+        value: str = typer.Option(..., "--value"),
+        out: str | None = typer.Option(None, "--out"),
+        context: str = typer.Option("gene", "--context"),
+        input_item: str = typer.Option("gene_symbol", "--input-item"),
+    ) -> None:
+        live_lookup_mgp_command(value, out, context, input_item)
+
+    @app.command("live-search-mass")
+    def typer_live_search_mass(
+        mz: str = typer.Option("", "--mz"),
+        abbreviation: str = typer.Option("", "--abbreviation"),
+        out: str | None = typer.Option(None, "--out"),
+        adduct: str = typer.Option("M+H", "--adduct"),
+        tolerance: float = typer.Option(0.02, "--tolerance"),
+        database: str = typer.Option("REFMET", "--database"),
+    ) -> None:
+        live_search_mass_command(mz, abbreviation, out, adduct, tolerance, database)
+
     @app.command("live-compare-mw-motrpac-volcano")
     def typer_live_compare_mw_motrpac_volcano(
         mw_study_id: str = typer.Option("ST001789", "--mw-study-id"),
@@ -619,6 +776,41 @@ def _argparse_main(argv: list[str] | None = None) -> None:
     p.add_argument("--out", default="data/live/metabolite_search")
     p.add_argument("--name-variants", default="")
 
+    p = subparsers.add_parser("live-lookup-gene-metabolites")
+    p.add_argument("--gene", required=True)
+    p.add_argument("--out", default=None)
+    p.add_argument("--species", default="human")
+    p.add_argument("--gene-id-type", default="SYMBOL")
+    p.add_argument("--anatomy", default="NA")
+    p.add_argument("--disease", default="NA")
+    p.add_argument("--contexts", default="", help="; separated subset of " + ", ".join(METGENE_CONTEXTS))
+    p.add_argument(
+        "--acknowledge-licence-review",
+        action="store_true",
+        help="Without this flag no KEGG-derived row is written to disk.",
+    )
+    p.add_argument("--review-out", default=None)
+
+    p = subparsers.add_parser("live-lookup-compound")
+    p.add_argument("--value", required=True)
+    p.add_argument("--out", default=None)
+    p.add_argument("--input-item", default="pubchem_cid")
+    p.add_argument("--output-item", default="all")
+
+    p = subparsers.add_parser("live-lookup-mw-gene-protein")
+    p.add_argument("--value", required=True)
+    p.add_argument("--out", default=None)
+    p.add_argument("--context", default="gene")
+    p.add_argument("--input-item", default="gene_symbol")
+
+    p = subparsers.add_parser("live-search-mass")
+    p.add_argument("--mz", default="")
+    p.add_argument("--abbreviation", default="")
+    p.add_argument("--out", default=None)
+    p.add_argument("--adduct", default="M+H")
+    p.add_argument("--tolerance", type=float, default=0.02)
+    p.add_argument("--database", default="REFMET")
+
     p = subparsers.add_parser("live-compare-mw-motrpac-volcano")
     p.add_argument("--mw-study-id", default="ST001789")
     p.add_argument("--motrpac-release", default="human-precovid-sed-adu")
@@ -693,6 +885,41 @@ def _argparse_main(argv: list[str] | None = None) -> None:
         )
     elif args.command == "live-search-metabolite-studies":
         live_search_metabolite_studies_command(args.query, args.out, args.name_variants)
+    elif args.command == "live-lookup-gene-metabolites":
+        live_lookup_gene_metabolites_command(
+            gene=args.gene,
+            out=args.out,
+            species=args.species,
+            gene_id_type=args.gene_id_type,
+            anatomy=args.anatomy,
+            disease=args.disease,
+            contexts=args.contexts,
+            acknowledge_licence_review=args.acknowledge_licence_review,
+            review_out=args.review_out,
+        )
+    elif args.command == "live-lookup-compound":
+        live_lookup_compound_command(
+            value=args.value,
+            out=args.out,
+            input_item=args.input_item,
+            output_item=args.output_item,
+        )
+    elif args.command == "live-lookup-mw-gene-protein":
+        live_lookup_mgp_command(
+            value=args.value,
+            out=args.out,
+            context=args.context,
+            input_item=args.input_item,
+        )
+    elif args.command == "live-search-mass":
+        live_search_mass_command(
+            mz=args.mz,
+            abbreviation=args.abbreviation,
+            out=args.out,
+            adduct=args.adduct,
+            tolerance=args.tolerance,
+            database=args.database,
+        )
     elif args.command == "live-compare-mw-motrpac-volcano":
         live_compare_mw_motrpac_volcano_command(
             mw_study_id=args.mw_study_id,

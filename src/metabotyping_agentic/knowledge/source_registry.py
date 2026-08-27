@@ -96,6 +96,84 @@ SOURCE_REGISTRY: tuple[SourceDescriptor, ...] = (
         100,
     ),
     SourceDescriptor(
+        "mw_compound_database",
+        "Metabolomics Workbench Metabolite Database (compound and m/z contexts)",
+        ("chemical_identity", "chemical_classification", "mass_spectral_search"),
+        (
+            "metabolomics_workbench_regno",
+            "pubchem_cid",
+            "inchikey",
+            "hmdb",
+            "kegg_compound",
+            "lipidmaps",
+            "chebi",
+        ),
+        (
+            "compound_record",
+            "identifier_crosswalk",
+            "classification_hierarchy",
+            "precursor_ion_match",
+            "computed_exact_mass",
+        ),
+        "core_live_adapter",
+        "public_database_with_data_use_terms",
+        True,
+        "https://www.metabolomicsworkbench.org/",
+        (
+            "every application error is returned as HTTP 200, so a status code cannot detect failure",
+            "one common name resolves to different registry numbers with different stereochemistry",
+            "an unrecognised adduct is silently computed as neutral, so the echoed ion must be verified",
+            "a precursor-ion mass match is a candidate and never an identification",
+        ),
+        85,
+    ),
+    SourceDescriptor(
+        "mw_metabolome_gene_protein",
+        "Metabolomics Workbench Human Metabolome Gene/Protein database (MGP)",
+        ("gene_annotation", "proteins"),
+        ("mgp_id", "entrez_gene", "uniprot", "refseq"),
+        (
+            "gene_annotation_record",
+            "protein_annotation_record",
+            "identifier_crosswalk",
+        ),
+        "core_live_adapter",
+        "public_database_with_data_use_terms",
+        True,
+        "https://www.metabolomicsworkbench.org/",
+        (
+            "human only: taxid 9606 is the only value with records, so it cannot support rat or mouse alignment",
+            "contains no compound, pathway, or study field, so it cannot link a gene to a metabolite",
+            "the annotation snapshot carries no build date and its upstream summaries are years stale",
+            "gene_name and protein_name are unanchored substring matches and are never identifier resolution",
+        ),
+        75,
+    ),
+    SourceDescriptor(
+        "metgene",
+        "MetGENE (Metabolomics Workbench gene-centric tool)",
+        ("gene_metabolite_association", "study_discovery", "reactions"),
+        ("entrez_gene", "ensembl_gene", "uniprot", "kegg_compound", "kegg_reaction", "refmet"),
+        (
+            "gene_product_reaction_annotation",
+            "gene_associated_compound_annotation",
+            "annotation_derived_study_candidate",
+            "precomputed_pathway_count",
+        ),
+        "core_live_adapter",
+        "license_and_API_use_require_review",
+        False,
+        "https://bdcw.org/MetGENE/",
+        (
+            "outputs are KEGG-derived and the terms permit personal, non-commercial use only, so persistence and redistribution require a reviewed licensing decision",
+            "a gene-product annotation is not evidence that any metabolite was measured",
+            "no REST pathways context exists; only a precomputed integer pathway count is retrievable",
+            "HTTP 500 is returned both for an unrecognised or wrong-case gene symbol and for a source outage",
+            "study accessions are reached by standardized name and must be re-fetched from Metabolomics Workbench",
+        ),
+        70,
+    ),
+    SourceDescriptor(
         "europe_pmc",
         "Europe PMC",
         ("literature", "study_discovery"),
@@ -417,8 +495,16 @@ LANE_ALIASES = {
     "dataset": "study_discovery",
     "datasets": "study_discovery",
     "exercise": "exercise_metabolomics",
+    # "gene"/"genes" stay pointed at genetics so a variant-association query is not
+    # silently rerouted into the gene-to-metabolite annotation lane.
     "gene": "genetics",
     "genes": "genetics",
+    "gene_metabolite": "gene_metabolite_association",
+    "gene_metabolites": "gene_metabolite_association",
+    "metgene": "gene_metabolite_association",
+    "mass": "mass_spectral_search",
+    "moverz": "mass_spectral_search",
+    "mz": "mass_spectral_search",
     "identity": "chemical_identity",
     "lipids": "lipidomics",
     "lit": "literature",
@@ -456,6 +542,17 @@ IDENTIFIER_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("rhea", re.compile(r"^RHEA:\d+$", re.IGNORECASE)),
     ("rsid", re.compile(r"^RS\d+$", re.IGNORECASE)),
     ("ensembl_gene", re.compile(r"^ENS[A-Z]*G\d+(?:\.\d+)?$", re.IGNORECASE)),
+    # Each of these is prefix-anchored on purpose: a bare integer is ambiguous
+    # between an Entrez gene id and a Metabolomics Workbench registry number, and a
+    # bare gene symbol is not an identifier namespace at all. Both stay unresolved
+    # so they route a search without ever asserting an entity.
+    ("entrez_gene", re.compile(r"^(?:ENTREZ(?:GENE)?|NCBIGENE|GENEID)[:\s_-]*\d+$", re.IGNORECASE)),
+    ("mgp_id", re.compile(r"^MGP\d{6,}$", re.IGNORECASE)),
+    ("metabolomics_workbench_regno", re.compile(r"^(?:MW)?REGNO[:\s_-]*\d+$", re.IGNORECASE)),
+    # RefSeq prefixes are two letters: NM/NR/NP/NC/NG/NT/NW/NZ for curated records and
+    # XM/XR/XP for predicted ones. The version suffix is optional.
+    ("refseq", re.compile(r"^(?:N[MRPCGTWZ]|X[MRP])_\d{4,}(?:\.\d+)?$", re.IGNORECASE)),
+    ("kegg_reaction", re.compile(r"^R\d{5}$", re.IGNORECASE)),
     ("uniprot", re.compile(r"^(?:[OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9][A-Z][A-Z0-9]{2}[0-9])$", re.IGNORECASE)),
     ("chembl", re.compile(r"^CHEMBL\d+$", re.IGNORECASE)),
     ("doi", re.compile(r"^(?:https?://(?:dx\.)?doi\.org/|doi:)?10\.\d{4,9}/\S+$", re.IGNORECASE)),
@@ -505,6 +602,22 @@ MINIMUM_EVIDENCE_BY_LANE = {
     ),
     "genetics": (
         "retain genome build, alleles, ancestry, phenotype definition, and association design",
+    ),
+    "gene_metabolite_association": (
+        "retain the gene identifier as queried and as echoed back, the species, the annotation database, and the full source URL",
+        "label the inference chain hop by hop: gene to reaction, reaction to compound, compound to standardized name, name to study accession",
+        "do not treat a gene-product or pathway annotation as evidence that a metabolite was measured, quantified, or changed",
+        "record an unreachable source, a zero-row answer, an unannotated gene, and an ambiguous server error as distinct states",
+        "re-fetch every annotation-derived study accession from its own repository before describing what the study reported",
+    ),
+    "gene_annotation": (
+        "retain the annotation snapshot source, the upstream provenance of each field, and the species coverage of the database",
+        "do not treat a substring name match as identifier resolution",
+    ),
+    "mass_spectral_search": (
+        "retain the queried m/z, requested adduct, echoed adduct, tolerance, database, and matched delta",
+        "do not report a match whose echoed adduct differs from the requested adduct",
+        "treat a mass match as a candidate and never as an identification",
     ),
     "literature": (
         "retain the exact query expression, endpoint URL, reported hit count, retrieved count, and pagination completeness",
@@ -600,9 +713,16 @@ def build_retrieval_plan(
         candidates.append((score, source, reasons))
 
     candidates.sort(key=lambda item: (-item[0], item[1].source_id))
+    eligible_lanes = {
+        lane
+        for _score, source, _reasons in candidates
+        for lane in set(requested_lanes) & set(source.lanes)
+    }
+    truncated_sources: list[str] = []
     if max_sources is not None:
         if max_sources <= 0:
             raise ValueError("max_sources must be positive or None.")
+        truncated_sources = [source.source_id for _score, source, _reasons in candidates[max_sources:]]
         candidates = candidates[:max_sources]
 
     routed_sources = []
@@ -619,9 +739,41 @@ def build_retrieval_plan(
         warnings.append(
             "Unrecognized values can route a search but cannot establish metabolite identity: " + ", ".join(unresolved)
         )
+    # A lane with no registered source at all, a lane whose only sources were dropped
+    # by require_open, and a lane whose sources were pushed out by max_sources are
+    # three different facts. Collapsing them would report a covered lane as uncovered.
+    licence_excluded_lanes = sorted(
+        {
+            lane
+            for source in SOURCE_REGISTRY
+            if not source.open_access
+            for lane in set(requested_lanes) & set(source.lanes)
+        }
+        - covered_lanes
+    ) if require_open else []
+    truncated_lanes = sorted(eligible_lanes - covered_lanes)
+    unregistered_lanes = sorted(
+        set(requested_lanes)
+        - covered_lanes
+        - set(licence_excluded_lanes)
+        - set(truncated_lanes)
+    )
     missing_lanes = sorted(set(requested_lanes) - covered_lanes)
-    if missing_lanes:
-        warnings.append("No eligible source covered lane(s): " + ", ".join(missing_lanes))
+    if unregistered_lanes:
+        warnings.append("No registered source covers lane(s): " + ", ".join(unregistered_lanes))
+    if truncated_lanes:
+        warnings.append(
+            "Eligible source(s) for lane(s) "
+            + ", ".join(truncated_lanes)
+            + " were dropped by max_sources, so these lanes are truncated rather than uncovered."
+        )
+    if licence_excluded_lanes:
+        warnings.append(
+            "Lane(s) "
+            + ", ".join(licence_excluded_lanes)
+            + " have registered sources, but every one is licence-restricted and was excluded by "
+            "require_open=true; they are licence-excluded rather than uncovered."
+        )
     if require_open and any(
         set(requested_lanes) & set(source.lanes) and not source.open_access for source in SOURCE_REGISTRY
     ):
@@ -641,6 +793,10 @@ def build_retrieval_plan(
         "sources": routed_sources,
         "covered_lanes": sorted(covered_lanes),
         "missing_lanes": missing_lanes,
+        "unregistered_lanes": unregistered_lanes,
+        "licence_excluded_lanes": licence_excluded_lanes,
+        "truncated_lanes": truncated_lanes,
+        "truncated_sources": truncated_sources,
         "minimum_evidence_requirements": evidence_requirements,
         "decision_rules": [
             "Source selection is not entity resolution.",

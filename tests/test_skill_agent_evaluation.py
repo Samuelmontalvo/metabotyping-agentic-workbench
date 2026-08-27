@@ -20,10 +20,10 @@ class SkillAgentEvaluationTests(unittest.TestCase):
         results = evaluate_repository()
         summary = results["summary"]
 
-        self.assertEqual(summary["paired_skill_names"], 24)
-        self.assertEqual(summary["skill_files"], 48)
-        self.assertEqual(summary["paired_agent_names"], 22)
-        self.assertEqual(summary["agent_files"], 44)
+        self.assertEqual(summary["paired_skill_names"], 25)
+        self.assertEqual(summary["skill_files"], 50)
+        self.assertEqual(summary["paired_agent_names"], 23)
+        self.assertEqual(summary["agent_files"], 46)
         self.assertEqual(summary["agent_files"], len(results["agents"]))
         self.assertEqual(summary["paired_deprecated_agent_alias_names"], 2)
         self.assertEqual(summary["deprecated_agent_alias_files"], 4)
@@ -31,8 +31,8 @@ class SkillAgentEvaluationTests(unittest.TestCase):
             summary["deprecated_agent_alias_files"],
             len(results["agent_aliases"]),
         )
-        self.assertEqual(summary["addressable_agent_names"], 24)
-        self.assertEqual(summary["addressable_agent_files"], 48)
+        self.assertEqual(summary["addressable_agent_names"], 25)
+        self.assertEqual(summary["addressable_agent_files"], 50)
         self.assertEqual(results["inventory_issues"], [])
 
     def test_every_contract_passes_structural_and_operational_checks(self):
