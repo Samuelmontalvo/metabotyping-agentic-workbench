@@ -4,9 +4,9 @@ This report executes the repository's offline synthetic behavioral gates. It com
 
 ## Result
 
-- Strict synthetic release gate: **FAIL**.
-- Tests run: 202.
-- Counts: passed=199, failed=0, error=0, skipped=3, expected_failure=0, unexpected_success=0.
+- Strict synthetic release gate: **PASS**.
+- Tests run: 210.
+- Counts: passed=210, failed=0, error=0, skipped=0, expected_failure=0, unexpected_success=0.
 
 ## Behavioral gates
 
@@ -14,8 +14,8 @@ This report executes the repository's offline synthetic behavioral gates. It com
 | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | `identity_and_assay_harmonization` | PASS | 13 | 13 | 0 | 0 | 0 | Blocks name-only identity, unresolved isomers, unsafe pooling, cross-study batch correction, and irreversible imputation. |
 | `provenance_and_multi_repository_safety` | PASS | 24 | 24 | 0 | 0 | 0 | Retains one-to-many repository records and prevents duplicate normalized keys from silently overwriting evidence. |
-| `statistical_and_review_safety` | FAIL | 2 | 1 | 0 | 0 | 1 | Keeps uncertain mappings or annotations review-gated and validates effect-search multiplicity semantics. |
-| `motrpac_style_plotting` | FAIL | 10 | 9 | 0 | 0 | 1 | Validates contrast/FDR semantics, mapping and coverage gates, hierarchy views, deterministic exports, and optional renderers. |
+| `statistical_and_review_safety` | PASS | 10 | 10 | 0 | 0 | 0 | Keeps uncertain mappings or annotations review-gated and validates effect-search multiplicity semantics. |
+| `motrpac_style_plotting` | PASS | 10 | 10 | 0 | 0 | 0 | Validates contrast/FDR semantics, mapping and coverage gates, hierarchy views, deterministic exports, and optional renderers. |
 | `skill_and_agent_contracts` | PASS | 10 | 10 | 0 | 0 | 0 | Checks paired Codex/Claude skill contracts, implementation links, and agent review boundaries. |
 | `benchmark_integrity_and_reproducibility` | PASS | 14 | 14 | 0 | 0 | 0 | Validates explicit benchmark denominators, disagreement accounting, provenance, and byte-reproducible pilot outputs. |
 | `domain_review_contract_safety` | PASS | 14 | 14 | 0 | 0 | 0 | Validates advisory-only domain review packets, complete evidence-state coverage, and non-executable review boundaries. |
@@ -26,13 +26,11 @@ This report executes the repository's offline synthetic behavioral gates. It com
 
 ## Nonpassing tests
 
-- `test_cli_frontend_parity.CliFrontendParityTests.test_shared_option_defaults_match`: skipped — typer is not installed; only the argparse frontend exists
-- `test_metabolomics_plotting.MetabolomicsPlottingTests.test_all_renderers_produce_nonempty_synthetic_smoke_outputs`: skipped — optional matplotlib/numpy rendering stack is unavailable
-- `unittest.loader.ModuleSkipped.test_metabolite_effect_search`: skipped — optional numeric stack unavailable: No module named 'numpy'
+- None.
 
 ## Gate integrity
 
-- Unmapped nonpassing test: `test_cli_frontend_parity.CliFrontendParityTests.test_shared_option_defaults_match` (skipped).
+- Every configured module collected tests exactly once; no nonpassing test was unmapped.
 
 ## Interpretation limits
 

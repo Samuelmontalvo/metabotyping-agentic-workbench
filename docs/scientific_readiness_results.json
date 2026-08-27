@@ -3,8 +3,8 @@
     "error": 0,
     "expected_failure": 0,
     "failed": 0,
-    "passed": 199,
-    "skipped": 3,
+    "passed": 210,
+    "skipped": 0,
     "unexpected_success": 0
   },
   "gate_configuration_issues": [],
@@ -60,8 +60,8 @@
         "error": 0,
         "expected_failure": 0,
         "failed": 0,
-        "passed": 1,
-        "skipped": 1,
+        "passed": 10,
+        "skipped": 0,
         "unexpected_success": 0
       },
       "missing_modules": [],
@@ -75,16 +75,16 @@
         "test_variable_crosswalk"
       ],
       "purpose": "Keeps uncertain mappings or annotations review-gated and validates effect-search multiplicity semantics.",
-      "status": "fail",
-      "tests": 2
+      "status": "pass",
+      "tests": 10
     },
     {
       "counts": {
         "error": 0,
         "expected_failure": 0,
         "failed": 0,
-        "passed": 9,
-        "skipped": 1,
+        "passed": 10,
+        "skipped": 0,
         "unexpected_success": 0
       },
       "missing_modules": [],
@@ -96,7 +96,7 @@
         "test_metabolomics_plotting"
       ],
       "purpose": "Validates contrast/FDR semantics, mapping and coverage gates, hierarchy views, deterministic exports, and optional renderers.",
-      "status": "fail",
+      "status": "pass",
       "tests": 10
     },
     {
@@ -258,36 +258,10 @@
     "Hierarchy plots are descriptive; dedicated pathway enrichment and cross-platform meta-analysis models remain separate work.",
     "Skill contract scores measure structure and linkage, not empirical scientific validity."
   ],
-  "nonpassing_tests": [
-    {
-      "detail": "typer is not installed; only the argparse frontend exists",
-      "id": "test_cli_frontend_parity.CliFrontendParityTests.test_shared_option_defaults_match",
-      "module": "test_cli_frontend_parity",
-      "status": "skipped"
-    },
-    {
-      "detail": "optional matplotlib/numpy rendering stack is unavailable",
-      "id": "test_metabolomics_plotting.MetabolomicsPlottingTests.test_all_renderers_produce_nonempty_synthetic_smoke_outputs",
-      "module": "test_metabolomics_plotting",
-      "status": "skipped"
-    },
-    {
-      "detail": "optional numeric stack unavailable: No module named 'numpy'",
-      "id": "unittest.loader.ModuleSkipped.test_metabolite_effect_search",
-      "module": "test_metabolite_effect_search",
-      "status": "skipped"
-    }
-  ],
+  "nonpassing_tests": [],
   "schema_version": "1.0",
-  "strict_release_gate_status": "fail",
-  "tests_run": 202,
-  "unmapped_nonpassing_tests": [
-    {
-      "detail": "typer is not installed; only the argparse frontend exists",
-      "id": "test_cli_frontend_parity.CliFrontendParityTests.test_shared_option_defaults_match",
-      "module": "test_cli_frontend_parity",
-      "status": "skipped"
-    }
-  ],
+  "strict_release_gate_status": "pass",
+  "tests_run": 210,
+  "unmapped_nonpassing_tests": [],
   "validation_scope": "offline synthetic and deterministic repository regression tests"
 }
