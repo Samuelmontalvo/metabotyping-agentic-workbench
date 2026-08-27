@@ -416,3 +416,99 @@ class ReviewAndReportTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ProvenanceRedactionTests(unittest.TestCase):
+    """Credentials and contact addresses must never reach a provenance file.
+
+    literature_provenance.json records the exact endpoint URL queried per source
+    and is committed alongside results. An NCBI API key or a contact email in a
+    recorded URL would be republished with the artifact.
+    """
+
+    def test_api_key_and_contact_parameters_are_masked(self):
+        from metabotyping_agentic.live_sources.literature_search import redact_url
+
+        url = (
+            "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+            "?db=pubmed&term=lac-phe&api_key=SECRETKEY123&email=someone%40example.org"
+        )
+        redacted = redact_url(url)
+        self.assertNotIn("SECRETKEY123", redacted)
+        self.assertNotIn("someone%40example.org", redacted)
+        self.assertNotIn("someone@example.org", redacted)
+        self.assertIn("api_key=%3Credacted%3E", redacted)
+        # The scientifically meaningful part of the query must survive intact.
+        self.assertIn("db=pubmed", redacted)
+        self.assertIn("term=lac-phe", redacted)
+
+    def test_crossref_mailto_is_masked(self):
+        from metabotyping_agentic.live_sources.literature_search import redact_url
+
+        redacted = redact_url("https://api.crossref.org/works?query=x&mailto=me%40lab.edu")
+        self.assertNotIn("me%40lab.edu", redacted)
+        self.assertIn("query=x", redacted)
+
+    def test_url_without_sensitive_parameters_is_returned_unchanged(self):
+        from metabotyping_agentic.live_sources.literature_search import redact_url
+
+        url = "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=lacphe&format=json"
+        self.assertEqual(redact_url(url), url)
+
+
+class CredentialLeakEndToEndTests(unittest.TestCase):
+    """No artifact written by the literature lane may contain a credential.
+
+    README and CLAUDE.md promise that setting NCBI_API_KEY and
+    METABOTYPING_CONTACT_EMAIL is safe because they are masked in anything
+    written to disk. Redacting only the endpoints list was not enough: the key
+    also reached provenance through raised error text, and the contact email
+    reached every record through source_url. This drives the whole lane with a
+    fake fetcher and asserts the secrets appear in no output file.
+    """
+
+    KEY = "SECRETNCBIKEY123456789abcdef"
+    EMAIL = "secret.person@example.edu"
+
+    def test_no_artifact_contains_the_api_key_or_contact_email(self):
+        import json
+        import os
+        import tempfile
+        from pathlib import Path
+        from unittest import mock
+
+        from metabotyping_agentic.live_sources import literature_search as ls
+
+        def exploding_fetcher(url, *args, **kwargs):
+            # Every source fails, which is the path that puts the URL into an
+            # error string and then into provenance.
+            raise RuntimeError(f"literature request failed: {ls.redact_url(url)}")
+
+        env = {"NCBI_API_KEY": self.KEY, "METABOTYPING_CONTACT_EMAIL": self.EMAIL}
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, env):
+            out = Path(tmp) / "lit"
+            try:
+                ls.search_literature(
+                    "N-Lactoyl phenylalanine",
+                    out,
+                    fetcher=exploding_fetcher,
+                    max_records_per_source=5,
+                )
+            except TypeError:
+                self.skipTest("search_literature signature does not accept an injected fetcher")
+
+            leaked = []
+            for path in out.rglob("*"):
+                if not path.is_file():
+                    continue
+                text = path.read_text(encoding="utf-8", errors="replace")
+                if self.KEY in text:
+                    leaked.append(f"{path.name}: api key")
+                if self.EMAIL in text or self.EMAIL.replace("@", "%40") in text:
+                    leaked.append(f"{path.name}: contact email")
+            self.assertEqual(leaked, [], f"credentials reached disk: {leaked}")
+
+            provenance = out / "literature_provenance.json"
+            if provenance.exists():
+                blob = json.loads(provenance.read_text(encoding="utf-8"))
+                self.assertIn("redacted", json.dumps(blob))

@@ -7,48 +7,48 @@
 
 ## Results (sorted by p_value)
 
-| source | study | matched_term | sex | log2fc | p_value | FDR | direction | basis | review |
-|---|---|---|---|---:|---:|---:|---|---|---|
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 4:0;OH [metab-u-hilicpos] | — | +1.84 | 8.10e-80 | 9.45e-78 | up_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 6:0;OH [metab-u-hilicpos] | — | +1.12 | 3.15e-52 | 2.76e-50 | up_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR(9:0) [metab-u-rppos] | — | -1.25 | 1.05e-44 | 1.98e-42 | down_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 2:0 [metab-u-hilicpos] | — | +0.55 | 3.15e-40 | 2.20e-38 | up_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 16:0 [metab-u-hilicpos] | — | +0.42 | 4.77e-39 | 2.78e-37 | up_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(3:0) [metab-u-lrppos] | — | -0.49 | 6.56e-37 | 4.12e-34 | down_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 3:0 [metab-u-hilicpos] | — | -0.44 | 5.75e-36 | 2.87e-34 | down_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 18:1 [metab-u-hilicpos] | — | +0.54 | 1.69e-33 | 7.40e-32 | up_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 9:0 [metab-u-hilicpos] | — | -1.10 | 3.48e-31 | 1.35e-29 | down_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(2:0) [metab-u-lrppos] | — | +0.58 | 6.62e-29 | 2.07e-26 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(18:2)_isomer2 [metab-u-lrppo | — | +0.88 | 9.30e-27 | 1.94e-24 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(18:0-OH) [metab-u-lrppos] | — | +0.40 | 7.37e-26 | 8.22e-24 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(18:1) [metab-u-lrppos] | — | +0.37 | 2.31e-25 | 2.07e-23 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 16:2 [metab-u-hilicpos] | — | +0.93 | 1.38e-22 | 4.04e-21 | up_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 14:0 [metab-u-hilicpos] | — | +0.54 | 9.14e-22 | 2.46e-20 | up_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 14:1 [metab-u-hilicpos] | — | +0.80 | 3.60e-21 | 9.00e-20 | up_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(14:1)_isomer1 [metab-u-lrppo | — | +0.74 | 4.43e-21 | 2.77e-19 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 14:2 [metab-u-hilicpos] | — | +0.77 | 1.11e-18 | 2.37e-17 | up_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR DC6:0 [metab-u-hilicpos] | — | +0.29 | 1.13e-18 | 2.37e-17 | up_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 18:2 [metab-u-hilicpos] | — | +0.46 | 1.40e-18 | 2.47e-17 | up_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(16:0) [metab-u-lrppos] | — | +0.26 | 1.49e-18 | 5.21e-17 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(14:0) [metab-u-lrppos] | — | +0.46 | 4.42e-18 | 1.46e-16 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR(4:0)_rp_a [metab-u-rppos] | — | -0.60 | 1.50e-16 | 7.05e-15 | down_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(14:2)_isomer1 [metab-u-lrppo | — | +0.67 | 2.09e-16 | 5.24e-15 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(4:0) [metab-u-lrppos] | — | -0.33 | 4.17e-15 | 8.72e-14 | down_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(14:0-OH) [metab-u-lrppos] | — | +0.38 | 4.47e-15 | 9.03e-14 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(14:1-OH) [metab-u-lrppos] | — | +0.61 | 6.21e-15 | 1.22e-13 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(16:3) [metab-u-lrppos] | — | +0.47 | 6.50e-15 | 1.24e-13 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 12:1 [metab-u-hilicpos] | — | +0.60 | 1.31e-13 | 1.31e-12 | up_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(13:1) [metab-u-lrppos] | — | -0.39 | 3.26e-12 | 4.65e-11 | down_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(18:1-OH) [metab-u-lrppos] | — | +0.27 | 6.78e-12 | 9.05e-11 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(12:1) [metab-u-lrppos] | — | +0.50 | 7.42e-12 | 9.69e-11 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(20:1) [metab-u-lrppos] | — | +0.31 | 9.10e-12 | 1.14e-10 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR(11:0) [metab-u-rppos] | — | -0.59 | 1.74e-11 | 2.98e-10 | down_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 4:0 [metab-u-hilicpos] | — | -0.26 | 2.69e-11 | 2.09e-10 | down_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Carnitine [metab-u-hilicpos] | — | -0.11 | 2.94e-11 | 2.24e-10 | down_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(14:1)_isomer2 [metab-u-lrppo | — | +0.38 | 1.66e-10 | 1.80e-09 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | CAR 18:0 [metab-u-hilicpos] | — | +0.34 | 2.96e-10 | 2.03e-09 | up_in_numerator | refmet_curated_class | accepted_curated |
-| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Car(14:2)_isomer2 [metab-u-lrppo | — | +0.40 | 3.24e-10 | 3.39e-09 | up_in_numerator | inferred_name_pattern | requires_human_review |
-| Metabolomics | MW [ST004303](https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?StudyID=ST004303) | Acetyl-L-carnitine | — | +1.12 | 5.20e-10 | 6.91e-08 | up_in_numerator | refmet_curated_class | accepted_curated |
+| source | study | species | assay/panel | matched_term | RefMet ID | sex | log2fc | p_value | FDR | direction | basis | review |
+|---|---|---|---|---|---|---|---:|---:|---:|---|---|---|
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 4:0;OH [metab-u-hilicpos] | RM0154193 | all_or_not_reported | +1.84 | 8.10e-80 | 9.45e-78 | up_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 6:0;OH [metab-u-hilicpos] | RM0154019 | all_or_not_reported | +1.12 | 3.15e-52 | 2.76e-50 | up_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-rppos | CAR(9:0) [metab-u-rppos] | not_available | all_or_not_reported | -1.25 | 1.05e-44 | 1.98e-42 | down_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 2:0 [metab-u-hilicpos] | RM0154009 | all_or_not_reported | +0.55 | 3.15e-40 | 2.20e-38 | up_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 16:0 [metab-u-hilicpos] | RM0153848 | all_or_not_reported | +0.42 | 4.77e-39 | 2.78e-37 | up_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(3:0) [metab-u-lrppos] | not_available | all_or_not_reported | -0.49 | 6.56e-37 | 4.12e-34 | down_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 3:0 [metab-u-hilicpos] | RM0154041 | all_or_not_reported | -0.44 | 5.75e-36 | 2.87e-34 | down_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 18:1 [metab-u-hilicpos] | RM0153915 | all_or_not_reported | +0.54 | 1.69e-33 | 7.40e-32 | up_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 9:0 [metab-u-hilicpos] | RM0153881 | all_or_not_reported | -1.10 | 3.48e-31 | 1.35e-29 | down_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(2:0) [metab-u-lrppos] | not_available | all_or_not_reported | +0.58 | 6.62e-29 | 2.07e-26 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(18:2)_isomer2 [metab-u-lrppo | not_available | all_or_not_reported | +0.88 | 9.30e-27 | 1.94e-24 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(18:0-OH) [metab-u-lrppos] | not_available | all_or_not_reported | +0.40 | 7.37e-26 | 8.22e-24 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(18:1) [metab-u-lrppos] | not_available | all_or_not_reported | +0.37 | 2.31e-25 | 2.07e-23 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 16:2 [metab-u-hilicpos] | RM0154197 | all_or_not_reported | +0.93 | 1.38e-22 | 4.04e-21 | up_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 14:0 [metab-u-hilicpos] | RM0154013 | all_or_not_reported | +0.54 | 9.14e-22 | 2.46e-20 | up_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 14:1 [metab-u-hilicpos] | RM0154190 | all_or_not_reported | +0.80 | 3.60e-21 | 9.00e-20 | up_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(14:1)_isomer1 [metab-u-lrppo | not_available | all_or_not_reported | +0.74 | 4.43e-21 | 2.77e-19 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 14:2 [metab-u-hilicpos] | RM0154069 | all_or_not_reported | +0.77 | 1.11e-18 | 2.37e-17 | up_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR DC6:0 [metab-u-hilicpos] | RM0154030 | all_or_not_reported | +0.29 | 1.13e-18 | 2.37e-17 | up_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 18:2 [metab-u-hilicpos] | RM0154158 | all_or_not_reported | +0.46 | 1.40e-18 | 2.47e-17 | up_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(16:0) [metab-u-lrppos] | not_available | all_or_not_reported | +0.26 | 1.49e-18 | 5.21e-17 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(14:0) [metab-u-lrppos] | not_available | all_or_not_reported | +0.46 | 4.42e-18 | 1.46e-16 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-rppos | CAR(4:0)_rp_a [metab-u-rppos] | not_available | all_or_not_reported | -0.60 | 1.50e-16 | 7.05e-15 | down_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(14:2)_isomer1 [metab-u-lrppo | not_available | all_or_not_reported | +0.67 | 2.09e-16 | 5.24e-15 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(4:0) [metab-u-lrppos] | not_available | all_or_not_reported | -0.33 | 4.17e-15 | 8.72e-14 | down_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(14:0-OH) [metab-u-lrppos] | not_available | all_or_not_reported | +0.38 | 4.47e-15 | 9.03e-14 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(14:1-OH) [metab-u-lrppos] | not_available | all_or_not_reported | +0.61 | 6.21e-15 | 1.22e-13 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(16:3) [metab-u-lrppos] | not_available | all_or_not_reported | +0.47 | 6.50e-15 | 1.24e-13 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 12:1 [metab-u-hilicpos] | RM0154155 | all_or_not_reported | +0.60 | 1.31e-13 | 1.31e-12 | up_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(13:1) [metab-u-lrppos] | not_available | all_or_not_reported | -0.39 | 3.26e-12 | 4.65e-11 | down_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(18:1-OH) [metab-u-lrppos] | not_available | all_or_not_reported | +0.27 | 6.78e-12 | 9.05e-11 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(12:1) [metab-u-lrppos] | not_available | all_or_not_reported | +0.50 | 7.42e-12 | 9.69e-11 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(20:1) [metab-u-lrppos] | not_available | all_or_not_reported | +0.31 | 9.10e-12 | 1.14e-10 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-rppos | CAR(11:0) [metab-u-rppos] | not_available | all_or_not_reported | -0.59 | 1.74e-11 | 2.98e-10 | down_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 4:0 [metab-u-hilicpos] | RM0153847 | all_or_not_reported | -0.26 | 2.69e-11 | 2.09e-10 | down_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | Carnitine [metab-u-hilicpos] | RM0008606 | all_or_not_reported | -0.11 | 2.94e-11 | 2.24e-10 | down_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(14:1)_isomer2 [metab-u-lrppo | not_available | all_or_not_reported | +0.38 | 1.66e-10 | 1.80e-09 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-hilicpos | CAR 18:0 [metab-u-hilicpos] | RM0153850 | all_or_not_reported | +0.34 | 2.96e-10 | 2.03e-09 | up_in_numerator | refmet_curated_class | requires_human_review |
+| MoTrPAC | MoTrPAC (human-precovid-sed-adu) | Homo sapiens | metab-u-lrppos | Car(14:2)_isomer2 [metab-u-lrppo | not_available | all_or_not_reported | +0.40 | 3.24e-10 | 3.39e-09 | up_in_numerator | inferred_name_pattern | requires_human_review |
+| Metabolomics | MW [ST004303](https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?StudyID=ST004303) | Homo sapiens | AN007160 | Acetyl-L-carnitine | RM0154009 | all_or_not_reported | +1.12 | 5.20e-10 | 6.91e-08 | up_in_numerator | refmet_curated_class | requires_human_review |
 
 ## Contrast orientations (so directions are interpretable)
 - **ST004303** (Metabolomics Workbench) — positive log2fc = HIGHER post-exercise (late, ~late-post)
@@ -64,8 +64,10 @@
 | MoTrPAC DataHub | pass1b06 | 110 | 2 | 0 | 2 |
 
 ## Notes
-- Class matches: 45 `refmet_curated_class` (accepted_curated, RefMet-annotated) + 179 `inferred_name_pattern` (requires_human_review, name-pattern only).
-- Curated class membership uses the RefMet bulk database (`data/live/refmet_annotations.csv`, super/main/sub class); pattern-only hits remain review-required.
+- Class matches: 45 `refmet_curated_class` (hierarchy annotation available) + 179 `inferred_name_pattern` (name-pattern only). Both remain review-required unless the source row carries a RefMet identifier that resolves without a name conflict.
+- Curated class membership uses the RefMet bulk database (`data/live/refmet_annotations.csv`, super/main/sub class). `refmet_id`, annotation provenance, and annotation release are emitted; the current snapshot explicitly reports its release as not recorded.
+- An exact metabolite-name hit is retrieval evidence, not confirmed chemical identity. A RefMet ID assigned through name lookup is shown for review but does not by itself change `review_status`.
+- `accepted_curated` is scoped only to a source-identifier-supported retrieval/annotation match. Every effect row remains `requires_assay_identity_review` for harmonization or raw-value pooling.
 - Direction is reported from the declared contrast orientation; positive log2fc = numerator side.
 - For MW ST004303, units are arbitrary MS intensities; a paired t-test was applied to log2 abundance.
 - For MoTrPAC tables, statistics are the consortium's precomputed DEA (DREAM mixed model for human, timewise DEA for rat); they are NOT recomputed here.

@@ -473,7 +473,8 @@ def paired_ttest_p_value(differences: list[float]) -> float:
     if n < 2:
         return 1.0
     mean_diff = _mean(differences)
-    variance = sum((value - mean_diff) ** 2 for value in differences) / (n - 1)
+    # fsum: this variance feeds a published paired t-statistic and p-value.
+    variance = math.fsum((value - mean_diff) ** 2 for value in differences) / (n - 1)
     if variance <= 0:
         return 1.0 if abs(mean_diff) < 1e-15 else MIN_P_VALUE
     t_stat = abs(mean_diff) / math.sqrt(variance / n)
@@ -876,9 +877,10 @@ def pearson_correlation(pairs: list[tuple[float, float]]) -> float:
     ys = [pair[1] for pair in pairs]
     mean_x = _mean(xs)
     mean_y = _mean(ys)
-    numerator = sum((x - mean_x) * (y - mean_y) for x, y in pairs)
-    denominator_x = math.sqrt(sum((x - mean_x) ** 2 for x in xs))
-    denominator_y = math.sqrt(sum((y - mean_y) ** 2 for y in ys))
+    # fsum: this Pearson r is published (the Lac-Phe lactate-coupling result).
+    numerator = math.fsum((x - mean_x) * (y - mean_y) for x, y in pairs)
+    denominator_x = math.sqrt(math.fsum((x - mean_x) ** 2 for x in xs))
+    denominator_y = math.sqrt(math.fsum((y - mean_y) ** 2 for y in ys))
     if denominator_x == 0 or denominator_y == 0:
         return 0.0
     return numerator / (denominator_x * denominator_y)

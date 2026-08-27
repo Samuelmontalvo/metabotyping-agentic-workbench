@@ -94,6 +94,9 @@ Retrieval (`live_sources/literature_search.py`, allowlisted) is separate from sc
 
 Set `METABOTYPING_CONTACT_EMAIL` for polite-pool identification and `NCBI_API_KEY` for a higher
 E-utilities rate limit. Neither is required, and neither is sent anywhere except the queried API.
+Both are masked as `<redacted>` in the endpoint URLs written to
+`literature_provenance.json`, so a committed provenance file never republishes a key or a contact
+address; the outbound request still carries the real values.
 
 ### Gene-centric lane (MetGENE) and the Metabolomics Workbench tool contexts
 

@@ -151,7 +151,7 @@
       "path": "benchmark_report.md",
       "role": "benchmark_report",
       "row_count": null,
-      "sha256": "d577acbae73635774d50993613bb21e02d2184ec530de5909a5ab7cbc6414632",
+      "sha256": "4deacdbc75be9dbc01caadb0c1da8667e73ae9efcf2ad0f8e6089e9b50ba5338",
       "state": "present"
     }
   ],
@@ -176,5 +176,5 @@
     "quality_score_tolerance_comparison": "inclusive"
   },
   "rule_set_version": "0.2.0",
-  "software_version": "0.2.0"
+  "software_version": "0.2.1"
 }

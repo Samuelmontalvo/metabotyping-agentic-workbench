@@ -46,7 +46,7 @@ Disagreements are review artifacts rather than automatic scientific adjudication
 
 - Manifest version: 1.0.0
 - Benchmark rule-set version: 0.2.0
-- Software version: 0.2.0
+- Software version: 0.2.1
 - Quality-score tolerance: 0.15 (inclusive)
 
 ### Inputs

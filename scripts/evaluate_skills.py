@@ -529,7 +529,12 @@ def _load_codex_agent(path: Path) -> tuple[dict[str, Any], str, list[str]]:
 def _load_claude_agent(path: Path) -> tuple[dict[str, Any], str, list[str]]:
     text = path.read_text(encoding="utf-8")
     frontmatter, body, errors = parse_frontmatter(text)
-    allowed_keys = {"name", "description"}
+    # `tools` and `model` are host-supported subagent scoping keys. They are
+    # allowed because they are how an advisory-only contract stops being prose:
+    # an agent whose body says "Never execute a scientific or data action" should
+    # not be dispatched holding Write and Edit. Parity is fingerprinted from the
+    # description and the body, so declaring them here cannot desync the mirrors.
+    allowed_keys = {"name", "description", "tools", "model"}
     if set(frontmatter) - allowed_keys:
         errors.append(
             "unsupported Claude agent frontmatter keys: "

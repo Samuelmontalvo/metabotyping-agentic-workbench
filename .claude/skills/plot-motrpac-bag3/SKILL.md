@@ -82,26 +82,26 @@ Run the helper from the repository root, for example:
 ```bash
 Rscript .agents/skills/plot-motrpac-bag3/scripts/plot_bag3_acute_motrpac.R \
   --input data/motrpac_precawg_downloads/*.csv data/motrpac_precawg_downloads/*.tsv \
-  --out-dir reports/motrpac_bag3
+  --out-dir reports_live/motrpac_bag3
 ```
 
 For a saved rat Data Hub gene-search JSON response:
 
 ```bash
 Rscript .agents/skills/plot-motrpac-bag3/scripts/plot_rat_bag3_from_search_api.R \
-  --json reports/motrpac_bag3/rat_bag3_search_api_response.json \
-  --out-dir reports/motrpac_bag3
+  --json reports_live/motrpac_bag3/rat_bag3_search_api_response.json \
+  --out-dir reports_live/motrpac_bag3
 ```
 
 # Outputs
-- `reports/motrpac_bag3/bag3_feature_trajectories.png`
-- `reports/motrpac_bag3/bag3_acute_plot_data.csv`
-- `reports/motrpac_bag3/bag3_acute_provenance.csv`
-- `reports/motrpac_bag3/bag3_acute_summary.md`
-- `reports/motrpac_bag3/rat_bag3_pass1b06_transcriptomics_timewise_rows.csv`
-- `reports/motrpac_bag3/rat_bag3_pass1b06_transcriptomics_timewise_all_tissues.png`
-- `reports/motrpac_bag3/rat_bag3_pass1b06_transcriptomics_timewise_skeletal_muscle.png`
-- `reports/motrpac_bag3/rat_bag3_pass1b06_transcriptomics_timewise_provenance.csv`
+- `reports_live/motrpac_bag3/bag3_feature_trajectories.png`
+- `reports_live/motrpac_bag3/bag3_acute_plot_data.csv`
+- `reports_live/motrpac_bag3/bag3_acute_provenance.csv`
+- `reports_live/motrpac_bag3/bag3_acute_summary.md`
+- `reports_live/motrpac_bag3/rat_bag3_pass1b06_transcriptomics_timewise_rows.csv`
+- `reports_live/motrpac_bag3/rat_bag3_pass1b06_transcriptomics_timewise_all_tissues.png`
+- `reports_live/motrpac_bag3/rat_bag3_pass1b06_transcriptomics_timewise_skeletal_muscle.png`
+- `reports_live/motrpac_bag3/rat_bag3_pass1b06_transcriptomics_timewise_provenance.csv`
 - A clear missing-data note when the PRECAWG app export, BAG3 rows, feature ID, exercise-group labels, timepoints, tissue, or assay metadata are unavailable.
 
 # Validation Checks

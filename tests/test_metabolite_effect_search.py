@@ -14,7 +14,15 @@ assert SPEC is not None
 metabolite_effect_search = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader is not None
 sys.modules[SPEC.name] = metabolite_effect_search
-SPEC.loader.exec_module(metabolite_effect_search)
+try:
+    SPEC.loader.exec_module(metabolite_effect_search)
+except ImportError as exc:  # pragma: no cover - environment-dependent
+    # The effect-search script needs the optional numeric stack (the "plotting"
+    # extra). A missing optional dependency is an environment gap, not a
+    # scientific failure, so it must skip rather than error: an error here makes
+    # the strict readiness gate report "fail" and an outside user cannot tell
+    # the two apart. Install with: pip install -e ".[dev,plotting]"
+    raise unittest.SkipTest(f"optional numeric stack unavailable: {exc}") from exc
 
 
 class MetaboliteEffectSearchTests(unittest.TestCase):

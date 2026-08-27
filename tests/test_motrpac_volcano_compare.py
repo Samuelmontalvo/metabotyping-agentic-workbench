@@ -264,7 +264,7 @@ class MotrpacVolcanoCompareTests(unittest.TestCase):
 
     def test_motrpac_bundle_discovery_requires_external_release(self):
         bundle = (
-            'const key="AIzaSyBwfwfqDmVq6PG7BTlv7bPFOsbngGP7BN8";'
+            'const key="AIzaSyFAKEFAKEFAKEFAKEFAKEFAKEFAKEFAKE";'
             f'{{object_size:123,external_release:!0,object:"{self.TARGETED_OBJECT}",phase:"HUMAN"}},'
             f'{{object_size:456,external_release:!1,object:"{self.MUSCLE_OBJECT}",phase:"HUMAN"}}'
         )

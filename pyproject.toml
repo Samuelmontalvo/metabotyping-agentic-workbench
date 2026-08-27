@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "metabotyping-agentic-workbench"
-version = "0.2.0"
+version = "0.2.1"
 description = "Offline MVP for agentic metabolomics dataset discovery, harmonization review, and MoTrPAC-style metadata-readiness evaluation."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -39,6 +39,14 @@ dev = [
 plotting = [
   "matplotlib>=3.8",
   "numpy>=1.26",
+  # scipy backs the paired-effect statistics in scripts/volcano_compare.py, one
+  # of the allowlisted live-ingestion entry points, and the Lac-Phe renderers.
+  "scipy>=1.11",
+]
+# Only needed to produce the .docx/.pdf manuscript renders under docs/.
+docs = [
+  "python-docx>=1.1",
+  "pillow>=10.0",
 ]
 
 [project.scripts]

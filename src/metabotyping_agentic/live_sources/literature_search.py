@@ -26,7 +26,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.parse import quote, urlencode
+from urllib.parse import parse_qsl, quote, urlencode, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
 from ..io import ensure_dir, write_csv_rows, write_json
@@ -90,6 +90,30 @@ class SourceOutcome:
     detail: str = ""
 
 
+# Query parameters that must never reach a committed provenance file. The
+# endpoint URLs recorded for each source are serialized to
+# literature_provenance.json and published alongside the results, so an NCBI
+# API key or a contact email embedded in a URL would be republished with the
+# artifact. The request still carries the real values; only the recorded copy
+# is masked.
+REDACTED_QUERY_PARAMS = ("api_key", "email", "mailto", "tool_key")
+
+
+def redact_url(url: str) -> str:
+    """Return *url* with credential and contact parameters masked."""
+
+    split = urlsplit(url)
+    if not split.query:
+        return url
+    pairs = parse_qsl(split.query, keep_blank_values=True)
+    if not any(key in REDACTED_QUERY_PARAMS for key, _ in pairs):
+        return url
+    masked = [
+        (key, "<redacted>" if key in REDACTED_QUERY_PARAMS else value) for key, value in pairs
+    ]
+    return urlunsplit(split._replace(query=urlencode(masked)))
+
+
 def _contact_email() -> str:
     return os.environ.get(CONTACT_EMAIL_ENV, "").strip()
 
@@ -122,21 +146,21 @@ def fetch_json(url: str, timeout: int = DEFAULT_TIMEOUT_SECONDS) -> Any:
             if exc.code in RETRYABLE_STATUS_CODES and attempt < MAX_ATTEMPTS:
                 time.sleep(RETRY_BACKOFF_SECONDS * attempt)
                 continue
-            raise RuntimeError(f"literature request failed with HTTP {exc.code}: {url}") from exc
+            raise RuntimeError(f"literature request failed with HTTP {exc.code}: {redact_url(url)}") from exc
         except (URLError, TimeoutError) as exc:
             last_error = exc
             if attempt < MAX_ATTEMPTS:
                 time.sleep(RETRY_BACKOFF_SECONDS * attempt)
                 continue
-            raise RuntimeError(f"literature request failed: {url} ({exc})") from exc
+            raise RuntimeError(f"literature request failed: {redact_url(url)} ({exc})") from exc
         if not body.strip():
-            raise RuntimeError(f"literature request returned an empty response: {url}")
+            raise RuntimeError(f"literature request returned an empty response: {redact_url(url)}")
         try:
             return json.loads(body)
         except json.JSONDecodeError as exc:
             snippet = " ".join(body[:200].split())
-            raise RuntimeError(f"literature request returned non-JSON content: {url} :: {snippet}") from exc
-    raise RuntimeError(f"literature request failed after {MAX_ATTEMPTS} attempts: {url} ({last_error})")
+            raise RuntimeError(f"literature request returned non-JSON content: {redact_url(url)} :: {snippet}") from exc
+    raise RuntimeError(f"literature request failed after {MAX_ATTEMPTS} attempts: {redact_url(url)} ({last_error})")
 
 
 def _sleep() -> None:
@@ -231,7 +255,7 @@ def _europe_pmc_record(result: dict[str, Any], expression: str, source_url: str)
         "record_url": f"https://europepmc.org/article/{subset}/{result.get('id')}" if subset else "",
         "abstract": _plain_text(result.get("abstractText")),
         "queried_expression": expression,
-        "source_url": source_url,
+        "source_url": redact_url(source_url),
         "retrieved_via": "europe_pmc_rest_search",
     }
 
@@ -249,7 +273,7 @@ def search_europe_pmc(
     hit_count: int | None = None
     while len(records) < max_records:
         url = _europe_pmc_url(expression, page_size=page_size, cursor_mark=cursor_mark)
-        endpoints.append(url)
+        endpoints.append(redact_url(url))
         try:
             payload = fetcher(url)
         except RuntimeError as exc:
@@ -340,7 +364,7 @@ def _pubmed_record(uid: str, summary: dict[str, Any], expression: str, source_ur
         "record_url": f"https://pubmed.ncbi.nlm.nih.gov/{uid}/",
         "abstract": "",
         "queried_expression": expression,
-        "source_url": source_url,
+        "source_url": redact_url(source_url),
         "retrieved_via": "ncbi_eutils_esearch_esummary",
     }
 
@@ -362,7 +386,7 @@ def search_pubmed(
         **_eutils_params(),
     }
     search_url = f"{PUBMED_BASE}/esearch.fcgi?{urlencode(search_params)}"
-    endpoints.append(search_url)
+    endpoints.append(redact_url(search_url))
     try:
         payload = fetcher(search_url)
     except RuntimeError as exc:
@@ -378,7 +402,7 @@ def search_pubmed(
         batch = uids[start : start + page_size]
         summary_params = {"db": "pubmed", "id": ",".join(batch), "retmode": "json", **_eutils_params()}
         summary_url = f"{PUBMED_BASE}/esummary.fcgi?{urlencode(summary_params)}"
-        endpoints.append(summary_url)
+        endpoints.append(redact_url(summary_url))
         try:
             summary_payload = fetcher(summary_url)
         except RuntimeError as exc:
@@ -460,7 +484,7 @@ def _crossref_record(item: dict[str, Any], expression: str, source_url: str) -> 
         "record_url": str(item.get("URL") or (f"https://doi.org/{doi}" if doi else "")),
         "abstract": _plain_text(item.get("abstract")),
         "queried_expression": expression,
-        "source_url": source_url,
+        "source_url": redact_url(source_url),
         "retrieved_via": "crossref_rest_works",
     }
 
@@ -495,7 +519,7 @@ def search_crossref(
         if email:
             params["mailto"] = email
         url = f"{CROSSREF_BASE}/works?{urlencode(params)}"
-        endpoints.append(url)
+        endpoints.append(redact_url(url))
         try:
             payload = fetcher(url)
         except RuntimeError as exc:
@@ -558,7 +582,7 @@ def enrich_preprint_records(
     for doi in candidates:
         for server in ("biorxiv", "medrxiv"):
             url = f"{BIORXIV_BASE}/details/{server}/{quote(doi, safe='/')}"
-            endpoints.append(url)
+            endpoints.append(redact_url(url))
             try:
                 payload = fetcher(url)
             except RuntimeError as exc:
@@ -577,7 +601,7 @@ def enrich_preprint_records(
                     "preprint_version_count": str(len(collection)),
                     "linked_published_doi": "" if published.upper() in {"", "NA"} else published.lower(),
                     "preprint_category": str(latest.get("category") or "").strip(),
-                    "source_url": url,
+                    "source_url": redact_url(url),
                 }
             )
             _sleep()

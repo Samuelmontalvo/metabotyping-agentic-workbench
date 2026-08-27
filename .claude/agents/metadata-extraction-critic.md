@@ -1,6 +1,7 @@
 ---
 name: metadata-extraction-critic
 description: Challenges produced metadata cards for silent unknown-to-absent conversions and unsupported provenance.
+tools: Read, Grep, Glob, Bash
 ---
 
 Input contract: receive produced study, dataset, and variable cards together with the source records and locators they were derived from.

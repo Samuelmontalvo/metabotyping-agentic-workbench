@@ -20,8 +20,8 @@
     "registry_lanes": 27,
     "registry_sources": 28,
     "synthetic_release_gate": "pass",
-    "synthetic_tests_passed": 148,
-    "synthetic_tests_run": 148,
+    "synthetic_tests_passed": 150,
+    "synthetic_tests_run": 150,
     "validation_scope": "offline synthetic/local; not independent external validation"
   },
   "corpus": {

@@ -94,7 +94,10 @@ def discover_command(criteria: str = "data/extracted/criteria.json", out: str = 
         rows,
         ["study_id", "recommendation_class", "match_class", "score", "rationale", "mirage_flags"],
     )
-    render_catalog_report(recommendations, "reports")
+    # The catalog report is a pilot-level artifact: run_pilot_command renders it
+    # into its own --out. Rendering it here too wrote into a hardcoded "reports"
+    # regardless of --out, so any standalone discover run (including the test
+    # suite) silently overwrote the committed offline-pilot report.
     return recommendations
 
 
@@ -120,7 +123,9 @@ def build_harmonization_plan_command(crosswalk: str, out: str = "reports") -> No
 
 def score_quality_command(metadata: str = "data/extracted", out: str = "data/extracted") -> Any:
     scores = run_quality_scoring(metadata, out)
-    render_evaluation_report(scores, "reports")
+    # As with discover_command: run_pilot_command renders the evaluation report
+    # into its own --out. The hardcoded "reports" here overwrote the committed
+    # offline-pilot report on any standalone score-quality run.
     return scores
 
 
@@ -555,8 +560,12 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
     def typer_review_literature(
         records: str = typer.Option(..., "--records"),
         query: str = typer.Option(DEFAULT_QUERY, "--query"),
-        out: str = typer.Option("data/extracted", "--out"),
-        reports_out: str = typer.Option("reports", "--reports-out"),
+        # Must match the argparse defaults below. typer is a required
+        # dependency, so this is the live path: leaving it on data/extracted and
+        # reports/ meant a no-flag run still overwrote the offline pilot's
+        # synthetic literature artifacts.
+        out: str = typer.Option("data/live/literature", "--out"),
+        reports_out: str = typer.Option("reports_live/literature", "--reports-out"),
         label: str = typer.Option("literature", "--label"),
         subject_terms: str = typer.Option("", "--subject-terms"),
         report_filename: str = typer.Option("literature_report.md", "--report-filename"),
@@ -696,7 +705,13 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
         )
 
 
-def _argparse_main(argv: list[str] | None = None) -> None:
+def build_parser() -> argparse.ArgumentParser:
+    """Construct the argparse frontend.
+
+    Exposed separately so tests can inspect option defaults without executing a
+    command, which is how the typer/argparse default drift is caught.
+    """
+
     parser = argparse.ArgumentParser(prog="metabo-agent")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -755,8 +770,11 @@ def _argparse_main(argv: list[str] | None = None) -> None:
     p = subparsers.add_parser("review-literature")
     p.add_argument("--records", required=True)
     p.add_argument("--query", default=DEFAULT_QUERY)
-    p.add_argument("--out", default="data/extracted")
-    p.add_argument("--reports-out", default="reports")
+    # Live-derived defaults. reports/ and data/extracted/ hold the offline
+    # pilot's synthetic artifacts, so a no-flag invocation used to overwrite
+    # reports/literature_report.md with live output.
+    p.add_argument("--out", default="data/live/literature")
+    p.add_argument("--reports-out", default="reports_live/literature")
     p.add_argument("--label", default="literature")
     p.add_argument("--subject-terms", default="")
     p.add_argument("--report-filename", default="literature_report.md")
@@ -827,6 +845,11 @@ def _argparse_main(argv: list[str] | None = None) -> None:
     p.add_argument("--mw-reference-contrast-key", default="auto")
     p.add_argument("--skip-plots", action="store_true")
 
+    return parser
+
+
+def _argparse_main(argv: list[str] | None = None) -> None:
+    parser = build_parser()
     args = parser.parse_args(argv)
     if args.command == "define-criteria":
         define_criteria_command(args.query, args.out)
