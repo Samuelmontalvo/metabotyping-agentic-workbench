@@ -2,12 +2,15 @@ import io
 import unittest
 
 from scripts.evaluate_scientific_readiness import (
+    CONFIGURED_MODULES,
     Gate,
     RecordingResult,
+    _discover_test_modules,
     _gate_configuration_issues,
     _gate_row,
     _logical_test_module,
     _markdown,
+    _unmapped_modules,
     _unmapped_nonpassing_tests,
 )
 
@@ -23,6 +26,13 @@ class _FakeTest:
 
 
 class ScientificReadinessIntegrityTests(unittest.TestCase):
+    def test_every_discovered_module_has_exactly_one_gate_owner(self):
+        discovered_modules = _discover_test_modules()
+
+        self.assertEqual(_unmapped_modules(discovered_modules), [])
+        self.assertEqual(set(CONFIGURED_MODULES), set(discovered_modules))
+        self.assertEqual(len(CONFIGURED_MODULES), len(set(CONFIGURED_MODULES)))
+
     def test_collection_error_is_attributed_to_configured_module(self):
         test = _FakeTest("unittest.loader._FailedTest.test_metabolite_effect_search")
 
@@ -166,6 +176,36 @@ class ScientificReadinessIntegrityTests(unittest.TestCase):
         self.assertEqual(unmapped, [record])
         self.assertIn(
             "Unmapped nonpassing test: `test_unmapped.Example.test_failure`",
+            _markdown(payload),
+        )
+
+    def test_passing_unmapped_module_is_reported_in_gate_integrity(self):
+        unmapped_modules = _unmapped_modules(
+            ["test_configured", "test_new_passing"],
+            ["test_configured"],
+        )
+        payload = {
+            "strict_release_gate_status": "fail",
+            "tests_run": 2,
+            "counts": {
+                "passed": 2,
+                "failed": 0,
+                "error": 0,
+                "skipped": 0,
+                "expected_failure": 0,
+                "unexpected_success": 0,
+            },
+            "gates": [],
+            "nonpassing_tests": [],
+            "gate_configuration_issues": [],
+            "unmapped_modules": unmapped_modules,
+            "unmapped_nonpassing_tests": [],
+            "limitations": [],
+        }
+
+        self.assertEqual(unmapped_modules, ["test_new_passing"])
+        self.assertIn(
+            "Discovered test module `test_new_passing` has no configured gate owner.",
             _markdown(payload),
         )
 

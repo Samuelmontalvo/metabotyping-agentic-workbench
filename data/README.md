@@ -4,7 +4,7 @@ The MIT `LICENSE` at the repository root covers the software. It does not grant
 rights to third-party data. This file states the terms for each data tree
 separately, because they are not the same.
 
-## `data/examples/` — synthetic fixtures (72 KB)
+## `data/examples/` — synthetic fixtures (104 KB)
 
 Authored for this repository. Every study, participant, metabolite value, and
 accession is invented. Covered by the repository's MIT licence, and reusable on
@@ -15,12 +15,34 @@ contain no human-subjects data and no third-party records. Study identifiers are
 prefixed `SYN-` precisely so a synthetic row can never be mistaken for a real
 deposition.
 
+Two evaluation fixtures make their limitations machine-readable:
+
+- `medication_classifier/` contains a labeled statin/non-statin training file
+  and a cold test file whose sample IDs and cohort IDs are disjoint. Its
+  split manifest binds both CSVs and the declared feature catalog by checksum.
+  These invented profiles test the classifier contract and metric accounting;
+  they are not clinical training data.
+- `unseen_cohort/` contains two invented, previously unused cohort records plus
+  publications and variable dictionaries. Its manifest binds every input by
+  checksum. The runner tests ingestion portability and review routing, not
+  generalization to an external human population.
+
 ## `data/live/` — redistributed public records (68 MB)
 
-Retrieved from public, released, openly licensed sources through the declared
-network boundary. **These records are not ours to relicense.** The MIT licence
-does not apply to them. Each retains the terms of its originating repository, and
-reuse requires attribution to the original source, not to this repository.
+Retrieved from publicly accessible, released sources through the declared network
+boundary. **These records are not ours to relicense.** Some carry an open licence;
+many have unresolved terms in the cached provenance. The MIT licence does not
+apply to them. Each retains the terms of its originating repository, and reuse
+requires attribution to the original source, not to this repository.
+
+The narrow exception is `biomarker_reproduction/*/case.json`: those files are
+authored evaluation contracts, not source observations. They bind selected live
+inputs—including raw and screened literature records plus the MetStat
+measurement locator—and their evidence limitations, but do not change the
+licence or provenance of the referenced third-party records. The current Lac-Phe
+contract does not bind a raw factor or codebook snapshot, so its repository
+Collectionpoint After-versus-Before labels cannot independently establish
+exercise timing.
 
 The two largest files:
 
@@ -74,3 +96,10 @@ No embargoed or access-controlled data appears anywhere in this repository. The
 human MoTrPAC Data Hub arm is access-controlled and is represented as an
 availability gap in the reports, never as a synthetic stand-in. If you are
 looking for it and cannot find it, that is the intended behaviour.
+
+Hardik's harmonization decisions are also deliberately absent. The expected
+same-universe CSV shape and checksum-manifest shape live under
+`data/reference_templates/`; the actual reference belongs at
+`data/external/hardik_harmonization_results.csv`, which is gitignored. Until a
+reviewer supplies it, the comparison workflow records
+`blocked_missing_reference` and leaves all agreement metrics null.
