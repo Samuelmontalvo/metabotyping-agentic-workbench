@@ -1,6 +1,7 @@
 {
   "acceptance_rules": {
     "cached_log2fc_absolute_tolerance": 1e-12,
+    "cached_mean_absolute_tolerance": 1e-12,
     "exact_sign_test_alternative": "two_sided",
     "maximum_exact_sign_test_p_value": 0.05,
     "mean_paired_log2_change_operator": "greater_than",
@@ -20,7 +21,7 @@
     "units": "umol/L whole blood"
   },
   "case_id": "lacphe_li_2022_st003662_directional",
-  "contract_version": "1.0.0",
+  "contract_version": "1.1.0",
   "exact_paper_dataset": false,
   "input_root": "../..",
   "inputs": [
@@ -28,6 +29,11 @@
       "path": "literature/lacphe/literature_records.json",
       "role": "literature_record",
       "sha256": "ed2681ca3e795e74569c8e678159325557a794b6bd7dee9578b01cd0347903ac"
+    },
+    {
+      "path": "literature/lacphe/literature_review.json",
+      "role": "literature_review",
+      "sha256": "76497ce315c4626b14cd4c76ba6dec182ea21f950b7aaf6281d9b22d706a1161"
     },
     {
       "path": "metabolite_scan/n_lactoyl_phenylalanine/mw_ST003662_queried_sample_level.csv",
@@ -45,6 +51,11 @@
       "sha256": "a507ce6ffad689d4a7f463bb60b7d2167bf3d23eabdc71d71f20e0167c91a087"
     },
     {
+      "path": "metabolite_search_lacphe/metstat_metabolite_study_hits.csv",
+      "role": "metstat_locator",
+      "sha256": "22db7a2842ca77d0aa23903b6300637c533e19137d84ec920543dac97d0c48af"
+    },
+    {
       "path": "mw_corpus_snapshot/analyses.csv",
       "role": "analysis_metadata",
       "sha256": "ec31bd624b7b132a917be14e0d7999cfda3e35a0e3bc8a606f27d05e1d111da5"
@@ -60,6 +71,15 @@
       "N-lactoyl-phenylalanine",
       "Lac-Phe"
     ],
+    "direction_evidence": {
+      "field": "abstract",
+      "required_phrases": [
+        "exercise stimulates the production of N-lactoyl-phenylalanine (Lac-Phe)",
+        "large activity-inducible increases in circulating Lac-Phe"
+      ],
+      "retrieved_via": "europe_pmc_rest_search",
+      "source_system": "europe_pmc"
+    },
     "doi": "10.1038/s41586-022-04828-5",
     "publication_year": "2022",
     "title": "An exercise-inducible metabolite that suppresses feeding and obesity"
@@ -71,14 +91,14 @@
   },
   "replication": {
     "cohort_independence_status": "not_established",
-    "contrast": "post-exercise vs pre-exercise (Collectionpoint After vs Before)",
-    "dataset_selection_caveat": "ST003662 was selected post hoc after the Li et al. claim was known; cohort independence from the paper is not established, so this is exploratory directional corroboration only.",
+    "contrast": "repository-derived Collectionpoint After vs Before; exercise-timing interpretation unverified",
+    "dataset_selection_caveat": "ST003662 was selected post hoc after the Li et al. claim was known; cohort independence from the paper is not established, so this is a hypothesis-generating repository After-versus-Before directional check only.",
     "dataset_selection_status": "post_hoc_exploratory",
     "harmonization_eligibility": "requires_assay_identity_review",
     "identity_status": "requires_human_review",
     "matrix_mismatch_caveat": "ST003662 reports whole-blood abundance, whereas Li et al. describes circulating Lac-Phe using distinct cohorts and assays; matrix and quantitative comparability are not established.",
     "matrix_relationship_to_paper": "mismatch",
-    "orientation": "positive log2fc = higher post-exercise",
+    "orientation": "positive log2fc = higher repository-derived After vs Before",
     "post_collectionpoint": "After",
     "pre_collectionpoint": "Before",
     "refmet_id": "RM0131640",
@@ -89,9 +109,9 @@
     "stratum": "all",
     "study_id": "ST003662",
     "study_title": "Metabolome trajectory of exercise physiology- a comprehensive study of healthy male and female athletes",
-    "timing_caveat": "ST003662 Collectionpoint Before/After does not report exercise modality, intensity, duration, or post-exercise sampling delay; only a directional post-vs-pre comparison is supported.",
-    "timing_status": "before_after_labels_verified_protocol_timing_not_reported",
+    "timing_caveat": "The cached ST003662 sample table contains repository-derived Before/After labels, but the raw factor/codebook snapshot is not bound; the exercise relationship, modality, intensity, duration, and sampling delay are not independently verified.",
+    "timing_status": "repository_derived_before_after_labels_raw_factor_context_not_bound",
     "unit": "umol/L whole blood (study-reported)"
   },
-  "scope": "post_hoc_external_dataset_directional_corroboration"
+  "scope": "post_hoc_repository_after_vs_before_directional_check"
 }

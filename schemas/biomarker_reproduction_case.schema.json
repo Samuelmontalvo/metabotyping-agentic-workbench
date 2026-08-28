@@ -37,6 +37,10 @@
           "exclusiveMinimum": 0,
           "type": "number"
         },
+        "cached_mean_absolute_tolerance": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
         "exact_sign_test_alternative": {
           "const": "two_sided"
         },
@@ -72,7 +76,8 @@
         "minimum_responder_proportion",
         "exact_sign_test_alternative",
         "maximum_exact_sign_test_p_value",
-        "cached_log2fc_absolute_tolerance"
+        "cached_log2fc_absolute_tolerance",
+        "cached_mean_absolute_tolerance"
       ],
       "type": "object"
     },
@@ -105,7 +110,7 @@
       "type": "object"
     },
     "contract_version": {
-      "const": "1.0.0"
+      "const": "1.1.0"
     },
     "exact_paper_dataset": {
       "const": false
@@ -117,8 +122,8 @@
     },
     "inputs": {
       "items": false,
-      "maxItems": 6,
-      "minItems": 6,
+      "maxItems": 8,
+      "minItems": 8,
       "prefixItems": [
         {
           "allOf": [
@@ -129,6 +134,20 @@
               "properties": {
                 "role": {
                   "const": "literature_record"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "literature_review"
                 }
               }
             }
@@ -171,6 +190,20 @@
               "properties": {
                 "role": {
                   "const": "retrieval_provenance"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "metstat_locator"
                 }
               }
             }
@@ -227,6 +260,26 @@
         "doi": {
           "const": "10.1038/s41586-022-04828-5"
         },
+        "direction_evidence": {
+          "additionalProperties": false,
+          "properties": {
+            "field": { "const": "abstract" },
+            "required_phrases": {
+              "items": false,
+              "maxItems": 2,
+              "minItems": 2,
+              "prefixItems": [
+                { "const": "exercise stimulates the production of N-lactoyl-phenylalanine (Lac-Phe)" },
+                { "const": "large activity-inducible increases in circulating Lac-Phe" }
+              ],
+              "type": "array"
+            },
+            "retrieved_via": { "const": "europe_pmc_rest_search" },
+            "source_system": { "const": "europe_pmc" }
+          },
+          "required": ["field", "source_system", "retrieved_via", "required_phrases"],
+          "type": "object"
+        },
         "publication_year": {
           "const": "2022"
         },
@@ -238,7 +291,8 @@
         "doi",
         "title",
         "publication_year",
-        "analyte_evidence_terms"
+        "analyte_evidence_terms",
+        "direction_evidence"
       ],
       "type": "object"
     },
@@ -259,7 +313,7 @@
           "const": "not_established"
         },
         "contrast": {
-          "const": "post-exercise vs pre-exercise (Collectionpoint After vs Before)"
+          "const": "repository-derived Collectionpoint After vs Before; exercise-timing interpretation unverified"
         },
         "dataset_selection_caveat": {
           "minLength": 1,
@@ -282,7 +336,7 @@
           "const": "mismatch"
         },
         "orientation": {
-          "const": "positive log2fc = higher post-exercise"
+          "const": "positive log2fc = higher repository-derived After vs Before"
         },
         "post_collectionpoint": {
           "const": "After"
@@ -320,7 +374,7 @@
           "type": "string"
         },
         "timing_status": {
-          "const": "before_after_labels_verified_protocol_timing_not_reported"
+          "const": "repository_derived_before_after_labels_raw_factor_context_not_bound"
         },
         "unit": {
           "const": "umol/L whole blood (study-reported)"
@@ -353,7 +407,7 @@
       "type": "object"
     },
     "scope": {
-      "const": "post_hoc_external_dataset_directional_corroboration"
+      "const": "post_hoc_repository_after_vs_before_directional_check"
     }
   },
   "required": [

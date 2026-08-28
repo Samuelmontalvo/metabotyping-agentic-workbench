@@ -149,7 +149,7 @@ class CliSmokeTests(unittest.TestCase):
             result = json.loads((output / "result.json").read_text(encoding="utf-8"))
             self.assertEqual(
                 result["scope"],
-                "post_hoc_external_dataset_directional_corroboration",
+                "post_hoc_repository_after_vs_before_directional_check",
             )
             self.assertEqual(result["cohort_independence_status"], "not_established")
             self.assertFalse(result["exact_paper_dataset"])

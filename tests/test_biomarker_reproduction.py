@@ -10,6 +10,7 @@ from metabotyping_agentic.evaluation.biomarker_reproduction import (
     ANALYSIS_COLUMNS,
     BLOCKED_OUTCOME,
     EFFECT_COLUMNS,
+    METSTAT_COLUMNS,
     NEGATIVE_OUTCOME,
     REFMET_COLUMNS,
     SAMPLE_COLUMNS,
@@ -44,9 +45,9 @@ def _digest(path: Path) -> str:
 
 def _base_contract() -> dict[str, object]:
     return {
-        "contract_version": "1.0.0",
+        "contract_version": "1.1.0",
         "case_id": "synthetic_lacphe_directional_case",
-        "scope": "post_hoc_external_dataset_directional_corroboration",
+        "scope": "post_hoc_repository_after_vs_before_directional_check",
         "exact_paper_dataset": False,
         "input_root": ".",
         "paper": {
@@ -54,13 +55,23 @@ def _base_contract() -> dict[str, object]:
             "title": "An exercise-inducible metabolite that suppresses feeding and obesity",
             "publication_year": "2022",
             "analyte_evidence_terms": ["N-lactoyl-phenylalanine", "Lac-Phe"],
+            "direction_evidence": {
+                "field": "abstract",
+                "source_system": "europe_pmc",
+                "retrieved_via": "europe_pmc_rest_search",
+                "required_phrases": [
+                    "exercise stimulates the production of N-lactoyl-phenylalanine (Lac-Phe)",
+                    "large activity-inducible increases in circulating Lac-Phe",
+                ],
+            },
         },
         "replication": {
             "cohort_independence_status": "not_established",
             "dataset_selection_status": "post_hoc_exploratory",
             "dataset_selection_caveat": (
                 "This dataset was selected post hoc and cohort independence from "
-                "the paper is not established."
+                "the paper is not established; this is a hypothesis-generating "
+                "repository After-versus-Before directional check."
             ),
             "study_id": "ST003662",
             "study_title": "Synthetic external exercise dataset",
@@ -73,8 +84,13 @@ def _base_contract() -> dict[str, object]:
             "unit": "umol/L whole blood (study-reported)",
             "pre_collectionpoint": "Before",
             "post_collectionpoint": "After",
-            "contrast": "post-exercise vs pre-exercise (Collectionpoint After vs Before)",
-            "orientation": "positive log2fc = higher post-exercise",
+            "contrast": (
+                "repository-derived Collectionpoint After vs Before; "
+                "exercise-timing interpretation unverified"
+            ),
+            "orientation": (
+                "positive log2fc = higher repository-derived After vs Before"
+            ),
             "identity_status": "requires_human_review",
             "harmonization_eligibility": "requires_assay_identity_review",
             "matrix_relationship_to_paper": "mismatch",
@@ -82,10 +98,13 @@ def _base_contract() -> dict[str, object]:
                 "Synthetic ST003662 reports whole-blood abundance; matrix and quantitative "
                 "comparability to the paper are not established."
             ),
-            "timing_status": "before_after_labels_verified_protocol_timing_not_reported",
+            "timing_status": (
+                "repository_derived_before_after_labels_raw_factor_context_not_bound"
+            ),
             "timing_caveat": (
-                "Synthetic ST003662 Collectionpoint Before/After does not report the "
-                "post-exercise sampling delay."
+                "Synthetic ST003662 contains repository-derived Before/After labels, "
+                "but the raw factor/codebook snapshot is not bound; the exercise "
+                "relationship and protocol timing are not independently verified."
             ),
         },
         "analysis_metadata": {
@@ -114,6 +133,7 @@ def _base_contract() -> dict[str, object]:
             "exact_sign_test_alternative": "two_sided",
             "maximum_exact_sign_test_p_value": 0.05,
             "cached_log2fc_absolute_tolerance": 1e-12,
+            "cached_mean_absolute_tolerance": 1e-12,
         },
         "inputs": [],
     }
@@ -148,8 +168,17 @@ def _complete_changes(pairs: list[tuple[object, object]]) -> list[float]:
         pre_number = float(pre)
         post_number = float(post)
         if pre_number > 0 and post_number > 0:
-            changes.append(math.log2(post_number) - math.log2(pre_number))
+            relative_difference = (post_number - pre_number) / pre_number
+            if math.isfinite(relative_difference) and relative_difference > -1.0:
+                changes.append(math.log1p(relative_difference) / math.log(2.0))
+            else:
+                changes.append(math.log2(post_number) - math.log2(pre_number))
     return changes
+
+
+def _positive_mean(values: list[float]) -> float:
+    scale = max(values)
+    return scale * min(math.fsum(value / scale for value in values) / len(values), 1.0)
 
 
 def _make_case(
@@ -169,19 +198,64 @@ def _make_case(
             "publication_year": "2022",
             "abstract": (
                 "Exercise stimulates N-lactoyl-phenylalanine (Lac-Phe), an "
-                "exercise-inducible circulating metabolite."
+                "exercise-inducible circulating metabolite. Here we show that exercise "
+                "stimulates the production of N-lactoyl-phenylalanine (Lac-Phe). "
+                "Large activity-inducible increases in circulating Lac-Phe are observed."
             ),
             "queried_expression": "N-lactoyl-phenylalanine OR Lac-Phe",
             "record_key": "doi:10.1038/s41586-022-04828-5",
-            "source_system": "synthetic_literature_cache",
-            "retrieved_via": "synthetic_offline_fixture",
+            "pmid": "35705806",
+            "pmcid": "PMC9767481",
+            "record_url": "https://europepmc.org/article/MED/35705806",
+            "source_url": "https://example.test/europe-pmc-query",
+            "source_system": "europe_pmc",
+            "retrieved_via": "europe_pmc_rest_search",
         }
     ]
     _write_json(case_dir / "literature.json", literature)
+    _write_json(
+        case_dir / "literature_review.json",
+        {
+            "records": [
+                {
+                    "doi": "10.1038/s41586-022-04828-5",
+                    "title": "An exercise-inducible metabolite that suppresses feeding and obesity",
+                    "publication_year": "2022",
+                    "record_key": "doi:10.1038/s41586-022-04828-5",
+                    "pmid": "35705806",
+                    "pmcid": "PMC9767481",
+                    "record_url": "https://europepmc.org/article/MED/35705806",
+                    "source_systems": "europe_pmc",
+                    "source_urls": "https://example.test/europe-pmc-query",
+                    "evidence_tier": "peer_reviewed_primary",
+                    "review_status": "requires_human_review",
+                    "subject_term_evidence": "subject_name_in_abstract",
+                    "screen_class": "direct_human_exercise",
+                    "species_scope": "human_and_animal",
+                    "species_basis": "title_abstract_text",
+                    "human_evidence": "yes:text_inference",
+                    "exercise_evidence": "yes:text_inference",
+                    "metabolomics_evidence": "yes:text_inference",
+                    "data_availability_evidence": "no_accession_in_retrieved_text",
+                    "screen_basis": (
+                        "tier=peer_reviewed_primary; "
+                        "species_basis=title_abstract_text; text_basis=text_with_abstract"
+                    ),
+                }
+            ]
+        },
+    )
 
     _write_csv(case_dir / "samples.csv", _sample_rows(pairs), SAMPLE_COLUMNS)
     changes = _complete_changes(pairs)
     mean_change = math.fsum(changes) / len(changes)
+    complete_pairs = [
+        (float(pre), float(post))
+        for pre, post in pairs
+        if pre != "" and post != "" and float(pre) > 0.0 and float(post) > 0.0
+    ]
+    mean_pre = _positive_mean([pre for pre, _ in complete_pairs])
+    mean_post = _positive_mean([post for _, post in complete_pairs])
     _write_csv(
         case_dir / "effect.csv",
         [
@@ -193,8 +267,8 @@ def _make_case(
                 "log2fc": repr(mean_change),
                 "p_value": "0.01",
                 "n_pairs": str(len(changes)),
-                "mean_pre": "1.0",
-                "mean_post": "2.0",
+                "mean_pre": repr(mean_pre),
+                "mean_post": repr(mean_post),
                 "fdr": "0.02",
                 "neg_log10_p": "2.0",
             }
@@ -224,6 +298,44 @@ def _make_case(
                 }
             ],
         },
+    )
+    _write_csv(
+        case_dir / "metstat.csv",
+        [
+            {
+                "query_refmet_name": "N-Lactoyl phenylalanine",
+                "match_basis": "refmet_name_exact",
+                "review_status": "requires_human_review",
+                "decision_scope": "retrieval_only",
+                "harmonization_eligibility": "requires_assay_identity_review",
+                "study_id": "ST003662",
+                "analysis_id": "AN006016",
+                "study_title": "Synthetic external exercise dataset",
+                "species": "Human",
+                "sample_source": "Blood",
+                "analysis_type": "LCMS",
+                "polarity": "UNSPECIFIED",
+                "chromatography": "Reversed phase",
+                "disease": "",
+                "refmet_name": "N-Lactoyl phenylalanine",
+                "refmet_id": "",
+                "inchi_key": "IIRJJZHHNGABMQ-WPRPVWTQSA-N",
+                "pubchem_cid": "11075454",
+                "super_class": "Organic acids",
+                "main_class": "Amino acids and peptides",
+                "sub_class": "Amino acids",
+                "study_link": (
+                    "https://www.metabolomicsworkbench.org/data/"
+                    "DRCCMetadata.php?StudyID=ST003662"
+                ),
+                "source_system": "metabolomics_workbench_metstat",
+                "provenance_url": (
+                    "https://www.metabolomicsworkbench.org/rest/metstat/;;;;;;;"
+                    "N-Lactoyl%20phenylalanine"
+                ),
+            }
+        ],
+        METSTAT_COLUMNS,
     )
     _write_csv(
         case_dir / "analyses.csv",
@@ -270,9 +382,11 @@ def _make_case(
     contract["acceptance_rules"]["minimum_complete_positive_pairs"] = minimum_n
     roles_and_paths = [
         ("literature_record", "literature.json"),
+        ("literature_review", "literature_review.json"),
         ("sample_pairs", "samples.csv"),
         ("cached_effect", "effect.csv"),
         ("retrieval_provenance", "provenance.json"),
+        ("metstat_locator", "metstat.csv"),
         ("analysis_metadata", "analyses.csv"),
         ("refmet_annotations", "refmet.csv"),
     ]
@@ -293,6 +407,66 @@ def _refresh_digest(case_dir: Path, role: str) -> None:
 
 
 class BiomarkerReproductionTests(unittest.TestCase):
+    def test_adjacent_large_floats_preserve_raw_direction_and_nonzero_change(self):
+        base = 1e300
+        cases = (
+            ("increase", math.nextafter(base, math.inf), 8, 0),
+            ("decrease", math.nextafter(base, 0.0), 0, 8),
+        )
+        for label, post, expected_positive, expected_negative in cases:
+            with self.subTest(direction=label), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                case_dir = _make_case(root, pairs=[(base, post)] * 8)
+                result = evaluate_biomarker_reproduction(case_dir, root / "out")
+                statistics = result["paired_statistics"]
+
+                self.assertEqual(statistics["responder_count"], expected_positive)
+                self.assertEqual(
+                    statistics["exact_sign_test"]["positive_count"],
+                    expected_positive,
+                )
+                self.assertEqual(
+                    statistics["exact_sign_test"]["negative_count"],
+                    expected_negative,
+                )
+                self.assertEqual(statistics["tie_count"], 0)
+                if expected_positive:
+                    self.assertGreater(statistics["mean_paired_log2_change"], 0.0)
+                else:
+                    self.assertLess(statistics["mean_paired_log2_change"], 0.0)
+                self.assertEqual(
+                    validate_against_schema(
+                        result,
+                        project_schema_path("biomarker_reproduction_result.schema.json"),
+                    ),
+                    [],
+                )
+
+    def test_exact_sign_test_preserves_fraction_when_float_underflows(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            case_dir = _make_case(root, pairs=[(1.0, 2.0)] * 1076)
+            result = evaluate_biomarker_reproduction(case_dir, root / "out")
+            sign_test = result["paired_statistics"]["exact_sign_test"]
+
+            self.assertIsNone(sign_test["p_value"])
+            self.assertEqual(
+                sign_test["p_value_status"],
+                "underflow_exact_fraction_available",
+            )
+            self.assertEqual(sign_test["exact_fraction"], f"1/{2**1075}")
+            self.assertTrue(
+                result["acceptance_checks"]["exact_sign_test_p_value_within_threshold"]
+            )
+            self.assertEqual(result["outcome"], SUPPORTED_OUTCOME)
+            self.assertEqual(
+                validate_against_schema(
+                    result,
+                    project_schema_path("biomarker_reproduction_result.schema.json"),
+                ),
+                [],
+            )
+
     def test_directional_support_recomputes_all_required_statistics(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -304,7 +478,7 @@ class BiomarkerReproductionTests(unittest.TestCase):
             self.assertFalse(result["exact_paper_dataset"])
             self.assertEqual(
                 result["scope"],
-                "post_hoc_external_dataset_directional_corroboration",
+                "post_hoc_repository_after_vs_before_directional_check",
             )
             self.assertEqual(result["cohort_independence_status"], "not_established")
             self.assertEqual(result["dataset_selection_status"], "post_hoc_exploratory")
@@ -475,6 +649,53 @@ class BiomarkerReproductionTests(unittest.TestCase):
                 evaluate_biomarker_reproduction(case_dir, root / "out")
             self.assertFalse((root / "out").exists())
 
+    def test_query_or_opposite_abstract_cannot_supply_paper_direction(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            case_dir = _make_case(root)
+            records = _read_json(case_dir / "literature.json")
+            records[0]["abstract"] = (
+                "Exercise left N-lactoyl-phenylalanine (Lac-Phe) unchanged."
+            )
+            records[0]["queried_expression"] = (
+                "exercise stimulates the production of N-lactoyl-phenylalanine "
+                "and large activity-inducible increases in circulating Lac-Phe"
+            )
+            _write_json(case_dir / "literature.json", records)
+            _refresh_digest(case_dir, "literature_record")
+
+            with self.assertRaisesRegex(
+                BiomarkerReproductionInputError,
+                "positive-direction evidence",
+            ):
+                evaluate_biomarker_reproduction(case_dir, root / "out")
+            self.assertFalse((root / "out").exists())
+
+    def test_screened_literature_and_metstat_locators_fail_closed_on_mismatch(self):
+        mutations = (
+            ("literature_review", "literature_review.json", "evidence_tier", "editorial"),
+            ("metstat_locator", "metstat.csv", "analysis_id", "AN000000"),
+        )
+        for role, filename, field, value in mutations:
+            with self.subTest(role=role), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                case_dir = _make_case(root)
+                path = case_dir / filename
+                if filename.endswith(".csv"):
+                    with path.open(newline="", encoding="utf-8") as handle:
+                        rows = list(csv.DictReader(handle))
+                    rows[0][field] = value
+                    _write_csv(path, rows, METSTAT_COLUMNS)
+                else:
+                    payload = _read_json(path)
+                    payload["records"][0][field] = value
+                    _write_json(path, payload)
+                _refresh_digest(case_dir, role)
+
+                with self.assertRaises(BiomarkerReproductionInputError):
+                    evaluate_biomarker_reproduction(case_dir, root / "out")
+                self.assertFalse((root / "out").exists())
+
     def test_sample_analyte_and_refmet_mismatches_fail_closed(self):
         mutations = (
             ("metabolite", "Different feature"),
@@ -615,6 +836,41 @@ class BiomarkerReproductionTests(unittest.TestCase):
 
             with self.assertRaises(BiomarkerReproductionInputError):
                 evaluate_biomarker_reproduction(case_dir, root / "out")
+
+    def test_zero_cached_p_value_with_finite_neg_log10_fails_closed(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            case_dir = _make_case(root)
+            effect_path = case_dir / "effect.csv"
+            with effect_path.open(newline="", encoding="utf-8") as handle:
+                rows = list(csv.DictReader(handle))
+            rows[0]["p_value"] = "0.0"
+            rows[0]["neg_log10_p"] = "300.0"
+            _write_csv(effect_path, rows, EFFECT_COLUMNS)
+            _refresh_digest(case_dir, "cached_effect")
+
+            with self.assertRaisesRegex(
+                BiomarkerReproductionInputError,
+                "zero cannot be reconciled",
+            ):
+                evaluate_biomarker_reproduction(case_dir, root / "out")
+            self.assertFalse((root / "out").exists())
+
+    def test_cached_means_must_match_complete_positive_pairs(self):
+        for field, value in (("mean_pre", "-1.0"), ("mean_post", "999.0")):
+            with self.subTest(field=field), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                case_dir = _make_case(root)
+                effect_path = case_dir / "effect.csv"
+                with effect_path.open(newline="", encoding="utf-8") as handle:
+                    rows = list(csv.DictReader(handle))
+                rows[0][field] = value
+                _write_csv(effect_path, rows, EFFECT_COLUMNS)
+                _refresh_digest(case_dir, "cached_effect")
+
+                with self.assertRaises(BiomarkerReproductionInputError):
+                    evaluate_biomarker_reproduction(case_dir, root / "out")
+                self.assertFalse((root / "out").exists())
 
     def test_analysis_and_source_provenance_mismatches_fail_closed(self):
         for role, filename, field, value in (

@@ -1,7 +1,7 @@
 {
   "case_contract": {
     "path": "case.json",
-    "sha256": "34f8d933a2778d40937fd9c75c7bcaa729e42612a7b18b570016ebba8b737737"
+    "sha256": "0d96ffe93fd62395ee3b32e1d0683034ddc4402435b47687de1ad9f3ec3cbf70"
   },
   "case_id": "lacphe_li_2022_st003662_directional",
   "human_readable_output": "report.md",
@@ -14,6 +14,11 @@
       "path": "literature/lacphe/literature_records.json",
       "role": "literature_record",
       "sha256": "ed2681ca3e795e74569c8e678159325557a794b6bd7dee9578b01cd0347903ac"
+    },
+    {
+      "path": "literature/lacphe/literature_review.json",
+      "role": "literature_review",
+      "sha256": "76497ce315c4626b14cd4c76ba6dec182ea21f950b7aaf6281d9b22d706a1161"
     },
     {
       "path": "metabolite_scan/n_lactoyl_phenylalanine/mw_ST003662_queried_sample_level.csv",
@@ -31,6 +36,11 @@
       "sha256": "a507ce6ffad689d4a7f463bb60b7d2167bf3d23eabdc71d71f20e0167c91a087"
     },
     {
+      "path": "metabolite_search_lacphe/metstat_metabolite_study_hits.csv",
+      "role": "metstat_locator",
+      "sha256": "22db7a2842ca77d0aa23903b6300637c533e19137d84ec920543dac97d0c48af"
+    },
+    {
       "path": "mw_corpus_snapshot/analyses.csv",
       "role": "analysis_metadata",
       "sha256": "ec31bd624b7b132a917be14e0d7999cfda3e35a0e3bc8a606f27d05e1d111da5"
@@ -41,17 +51,17 @@
       "sha256": "c9faa02c6091ebce3b8f6a9a7feca5c9af4e41dffcea556391d49e042f0d1cca"
     }
   ],
-  "manifest_version": "1.0.0",
+  "manifest_version": "1.1.0",
   "outputs": [
     {
       "path": "result.json",
       "role": "result",
-      "sha256": "a85f468fefb2ebe49723b652e3e24e0c9ad1802a671a6758138dacba15da608f"
+      "sha256": "d3ae4909b659ef265a8a363bccedccac385af63aa0940eff62a6bad59ccae8f6"
     },
     {
       "path": "report.md",
       "role": "report",
-      "sha256": "1e501f90e5476dd9f4638d1168b4e3694a3bf74ea444900f53b2ed042c019b2e"
+      "sha256": "01fd1ab7dece881c6b8d4806836b3183f364e72e8391c2b32c2ef2f6bf5680c3"
     }
   ]
 }
