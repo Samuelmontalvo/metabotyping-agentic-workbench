@@ -22,6 +22,7 @@ from .discovery.literature_review import (
 from .discovery.recommender import build_recommendations
 from .discovery.repositories import load_repository_records, repository_by_study
 from .evaluation.benchmark import benchmark as run_benchmark
+from .evaluation.harmonization_reference import compare_harmonization_reference
 from .evaluation.motrpac_alignment import align_motrpac as run_motrpac_alignment
 from .evaluation.quality_scoring import score_quality as run_quality_scoring
 from .extraction.metadata_cards import extract_metadata_cards
@@ -161,6 +162,26 @@ def align_motrpac_command(metadata: str = "data/extracted", out: str = "reports"
 
 def benchmark_command(predicted: str = "data/extracted", gold: str = "data/examples", out: str = "reports") -> Any:
     return run_benchmark(predicted, gold, out)
+
+
+def compare_hardik_harmonization_command(
+    predicted: str = "data/extracted/crosswalk.csv",
+    reference: str = "data/external/hardik_harmonization_results.csv",
+    out: str = "reports/hardik_harmonization_comparison",
+) -> Any:
+    predicted_path = Path(predicted)
+    reference_path = Path(reference)
+    return compare_harmonization_reference(
+        predicted_path,
+        reference_path,
+        out,
+        predicted_declared_path=(
+            predicted_path.name if predicted_path.is_absolute() else predicted_path
+        ),
+        reference_declared_path=(
+            reference_path.name if reference_path.is_absolute() else reference_path
+        ),
+    )
 
 
 def route_sources_command(
@@ -559,6 +580,20 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
     ) -> None:
         benchmark_command(predicted, gold, out)
 
+    @app.command("compare-hardik-harmonization")
+    def typer_compare_hardik_harmonization(
+        predicted: str = typer.Option("data/extracted/crosswalk.csv", "--predicted"),
+        reference: str = typer.Option(
+            "data/external/hardik_harmonization_results.csv",
+            "--reference",
+        ),
+        out: str = typer.Option(
+            "reports/hardik_harmonization_comparison",
+            "--out",
+        ),
+    ) -> None:
+        compare_hardik_harmonization_command(predicted, reference, out)
+
     @app.command("route-sources")
     def typer_route_sources(
         lanes: str = typer.Option(..., "--lanes"),
@@ -794,6 +829,14 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--gold", default="data/examples")
     p.add_argument("--out", default="reports")
 
+    p = subparsers.add_parser("compare-hardik-harmonization")
+    p.add_argument("--predicted", default="data/extracted/crosswalk.csv")
+    p.add_argument(
+        "--reference",
+        default="data/external/hardik_harmonization_results.csv",
+    )
+    p.add_argument("--out", default="reports/hardik_harmonization_comparison")
+
     p = subparsers.add_parser("route-sources")
     p.add_argument("--lanes", required=True)
     p.add_argument("--identifiers", default="")
@@ -920,6 +963,12 @@ def _argparse_main(argv: list[str] | None = None) -> None:
         align_motrpac_command(args.metadata, args.out)
     elif args.command == "benchmark":
         benchmark_command(args.predicted, args.gold, args.out)
+    elif args.command == "compare-hardik-harmonization":
+        compare_hardik_harmonization_command(
+            args.predicted,
+            args.reference,
+            args.out,
+        )
     elif args.command == "route-sources":
         route_sources_command(
             args.lanes,

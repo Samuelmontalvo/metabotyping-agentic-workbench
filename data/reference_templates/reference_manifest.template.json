@@ -1,0 +1,18 @@
+{
+  "manifest_version": "1.0.0",
+  "reference_role": "independent_curator_reference",
+  "reference_csv": "harmonization_reference.csv",
+  "entity_key": [
+    "source_study",
+    "source_variable"
+  ],
+  "valid_review_statuses": [
+    "accepted",
+    "rejected",
+    "requires_human_review"
+  ],
+  "dataset_universe_assertion": "REPLACE_WITH_A_STATEMENT_THAT_THE_REFERENCE_COVERS_THE_COMPLETE_DECLARED_EVALUATION_UNIVERSE",
+  "curator_identity_or_pseudonym": "REPLACE_BEFORE_USE",
+  "reference_sha256": "REPLACE_WITH_64_CHARACTER_SHA256",
+  "adjudication_notes": "REPLACE_WITH_VERSIONED_SCOPE_AND_UNRESOLVED_DISAGREEMENTS"
+}
