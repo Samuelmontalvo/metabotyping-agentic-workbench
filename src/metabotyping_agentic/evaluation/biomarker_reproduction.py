@@ -1524,7 +1524,7 @@ def _render_report(result: dict[str, Any]) -> str:
         f"- Original-paper data availability: "
         f"`{result['paper_claim']['data_availability_evidence']}`; original paper "
         "dataset not used\n"
-        f"- External dataset: `{context['study_id']}` — {context['study_title']}\n"
+        f"- Repository dataset: `{context['study_id']}` — {context['study_title']}\n"
         f"- Scientific scope: `{result['scope']}`\n"
         f"- Cohort independence: `{result['cohort_independence_status']}`\n"
         f"- Dataset selection: `{result['dataset_selection_status']}`\n"

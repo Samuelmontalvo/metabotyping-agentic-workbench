@@ -11,7 +11,7 @@ This exploratory evaluation tests whether a post-hoc selected Metabolomics Workb
 - Direction evidence: `abstract` phrases verified in the matched Europe PMC record
 - Paper record: https://europepmc.org/article/MED/35705806
 - Original-paper data availability: `no_accession_in_retrieved_text`; original paper dataset not used
-- External dataset: `ST003662` — Metabolome trajectory of exercise physiology- a comprehensive study of healthy male and female athletes
+- Repository dataset: `ST003662` — Metabolome trajectory of exercise physiology- a comprehensive study of healthy male and female athletes
 - Scientific scope: `post_hoc_repository_after_vs_before_directional_check`
 - Cohort independence: `not_established`
 - Dataset selection: `post_hoc_exploratory`
