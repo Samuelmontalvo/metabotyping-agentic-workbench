@@ -10,6 +10,11 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import json
+import os
+import re
+import shutil
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -18,7 +23,7 @@ from .evaluation.quality_scoring import score_quality
 from .extraction.metadata_cards import extract_metadata_cards
 from .extraction.variable_inventory import extract_variable_inventory
 from .harmonization.crosswalk import build_crosswalk
-from .io import ensure_dir, read_json, to_plain, write_json, write_text
+from .io import ensure_dir, to_plain, write_json, write_text
 from .schemas import project_schema_path, validate_or_raise
 
 BUNDLE_SCHEMA_VERSION = "1.0"
@@ -26,6 +31,21 @@ REQUIRED_FILE_ROLES = (
     "publications",
     "repository_records",
     "variable_dictionary",
+)
+PUBLICATION_BOOLEAN_COLUMNS = (
+    "human",
+    "exercise",
+    "actigraphy",
+    "metabolomics",
+    "genetics",
+    "cpet",
+    "body_composition",
+    "diet",
+)
+REPOSITORY_BOOLEAN_COLUMNS = (
+    "has_metadata",
+    "has_codebook",
+    "has_data_files",
 )
 
 
@@ -47,10 +67,45 @@ def _safe_input_path(bundle_dir: Path, declared_path: str) -> Path:
         raise CohortBundleError(
             f"Bundle input paths must be nonempty paths beneath the bundle: {declared_path!r}"
         )
-    path = bundle_dir / relative
-    if not path.is_file():
+    candidate = bundle_dir / relative
+    if not candidate.is_file():
         raise CohortBundleError(f"Declared bundle input does not exist: {declared_path}")
+    path = candidate.resolve(strict=True)
+    try:
+        path.relative_to(bundle_dir)
+    except ValueError as exc:
+        raise CohortBundleError(
+            f"Declared bundle input escapes the bundle through a symlink: {declared_path}"
+        ) from exc
     return path
+
+
+def _reject_duplicate_json_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    value: dict[str, Any] = {}
+    for key, item in pairs:
+        if key in value:
+            raise CohortBundleError(f"Bundle manifest contains duplicate key {key!r}")
+        value[key] = item
+    return value
+
+
+def _reject_nonstandard_json_constant(value: str) -> None:
+    raise CohortBundleError(
+        f"Bundle manifest contains non-standard JSON constant {value!r}"
+    )
+
+
+def _read_manifest_strict(path: Path) -> Any:
+    try:
+        return json.loads(
+            path.read_text(encoding="utf-8"),
+            object_pairs_hook=_reject_duplicate_json_keys,
+            parse_constant=_reject_nonstandard_json_constant,
+        )
+    except CohortBundleError:
+        raise
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise CohortBundleError(f"Bundle manifest is not valid JSON: {exc}") from exc
 
 
 def _read_csv_strict(
@@ -100,14 +155,57 @@ def _unique_keys(
         seen[key] = row_number
 
 
+def _validate_boolean_columns(
+    rows: list[dict[str, str]], columns: tuple[str, ...], *, role: str
+) -> None:
+    """Require explicit booleans so unknown evidence is never collapsed to false."""
+
+    for row_number, row in enumerate(rows, start=2):
+        for column in columns:
+            if column not in row:
+                continue
+            value = str(row.get(column) or "").strip().lower()
+            if value not in {"true", "false"}:
+                raise CohortBundleError(
+                    f"{role}: row {row_number} column {column!r} must be "
+                    "explicitly true or false"
+                )
+
+
+def _validate_study_card_filename_universe(study_ids: set[str]) -> None:
+    """Reject IDs that would overwrite one another on common filesystems."""
+
+    filenames: dict[str, str] = {}
+    for study_id in sorted(study_ids):
+        token = re.sub(
+            r"[^A-Za-z0-9._-]+", "-", str(study_id).strip()
+        ).strip("-._")
+        filename = f"study_{token or 'unknown'}.json"
+        collision_key = filename.casefold()
+        if collision_key in filenames:
+            raise CohortBundleError(
+                "Study identifiers map to the same metadata-card filename: "
+                f"{filenames[collision_key]!r} and {study_id!r}"
+            )
+        filenames[collision_key] = study_id
+
+
 def _validate_bundle(bundle_dir: Path) -> dict[str, Any]:
-    manifest_path = bundle_dir / "manifest.json"
-    if not manifest_path.is_file():
-        raise CohortBundleError(f"Bundle manifest does not exist: {manifest_path}")
     try:
-        manifest = read_json(manifest_path)
-    except (OSError, ValueError) as exc:
-        raise CohortBundleError(f"Bundle manifest is not valid JSON: {exc}") from exc
+        bundle_dir = bundle_dir.resolve(strict=True)
+    except OSError as exc:
+        raise CohortBundleError(f"Bundle directory does not exist: {bundle_dir}") from exc
+    declared_manifest_path = bundle_dir / "manifest.json"
+    if not declared_manifest_path.is_file():
+        raise CohortBundleError(
+            f"Bundle manifest does not exist: {declared_manifest_path}"
+        )
+    manifest_path = declared_manifest_path.resolve(strict=True)
+    try:
+        manifest_path.relative_to(bundle_dir)
+    except ValueError as exc:
+        raise CohortBundleError("Bundle manifest escapes the bundle through a symlink") from exc
+    manifest = _read_manifest_strict(manifest_path)
     if not isinstance(manifest, dict):
         raise CohortBundleError("Bundle manifest must be a JSON object")
     validate_or_raise(
@@ -127,7 +225,13 @@ def _validate_bundle(bundle_dir: Path) -> dict[str, Any]:
         )
 
     paths: dict[str, Path] = {}
-    artifacts: list[dict[str, Any]] = []
+    artifacts: list[dict[str, Any]] = [
+        {
+            "role": "bundle_manifest",
+            "path": "manifest.json",
+            "sha256": _sha256(manifest_path),
+        }
+    ]
     for role in REQUIRED_FILE_ROLES:
         entry = files[role]
         declared_path = str(entry["path"])
@@ -150,7 +254,7 @@ def _validate_bundle(bundle_dir: Path) -> dict[str, Any]:
 
     _, publication_rows = _read_csv_strict(
         paths["publications"],
-        required_columns={"study_id", "title", "human", "metabolomics"},
+        required_columns={"study_id", "title", *PUBLICATION_BOOLEAN_COLUMNS},
         role="publications",
     )
     _, repository_rows = _read_csv_strict(
@@ -159,9 +263,7 @@ def _validate_bundle(bundle_dir: Path) -> dict[str, Any]:
             "study_id",
             "repository",
             "accession",
-            "has_metadata",
-            "has_codebook",
-            "has_data_files",
+            *REPOSITORY_BOOLEAN_COLUMNS,
         },
         role="repository_records",
     )
@@ -169,6 +271,16 @@ def _validate_bundle(bundle_dir: Path) -> dict[str, Any]:
         paths["variable_dictionary"],
         required_columns={"study_id", "source_variable", "label", "unit", "timing"},
         role="variable_dictionary",
+    )
+    _validate_boolean_columns(
+        publication_rows,
+        PUBLICATION_BOOLEAN_COLUMNS,
+        role="publications",
+    )
+    _validate_boolean_columns(
+        repository_rows,
+        REPOSITORY_BOOLEAN_COLUMNS,
+        role="repository_records",
     )
     _unique_keys(publication_rows, ("study_id",), role="publications")
     _unique_keys(
@@ -188,6 +300,8 @@ def _validate_bundle(bundle_dir: Path) -> dict[str, Any]:
         "variable_dictionary": len(variable_rows),
     }
     for artifact in artifacts:
+        if artifact["role"] == "bundle_manifest":
+            continue
         if artifact["row_count"] != observed_counts[artifact["role"]]:
             raise CohortBundleError(
                 f"{artifact['role']}: manifest row_count {artifact['row_count']} "
@@ -198,6 +312,7 @@ def _validate_bundle(bundle_dir: Path) -> dict[str, Any]:
     repository_ids = {row["study_id"].strip() for row in repository_rows}
     variable_ids = {row["study_id"].strip() for row in variable_rows}
     expected_ids = set(manifest["study_ids"])
+    _validate_study_card_filename_universe(expected_ids)
     if publication_ids != expected_ids or repository_ids != expected_ids:
         raise CohortBundleError(
             "Manifest, publication, and repository study universes must match exactly"
@@ -227,6 +342,13 @@ def _output_artifact(path: Path, out_dir: Path) -> dict[str, str]:
 
 def _render_report(result: dict[str, Any]) -> str:
     gates = result["evidence_gates"]
+    interpretation = (
+        "Synthetic holdout performance cannot substitute for an independently "
+        "curated real cohort."
+        if result["synthetic_data"]
+        else "A declared real-cohort intake establishes interface compatibility only; "
+        "subject provenance and scientific validity still require external adjudication."
+    )
     lines = [
         "# Unseen Cohort Intake Evaluation",
         "",
@@ -249,115 +371,145 @@ def _render_report(result: dict[str, Any]) -> str:
             "This run demonstrates that the deterministic workflow accepts a new, "
             "manifested cohort bundle without borrowing the pilot's fixtures."
         ),
-        (
-            "It does not establish external scientific validity. Synthetic holdout "
-            "performance cannot substitute for an independently curated real cohort."
-        ),
+        f"It does not establish external scientific validity. {interpretation}",
         "",
     ]
     return "\n".join(lines)
 
 
 def run_cohort_bundle(bundle_dir: str | Path, out_dir: str | Path) -> dict[str, Any]:
-    """Validate and run one explicit cohort bundle without hidden inputs."""
+    """Validate and run one explicit cohort bundle without hidden inputs.
+
+    The destination must be new.  Building in a fresh staging directory and
+    atomically publishing it prevents stale cards from an earlier run being
+    mistaken for current outputs and prevents a failed run from leaving a
+    partial evidence packet.
+    """
 
     bundle_dir = Path(bundle_dir)
     out_dir = Path(out_dir)
+    if out_dir.exists() or out_dir.is_symlink():
+        raise CohortBundleError(
+            f"Output path already exists; choose a new destination: {out_dir}"
+        )
     validated = _validate_bundle(bundle_dir)
     manifest = validated["manifest"]
     paths = validated["paths"]
     source_prefix = f"bundle:{manifest['bundle_id']}"
 
-    ensure_dir(out_dir)
-    studies, datasets = extract_metadata_cards(
-        paths["repository_records"],
-        out_dir,
-        paths["publications"],
-        require_publication_match=True,
-        records_provenance_source=(
-            f"{source_prefix}/{manifest['files']['repository_records']['path']}"
-        ),
-        publications_provenance_source=(
-            f"{source_prefix}/{manifest['files']['publications']['path']}"
-        ),
+    out_dir.parent.mkdir(parents=True, exist_ok=True)
+    stage = Path(
+        tempfile.mkdtemp(prefix=f".{out_dir.name}.stage-", dir=out_dir.parent)
     )
-    variables = extract_variable_inventory(
-        paths["variable_dictionary"],
-        out_dir,
-        provenance_source=(
-            f"{source_prefix}/{manifest['files']['variable_dictionary']['path']}"
-        ),
-    )
-    mappings = build_crosswalk(paths["variable_dictionary"], out_dir)
-    scores = score_quality(out_dir, out_dir)
-    alignments = align_motrpac(out_dir, out_dir)
-
-    mapping_rows = [to_plain(item) for item in mappings]
-    result = {
-        "schema_version": "1.0",
-        "bundle_id": manifest["bundle_id"],
-        "status": (
-            "synthetic_interface_generalization_pass"
-            if manifest["synthetic_data"]
-            else "cohort_intake_complete_requires_external_adjudication"
-        ),
-        "synthetic_data": manifest["synthetic_data"],
-        "study_ids": list(manifest["study_ids"]),
-        "counts": {
-            "study_cards": len(studies),
-            "dataset_cards": len(datasets),
-            "variable_cards": len(variables),
-            "crosswalk_rows": len(mappings),
-            "quality_scores": len(scores),
-            "motrpac_alignments": len(alignments),
-        },
-        "evidence_gates": {
-            "input_hashes_verified": True,
-            "study_universe_match": True,
-            "builtin_fixture_fallback_used": False,
-            "unknown_human_evidence_count": sum(item.human is None for item in studies),
-            "crosswalk_review_required_count": sum(
-                row["review_status"] == "requires_human_review" for row in mapping_rows
+    try:
+        ensure_dir(stage)
+        studies, datasets = extract_metadata_cards(
+            paths["repository_records"],
+            stage,
+            paths["publications"],
+            require_publication_match=True,
+            records_provenance_source=(
+                f"{source_prefix}/{manifest['files']['repository_records']['path']}"
             ),
-        },
-        "external_validation": False,
-        "limitations": [
-            "The bundled demonstration cohorts and values are synthetic.",
+            publications_provenance_source=(
+                f"{source_prefix}/{manifest['files']['publications']['path']}"
+            ),
+        )
+        variables = extract_variable_inventory(
+            paths["variable_dictionary"],
+            stage,
+            provenance_source=(
+                f"{source_prefix}/{manifest['files']['variable_dictionary']['path']}"
+            ),
+        )
+        mappings = build_crosswalk(paths["variable_dictionary"], stage)
+        scores = score_quality(stage, stage)
+        alignments = align_motrpac(stage, stage)
+
+        mapping_rows = [to_plain(item) for item in mappings]
+        limitations = [
             "No real-cohort accuracy or harmonization agreement is inferred.",
             "Review-required variable mappings remain ineligible for automatic ETL.",
             "MoTrPAC output is metadata readiness, not analysis reproduction.",
-        ],
-    }
-    validate_or_raise(
-        result,
-        project_schema_path("cohort_generalization_result.schema.json"),
-        label="cohort generalization result",
-    )
-    result_path = write_json(out_dir / "cohort_generalization_result.json", result)
-    report_path = write_text(out_dir / "cohort_generalization_report.md", _render_report(result))
+        ]
+        if manifest["synthetic_data"]:
+            limitations.insert(
+                0, "The bundled demonstration cohorts and values are synthetic."
+            )
+        else:
+            limitations.insert(
+                0,
+                "The bundle is declared non-synthetic, but subject provenance and "
+                "external validity were not independently verified by this runner.",
+            )
+        result = {
+            "schema_version": "1.0",
+            "bundle_id": manifest["bundle_id"],
+            "status": (
+                "synthetic_interface_generalization_pass"
+                if manifest["synthetic_data"]
+                else "cohort_intake_complete_requires_external_adjudication"
+            ),
+            "synthetic_data": manifest["synthetic_data"],
+            "study_ids": list(manifest["study_ids"]),
+            "counts": {
+                "study_cards": len(studies),
+                "dataset_cards": len(datasets),
+                "variable_cards": len(variables),
+                "crosswalk_rows": len(mappings),
+                "quality_scores": len(scores),
+                "motrpac_alignments": len(alignments),
+            },
+            "evidence_gates": {
+                "input_hashes_verified": True,
+                "study_universe_match": True,
+                "builtin_fixture_fallback_used": False,
+                "unknown_human_evidence_count": sum(
+                    item.human is None for item in studies
+                ),
+                "crosswalk_review_required_count": sum(
+                    row["review_status"] == "requires_human_review"
+                    for row in mapping_rows
+                ),
+            },
+            "external_validation": False,
+            "limitations": limitations,
+        }
+        validate_or_raise(
+            result,
+            project_schema_path("cohort_generalization_result.schema.json"),
+            label="cohort generalization result",
+        )
+        result_path = write_json(stage / "cohort_generalization_result.json", result)
+        report_path = write_text(
+            stage / "cohort_generalization_report.md", _render_report(result)
+        )
 
-    output_paths = [
-        out_dir / "study_cards.json",
-        out_dir / "dataset_cards.json",
-        out_dir / "variable_cards.json",
-        out_dir / "variable_inventory.csv",
-        out_dir / "crosswalk.json",
-        out_dir / "crosswalk.csv",
-        out_dir / "quality_scores.json",
-        out_dir / "motrpac_alignment.json",
-        result_path,
-        report_path,
-        *sorted((out_dir / "metadata_cards").glob("*.json")),
-    ]
-    run_manifest = {
-        "schema_version": "1.0",
-        "bundle_id": manifest["bundle_id"],
-        "rule_set_version": "1.0",
-        "inputs": validated["input_artifacts"],
-        "outputs": [_output_artifact(path, out_dir) for path in output_paths],
-        "portable_provenance": True,
-        "generated_timestamp_included": False,
-    }
-    write_json(out_dir / "cohort_run_manifest.json", run_manifest)
-    return result
-
+        output_paths = [
+            stage / "study_cards.json",
+            stage / "dataset_cards.json",
+            stage / "variable_cards.json",
+            stage / "variable_inventory.csv",
+            stage / "crosswalk.json",
+            stage / "crosswalk.csv",
+            stage / "quality_scores.json",
+            stage / "motrpac_alignment.json",
+            result_path,
+            report_path,
+            *sorted((stage / "metadata_cards").glob("*.json")),
+        ]
+        run_manifest = {
+            "schema_version": "1.0",
+            "bundle_id": manifest["bundle_id"],
+            "rule_set_version": "1.0",
+            "inputs": validated["input_artifacts"],
+            "outputs": [_output_artifact(path, stage) for path in output_paths],
+            "portable_provenance": True,
+            "generated_timestamp_included": False,
+        }
+        write_json(stage / "cohort_run_manifest.json", run_manifest)
+        os.replace(stage, out_dir)
+        return result
+    finally:
+        if stage.exists():
+            shutil.rmtree(stage)

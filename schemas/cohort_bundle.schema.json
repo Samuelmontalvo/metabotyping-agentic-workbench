@@ -32,6 +32,7 @@
       }
     }
   },
+  "additionalProperties": false,
   "$defs": {
     "file": {
       "type": "object",

@@ -3,6 +3,11 @@
   "generated_timestamp_included": false,
   "inputs": [
     {
+      "path": "manifest.json",
+      "role": "bundle_manifest",
+      "sha256": "ab163f12bb7ff25ada073254c34ea0eb97a947d2d9d6725a5cf7f081b8ef2a67"
+    },
+    {
       "path": "publications.csv",
       "role": "publications",
       "row_count": 2,
