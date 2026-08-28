@@ -1,0 +1,44 @@
+[
+  {
+    "met_criteria": [
+      "human participants",
+      "metabolomics available",
+      "exercise/activity phenotype available",
+      "biospecimen timing available",
+      "sample matrix available",
+      "assay platform available",
+      "genetics available or documented absent",
+      "CPET/cardiorespiratory fitness phenotype available",
+      "body composition available",
+      "variable dictionary available"
+    ],
+    "missing_elements": [
+      "diet metadata available"
+    ],
+    "rationale": "10 of 11 MoTrPAC-style metadata-readiness criteria are documented.",
+    "score": 0.909,
+    "study_id": "SYN-UNSEEN-ENDURANCE",
+    "tier": "high"
+  },
+  {
+    "met_criteria": [
+      "human participants",
+      "metabolomics available",
+      "exercise/activity phenotype available",
+      "biospecimen timing available",
+      "sample matrix available",
+      "assay platform available",
+      "genetics available or documented absent",
+      "body composition available",
+      "diet metadata available",
+      "variable dictionary available"
+    ],
+    "missing_elements": [
+      "CPET/cardiorespiratory fitness phenotype available"
+    ],
+    "rationale": "10 of 11 MoTrPAC-style metadata-readiness criteria are documented.",
+    "score": 0.909,
+    "study_id": "SYN-UNSEEN-ACTIVITY",
+    "tier": "high"
+  }
+]

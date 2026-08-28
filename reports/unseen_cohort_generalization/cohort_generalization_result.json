@@ -1,0 +1,32 @@
+{
+  "bundle_id": "SYN-UNSEEN-COHORT-BUNDLE-V1",
+  "counts": {
+    "crosswalk_rows": 7,
+    "dataset_cards": 2,
+    "motrpac_alignments": 2,
+    "quality_scores": 2,
+    "study_cards": 2,
+    "variable_cards": 7
+  },
+  "evidence_gates": {
+    "builtin_fixture_fallback_used": false,
+    "crosswalk_review_required_count": 3,
+    "input_hashes_verified": true,
+    "study_universe_match": true,
+    "unknown_human_evidence_count": 0
+  },
+  "external_validation": false,
+  "limitations": [
+    "The bundled demonstration cohorts and values are synthetic.",
+    "No real-cohort accuracy or harmonization agreement is inferred.",
+    "Review-required variable mappings remain ineligible for automatic ETL.",
+    "MoTrPAC output is metadata readiness, not analysis reproduction."
+  ],
+  "schema_version": "1.0",
+  "status": "synthetic_interface_generalization_pass",
+  "study_ids": [
+    "SYN-UNSEEN-ENDURANCE",
+    "SYN-UNSEEN-ACTIVITY"
+  ],
+  "synthetic_data": true
+}

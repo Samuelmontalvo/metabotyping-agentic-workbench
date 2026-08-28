@@ -8,6 +8,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+from .cohort_bundle import run_cohort_bundle
 from .discovery.criteria import define_inclusion_criteria
 from .discovery.gene_metabolite_evidence import build_gene_metabolite_evidence
 from .discovery.literature import load_publications
@@ -101,12 +102,35 @@ def discover_command(criteria: str = "data/extracted/criteria.json", out: str = 
     return recommendations
 
 
-def extract_metadata_command(records: str, out: str = "data/extracted") -> None:
+def extract_metadata_command(
+    records: str,
+    out: str = "data/extracted",
+    publications: str | None = None,
+    require_publication_match: bool = False,
+) -> None:
     records_path = Path(records)
-    publications_path = records_path.with_name("mock_publications.csv")
-    if not publications_path.exists():
-        publications_path = _examples_dir() / "mock_publications.csv"
-    extract_metadata_cards(records_path, out, publications_path)
+    publications_path: Path | None
+    if publications is not None:
+        publications_path = Path(publications)
+    else:
+        # Sibling discovery is portable for a self-contained cohort bundle.
+        # Never fall back to the repository's pilot publications: doing so can
+        # attach synthetic human/modality evidence to an unrelated unseen
+        # dataset that happens to reuse a study identifier.
+        sibling_candidates = (
+            records_path.with_name("publications.csv"),
+            records_path.with_name("mock_publications.csv"),
+        )
+        publications_path = next(
+            (candidate for candidate in sibling_candidates if candidate.is_file()),
+            None,
+        )
+    extract_metadata_cards(
+        records_path,
+        out,
+        publications_path,
+        require_publication_match=require_publication_match,
+    )
 
 
 def build_crosswalk_command(variables: str, out: str = "data/extracted") -> None:
@@ -151,6 +175,10 @@ def route_sources_command(
     ]
     plan = build_retrieval_plan(lane_values, identifier_values, require_open=require_open)
     return write_json(out, plan)
+
+
+def run_cohort_bundle_command(bundle: str, out: str) -> Any:
+    return run_cohort_bundle(bundle, out)
 
 
 def live_intake_metabolomics_workbench_command(
@@ -480,8 +508,13 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
     def typer_extract_metadata(
         records: str = typer.Option(..., "--records"),
         out: str = typer.Option("data/extracted", "--out"),
+        publications: str | None = typer.Option(None, "--publications"),
+        require_publication_match: bool = typer.Option(
+            False,
+            "--require-publication-match",
+        ),
     ) -> None:
-        extract_metadata_command(records, out)
+        extract_metadata_command(records, out, publications, require_publication_match)
 
     @app.command("build-crosswalk")
     def typer_build_crosswalk(
@@ -538,6 +571,13 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
     @app.command("run-pilot")
     def typer_run_pilot(out: str = typer.Option("reports", "--out")) -> None:
         run_pilot_command(out)
+
+    @app.command("run-cohort-bundle")
+    def typer_run_cohort_bundle(
+        bundle: str = typer.Option(..., "--bundle"),
+        out: str = typer.Option(..., "--out"),
+    ) -> None:
+        run_cohort_bundle_command(bundle, out)
 
     @app.command("live-intake-metabolomics-workbench")
     def typer_live_intake_metabolomics_workbench(
@@ -726,6 +766,8 @@ def build_parser() -> argparse.ArgumentParser:
     p = subparsers.add_parser("extract-metadata")
     p.add_argument("--records", required=True)
     p.add_argument("--out", default="data/extracted")
+    p.add_argument("--publications", default=None)
+    p.add_argument("--require-publication-match", action="store_true")
 
     p = subparsers.add_parser("build-crosswalk")
     p.add_argument("--variables", required=True)
@@ -760,6 +802,10 @@ def build_parser() -> argparse.ArgumentParser:
 
     p = subparsers.add_parser("run-pilot")
     p.add_argument("--out", default="reports")
+
+    p = subparsers.add_parser("run-cohort-bundle")
+    p.add_argument("--bundle", required=True)
+    p.add_argument("--out", required=True)
 
     p = subparsers.add_parser("live-intake-metabolomics-workbench")
     p.add_argument("--study-id", default="ST001789")
@@ -856,7 +902,12 @@ def _argparse_main(argv: list[str] | None = None) -> None:
     elif args.command == "discover":
         discover_command(args.criteria, args.out)
     elif args.command == "extract-metadata":
-        extract_metadata_command(args.records, args.out)
+        extract_metadata_command(
+            args.records,
+            args.out,
+            args.publications,
+            args.require_publication_match,
+        )
     elif args.command == "build-crosswalk":
         build_crosswalk_command(args.variables, args.out)
     elif args.command == "review-crosswalk":
@@ -878,6 +929,8 @@ def _argparse_main(argv: list[str] | None = None) -> None:
         )
     elif args.command == "run-pilot":
         run_pilot_command(args.out)
+    elif args.command == "run-cohort-bundle":
+        run_cohort_bundle_command(args.bundle, args.out)
     elif args.command == "live-intake-metabolomics-workbench":
         live_intake_metabolomics_workbench_command(
             study_id=args.study_id,

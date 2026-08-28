@@ -80,6 +80,33 @@ class CliSmokeTests(unittest.TestCase):
             written = sorted(path.name for path in out_dir.iterdir())
             self.assertEqual(written, ["recommendations.csv", "recommendations.json"])
 
+    def test_run_cohort_bundle_uses_only_declared_holdout_inputs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            workspace = self._workspace(tmp)
+            previous_cwd = Path.cwd()
+            try:
+                os.chdir(workspace)
+                main(
+                    [
+                        "run-cohort-bundle",
+                        "--bundle",
+                        "data/examples/unseen_cohort",
+                        "--out",
+                        "cohort_out",
+                    ]
+                )
+            finally:
+                os.chdir(previous_cwd)
+
+            result = json.loads(
+                (workspace / "cohort_out/cohort_generalization_result.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(result["status"], "synthetic_interface_generalization_pass")
+            payload = (workspace / "cohort_out/study_cards.json").read_text(encoding="utf-8")
+            self.assertNotIn("SYN-METEX-GEN", payload)
+
 
 if __name__ == "__main__":
     unittest.main()

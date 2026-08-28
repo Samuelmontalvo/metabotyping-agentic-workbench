@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CohortGeneralizationResult",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "status",
+    "synthetic_data",
+    "study_ids",
+    "counts",
+    "evidence_gates",
+    "external_validation",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "bundle_id": { "type": "string" },
+    "status": {
+      "enum": [
+        "synthetic_interface_generalization_pass",
+        "cohort_intake_complete_requires_external_adjudication"
+      ]
+    },
+    "synthetic_data": { "type": "boolean" },
+    "study_ids": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "counts": { "type": "object" },
+    "evidence_gates": { "type": "object" },
+    "external_validation": { "const": false },
+    "limitations": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+  }
+}

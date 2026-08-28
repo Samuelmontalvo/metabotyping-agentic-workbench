@@ -1,0 +1,93 @@
+[
+  {
+    "description": "Highest observed value without documented plateau or secondary maximal criteria",
+    "label": "Highest attained oxygen uptake",
+    "modality": "cpet",
+    "provenance": {
+      "row_key": "SYN-UNSEEN-ENDURANCE::oxygen_uptake_highest_stage",
+      "source": "bundle:SYN-UNSEEN-COHORT-BUNDLE-V1/variable_dictionary.csv"
+    },
+    "source_variable": "oxygen_uptake_highest_stage",
+    "study_id": "SYN-UNSEEN-ENDURANCE",
+    "timing": "baseline",
+    "unit": "mL/kg/min"
+  },
+  {
+    "description": "Targeted serum lactate concentration",
+    "label": "Serum lactate",
+    "modality": "metabolomics",
+    "provenance": {
+      "row_key": "SYN-UNSEEN-ENDURANCE::serum_lactate_24h",
+      "source": "bundle:SYN-UNSEEN-COHORT-BUNDLE-V1/variable_dictionary.csv"
+    },
+    "source_variable": "serum_lactate_24h",
+    "study_id": "SYN-UNSEEN-ENDURANCE",
+    "timing": "24 hours post training",
+    "unit": "mmol/L"
+  },
+  {
+    "description": "DXA-derived appendicular lean mass",
+    "label": "Appendicular lean mass",
+    "modality": "body_composition",
+    "provenance": {
+      "row_key": "SYN-UNSEEN-ENDURANCE::dexa_appendicular_lean",
+      "source": "bundle:SYN-UNSEEN-COHORT-BUNDLE-V1/variable_dictionary.csv"
+    },
+    "source_variable": "dexa_appendicular_lean",
+    "study_id": "SYN-UNSEEN-ENDURANCE",
+    "timing": "baseline",
+    "unit": "kg"
+  },
+  {
+    "description": "Mean daily step count from wrist device",
+    "label": "Mean wrist-derived steps",
+    "modality": "actigraphy",
+    "provenance": {
+      "row_key": "SYN-UNSEEN-ACTIVITY::wrist_steps_14d",
+      "source": "bundle:SYN-UNSEEN-COHORT-BUNDLE-V1/variable_dictionary.csv"
+    },
+    "source_variable": "wrist_steps_14d",
+    "study_id": "SYN-UNSEEN-ACTIVITY",
+    "timing": "14-day average",
+    "unit": "steps/day"
+  },
+  {
+    "description": "Device-derived daily MVPA duration",
+    "label": "Moderate-to-vigorous activity",
+    "modality": "actigraphy",
+    "provenance": {
+      "row_key": "SYN-UNSEEN-ACTIVITY::moderate_vigorous_minutes_14d",
+      "source": "bundle:SYN-UNSEEN-COHORT-BUNDLE-V1/variable_dictionary.csv"
+    },
+    "source_variable": "moderate_vigorous_minutes_14d",
+    "study_id": "SYN-UNSEEN-ACTIVITY",
+    "timing": "14-day average",
+    "unit": "min/day"
+  },
+  {
+    "description": "Untargeted feature without confirmed chemical identity",
+    "label": "Unidentified plasma feature",
+    "modality": "metabolomics",
+    "provenance": {
+      "row_key": "SYN-UNSEEN-ACTIVITY::plasma_feature_u001",
+      "source": "bundle:SYN-UNSEEN-COHORT-BUNDLE-V1/variable_dictionary.csv"
+    },
+    "source_variable": "plasma_feature_u001",
+    "study_id": "SYN-UNSEEN-ACTIVITY",
+    "timing": "fasting baseline",
+    "unit": "relative intensity"
+  },
+  {
+    "description": "Cohort-specific dietary questionnaire score",
+    "label": "Diet quality short form",
+    "modality": "diet",
+    "provenance": {
+      "row_key": "SYN-UNSEEN-ACTIVITY::diet_quality_shortform",
+      "source": "bundle:SYN-UNSEEN-COHORT-BUNDLE-V1/variable_dictionary.csv"
+    },
+    "source_variable": "diet_quality_shortform",
+    "study_id": "SYN-UNSEEN-ACTIVITY",
+    "timing": "baseline",
+    "unit": "points"
+  }
+]

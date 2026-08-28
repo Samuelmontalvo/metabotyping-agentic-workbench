@@ -108,7 +108,11 @@ class RepositoryRecord(WorkbenchModel):
 class StudyCard(WorkbenchModel):
     study_id: str
     title: str
-    human: bool
+    # ``None`` is a first-class evidence state: repository metadata alone does
+    # not establish that a study enrolled humans.  Treating an absent
+    # publication record as ``human=True`` silently upgraded unknown evidence
+    # and could make an unseen cohort appear MoTrPAC-eligible.
+    human: bool | None
     modalities: list[Modality]
     repository_accession: str
     match_class: MatchClass

@@ -1,0 +1,27 @@
+{
+  "bundle_id": "SYN-UNSEEN-COHORT-BUNDLE-V1",
+  "files": {
+    "publications": {
+      "path": "publications.csv",
+      "row_count": 2,
+      "sha256": "e24e7c9bf665f5cbefe08c698fc571682404ff4550d12c17e9a1a08dd66d7225"
+    },
+    "repository_records": {
+      "path": "repository_records.csv",
+      "row_count": 2,
+      "sha256": "7019ede34091c05ff36fae60990ed1fb60bd77b3027209e0830e36e82330a169"
+    },
+    "variable_dictionary": {
+      "path": "variable_dictionary.csv",
+      "row_count": 7,
+      "sha256": "b1b4e458673c4edc0f6a230b8f9d788d91563feb8a2c19132502bd99bebaa6e4"
+    }
+  },
+  "licence_and_access": "Synthetic fixture authored for this repository and covered by the repository MIT licence.",
+  "schema_version": "1.0",
+  "study_ids": [
+    "SYN-UNSEEN-ENDURANCE",
+    "SYN-UNSEEN-ACTIVITY"
+  ],
+  "synthetic_data": true
+}

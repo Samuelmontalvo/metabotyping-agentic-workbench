@@ -1,0 +1,30 @@
+{
+  "human": true,
+  "match_class": "direct",
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "exercise",
+    "cpet",
+    "body_composition"
+  ],
+  "notes": "Previously unseen study identifier and cohort-specific variable labels",
+  "provenance": {
+    "publication_evidence": "source_provided",
+    "repository_row_keys": [
+      "SYN-UNSEEN-ENDURANCE::Metabolomics Workbench::MWB-SYN-101::row-2"
+    ],
+    "representative_repository": {
+      "accession": "MWB-SYN-101",
+      "repository": "Metabolomics Workbench"
+    },
+    "row_key": "SYN-UNSEEN-ENDURANCE",
+    "source": "bundle:SYN-UNSEEN-COHORT-BUNDLE-V1/publications.csv"
+  },
+  "repository_accession": "MWB-SYN-101",
+  "repository_accessions": [
+    "MWB-SYN-101"
+  ],
+  "study_id": "SYN-UNSEEN-ENDURANCE",
+  "title": "Synthetic interval-training metabolomics holdout"
+}

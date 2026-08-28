@@ -151,15 +151,52 @@ def extract_metadata_cards(
     records_path: str | Path,
     out_dir: str | Path,
     publications_path: str | Path | None = None,
+    *,
+    require_publication_match: bool = False,
+    records_provenance_source: str | None = None,
+    publications_provenance_source: str | None = None,
 ) -> tuple[list[StudyCard], list[DatasetCard]]:
     out_dir = Path(out_dir)
-    card_dir = ensure_dir(out_dir / "metadata_cards")
     repositories = load_repository_records(records_path)
     repos_by_study = repositories_by_study(repositories)
     publications: list[PublicationRecord] = []
-    if publications_path and Path(publications_path).exists():
-        publications = load_publications(publications_path)
+    if publications_path is not None:
+        publications_file = Path(publications_path)
+        if not publications_file.is_file():
+            raise FileNotFoundError(
+                f"Publication metadata input does not exist: {publications_file}"
+            )
+        publications = load_publications(publications_file)
     pub_by_study = {publication.study_id: publication for publication in publications}
+    records_source = records_provenance_source or str(records_path)
+    publications_source = publications_provenance_source or (
+        str(publications_path) if publications_path is not None else None
+    )
+
+    if require_publication_match:
+        missing_publications = sorted(set(repos_by_study) - set(pub_by_study))
+        extra_publications = sorted(set(pub_by_study) - set(repos_by_study))
+        if missing_publications or extra_publications:
+            details: list[str] = []
+            if missing_publications:
+                details.append(
+                    "repository studies without publication evidence: "
+                    + ", ".join(missing_publications)
+                )
+            if extra_publications:
+                details.append(
+                    "publication studies without repository records: "
+                    + ", ".join(extra_publications)
+                )
+            raise ValueError(
+                "Publication and repository study universes must match exactly; "
+                + "; ".join(details)
+            )
+
+    # Create outputs only after all cross-input validation has passed.  A
+    # malformed unseen-cohort bundle must not leave a plausible partial card
+    # tree behind.
+    card_dir = ensure_dir(out_dir / "metadata_cards")
 
     study_cards: list[StudyCard] = []
     dataset_cards: list[DatasetCard] = []
@@ -184,8 +221,9 @@ def extract_metadata_cards(
                 match_class=recommendation.match_class,
                 mirage_flags=recommendation.mirage_flags,
                 provenance={
-                    "source": str(publications_path),
+                    "source": publications_source,
                     "row_key": publication.study_id,
+                    "publication_evidence": "source_provided",
                     "repository_row_keys": repository_row_keys,
                     "representative_repository": {
                         "repository": representative.repository,
@@ -196,25 +234,32 @@ def extract_metadata_cards(
             )
         else:
             representative = _representative_repository(study_repositories)
+            mirage_flags = detect_mirage_flags(None, representative)
+            if "publication_metadata_missing" not in mirage_flags:
+                mirage_flags.append("publication_metadata_missing")
             study_card = StudyCard(
                 study_id=study_id,
                 title="unknown",
-                human=True,
+                human=None,
                 modalities=_combined_modalities(study_repositories),
                 repository_accession=_primary_repository_accession(None, accessions),
                 repository_accessions=accessions,
                 match_class="unknown",
-                mirage_flags=detect_mirage_flags(None, representative),
+                mirage_flags=mirage_flags,
                 provenance={
-                    "source": str(records_path),
+                    "source": records_source,
                     "row_key": study_id,
+                    "publication_evidence": "unknown_not_supplied_or_unmatched",
                     "repository_row_keys": repository_row_keys,
                     "representative_repository": {
                         "repository": representative.repository,
                         "accession": representative.accession,
                     },
                 },
-                notes="Publication metadata was not supplied to this extraction command.",
+                notes=(
+                    "Publication metadata was not supplied or did not match this study; "
+                    "human-participant status remains unknown."
+                ),
             )
         study_payload = to_plain(study_card)
         validate_or_raise(
@@ -244,7 +289,7 @@ def extract_metadata_cards(
                 documented_absent_modalities=repo.documented_absent_modalities,
                 mirage_flags=flags,
                 provenance={
-                    "source": str(records_path),
+                    "source": records_source,
                     "row_key": _repository_row_key(repo, source_row_number),
                     "source_row_number": source_row_number,
                 },

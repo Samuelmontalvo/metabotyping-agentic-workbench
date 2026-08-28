@@ -1,0 +1,61 @@
+[
+  {
+    "activity_quality": 0.7,
+    "body_composition_quality": 0.8,
+    "cpet_quality": 0.85,
+    "diet_quality": 0.3,
+    "genetics_quality": 0.35,
+    "harmonization_feasibility": 0.85,
+    "metabolomics_quality": 1.0,
+    "metadata_completeness": 1.0,
+    "overall_score": 0.802,
+    "rationale": [
+      "Metabolomics assay platform is reported.",
+      "CPET phenotype is documented for comparison planning."
+    ],
+    "study_design_rigor": 0.9,
+    "study_id": "SYN-UNSEEN-ENDURANCE",
+    "temporal_alignment": 0.8,
+    "weights": {
+      "activity_quality": 0.1,
+      "body_composition_quality": 0.05,
+      "cpet_quality": 0.1,
+      "diet_quality": 0.05,
+      "genetics_quality": 0.1,
+      "harmonization_feasibility": 0.05,
+      "metabolomics_quality": 0.15,
+      "metadata_completeness": 0.15,
+      "study_design_rigor": 0.15,
+      "temporal_alignment": 0.1
+    }
+  },
+  {
+    "activity_quality": 0.85,
+    "body_composition_quality": 0.8,
+    "cpet_quality": 0.25,
+    "diet_quality": 0.75,
+    "genetics_quality": 0.35,
+    "harmonization_feasibility": 0.85,
+    "metabolomics_quality": 1.0,
+    "metadata_completeness": 1.0,
+    "overall_score": 0.795,
+    "rationale": [
+      "Metabolomics assay platform is reported."
+    ],
+    "study_design_rigor": 1.0,
+    "study_id": "SYN-UNSEEN-ACTIVITY",
+    "temporal_alignment": 0.8,
+    "weights": {
+      "activity_quality": 0.1,
+      "body_composition_quality": 0.05,
+      "cpet_quality": 0.1,
+      "diet_quality": 0.05,
+      "genetics_quality": 0.1,
+      "harmonization_feasibility": 0.05,
+      "metabolomics_quality": 0.15,
+      "metadata_completeness": 0.15,
+      "study_design_rigor": 0.15,
+      "temporal_alignment": 0.1
+    }
+  }
+]

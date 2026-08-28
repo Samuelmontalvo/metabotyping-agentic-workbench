@@ -9,8 +9,13 @@ from ..models import Modality, VariableCard
 from ..schemas import project_schema_path, validate_or_raise
 
 
-def load_variable_cards(path: str | Path) -> list[VariableCard]:
+def load_variable_cards(
+    path: str | Path,
+    *,
+    provenance_source: str | None = None,
+) -> list[VariableCard]:
     cards: list[VariableCard] = []
+    source = provenance_source or str(path)
     for row in read_csv_rows(path):
         modalities = parse_modalities(row.get("modality", "unknown"))
         modality = modalities[0] if modalities else Modality.UNKNOWN
@@ -23,14 +28,19 @@ def load_variable_cards(path: str | Path) -> list[VariableCard]:
                 timing=row.get("timing") or "unknown",
                 modality=modality,
                 description=row.get("description") or "",
-                provenance={"source": str(path), "row_key": f"{row['study_id']}::{row['source_variable']}"},
+                provenance={"source": source, "row_key": f"{row['study_id']}::{row['source_variable']}"},
             )
         )
     return cards
 
 
-def extract_variable_inventory(path: str | Path, out_dir: str | Path) -> list[VariableCard]:
-    cards = load_variable_cards(path)
+def extract_variable_inventory(
+    path: str | Path,
+    out_dir: str | Path,
+    *,
+    provenance_source: str | None = None,
+) -> list[VariableCard]:
+    cards = load_variable_cards(path, provenance_source=provenance_source)
     rows = [to_plain(card) for card in cards]
     schema_path = project_schema_path("variable_card.schema.json")
     for row in rows:

@@ -106,6 +106,12 @@ class MetadataExtractionTests(unittest.TestCase):
 
             self.assertEqual(len(studies), 1)
             self.assertEqual(len(datasets), 2)
+            self.assertIsNone(studies[0].human)
+            self.assertIn("publication_metadata_missing", studies[0].mirage_flags)
+            self.assertEqual(
+                studies[0].provenance["publication_evidence"],
+                "unknown_not_supplied_or_unmatched",
+            )
             self.assertEqual(studies[0].repository_accession, "ST000001")
             self.assertEqual(studies[0].repository_accessions, ["ST000001", "MTBLS0001"])
             row_keys = [dataset.provenance["row_key"] for dataset in datasets]
@@ -120,6 +126,35 @@ class MetadataExtractionTests(unittest.TestCase):
                 any("Metabolomics-Workbench__ST000001" in path.name for path in dataset_paths)
             )
             self.assertTrue(any("MetaboLights__MTBLS0001" in path.name for path in dataset_paths))
+
+    def test_required_publication_universe_mismatch_fails_before_output(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            out = tmp_path / "out"
+
+            with self.assertRaisesRegex(ValueError, "study universes must match exactly"):
+                extract_metadata_cards(
+                    ROOT / "data/examples/mock_repository_records.csv",
+                    out,
+                    ROOT / "data/examples/unseen_cohort/publications.csv",
+                    require_publication_match=True,
+                )
+
+            self.assertFalse(out.exists())
+
+    def test_explicit_missing_publications_file_fails_before_output(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            out = tmp_path / "out"
+
+            with self.assertRaises(FileNotFoundError):
+                extract_metadata_cards(
+                    ROOT / "data/examples/mock_repository_records.csv",
+                    out,
+                    tmp_path / "missing_publications.csv",
+                )
+
+            self.assertFalse(out.exists())
 
 
 if __name__ == "__main__":

@@ -1,0 +1,3 @@
+study_id,title,doi,pmid,human,exercise,actigraphy,metabolomics,genetics,cpet,body_composition,diet,repository_accession,notes
+SYN-UNSEEN-ENDURANCE,Synthetic interval-training metabolomics holdout,10.0000/syn.unseen.endurance,910001,true,true,false,true,false,true,true,false,MWB-SYN-101,Previously unseen study identifier and cohort-specific variable labels
+SYN-UNSEEN-ACTIVITY,Synthetic free-living activity metabolomics holdout,10.0000/syn.unseen.activity,910002,true,false,true,true,false,false,true,true,MWB-SYN-102,Independent synthetic cohort with actigraphy and dietary metadata

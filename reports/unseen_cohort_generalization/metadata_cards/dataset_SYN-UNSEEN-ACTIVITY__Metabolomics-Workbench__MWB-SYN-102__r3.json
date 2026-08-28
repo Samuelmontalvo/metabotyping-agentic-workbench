@@ -1,0 +1,29 @@
+{
+  "accession": "MWB-SYN-102",
+  "assay_platform": "untargeted LC-MS",
+  "biospecimen_timing": "fasting draw after 14-day activity monitoring",
+  "data_availability": "public",
+  "documented_absent_modalities": [
+    "genetics",
+    "cpet"
+  ],
+  "has_codebook": true,
+  "has_data_files": true,
+  "has_metadata": true,
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "actigraphy",
+    "body_composition",
+    "diet"
+  ],
+  "provenance": {
+    "row_key": "SYN-UNSEEN-ACTIVITY::Metabolomics Workbench::MWB-SYN-102::row-3",
+    "source": "bundle:SYN-UNSEEN-COHORT-BUNDLE-V1/repository_records.csv",
+    "source_row_number": 3
+  },
+  "repository": "Metabolomics Workbench",
+  "sample_matrix": "plasma",
+  "sample_size": 144,
+  "study_id": "SYN-UNSEEN-ACTIVITY"
+}
