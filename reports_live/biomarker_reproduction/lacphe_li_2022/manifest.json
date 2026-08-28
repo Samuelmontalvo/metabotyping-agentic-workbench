@@ -1,0 +1,57 @@
+{
+  "case_contract": {
+    "path": "case.json",
+    "sha256": "34f8d933a2778d40937fd9c75c7bcaa729e42612a7b18b570016ebba8b737737"
+  },
+  "case_id": "lacphe_li_2022_st003662_directional",
+  "human_readable_output": "report.md",
+  "input_root": {
+    "case_directory": "biomarker_reproduction/lacphe_li_2022",
+    "declared_path": "../.."
+  },
+  "inputs": [
+    {
+      "path": "literature/lacphe/literature_records.json",
+      "role": "literature_record",
+      "sha256": "ed2681ca3e795e74569c8e678159325557a794b6bd7dee9578b01cd0347903ac"
+    },
+    {
+      "path": "metabolite_scan/n_lactoyl_phenylalanine/mw_ST003662_queried_sample_level.csv",
+      "role": "sample_pairs",
+      "sha256": "ca70bfc147313c1549e75478796b2d3f1fe915681805c2c4b0d4df966a90b93a"
+    },
+    {
+      "path": "metabolite_scan/n_lactoyl_phenylalanine/mw_ST003662_volcano_pre_post.csv",
+      "role": "cached_effect",
+      "sha256": "e662fc68e89a2ad94b8874fc0b29ac10e75623aed07c46a68491e11dd0bb0a67"
+    },
+    {
+      "path": "metabolite_scan/n_lactoyl_phenylalanine/provenance.json",
+      "role": "retrieval_provenance",
+      "sha256": "a507ce6ffad689d4a7f463bb60b7d2167bf3d23eabdc71d71f20e0167c91a087"
+    },
+    {
+      "path": "mw_corpus_snapshot/analyses.csv",
+      "role": "analysis_metadata",
+      "sha256": "ec31bd624b7b132a917be14e0d7999cfda3e35a0e3bc8a606f27d05e1d111da5"
+    },
+    {
+      "path": "refmet_annotations.csv",
+      "role": "refmet_annotations",
+      "sha256": "c9faa02c6091ebce3b8f6a9a7feca5c9af4e41dffcea556391d49e042f0d1cca"
+    }
+  ],
+  "manifest_version": "1.0.0",
+  "outputs": [
+    {
+      "path": "result.json",
+      "role": "result",
+      "sha256": "a85f468fefb2ebe49723b652e3e24e0c9ad1802a671a6758138dacba15da608f"
+    },
+    {
+      "path": "report.md",
+      "role": "report",
+      "sha256": "1e501f90e5476dd9f4638d1168b4e3694a3bf74ea444900f53b2ed042c019b2e"
+    }
+  ]
+}

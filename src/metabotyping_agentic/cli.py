@@ -22,6 +22,7 @@ from .discovery.literature_review import (
 from .discovery.recommender import build_recommendations
 from .discovery.repositories import load_repository_records, repository_by_study
 from .evaluation.benchmark import benchmark as run_benchmark
+from .evaluation.biomarker_reproduction import evaluate_biomarker_reproduction
 from .evaluation.harmonization_reference import compare_harmonization_reference
 from .evaluation.medication_classifier import run_medication_classifier
 from .evaluation.motrpac_alignment import align_motrpac as run_motrpac_alignment
@@ -163,6 +164,13 @@ def align_motrpac_command(metadata: str = "data/extracted", out: str = "reports"
 
 def benchmark_command(predicted: str = "data/extracted", gold: str = "data/examples", out: str = "reports") -> Any:
     return run_benchmark(predicted, gold, out)
+
+
+def evaluate_biomarker_reproduction_command(
+    out: str,
+    case: str = "data/live/biomarker_reproduction/lacphe_li_2022",
+) -> Any:
+    return evaluate_biomarker_reproduction(case, out)
 
 
 def compare_hardik_harmonization_command(
@@ -597,6 +605,16 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
     ) -> None:
         benchmark_command(predicted, gold, out)
 
+    @app.command("evaluate-biomarker-reproduction")
+    def typer_evaluate_biomarker_reproduction(
+        case: str = typer.Option(
+            "data/live/biomarker_reproduction/lacphe_li_2022",
+            "--case",
+        ),
+        out: str = typer.Option(..., "--out"),
+    ) -> None:
+        evaluate_biomarker_reproduction_command(out=out, case=case)
+
     @app.command("compare-hardik-harmonization")
     def typer_compare_hardik_harmonization(
         predicted: str = typer.Option("data/extracted/crosswalk.csv", "--predicted"),
@@ -874,6 +892,13 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--gold", default="data/examples")
     p.add_argument("--out", default="reports")
 
+    p = subparsers.add_parser("evaluate-biomarker-reproduction")
+    p.add_argument(
+        "--case",
+        default="data/live/biomarker_reproduction/lacphe_li_2022",
+    )
+    p.add_argument("--out", required=True)
+
     p = subparsers.add_parser("compare-hardik-harmonization")
     p.add_argument("--predicted", default="data/extracted/crosswalk.csv")
     p.add_argument(
@@ -1027,6 +1052,8 @@ def _argparse_main(argv: list[str] | None = None) -> None:
         align_motrpac_command(args.metadata, args.out)
     elif args.command == "benchmark":
         benchmark_command(args.predicted, args.gold, args.out)
+    elif args.command == "evaluate-biomarker-reproduction":
+        evaluate_biomarker_reproduction_command(out=args.out, case=args.case)
     elif args.command == "compare-hardik-harmonization":
         compare_hardik_harmonization_command(
             args.predicted,

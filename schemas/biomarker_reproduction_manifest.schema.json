@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "inputArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "not": {
+            "pattern": "(^/)|(^|/)\\.\\.(/|$)"
+          },
+          "type": "string"
+        },
+        "role": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "required": [
+        "role",
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "case_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "not": {
+            "pattern": "^/"
+          },
+          "type": "string"
+        },
+        "sha256": {
+          "$ref": "#/$defs/digest"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "case_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "human_readable_output": {
+      "const": "report.md"
+    },
+    "inputs": {
+      "items": false,
+      "maxItems": 6,
+      "minItems": 6,
+      "prefixItems": [
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "literature_record"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "sample_pairs"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "cached_effect"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "retrieval_provenance"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "analysis_metadata"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "refmet_annotations"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "type": "array"
+    },
+    "input_root": {
+      "additionalProperties": false,
+      "properties": {
+        "case_directory": {
+          "minLength": 1,
+          "not": { "pattern": "(^/)|(^|/)\\.\\.(/|$)" },
+          "type": "string"
+        },
+        "declared_path": {
+          "minLength": 1,
+          "not": { "pattern": "^/" },
+          "type": "string"
+        }
+      },
+      "required": ["declared_path", "case_directory"],
+      "type": "object"
+    },
+    "manifest_version": {
+      "const": "1.0.0"
+    },
+    "outputs": {
+      "items": false,
+      "maxItems": 2,
+      "minItems": 2,
+      "prefixItems": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "const": "result.json"
+            },
+            "role": {
+              "const": "result"
+            },
+            "sha256": {
+              "$ref": "#/$defs/digest"
+            }
+          },
+          "required": [
+            "role",
+            "path",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "const": "report.md"
+            },
+            "role": {
+              "const": "report"
+            },
+            "sha256": {
+              "$ref": "#/$defs/digest"
+            }
+          },
+          "required": [
+            "role",
+            "path",
+            "sha256"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "case_id",
+    "case_contract",
+    "input_root",
+    "inputs",
+    "outputs",
+    "human_readable_output"
+  ],
+  "title": "BiomarkerReproductionManifest",
+  "type": "object"
+}

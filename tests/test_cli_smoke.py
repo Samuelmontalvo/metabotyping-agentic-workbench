@@ -133,6 +133,33 @@ class CliSmokeTests(unittest.TestCase):
         with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
             main(["evaluate-medication-classifier"])
 
+    def test_biomarker_reproduction_cli_writes_requested_output(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp) / "biomarker_out"
+            main(
+                [
+                    "evaluate-biomarker-reproduction",
+                    "--case",
+                    str(ROOT / "data/live/biomarker_reproduction/lacphe_li_2022"),
+                    "--out",
+                    str(output),
+                ]
+            )
+
+            result = json.loads((output / "result.json").read_text(encoding="utf-8"))
+            self.assertEqual(
+                result["scope"],
+                "post_hoc_external_dataset_directional_corroboration",
+            )
+            self.assertEqual(result["cohort_independence_status"], "not_established")
+            self.assertFalse(result["exact_paper_dataset"])
+            self.assertTrue((output / "manifest.json").is_file())
+            self.assertTrue((output / "report.md").is_file())
+
+    def test_biomarker_reproduction_cli_requires_an_explicit_output_path(self):
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            main(["evaluate-biomarker-reproduction"])
+
 
 if __name__ == "__main__":
     unittest.main()

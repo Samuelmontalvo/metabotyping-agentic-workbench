@@ -1,0 +1,111 @@
+{
+  "acceptance_checks": {
+    "exact_sign_test_p_value_within_threshold": true,
+    "identity_review_gate_preserved": true,
+    "matrix_mismatch_caveat_preserved": true,
+    "mean_paired_log2_change_above_threshold": true,
+    "minimum_complete_positive_pairs_met": true,
+    "responder_proportion_above_threshold": true
+  },
+  "acceptance_rules": {
+    "cached_log2fc_absolute_tolerance": 1e-12,
+    "exact_sign_test_alternative": "two_sided",
+    "maximum_exact_sign_test_p_value": 0.05,
+    "mean_paired_log2_change_operator": "greater_than",
+    "mean_paired_log2_change_threshold": 0.0,
+    "minimum_complete_positive_pairs": 30,
+    "minimum_responder_proportion": 0.5,
+    "responder_proportion_operator": "greater_than"
+  },
+  "analysis_metadata": {
+    "analysis_id": "AN006016",
+    "analysis_summary": "Reversed phase UNSPECIFIED ION MODE",
+    "analysis_type": "MS",
+    "chromatography_type": "Reversed phase",
+    "ms_instrument_name": "Thermo Q Exactive HF hybrid Orbitrap",
+    "ms_instrument_type": "Orbitrap",
+    "study_id": "ST003662",
+    "units": "umol/L whole blood"
+  },
+  "cached_effect_crosscheck": {
+    "absolute_difference": 2.220446049250313e-16,
+    "absolute_tolerance": 1e-12,
+    "cached_fdr": 2.5047225355558747e-14,
+    "cached_fdr_status": "not_independently_recomputed",
+    "cached_log2fc": 1.158602604139859,
+    "cached_neg_log10_p": 14.563451815873849,
+    "cached_p_value": 2.7324245842427723e-15,
+    "cached_p_value_status": "not_independently_recomputed",
+    "neg_log10_p_absolute_difference": 0.0,
+    "neg_log10_p_internal_consistency": true,
+    "recomputed_mean_paired_log2_change": 1.1586026041398587,
+    "stratum": "all",
+    "study_id": "ST003662",
+    "within_tolerance": true
+  },
+  "case_id": "lacphe_li_2022_st003662_directional",
+  "cohort_independence_status": "not_established",
+  "dataset_selection_status": "post_hoc_exploratory",
+  "exact_paper_dataset": false,
+  "interpretation": "This is a post-hoc external-dataset directional corroboration in ST003662, not an exact reproduction of the Li et al. datasets or causal feeding/obesity findings. Dataset selection was exploratory, cohort independence is not established, metabolite identity still requires human review, and whole-blood comparability plus exercise sampling timing remain unresolved.",
+  "outcome": "supports_directional_claim_requires_identity_review",
+  "paired_statistics": {
+    "complete_positive_pairs": 116,
+    "exact_sign_test": {
+      "alternative": "two_sided",
+      "exact_fraction": "1472724669120866632480669/10384593717069655257060992658440192",
+      "n_non_tied": 116,
+      "negative_count": 24,
+      "p_value": 1.4181822700488305e-10,
+      "positive_count": 92
+    },
+    "excluded_incomplete_or_nonpositive_pairs": 21,
+    "geometric_mean_fold_change": 2.2324109131516057,
+    "geometric_mean_fold_change_status": "computed_finite",
+    "mean_paired_log2_change": 1.1586026041398587,
+    "nonresponder_count": 24,
+    "responder_count": 92,
+    "responder_proportion": 0.7931034482758621,
+    "tie_count": 0,
+    "total_queried_rows": 137
+  },
+  "paper_claim": {
+    "analyte_evidence_verified_in_cached_record": true,
+    "direction": "Lac-Phe is higher after exercise",
+    "doi": "10.1038/s41586-022-04828-5",
+    "doi_verified_in_cached_record": true,
+    "title": "An exercise-inducible metabolite that suppresses feeding and obesity"
+  },
+  "replication_context": {
+    "cohort_independence_status": "not_established",
+    "contrast": "post-exercise vs pre-exercise (Collectionpoint After vs Before)",
+    "dataset_selection_caveat": "ST003662 was selected post hoc after the Li et al. claim was known; cohort independence from the paper is not established, so this is exploratory directional corroboration only.",
+    "dataset_selection_status": "post_hoc_exploratory",
+    "harmonization_eligibility": "requires_assay_identity_review",
+    "identity_status": "requires_human_review",
+    "matrix_mismatch_caveat": "ST003662 reports whole-blood abundance, whereas Li et al. describes circulating Lac-Phe using distinct cohorts and assays; matrix and quantitative comparability are not established.",
+    "matrix_relationship_to_paper": "mismatch",
+    "orientation": "positive log2fc = higher post-exercise",
+    "post_collectionpoint": "After",
+    "pre_collectionpoint": "Before",
+    "refmet_id": "RM0131640",
+    "refmet_name": "N-Lactoyl phenylalanine",
+    "refmet_release_status": "not_recorded_in_cached_annotation_file",
+    "sample_matrix": "whole blood",
+    "source_metabolite": "Lactoyl Phenylalanine",
+    "species": "Homo sapiens",
+    "stratum": "all",
+    "study_id": "ST003662",
+    "study_title": "Metabolome trajectory of exercise physiology- a comprehensive study of healthy male and female athletes",
+    "timing_caveat": "ST003662 Collectionpoint Before/After does not report exercise modality, intensity, duration, or post-exercise sampling delay; only a directional post-vs-pre comparison is supported.",
+    "timing_status": "before_after_labels_verified_protocol_timing_not_reported",
+    "unit": "umol/L whole blood (study-reported)"
+  },
+  "result_version": "1.0.0",
+  "scope": "post_hoc_external_dataset_directional_corroboration",
+  "source_provenance": {
+    "license": "CC BY 4.0",
+    "match_basis": "normalized name containment across source name columns",
+    "study_link": "https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?StudyID=ST003662"
+  }
+}
