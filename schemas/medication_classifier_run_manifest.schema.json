@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MedicationClassifierRunManifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run_id",
+    "classifier_version",
+    "software_version",
+    "algorithm",
+    "split_id",
+    "validation_status",
+    "clinically_validated",
+    "inputs",
+    "outputs",
+    "guards",
+    "human_readable_output"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "run_id": { "type": "string", "pattern": "^synthetic-statin-[0-9a-f]{16}$" },
+    "classifier_version": { "const": "1.0.0" },
+    "software_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+" },
+    "algorithm": { "const": "closed_form_diagonal_lda" },
+    "split_id": { "type": "string", "minLength": 1 },
+    "validation_status": { "const": "synthetic_only_not_clinically_validated" },
+    "clinically_validated": { "const": false },
+    "inputs": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifact" },
+            { "properties": { "role": { "const": "feature_catalog" }, "path": { "const": "feature_catalog.json" } } }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifact" },
+            { "properties": { "role": { "const": "split_manifest" }, "path": { "const": "split_manifest.json" } } }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifact" },
+            { "properties": { "role": { "const": "train" }, "path": { "const": "train.csv" } } }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifact" },
+            { "properties": { "role": { "const": "test" }, "path": { "const": "test.csv" } } }
+          ]
+        }
+      ],
+      "items": false,
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "outputs": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifact" },
+            { "properties": { "role": { "const": "model" }, "path": { "const": "model.json" } } }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifact" },
+            { "properties": { "role": { "const": "predictions" }, "path": { "const": "predictions.csv" } } }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifact" },
+            { "properties": { "role": { "const": "metrics" }, "path": { "const": "metrics.json" } } }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/artifact" },
+            { "properties": { "role": { "const": "model_card" }, "path": { "const": "model_card.md" } } }
+          ]
+        }
+      ],
+      "items": false,
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "guards": {
+      "type": "object",
+      "required": [
+        "input_hashes_verified",
+        "sample_id_disjoint_verified",
+        "cohort_id_disjoint_verified",
+        "declared_feature_vectors_disjoint_verified",
+        "binary_labels_verified",
+        "finite_declared_features_verified",
+        "exact_target_copy_features_rejected",
+        "feature_allowlist_enforced",
+        "model_feature_key_sets_verified",
+        "train_only_preprocessing",
+        "missing_features_zero_filled",
+        "test_labels_used_for_model_fitting",
+        "test_labels_used_for_scoring",
+        "test_labels_used_for_metrics_only"
+      ],
+      "properties": {
+        "input_hashes_verified": { "const": true },
+        "sample_id_disjoint_verified": { "const": true },
+        "cohort_id_disjoint_verified": { "const": true },
+        "declared_feature_vectors_disjoint_verified": { "const": true },
+        "binary_labels_verified": { "const": true },
+        "finite_declared_features_verified": { "const": true },
+        "exact_target_copy_features_rejected": { "const": true },
+        "feature_allowlist_enforced": { "const": true },
+        "model_feature_key_sets_verified": { "const": true },
+        "train_only_preprocessing": { "const": true },
+        "missing_features_zero_filled": { "const": false },
+        "test_labels_used_for_model_fitting": { "const": false },
+        "test_labels_used_for_scoring": { "const": false },
+        "test_labels_used_for_metrics_only": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "human_readable_output": { "const": "model_card.md" }
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "required": ["role", "path", "sha256", "byte_count"],
+      "properties": {
+        "role": { "type": "string", "minLength": 1 },
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*[/\\\\]).+$"
+        },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "byte_count": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

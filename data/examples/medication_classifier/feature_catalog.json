@@ -1,0 +1,55 @@
+{
+  "catalog_id": "synthetic_statin_signals_v1",
+  "features": [
+    {
+      "description": "Synthetic lipid-particle signal; not a measured biomarker.",
+      "name": "ldl_particle_signal",
+      "synthetic_expected_direction": "decrease",
+      "unit": "synthetic_standardized_abundance"
+    },
+    {
+      "description": "Synthetic cholesteryl-ester signal; not a measured biomarker.",
+      "name": "cholesteryl_ester_signal",
+      "synthetic_expected_direction": "decrease",
+      "unit": "synthetic_standardized_abundance"
+    },
+    {
+      "description": "Synthetic pathway proxy with no clinical interpretation.",
+      "name": "mevalonate_pathway_proxy",
+      "synthetic_expected_direction": "decrease",
+      "unit": "synthetic_standardized_abundance"
+    },
+    {
+      "description": "Synthetic apolipoprotein-associated proxy; not an assay result.",
+      "name": "apo_b_proxy",
+      "synthetic_expected_direction": "decrease",
+      "unit": "synthetic_standardized_abundance"
+    },
+    {
+      "description": "Synthetic weak-effect lipid proxy; not an assay result.",
+      "name": "triglyceride_proxy",
+      "synthetic_expected_direction": "decrease",
+      "unit": "synthetic_standardized_abundance"
+    },
+    {
+      "description": "Synthetic cohort-shift control without an exposure effect.",
+      "name": "neutral_reference_signal",
+      "synthetic_expected_direction": "noise_control",
+      "unit": "synthetic_standardized_abundance"
+    }
+  ],
+  "id_columns": [
+    "sample_id",
+    "cohort_id"
+  ],
+  "limitations": [
+    "Feature names describe synthetic signals and do not assert clinical biomarkers.",
+    "The catalog is suitable only for deterministic offline evaluation."
+  ],
+  "minimum_feature_count": 4,
+  "negative_label": "0",
+  "positive_label": "1",
+  "schema_version": "1.0.0",
+  "status": "synthetic_only_not_clinically_validated",
+  "target_column": "statin_exposure"
+}

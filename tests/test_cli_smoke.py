@@ -1,8 +1,10 @@
+import io
 import json
 import os
 import shutil
 import tempfile
 import unittest
+from contextlib import redirect_stderr
 from pathlib import Path
 
 from metabotyping_agentic.cli import discover_command, main
@@ -106,6 +108,30 @@ class CliSmokeTests(unittest.TestCase):
             self.assertEqual(result["status"], "synthetic_interface_generalization_pass")
             payload = (workspace / "cohort_out/study_cards.json").read_text(encoding="utf-8")
             self.assertNotIn("SYN-METEX-GEN", payload)
+
+    def test_medication_classifier_cli_writes_requested_output(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            workspace = self._workspace(tmp)
+            previous_cwd = Path.cwd()
+            try:
+                os.chdir(workspace)
+                main(["evaluate-medication-classifier", "--out", "medication_out"])
+            finally:
+                os.chdir(previous_cwd)
+
+            metrics = json.loads(
+                (workspace / "medication_out/metrics.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(
+                metrics["evaluation_status"],
+                "synthetic_only_not_clinically_validated",
+            )
+            self.assertFalse(metrics["clinically_validated"])
+            self.assertTrue((workspace / "medication_out/model_card.md").is_file())
+
+    def test_medication_classifier_cli_requires_an_explicit_output_path(self):
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            main(["evaluate-medication-classifier"])
 
 
 if __name__ == "__main__":

@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MedicationClassifierMetrics",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "classifier_version",
+    "evaluation_status",
+    "synthetic_data",
+    "clinically_validated",
+    "target_column",
+    "sample_counts",
+    "confusion_matrix",
+    "metrics",
+    "baseline",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "classifier_version": { "const": "1.0.0" },
+    "evaluation_status": { "const": "synthetic_only_not_clinically_validated" },
+    "synthetic_data": { "const": true },
+    "clinically_validated": { "const": false },
+    "target_column": { "const": "statin_exposure" },
+    "sample_counts": {
+      "type": "object",
+      "required": [
+        "test_total",
+        "scored",
+        "abstained",
+        "abstained_by_observed_class"
+      ],
+      "properties": {
+        "test_total": { "type": "integer", "minimum": 1 },
+        "scored": { "type": "integer", "minimum": 0 },
+        "abstained": { "type": "integer", "minimum": 0 },
+        "abstained_by_observed_class": {
+          "type": "object",
+          "required": ["0", "1"],
+          "properties": {
+            "0": { "type": "integer", "minimum": 0 },
+            "1": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "confusion_matrix": {
+      "type": "object",
+      "required": [
+        "true_positive",
+        "false_negative",
+        "true_negative",
+        "false_positive"
+      ],
+      "properties": {
+        "true_positive": { "$ref": "#/$defs/confusionCell" },
+        "false_negative": { "$ref": "#/$defs/confusionCell" },
+        "true_negative": { "$ref": "#/$defs/confusionCell" },
+        "false_positive": { "$ref": "#/$defs/confusionCell" }
+      },
+      "additionalProperties": false
+    },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "accuracy",
+        "sensitivity",
+        "positive_recall",
+        "specificity",
+        "positive_precision",
+        "f1_score",
+        "scored_coverage",
+        "abstention_rate",
+        "balanced_accuracy",
+        "auroc"
+      ],
+      "properties": {
+        "accuracy": { "$ref": "#/$defs/rate" },
+        "sensitivity": { "$ref": "#/$defs/rate" },
+        "positive_recall": { "$ref": "#/$defs/rate" },
+        "specificity": { "$ref": "#/$defs/rate" },
+        "positive_precision": { "$ref": "#/$defs/rate" },
+        "f1_score": { "$ref": "#/$defs/rate" },
+        "scored_coverage": { "$ref": "#/$defs/rate" },
+        "abstention_rate": { "$ref": "#/$defs/rate" },
+        "balanced_accuracy": {
+          "type": "object",
+          "required": ["value", "component_count", "components", "undefined_reason"],
+          "properties": {
+            "value": { "$ref": "#/$defs/nullableUnitValue" },
+            "component_count": { "type": "integer", "enum": [0, 2] },
+            "components": {
+              "type": "array",
+              "prefixItems": [
+                { "const": "sensitivity" },
+                { "const": "specificity" }
+              ],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "undefined_reason": { "type": ["string", "null"] }
+          },
+          "additionalProperties": false
+        },
+        "auroc": {
+          "type": "object",
+          "required": [
+            "value",
+            "positive_count",
+            "negative_count",
+            "pair_denominator",
+            "concordant_pairs",
+            "tied_pairs",
+            "ranking_score",
+            "tie_handling",
+            "undefined_reason"
+          ],
+          "properties": {
+            "value": { "$ref": "#/$defs/nullableUnitValue" },
+            "positive_count": { "type": "integer", "minimum": 0 },
+            "negative_count": { "type": "integer", "minimum": 0 },
+            "pair_denominator": { "type": "integer", "minimum": 0 },
+            "concordant_pairs": { "type": "integer", "minimum": 0 },
+            "tied_pairs": { "type": "integer", "minimum": 0 },
+            "ranking_score": { "const": "log_odds" },
+            "tie_handling": { "const": "half_credit" },
+            "undefined_reason": { "type": ["string", "null"] }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "baseline": {
+      "type": "object",
+      "required": [
+        "method",
+        "predicted_label",
+        "value",
+        "numerator",
+        "denominator",
+        "denominator_definition",
+        "undefined_reason"
+      ],
+      "properties": {
+        "method": { "const": "training_majority_class; ties_choose_negative_label" },
+        "predicted_label": { "type": "string", "enum": ["0", "1"] },
+        "value": { "$ref": "#/$defs/nullableUnitValue" },
+        "numerator": { "type": "integer", "minimum": 0 },
+        "denominator": { "type": "integer", "minimum": 0 },
+        "denominator_definition": { "type": "string", "minLength": 1 },
+        "undefined_reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "$defs": {
+    "nullableUnitValue": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "confusionCell": {
+      "type": "object",
+      "required": ["count", "denominator", "denominator_definition"],
+      "properties": {
+        "count": { "type": "integer", "minimum": 0 },
+        "denominator": { "type": "integer", "minimum": 0 },
+        "denominator_definition": {
+          "type": "string",
+          "enum": ["scored_observed_positive", "scored_observed_negative"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "rate": {
+      "type": "object",
+      "required": [
+        "value",
+        "numerator",
+        "denominator",
+        "denominator_definition",
+        "undefined_reason"
+      ],
+      "properties": {
+        "value": { "$ref": "#/$defs/nullableUnitValue" },
+        "numerator": { "type": "integer", "minimum": 0 },
+        "denominator": { "type": "integer", "minimum": 0 },
+        "denominator_definition": { "type": "string", "minLength": 1 },
+        "undefined_reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -23,6 +23,7 @@ from .discovery.recommender import build_recommendations
 from .discovery.repositories import load_repository_records, repository_by_study
 from .evaluation.benchmark import benchmark as run_benchmark
 from .evaluation.harmonization_reference import compare_harmonization_reference
+from .evaluation.medication_classifier import run_medication_classifier
 from .evaluation.motrpac_alignment import align_motrpac as run_motrpac_alignment
 from .evaluation.quality_scoring import score_quality as run_quality_scoring
 from .extraction.metadata_cards import extract_metadata_cards
@@ -181,6 +182,22 @@ def compare_hardik_harmonization_command(
         reference_declared_path=(
             reference_path.name if reference_path.is_absolute() else reference_path
         ),
+    )
+
+
+def evaluate_medication_classifier_command(
+    out: str,
+    train: str = "data/examples/medication_classifier/train.csv",
+    test: str = "data/examples/medication_classifier/test.csv",
+    feature_catalog: str = "data/examples/medication_classifier/feature_catalog.json",
+    split_manifest: str = "data/examples/medication_classifier/split_manifest.json",
+) -> Any:
+    return run_medication_classifier(
+        train,
+        test,
+        feature_catalog,
+        split_manifest,
+        out,
     )
 
 
@@ -594,6 +611,34 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
     ) -> None:
         compare_hardik_harmonization_command(predicted, reference, out)
 
+    @app.command("evaluate-medication-classifier")
+    def typer_evaluate_medication_classifier(
+        train: str = typer.Option(
+            "data/examples/medication_classifier/train.csv",
+            "--train",
+        ),
+        test: str = typer.Option(
+            "data/examples/medication_classifier/test.csv",
+            "--test",
+        ),
+        feature_catalog: str = typer.Option(
+            "data/examples/medication_classifier/feature_catalog.json",
+            "--feature-catalog",
+        ),
+        split_manifest: str = typer.Option(
+            "data/examples/medication_classifier/split_manifest.json",
+            "--split-manifest",
+        ),
+        out: str = typer.Option(..., "--out"),
+    ) -> None:
+        evaluate_medication_classifier_command(
+            out=out,
+            train=train,
+            test=test,
+            feature_catalog=feature_catalog,
+            split_manifest=split_manifest,
+        )
+
     @app.command("route-sources")
     def typer_route_sources(
         lanes: str = typer.Option(..., "--lanes"),
@@ -837,6 +882,25 @@ def build_parser() -> argparse.ArgumentParser:
     )
     p.add_argument("--out", default="reports/hardik_harmonization_comparison")
 
+    p = subparsers.add_parser("evaluate-medication-classifier")
+    p.add_argument(
+        "--train",
+        default="data/examples/medication_classifier/train.csv",
+    )
+    p.add_argument(
+        "--test",
+        default="data/examples/medication_classifier/test.csv",
+    )
+    p.add_argument(
+        "--feature-catalog",
+        default="data/examples/medication_classifier/feature_catalog.json",
+    )
+    p.add_argument(
+        "--split-manifest",
+        default="data/examples/medication_classifier/split_manifest.json",
+    )
+    p.add_argument("--out", required=True)
+
     p = subparsers.add_parser("route-sources")
     p.add_argument("--lanes", required=True)
     p.add_argument("--identifiers", default="")
@@ -968,6 +1032,14 @@ def _argparse_main(argv: list[str] | None = None) -> None:
             args.predicted,
             args.reference,
             args.out,
+        )
+    elif args.command == "evaluate-medication-classifier":
+        evaluate_medication_classifier_command(
+            out=args.out,
+            train=args.train,
+            test=args.test,
+            feature_catalog=args.feature_catalog,
+            split_manifest=args.split_manifest,
         )
     elif args.command == "route-sources":
         route_sources_command(

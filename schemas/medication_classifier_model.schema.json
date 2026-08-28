@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MedicationClassifierModel",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "classifier_version",
+    "model_type",
+    "target_column",
+    "negative_label",
+    "positive_label",
+    "decision_threshold",
+    "feature_allowlist",
+    "minimum_feature_count",
+    "training_provenance",
+    "preprocessing",
+    "parameters",
+    "validation_status",
+    "clinically_validated"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "classifier_version": { "const": "1.0.0" },
+    "model_type": { "const": "closed_form_diagonal_lda" },
+    "target_column": { "const": "statin_exposure" },
+    "negative_label": { "const": "0" },
+    "positive_label": { "const": "1" },
+    "decision_threshold": { "const": 0.5 },
+    "feature_allowlist": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" }
+    },
+    "minimum_feature_count": { "type": "integer", "minimum": 1 },
+    "training_provenance": {
+      "type": "object",
+      "required": [
+        "split_id",
+        "train_sha256",
+        "feature_catalog_sha256",
+        "sample_count",
+        "cohort_ids",
+        "class_counts"
+      ],
+      "properties": {
+        "split_id": { "type": "string", "minLength": 1 },
+        "train_sha256": { "$ref": "#/$defs/sha256" },
+        "feature_catalog_sha256": { "$ref": "#/$defs/sha256" },
+        "sample_count": { "type": "integer", "minimum": 4 },
+        "cohort_ids": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "class_counts": { "$ref": "#/$defs/classCounts" }
+      },
+      "additionalProperties": false
+    },
+    "preprocessing": {
+      "type": "object",
+      "required": [
+        "fit_scope",
+        "missing_value_policy",
+        "center",
+        "scale",
+        "variance_floor"
+      ],
+      "properties": {
+        "fit_scope": { "const": "training_data_only" },
+        "missing_value_policy": {
+          "const": "never_zero_fill; abstain_below_minimum_coverage"
+        },
+        "center": { "$ref": "#/$defs/numericMap" },
+        "scale": { "$ref": "#/$defs/positiveNumericMap" },
+        "variance_floor": { "type": "number", "exclusiveMinimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "parameters": {
+      "type": "object",
+      "required": [
+        "class_priors",
+        "standardized_centroids",
+        "coefficients",
+        "intercept"
+      ],
+      "properties": {
+        "class_priors": {
+          "type": "object",
+          "required": ["0", "1"],
+          "properties": {
+            "0": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+            "1": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+          },
+          "additionalProperties": false
+        },
+        "standardized_centroids": {
+          "type": "object",
+          "required": ["0", "1"],
+          "properties": {
+            "0": { "$ref": "#/$defs/numericMap" },
+            "1": { "$ref": "#/$defs/numericMap" }
+          },
+          "additionalProperties": false
+        },
+        "coefficients": { "$ref": "#/$defs/numericMap" },
+        "intercept": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "validation_status": { "const": "synthetic_only_not_clinically_validated" },
+    "clinically_validated": { "const": false }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "classCounts": {
+      "type": "object",
+      "required": ["0", "1"],
+      "properties": {
+        "0": { "type": "integer", "minimum": 2 },
+        "1": { "type": "integer", "minimum": 2 }
+      },
+      "additionalProperties": false
+    },
+    "numericMap": {
+      "type": "object",
+      "minProperties": 2,
+      "propertyNames": { "pattern": "^[a-z][a-z0-9_]*$" },
+      "additionalProperties": { "type": "number" }
+    },
+    "positiveNumericMap": {
+      "type": "object",
+      "minProperties": 2,
+      "propertyNames": { "pattern": "^[a-z][a-z0-9_]*$" },
+      "additionalProperties": { "type": "number", "exclusiveMinimum": 0 }
+    }
+  },
+  "additionalProperties": false
+}

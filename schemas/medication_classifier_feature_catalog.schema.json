@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MedicationClassifierFeatureCatalog",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "catalog_id",
+    "status",
+    "target_column",
+    "id_columns",
+    "negative_label",
+    "positive_label",
+    "minimum_feature_count",
+    "features",
+    "limitations"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "catalog_id": { "type": "string", "minLength": 1 },
+    "status": { "const": "synthetic_only_not_clinically_validated" },
+    "target_column": { "const": "statin_exposure" },
+    "id_columns": {
+      "type": "array",
+      "prefixItems": [
+        { "const": "sample_id" },
+        { "const": "cohort_id" }
+      ],
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "negative_label": { "const": "0" },
+    "positive_label": { "const": "1" },
+    "minimum_feature_count": { "type": "integer", "minimum": 1 },
+    "features": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "description",
+          "unit",
+          "synthetic_expected_direction"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "description": { "type": "string", "minLength": 1 },
+          "unit": { "const": "synthetic_standardized_abundance" },
+          "synthetic_expected_direction": {
+            "type": "string",
+            "enum": ["decrease", "increase", "noise_control"]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "additionalProperties": false
+}
