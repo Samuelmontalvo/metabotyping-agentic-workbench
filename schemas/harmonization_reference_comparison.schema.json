@@ -1,0 +1,330 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HarmonizationReferenceComparison",
+  "type": "object",
+  "required": [
+    "artifact_type",
+    "comparator_version",
+    "status",
+    "headline_metrics_available",
+    "blocked_reason",
+    "inputs",
+    "dataset_universe",
+    "metrics",
+    "disagreement_count",
+    "disagreement_artifact",
+    "interpretation"
+  ],
+  "properties": {
+    "artifact_type": {
+      "const": "harmonization_reference_comparison"
+    },
+    "comparator_version": {
+      "const": "1.0.0"
+    },
+    "status": {
+      "enum": [
+        "complete",
+        "blocked_missing_reference",
+        "blocked_empty_reference",
+        "blocked_dataset_universe_mismatch"
+      ]
+    },
+    "headline_metrics_available": {
+      "type": "boolean"
+    },
+    "blocked_reason": {
+      "type": ["string", "null"]
+    },
+    "inputs": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [
+        {
+          "allOf": [
+            { "$ref": "#/$defs/inputArtifact" },
+            {
+              "properties": {
+                "role": { "const": "predicted_crosswalk" },
+                "state": { "const": "present" }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            { "$ref": "#/$defs/inputArtifact" },
+            {
+              "properties": {
+                "role": { "const": "independent_curator_reference" }
+              }
+            }
+          ]
+        }
+      ],
+      "items": false
+    },
+    "dataset_universe": {
+      "type": "object",
+      "required": [
+        "entity_key",
+        "predicted_count",
+        "reference_count",
+        "exact_match",
+        "missing_from_prediction",
+        "extra_in_prediction"
+      ],
+      "properties": {
+        "entity_key": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "source_study" },
+            { "const": "source_variable" }
+          ],
+          "items": false
+        },
+        "predicted_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "reference_count": {
+          "type": ["integer", "null"],
+          "minimum": 0
+        },
+        "exact_match": {
+          "type": ["boolean", "null"]
+        },
+        "missing_from_prediction": {
+          "$ref": "#/$defs/entityList"
+        },
+        "extra_in_prediction": {
+          "$ref": "#/$defs/entityList"
+        }
+      },
+      "additionalProperties": false
+    },
+    "metrics": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": [
+            "exact_mapping_agreement",
+            "review_status_accuracy",
+            "accepted_mapping_precision",
+            "accepted_mapping_recall",
+            "unsafe_auto_accept_count",
+            "unsafe_auto_accept_rate",
+            "review_required_capture"
+          ],
+          "properties": {
+            "exact_mapping_agreement": { "$ref": "#/$defs/proportionMetric" },
+            "review_status_accuracy": { "$ref": "#/$defs/proportionMetric" },
+            "accepted_mapping_precision": { "$ref": "#/$defs/proportionMetric" },
+            "accepted_mapping_recall": { "$ref": "#/$defs/proportionMetric" },
+            "unsafe_auto_accept_count": { "$ref": "#/$defs/countMetric" },
+            "unsafe_auto_accept_rate": { "$ref": "#/$defs/proportionMetric" },
+            "review_required_capture": { "$ref": "#/$defs/proportionMetric" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "disagreement_count": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "disagreement_artifact": {
+      "type": ["string", "null"]
+    },
+    "interpretation": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "status": { "const": "complete" } },
+        "required": ["status"]
+      },
+      "then": {
+        "properties": {
+          "headline_metrics_available": { "const": true },
+          "blocked_reason": { "type": "null" },
+          "metrics": { "type": "object" },
+          "disagreement_count": { "type": "integer" },
+          "disagreement_artifact": {
+            "const": "harmonization_reference_disagreements.csv"
+          },
+          "dataset_universe": {
+            "properties": { "exact_match": { "const": true } }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "headline_metrics_available": { "const": false },
+          "blocked_reason": { "type": "string", "minLength": 1 },
+          "metrics": { "type": "null" },
+          "disagreement_count": { "type": "null" },
+          "disagreement_artifact": { "type": "null" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "status": { "const": "blocked_missing_reference" } },
+        "required": ["status"]
+      },
+      "then": {
+        "properties": {
+          "dataset_universe": {
+            "properties": {
+              "reference_count": { "type": "null" },
+              "exact_match": { "type": "null" }
+            }
+          },
+          "inputs": {
+            "prefixItems": [
+              {},
+              {
+                "properties": {
+                  "state": { "const": "missing" },
+                  "sha256": { "type": "null" },
+                  "row_count": { "type": "null" }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "status": { "const": "blocked_empty_reference" } },
+        "required": ["status"]
+      },
+      "then": {
+        "properties": {
+          "dataset_universe": {
+            "properties": {
+              "reference_count": { "const": 0 },
+              "exact_match": { "const": false }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": { "const": "blocked_dataset_universe_mismatch" }
+        },
+        "required": ["status"]
+      },
+      "then": {
+        "properties": {
+          "dataset_universe": {
+            "properties": { "exact_match": { "const": false } }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "inputArtifact": {
+      "type": "object",
+      "required": [
+        "role",
+        "declared_path",
+        "state",
+        "sha256",
+        "row_count",
+        "columns"
+      ],
+      "properties": {
+        "role": { "type": "string", "minLength": 1 },
+        "declared_path": {
+          "type": "string",
+          "minLength": 1,
+          "not": { "pattern": "^(?:/|[A-Za-z]:|.*(?:^|/)\\.\\.(?:/|$))" }
+        },
+        "state": { "enum": ["present", "missing"] },
+        "sha256": {
+          "type": ["string", "null"],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "row_count": { "type": ["integer", "null"], "minimum": 0 },
+        "columns": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      },
+      "additionalProperties": false
+    },
+    "entityList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_study", "source_variable"],
+        "properties": {
+          "source_study": { "type": "string", "minLength": 1 },
+          "source_variable": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "metricBase": {
+      "type": "object",
+      "required": [
+        "value",
+        "numerator",
+        "denominator",
+        "denominator_label",
+        "unit",
+        "undefined_reason",
+        "definition"
+      ],
+      "properties": {
+        "value": { "type": ["number", "null"], "minimum": 0 },
+        "numerator": { "type": "integer", "minimum": 0 },
+        "denominator": { "type": ["integer", "null"], "minimum": 0 },
+        "denominator_label": { "type": ["string", "null"] },
+        "unit": { "enum": ["proportion", "count"] },
+        "undefined_reason": { "type": ["string", "null"] },
+        "definition": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "proportionMetric": {
+      "allOf": [
+        { "$ref": "#/$defs/metricBase" },
+        {
+          "properties": {
+            "value": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+            "denominator": { "type": "integer", "minimum": 0 },
+            "denominator_label": { "type": "string", "minLength": 1 },
+            "unit": { "const": "proportion" }
+          }
+        }
+      ]
+    },
+    "countMetric": {
+      "allOf": [
+        { "$ref": "#/$defs/metricBase" },
+        {
+          "properties": {
+            "value": { "type": "integer", "minimum": 0 },
+            "denominator": { "type": "null" },
+            "denominator_label": { "type": "null" },
+            "unit": { "const": "count" },
+            "undefined_reason": { "type": "null" }
+          }
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

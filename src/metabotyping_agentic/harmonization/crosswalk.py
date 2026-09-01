@@ -12,7 +12,13 @@ from ..models import ReviewStatus, VariableCard, VariableMapping
 SYNONYMS: dict[str, list[str]] = {
     "vo2max": ["vo2max", "vo2_max", "vo2peak", "peak_vo2", "cardiorespiratory_fitness"],
     "steps_per_day": ["steps", "daily_steps", "mean_steps", "steps_per_day"],
-    "mvpa_minutes": ["mvpa", "mvpa_min", "moderate_vigorous_physical_activity"],
+    "mvpa_minutes": [
+        "mvpa",
+        "mvpa_min",
+        "moderate_vigorous_physical_activity",
+        "moderate_vigorous_minutes",
+        "moderate_to_vigorous_activity",
+    ],
     "age": ["age", "participant_age"],
     "sex": ["sex", "biological_sex", "gender"],
     "bmi": ["bmi", "body_mass_index"],
@@ -56,6 +62,24 @@ def normalize_name(value: str) -> str:
     return value.strip("_")
 
 
+def _contains_token_sequence(container: str, candidate: str) -> bool:
+    """Return whether ``candidate`` occurs on normalized token boundaries.
+
+    Raw substring matching made the synonym ``age`` match the token ``stage``
+    in an unseen CPET variable.  Boundary-aware matching keeps useful cases
+    such as ``wrist_steps_14d`` -> ``steps`` without turning incidental letter
+    sequences into scientific mappings.
+    """
+
+    container_tokens = normalize_name(container).split("_")
+    candidate_tokens = normalize_name(candidate).split("_")
+    width = len(candidate_tokens)
+    return any(
+        container_tokens[index : index + width] == candidate_tokens
+        for index in range(len(container_tokens) - width + 1)
+    )
+
+
 def common_variable_for(card: VariableCard) -> tuple[str, str]:
     haystack = {normalize_name(card.source_variable), normalize_name(card.label)}
     for common, synonyms in SYNONYMS.items():
@@ -64,7 +88,12 @@ def common_variable_for(card: VariableCard) -> tuple[str, str]:
             return common, "name_or_label_synonym"
     for common, synonyms in SYNONYMS.items():
         normalized_synonyms = [normalize_name(item) for item in synonyms]
-        if any(synonym in item or item in synonym for item in haystack for synonym in normalized_synonyms):
+        if any(
+            _contains_token_sequence(item, synonym)
+            or _contains_token_sequence(synonym, item)
+            for item in haystack
+            for synonym in normalized_synonyms
+        ):
             return common, "partial_name_similarity"
     return "not_mapped", "no_supported_synonym"
 
@@ -191,4 +220,3 @@ def build_crosswalk(variables_path: str | Path, out_dir: str | Path) -> list[Var
     write_csv_rows(out_dir / "crosswalk.csv", rows, fieldnames=fieldnames)
     write_json(out_dir / "crosswalk.json", rows)
     return mappings
-

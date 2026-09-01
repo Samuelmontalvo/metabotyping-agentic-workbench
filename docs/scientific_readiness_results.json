@@ -3,10 +3,41 @@
     "error": 0,
     "expected_failure": 0,
     "failed": 0,
-    "passed": 210,
+    "passed": 282,
     "skipped": 0,
     "unexpected_success": 0
   },
+  "discovered_modules": [
+    "test_assay_harmonization",
+    "test_benchmark",
+    "test_biomarker_reproduction",
+    "test_cli_frontend_parity",
+    "test_cli_smoke",
+    "test_cohort_generalization",
+    "test_define_inclusion_criteria",
+    "test_discovery_recommender",
+    "test_domain_review_foundation",
+    "test_harmonization_reference",
+    "test_literature_review",
+    "test_live_sources_metabolomics_workbench",
+    "test_live_sources_metgene",
+    "test_live_sources_mw_rest_contexts",
+    "test_medication_classifier",
+    "test_metabolite_effect_search",
+    "test_metabolomics_plotting",
+    "test_metadata_extraction",
+    "test_mirage_detector",
+    "test_models",
+    "test_motrpac_alignment",
+    "test_motrpac_volcano_compare",
+    "test_network_boundary",
+    "test_pilot_reproducibility",
+    "test_quality_scoring",
+    "test_scientific_readiness",
+    "test_skill_agent_evaluation",
+    "test_source_registry",
+    "test_variable_crosswalk"
+  ],
   "gate_configuration_issues": [],
   "gates": [
     {
@@ -35,32 +66,61 @@
         "error": 0,
         "expected_failure": 0,
         "failed": 0,
-        "passed": 24,
+        "passed": 10,
         "skipped": 0,
         "unexpected_success": 0
       },
       "missing_modules": [],
       "modules": [
-        "test_metadata_extraction",
-        "test_motrpac_volcano_compare",
-        "test_source_registry"
+        "test_models",
+        "test_define_inclusion_criteria",
+        "test_discovery_recommender",
+        "test_mirage_detector"
       ],
-      "name": "provenance_and_multi_repository_safety",
+      "name": "discovery_and_core_model_contracts",
       "observed_modules": [
-        "test_metadata_extraction",
-        "test_motrpac_volcano_compare",
-        "test_source_registry"
+        "test_define_inclusion_criteria",
+        "test_discovery_recommender",
+        "test_mirage_detector",
+        "test_models"
       ],
-      "purpose": "Retains one-to-many repository records and prevents duplicate normalized keys from silently overwriting evidence.",
+      "purpose": "Validates stable core-model serialization, inclusion criteria, repository-aware recommendation rules, and mirage detection.",
       "status": "pass",
-      "tests": 24
+      "tests": 10
     },
     {
       "counts": {
         "error": 0,
         "expected_failure": 0,
         "failed": 0,
-        "passed": 10,
+        "passed": 27,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_metadata_extraction",
+        "test_live_sources_metabolomics_workbench",
+        "test_source_registry",
+        "test_cohort_generalization"
+      ],
+      "name": "provenance_and_multi_repository_safety",
+      "observed_modules": [
+        "test_cohort_generalization",
+        "test_live_sources_metabolomics_workbench",
+        "test_metadata_extraction",
+        "test_source_registry"
+      ],
+      "purpose": "Retains explicit source provenance, one-to-many repository records, conservative source routing, and checksum-bound unseen-cohort inputs.",
+      "status": "pass",
+      "tests": 27
+    },
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
+        "passed": 12,
         "skipped": 0,
         "unexpected_success": 0
       },
@@ -76,28 +136,53 @@
       ],
       "purpose": "Keeps uncertain mappings or annotations review-gated and validates effect-search multiplicity semantics.",
       "status": "pass",
-      "tests": 10
+      "tests": 12
     },
     {
       "counts": {
         "error": 0,
         "expected_failure": 0,
         "failed": 0,
-        "passed": 10,
+        "passed": 7,
         "skipped": 0,
         "unexpected_success": 0
       },
       "missing_modules": [],
       "modules": [
-        "test_metabolomics_plotting"
+        "test_quality_scoring",
+        "test_motrpac_alignment"
+      ],
+      "name": "dataset_readiness_and_motrpac_alignment",
+      "observed_modules": [
+        "test_motrpac_alignment",
+        "test_quality_scoring"
+      ],
+      "purpose": "Validates deterministic dataset-readiness scoring and evidence-aware MoTrPAC metadata-alignment gates.",
+      "status": "pass",
+      "tests": 7
+    },
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
+        "passed": 24,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_metabolomics_plotting",
+        "test_motrpac_volcano_compare"
       ],
       "name": "motrpac_style_plotting",
       "observed_modules": [
-        "test_metabolomics_plotting"
+        "test_metabolomics_plotting",
+        "test_motrpac_volcano_compare"
       ],
-      "purpose": "Validates contrast/FDR semantics, mapping and coverage gates, hierarchy views, deterministic exports, and optional renderers.",
+      "purpose": "Validates MoTrPAC contrast/FDR semantics, release and coverage gates, hierarchy views, deterministic exports, and optional renderers.",
       "status": "pass",
-      "tests": 10
+      "tests": 24
     },
     {
       "counts": {
@@ -125,21 +210,69 @@
         "error": 0,
         "expected_failure": 0,
         "failed": 0,
-        "passed": 14,
+        "passed": 30,
         "skipped": 0,
         "unexpected_success": 0
       },
       "missing_modules": [],
       "modules": [
         "test_benchmark",
-        "test_pilot_reproducibility"
+        "test_harmonization_reference",
+        "test_pilot_reproducibility",
+        "test_cli_frontend_parity",
+        "test_cli_smoke"
       ],
       "name": "benchmark_integrity_and_reproducibility",
       "observed_modules": [
         "test_benchmark",
+        "test_cli_frontend_parity",
+        "test_cli_smoke",
+        "test_harmonization_reference",
         "test_pilot_reproducibility"
       ],
-      "purpose": "Validates explicit benchmark denominators, disagreement accounting, provenance, and byte-reproducible pilot outputs.",
+      "purpose": "Validates explicit benchmark denominators, independent-reference universe checks, CLI parity and isolation, provenance, and byte-reproducible pilot outputs.",
+      "status": "pass",
+      "tests": 30
+    },
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
+        "passed": 28,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_biomarker_reproduction"
+      ],
+      "name": "biomarker_directional_check_integrity",
+      "observed_modules": [
+        "test_biomarker_reproduction"
+      ],
+      "purpose": "Validates checksum-bound paper-direction evidence, repository-derived After-versus-Before analysis, measurement location, numerical safety, and explicit identity, timing, matrix, selection, and dataset-independence boundaries.",
+      "status": "pass",
+      "tests": 28
+    },
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
+        "passed": 14,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_medication_classifier"
+      ],
+      "name": "predictive_model_integrity",
+      "observed_modules": [
+        "test_medication_classifier"
+      ],
+      "purpose": "Validates cold-cohort split isolation, leakage controls, abstention behavior, metric denominators, and synthetic-only classifier labeling.",
       "status": "pass",
       "tests": 14
     },
@@ -169,7 +302,7 @@
         "error": 0,
         "expected_failure": 0,
         "failed": 0,
-        "passed": 9,
+        "passed": 11,
         "skipped": 0,
         "unexpected_success": 0
       },
@@ -183,7 +316,7 @@
       ],
       "purpose": "Validates required-module collection, import-error attribution, and unique gate ownership.",
       "status": "pass",
-      "tests": 9
+      "tests": 11
     },
     {
       "counts": {
@@ -261,7 +394,8 @@
   "nonpassing_tests": [],
   "schema_version": "1.0",
   "strict_release_gate_status": "pass",
-  "tests_run": 210,
+  "tests_run": 282,
+  "unmapped_modules": [],
   "unmapped_nonpassing_tests": [],
-  "validation_scope": "offline synthetic and deterministic repository regression tests"
+  "validation_scope": "offline deterministic repository regression tests over synthetic fixtures and checksum-bound cached public artifacts"
 }

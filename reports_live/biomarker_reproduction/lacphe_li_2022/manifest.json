@@ -1,0 +1,67 @@
+{
+  "case_contract": {
+    "path": "case.json",
+    "sha256": "0d96ffe93fd62395ee3b32e1d0683034ddc4402435b47687de1ad9f3ec3cbf70"
+  },
+  "case_id": "lacphe_li_2022_st003662_directional",
+  "human_readable_output": "report.md",
+  "input_root": {
+    "case_directory": "biomarker_reproduction/lacphe_li_2022",
+    "declared_path": "../.."
+  },
+  "inputs": [
+    {
+      "path": "literature/lacphe/literature_records.json",
+      "role": "literature_record",
+      "sha256": "ed2681ca3e795e74569c8e678159325557a794b6bd7dee9578b01cd0347903ac"
+    },
+    {
+      "path": "literature/lacphe/literature_review.json",
+      "role": "literature_review",
+      "sha256": "76497ce315c4626b14cd4c76ba6dec182ea21f950b7aaf6281d9b22d706a1161"
+    },
+    {
+      "path": "metabolite_scan/n_lactoyl_phenylalanine/mw_ST003662_queried_sample_level.csv",
+      "role": "sample_pairs",
+      "sha256": "ca70bfc147313c1549e75478796b2d3f1fe915681805c2c4b0d4df966a90b93a"
+    },
+    {
+      "path": "metabolite_scan/n_lactoyl_phenylalanine/mw_ST003662_volcano_pre_post.csv",
+      "role": "cached_effect",
+      "sha256": "e662fc68e89a2ad94b8874fc0b29ac10e75623aed07c46a68491e11dd0bb0a67"
+    },
+    {
+      "path": "metabolite_scan/n_lactoyl_phenylalanine/provenance.json",
+      "role": "retrieval_provenance",
+      "sha256": "a507ce6ffad689d4a7f463bb60b7d2167bf3d23eabdc71d71f20e0167c91a087"
+    },
+    {
+      "path": "metabolite_search_lacphe/metstat_metabolite_study_hits.csv",
+      "role": "metstat_locator",
+      "sha256": "22db7a2842ca77d0aa23903b6300637c533e19137d84ec920543dac97d0c48af"
+    },
+    {
+      "path": "mw_corpus_snapshot/analyses.csv",
+      "role": "analysis_metadata",
+      "sha256": "ec31bd624b7b132a917be14e0d7999cfda3e35a0e3bc8a606f27d05e1d111da5"
+    },
+    {
+      "path": "refmet_annotations.csv",
+      "role": "refmet_annotations",
+      "sha256": "c9faa02c6091ebce3b8f6a9a7feca5c9af4e41dffcea556391d49e042f0d1cca"
+    }
+  ],
+  "manifest_version": "1.1.0",
+  "outputs": [
+    {
+      "path": "result.json",
+      "role": "result",
+      "sha256": "d3ae4909b659ef265a8a363bccedccac385af63aa0940eff62a6bad59ccae8f6"
+    },
+    {
+      "path": "report.md",
+      "role": "report",
+      "sha256": "b572dac73e7258f769d603315b32d63701bbc08eb60fbf8e2d841af2f591d477"
+    }
+  ]
+}

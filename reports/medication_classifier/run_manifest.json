@@ -1,0 +1,79 @@
+{
+  "algorithm": "closed_form_diagonal_lda",
+  "classifier_version": "1.0.0",
+  "clinically_validated": false,
+  "guards": {
+    "binary_labels_verified": true,
+    "cohort_id_disjoint_verified": true,
+    "declared_feature_vectors_disjoint_verified": true,
+    "exact_target_copy_features_rejected": true,
+    "feature_allowlist_enforced": true,
+    "finite_declared_features_verified": true,
+    "input_hashes_verified": true,
+    "missing_features_zero_filled": false,
+    "model_feature_key_sets_verified": true,
+    "sample_id_disjoint_verified": true,
+    "test_labels_used_for_metrics_only": true,
+    "test_labels_used_for_model_fitting": false,
+    "test_labels_used_for_scoring": false,
+    "train_only_preprocessing": true
+  },
+  "human_readable_output": "model_card.md",
+  "inputs": [
+    {
+      "byte_count": 1918,
+      "path": "feature_catalog.json",
+      "role": "feature_catalog",
+      "sha256": "6c3e024ac3cda6d98377693834c012e6a64161f8dc1d971d5f55de772e909a01"
+    },
+    {
+      "byte_count": 1166,
+      "path": "split_manifest.json",
+      "role": "split_manifest",
+      "sha256": "1938532e318129a1a9fc5f14e9fd6a92510d3db7d16d466f070e5e64d05915e6"
+    },
+    {
+      "byte_count": 3978,
+      "path": "train.csv",
+      "role": "train",
+      "sha256": "2f2c2ce597ed15014a1972997c289881f05741fb7d7dfa0c55bdb578d1db8170"
+    },
+    {
+      "byte_count": 2058,
+      "path": "test.csv",
+      "role": "test",
+      "sha256": "dd4d05af696ccf8e40c06ebdc8cac962d75a5435a21e39a61e4d1aa384df97e0"
+    }
+  ],
+  "outputs": [
+    {
+      "byte_count": 2752,
+      "path": "model.json",
+      "role": "model",
+      "sha256": "f7835df33ee46800505e709c21921443b54a28b1d7375496384b135c63280845"
+    },
+    {
+      "byte_count": 5144,
+      "path": "predictions.csv",
+      "role": "predictions",
+      "sha256": "e9e34a7eb0504dd424e740a8708289e66fbf7008ce57141e8c964dede842c67c"
+    },
+    {
+      "byte_count": 3475,
+      "path": "metrics.json",
+      "role": "metrics",
+      "sha256": "c7cc9f3ea1c15d27bc94ceed7ce400a5c8effc244dfab3a6fac978eba38ff0f3"
+    },
+    {
+      "byte_count": 2542,
+      "path": "model_card.md",
+      "role": "model_card",
+      "sha256": "4d5b975d9e6a49fd651e64e7146f479c1d0af4064a9acea5630e3f680866f917"
+    }
+  ],
+  "run_id": "synthetic-statin-fb9981f806d8fb86",
+  "schema_version": "1.0.0",
+  "software_version": "0.2.1",
+  "split_id": "synthetic_statin_cold_split_v1",
+  "validation_status": "synthetic_only_not_clinically_validated"
+}

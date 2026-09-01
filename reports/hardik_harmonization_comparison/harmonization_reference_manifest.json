@@ -1,0 +1,59 @@
+{
+  "comparator_version": "1.0.0",
+  "entity_key": [
+    "source_study",
+    "source_variable"
+  ],
+  "exact_universe_required_for_headline_metrics": true,
+  "human_readable_output": "harmonization_reference_report.md",
+  "inputs": [
+    {
+      "columns": [
+        "source_study",
+        "source_variable",
+        "source_label",
+        "source_unit",
+        "source_timing",
+        "source_modality",
+        "proposed_common_variable",
+        "proposed_common_unit",
+        "transform",
+        "confidence",
+        "evidence",
+        "review_status"
+      ],
+      "declared_path": "data/extracted/crosswalk.csv",
+      "role": "predicted_crosswalk",
+      "row_count": 26,
+      "sha256": "41a4cc2840a2bc2fe5e931721d5917a32236591a257836abb0f8fae4c3eaab3a",
+      "state": "present"
+    },
+    {
+      "columns": [],
+      "declared_path": "data/external/hardik_harmonization_results.csv",
+      "role": "independent_curator_reference",
+      "row_count": null,
+      "sha256": null,
+      "state": "missing"
+    }
+  ],
+  "manifest_version": "1.0.0",
+  "outputs": [
+    {
+      "path": "harmonization_reference_comparison.json",
+      "role": "comparison_json",
+      "sha256": "cb15ebef6d418116f3e1db1d5d7191514fafd1248a180ad826ddc1d9db7d2c73"
+    },
+    {
+      "path": "harmonization_reference_report.md",
+      "role": "comparison_report",
+      "sha256": "c0a293c6959e3e56ec7c0d1c0512a919d95fe33ee58015ced87b36278763341d"
+    }
+  ],
+  "status": "blocked_missing_reference",
+  "valid_review_statuses": [
+    "accepted",
+    "rejected",
+    "requires_human_review"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "artifact_type": "harmonization_reference_comparison",
+  "blocked_reason": "The declared independent curator reference CSV is missing. No accuracy or safety metric can be estimated.",
+  "comparator_version": "1.0.0",
+  "dataset_universe": {
+    "entity_key": [
+      "source_study",
+      "source_variable"
+    ],
+    "exact_match": null,
+    "extra_in_prediction": [],
+    "missing_from_prediction": [],
+    "predicted_count": 26,
+    "reference_count": null
+  },
+  "disagreement_artifact": null,
+  "disagreement_count": null,
+  "headline_metrics_available": false,
+  "inputs": [
+    {
+      "columns": [
+        "source_study",
+        "source_variable",
+        "source_label",
+        "source_unit",
+        "source_timing",
+        "source_modality",
+        "proposed_common_variable",
+        "proposed_common_unit",
+        "transform",
+        "confidence",
+        "evidence",
+        "review_status"
+      ],
+      "declared_path": "data/extracted/crosswalk.csv",
+      "role": "predicted_crosswalk",
+      "row_count": 26,
+      "sha256": "41a4cc2840a2bc2fe5e931721d5917a32236591a257836abb0f8fae4c3eaab3a",
+      "state": "present"
+    },
+    {
+      "columns": [],
+      "declared_path": "data/external/hardik_harmonization_results.csv",
+      "role": "independent_curator_reference",
+      "row_count": null,
+      "sha256": null,
+      "state": "missing"
+    }
+  ],
+  "interpretation": "Comparison with an independent curator reference; this artifact does not by itself establish a gold standard or authorize harmonization.",
+  "metrics": null,
+  "status": "blocked_missing_reference"
+}

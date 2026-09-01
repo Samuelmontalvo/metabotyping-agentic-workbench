@@ -1,9 +1,10 @@
 """Run behavioral scientific-safety gates and write auditable local reports.
 
 This complements ``evaluate_skills.py``.  The skill audit checks contracts and
-implementation links; this script executes the offline synthetic regression
-suite and groups results by scientific risk domain.  Passing these gates is not
-independent validation on external cohorts or analytical platforms.
+implementation links; this script executes the offline deterministic regression
+suite over synthetic fixtures and checksum-bound cached public artifacts, then
+groups results by scientific risk domain. Passing these gates is not independent
+validation on external cohorts or analytical platforms.
 """
 
 from __future__ import annotations
@@ -13,6 +14,7 @@ import io
 import json
 import sys
 import unittest
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -39,9 +41,24 @@ GATES = (
         ("test_assay_harmonization",),
     ),
     Gate(
+        "discovery_and_core_model_contracts",
+        "Validates stable core-model serialization, inclusion criteria, repository-aware recommendation rules, and mirage detection.",
+        (
+            "test_models",
+            "test_define_inclusion_criteria",
+            "test_discovery_recommender",
+            "test_mirage_detector",
+        ),
+    ),
+    Gate(
         "provenance_and_multi_repository_safety",
-        "Retains one-to-many repository records and prevents duplicate normalized keys from silently overwriting evidence.",
-        ("test_metadata_extraction", "test_motrpac_volcano_compare", "test_source_registry"),
+        "Retains explicit source provenance, one-to-many repository records, conservative source routing, and checksum-bound unseen-cohort inputs.",
+        (
+            "test_metadata_extraction",
+            "test_live_sources_metabolomics_workbench",
+            "test_source_registry",
+            "test_cohort_generalization",
+        ),
     ),
     Gate(
         "statistical_and_review_safety",
@@ -49,9 +66,14 @@ GATES = (
         ("test_variable_crosswalk", "test_metabolite_effect_search"),
     ),
     Gate(
+        "dataset_readiness_and_motrpac_alignment",
+        "Validates deterministic dataset-readiness scoring and evidence-aware MoTrPAC metadata-alignment gates.",
+        ("test_quality_scoring", "test_motrpac_alignment"),
+    ),
+    Gate(
         "motrpac_style_plotting",
-        "Validates contrast/FDR semantics, mapping and coverage gates, hierarchy views, deterministic exports, and optional renderers.",
-        ("test_metabolomics_plotting",),
+        "Validates MoTrPAC contrast/FDR semantics, release and coverage gates, hierarchy views, deterministic exports, and optional renderers.",
+        ("test_metabolomics_plotting", "test_motrpac_volcano_compare"),
     ),
     Gate(
         "skill_and_agent_contracts",
@@ -60,8 +82,24 @@ GATES = (
     ),
     Gate(
         "benchmark_integrity_and_reproducibility",
-        "Validates explicit benchmark denominators, disagreement accounting, provenance, and byte-reproducible pilot outputs.",
-        ("test_benchmark", "test_pilot_reproducibility"),
+        "Validates explicit benchmark denominators, independent-reference universe checks, CLI parity and isolation, provenance, and byte-reproducible pilot outputs.",
+        (
+            "test_benchmark",
+            "test_harmonization_reference",
+            "test_pilot_reproducibility",
+            "test_cli_frontend_parity",
+            "test_cli_smoke",
+        ),
+    ),
+    Gate(
+        "biomarker_directional_check_integrity",
+        "Validates checksum-bound paper-direction evidence, repository-derived After-versus-Before analysis, measurement location, numerical safety, and explicit identity, timing, matrix, selection, and dataset-independence boundaries.",
+        ("test_biomarker_reproduction",),
+    ),
+    Gate(
+        "predictive_model_integrity",
+        "Validates cold-cohort split isolation, leakage controls, abstention behavior, metric denominators, and synthetic-only classifier labeling.",
+        ("test_medication_classifier",),
     ),
     Gate(
         "domain_review_contract_safety",
@@ -91,6 +129,25 @@ GATES = (
 )
 
 CONFIGURED_MODULES = tuple(module for gate in GATES for module in gate.modules)
+
+
+def _discover_test_modules(tests_dir: Path = ROOT / "tests") -> list[str]:
+    """Return every top-level module eligible for the unittest discovery run."""
+
+    return sorted(
+        path.stem
+        for path in tests_dir.glob("test*.py")
+        if path.is_file()
+    )
+
+
+def _unmapped_modules(
+    discovered_modules: Iterable[str],
+    configured_modules: Iterable[str] = CONFIGURED_MODULES,
+) -> list[str]:
+    """Return discovered test modules that have no scientific-risk gate owner."""
+
+    return sorted(set(discovered_modules) - set(configured_modules))
 
 
 class RecordingResult(unittest.TextTestResult):
@@ -243,7 +300,9 @@ def _unmapped_nonpassing_tests(
 
 
 def evaluate() -> dict[str, Any]:
-    suite = unittest.defaultTestLoader.discover(str(ROOT / "tests"), pattern="test*.py")
+    tests_dir = ROOT / "tests"
+    discovered_modules = _discover_test_modules(tests_dir)
+    suite = unittest.defaultTestLoader.discover(str(tests_dir), pattern="test*.py")
     stream = io.StringIO()
     runner = unittest.TextTestRunner(
         stream=stream,
@@ -256,6 +315,7 @@ def evaluate() -> dict[str, Any]:
     counts = _counts(records)
     gate_rows = [_gate_row(gate, records) for gate in GATES]
     configuration_issues = _gate_configuration_issues()
+    unmapped_modules = _unmapped_modules(discovered_modules)
     unmapped_nonpassing = _unmapped_nonpassing_tests(records)
     strict_full_pass = (
         result.testsRun == len(records)
@@ -263,18 +323,24 @@ def evaluate() -> dict[str, Any]:
         and all(value == 0 for key, value in counts.items() if key != "passed")
         and all(row["status"] == "pass" for row in gate_rows)
         and not configuration_issues
+        and not unmapped_modules
         and not unmapped_nonpassing
     )
     failures = [row for row in records if row["status"] != "passed"]
     return {
         "schema_version": "1.0",
-        "validation_scope": "offline synthetic and deterministic repository regression tests",
+        "validation_scope": (
+            "offline deterministic repository regression tests over synthetic fixtures "
+            "and checksum-bound cached public artifacts"
+        ),
         "independent_external_validation": False,
         "strict_release_gate_status": "pass" if strict_full_pass else "fail",
         "tests_run": result.testsRun,
         "counts": counts,
         "gates": gate_rows,
+        "discovered_modules": discovered_modules,
         "gate_configuration_issues": configuration_issues,
+        "unmapped_modules": unmapped_modules,
         "unmapped_nonpassing_tests": unmapped_nonpassing,
         "nonpassing_tests": failures,
         "limitations": [
@@ -290,7 +356,7 @@ def _markdown(payload: dict[str, Any]) -> str:
     lines = [
         "# Scientific Readiness Report",
         "",
-        "This report executes the repository's offline synthetic behavioral gates. It complements the structural skill/agent audit and is not independent validation on external cohorts or analytical platforms.",
+        "This report executes the repository's offline deterministic behavioral gates over synthetic fixtures and checksum-bound cached public artifacts. It complements the structural skill/agent audit and is not independent validation on external cohorts or analytical platforms.",
         "",
         "## Result",
         "",
@@ -330,13 +396,27 @@ def _markdown(payload: dict[str, Any]) -> str:
             f"- `{gate}` did not collect required module `{module}`."
             for gate, module in missing_modules
         )
+    unmapped_modules = payload.get("unmapped_modules", [])
+    if unmapped_modules:
+        lines.extend(
+            f"- Discovered test module `{module}` has no configured gate owner."
+            for module in unmapped_modules
+        )
     if payload["unmapped_nonpassing_tests"]:
         lines.extend(
             f"- Unmapped nonpassing test: `{row['id']}` ({row['status']})."
             for row in payload["unmapped_nonpassing_tests"]
         )
-    if not payload["gate_configuration_issues"] and not missing_modules and not payload["unmapped_nonpassing_tests"]:
-        lines.append("- Every configured module collected tests exactly once; no nonpassing test was unmapped.")
+    if (
+        not payload["gate_configuration_issues"]
+        and not missing_modules
+        and not unmapped_modules
+        and not payload["unmapped_nonpassing_tests"]
+    ):
+        lines.append(
+            "- Every discovered test module has exactly one configured gate owner, "
+            "and every configured module collected at least one test."
+        )
     lines.extend(["", "## Interpretation limits", ""])
     lines.extend(f"- {item}" for item in payload["limitations"])
     lines.extend(

@@ -1,8 +1,10 @@
+import io
 import json
 import os
 import shutil
 import tempfile
 import unittest
+from contextlib import redirect_stderr
 from pathlib import Path
 
 from metabotyping_agentic.cli import discover_command, main
@@ -79,6 +81,84 @@ class CliSmokeTests(unittest.TestCase):
             )
             written = sorted(path.name for path in out_dir.iterdir())
             self.assertEqual(written, ["recommendations.csv", "recommendations.json"])
+
+    def test_run_cohort_bundle_uses_only_declared_holdout_inputs(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            workspace = self._workspace(tmp)
+            previous_cwd = Path.cwd()
+            try:
+                os.chdir(workspace)
+                main(
+                    [
+                        "run-cohort-bundle",
+                        "--bundle",
+                        "data/examples/unseen_cohort",
+                        "--out",
+                        "cohort_out",
+                    ]
+                )
+            finally:
+                os.chdir(previous_cwd)
+
+            result = json.loads(
+                (workspace / "cohort_out/cohort_generalization_result.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(result["status"], "synthetic_interface_generalization_pass")
+            payload = (workspace / "cohort_out/study_cards.json").read_text(encoding="utf-8")
+            self.assertNotIn("SYN-METEX-GEN", payload)
+
+    def test_medication_classifier_cli_writes_requested_output(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            workspace = self._workspace(tmp)
+            previous_cwd = Path.cwd()
+            try:
+                os.chdir(workspace)
+                main(["evaluate-medication-classifier", "--out", "medication_out"])
+            finally:
+                os.chdir(previous_cwd)
+
+            metrics = json.loads(
+                (workspace / "medication_out/metrics.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(
+                metrics["evaluation_status"],
+                "synthetic_only_not_clinically_validated",
+            )
+            self.assertFalse(metrics["clinically_validated"])
+            self.assertTrue((workspace / "medication_out/model_card.md").is_file())
+
+    def test_medication_classifier_cli_requires_an_explicit_output_path(self):
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            main(["evaluate-medication-classifier"])
+
+    def test_biomarker_reproduction_cli_writes_requested_output(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp) / "biomarker_out"
+            main(
+                [
+                    "evaluate-biomarker-reproduction",
+                    "--case",
+                    str(ROOT / "data/live/biomarker_reproduction/lacphe_li_2022"),
+                    "--out",
+                    str(output),
+                ]
+            )
+
+            result = json.loads((output / "result.json").read_text(encoding="utf-8"))
+            self.assertEqual(
+                result["scope"],
+                "post_hoc_repository_after_vs_before_directional_check",
+            )
+            self.assertEqual(result["cohort_independence_status"], "not_established")
+            self.assertFalse(result["exact_paper_dataset"])
+            self.assertTrue((output / "manifest.json").is_file())
+            self.assertTrue((output / "report.md").is_file())
+
+    def test_biomarker_reproduction_cli_requires_an_explicit_output_path(self):
+        with redirect_stderr(io.StringIO()), self.assertRaises(SystemExit):
+            main(["evaluate-biomarker-reproduction"])
 
 
 if __name__ == "__main__":

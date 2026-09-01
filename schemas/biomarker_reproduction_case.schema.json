@@ -1,0 +1,428 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "inputArtifact": {
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "minLength": 1,
+          "not": {
+            "pattern": "(^/)|(^|/)\\.\\.(/|$)"
+          },
+          "type": "string"
+        },
+        "role": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "role",
+        "path",
+        "sha256"
+      ],
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "acceptance_rules": {
+      "additionalProperties": false,
+      "properties": {
+        "cached_log2fc_absolute_tolerance": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "cached_mean_absolute_tolerance": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "exact_sign_test_alternative": {
+          "const": "two_sided"
+        },
+        "maximum_exact_sign_test_p_value": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "type": "number"
+        },
+        "mean_paired_log2_change_operator": {
+          "const": "greater_than"
+        },
+        "mean_paired_log2_change_threshold": {
+          "const": 0
+        },
+        "minimum_complete_positive_pairs": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "minimum_responder_proportion": {
+          "maximum": 1,
+          "minimum": 0.5,
+          "type": "number"
+        },
+        "responder_proportion_operator": {
+          "const": "greater_than"
+        }
+      },
+      "required": [
+        "minimum_complete_positive_pairs",
+        "mean_paired_log2_change_operator",
+        "mean_paired_log2_change_threshold",
+        "responder_proportion_operator",
+        "minimum_responder_proportion",
+        "exact_sign_test_alternative",
+        "maximum_exact_sign_test_p_value",
+        "cached_log2fc_absolute_tolerance",
+        "cached_mean_absolute_tolerance"
+      ],
+      "type": "object"
+    },
+    "case_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "analysis_metadata": {
+      "additionalProperties": false,
+      "properties": {
+        "analysis_id": { "const": "AN006016" },
+        "analysis_summary": { "const": "Reversed phase UNSPECIFIED ION MODE" },
+        "analysis_type": { "const": "MS" },
+        "chromatography_type": { "const": "Reversed phase" },
+        "ms_instrument_name": { "const": "Thermo Q Exactive HF hybrid Orbitrap" },
+        "ms_instrument_type": { "const": "Orbitrap" },
+        "study_id": { "const": "ST003662" },
+        "units": { "const": "umol/L whole blood" }
+      },
+      "required": [
+        "study_id",
+        "analysis_id",
+        "analysis_summary",
+        "analysis_type",
+        "chromatography_type",
+        "ms_instrument_type",
+        "ms_instrument_name",
+        "units"
+      ],
+      "type": "object"
+    },
+    "contract_version": {
+      "const": "1.1.0"
+    },
+    "exact_paper_dataset": {
+      "const": false
+    },
+    "input_root": {
+      "minLength": 1,
+      "not": { "pattern": "^/" },
+      "type": "string"
+    },
+    "inputs": {
+      "items": false,
+      "maxItems": 8,
+      "minItems": 8,
+      "prefixItems": [
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "literature_record"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "literature_review"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "sample_pairs"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "cached_effect"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "retrieval_provenance"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "metstat_locator"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "analysis_metadata"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/$defs/inputArtifact"
+            },
+            {
+              "properties": {
+                "role": {
+                  "const": "refmet_annotations"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "type": "array"
+    },
+    "paper": {
+      "additionalProperties": false,
+      "properties": {
+        "analyte_evidence_terms": {
+          "items": false,
+          "maxItems": 2,
+          "minItems": 2,
+          "prefixItems": [
+            {
+              "const": "N-lactoyl-phenylalanine"
+            },
+            {
+              "const": "Lac-Phe"
+            }
+          ],
+          "type": "array"
+        },
+        "doi": {
+          "const": "10.1038/s41586-022-04828-5"
+        },
+        "direction_evidence": {
+          "additionalProperties": false,
+          "properties": {
+            "field": { "const": "abstract" },
+            "required_phrases": {
+              "items": false,
+              "maxItems": 2,
+              "minItems": 2,
+              "prefixItems": [
+                { "const": "exercise stimulates the production of N-lactoyl-phenylalanine (Lac-Phe)" },
+                { "const": "large activity-inducible increases in circulating Lac-Phe" }
+              ],
+              "type": "array"
+            },
+            "retrieved_via": { "const": "europe_pmc_rest_search" },
+            "source_system": { "const": "europe_pmc" }
+          },
+          "required": ["field", "source_system", "retrieved_via", "required_phrases"],
+          "type": "object"
+        },
+        "publication_year": {
+          "const": "2022"
+        },
+        "title": {
+          "const": "An exercise-inducible metabolite that suppresses feeding and obesity"
+        }
+      },
+      "required": [
+        "doi",
+        "title",
+        "publication_year",
+        "analyte_evidence_terms",
+        "direction_evidence"
+      ],
+      "type": "object"
+    },
+    "provenance_expectations": {
+      "additionalProperties": false,
+      "properties": {
+        "license": { "const": "CC BY 4.0" },
+        "match_basis": { "const": "normalized name containment across source name columns" },
+        "study_link": { "const": "https://www.metabolomicsworkbench.org/data/DRCCMetadata.php?StudyID=ST003662" }
+      },
+      "required": ["match_basis", "license", "study_link"],
+      "type": "object"
+    },
+    "replication": {
+      "additionalProperties": false,
+      "properties": {
+        "cohort_independence_status": {
+          "const": "not_established"
+        },
+        "contrast": {
+          "const": "repository-derived Collectionpoint After vs Before; exercise-timing interpretation unverified"
+        },
+        "dataset_selection_caveat": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "dataset_selection_status": {
+          "const": "post_hoc_exploratory"
+        },
+        "harmonization_eligibility": {
+          "const": "requires_assay_identity_review"
+        },
+        "identity_status": {
+          "const": "requires_human_review"
+        },
+        "matrix_mismatch_caveat": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "matrix_relationship_to_paper": {
+          "const": "mismatch"
+        },
+        "orientation": {
+          "const": "positive log2fc = higher repository-derived After vs Before"
+        },
+        "post_collectionpoint": {
+          "const": "After"
+        },
+        "pre_collectionpoint": {
+          "const": "Before"
+        },
+        "refmet_id": {
+          "const": "RM0131640"
+        },
+        "refmet_name": {
+          "const": "N-Lactoyl phenylalanine"
+        },
+        "sample_matrix": {
+          "const": "whole blood"
+        },
+        "source_metabolite": {
+          "const": "Lactoyl Phenylalanine"
+        },
+        "species": {
+          "const": "Homo sapiens"
+        },
+        "stratum": {
+          "const": "all"
+        },
+        "study_id": {
+          "const": "ST003662"
+        },
+        "study_title": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "timing_caveat": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "timing_status": {
+          "const": "repository_derived_before_after_labels_raw_factor_context_not_bound"
+        },
+        "unit": {
+          "const": "umol/L whole blood (study-reported)"
+        }
+      },
+      "required": [
+        "cohort_independence_status",
+        "dataset_selection_status",
+        "dataset_selection_caveat",
+        "study_id",
+        "study_title",
+        "species",
+        "source_metabolite",
+        "refmet_name",
+        "refmet_id",
+        "stratum",
+        "sample_matrix",
+        "unit",
+        "pre_collectionpoint",
+        "post_collectionpoint",
+        "contrast",
+        "orientation",
+        "identity_status",
+        "harmonization_eligibility",
+        "matrix_relationship_to_paper",
+        "matrix_mismatch_caveat",
+        "timing_status",
+        "timing_caveat"
+      ],
+      "type": "object"
+    },
+    "scope": {
+      "const": "post_hoc_repository_after_vs_before_directional_check"
+    }
+  },
+  "required": [
+    "contract_version",
+    "case_id",
+    "scope",
+    "exact_paper_dataset",
+    "input_root",
+    "paper",
+    "replication",
+    "analysis_metadata",
+    "provenance_expectations",
+    "acceptance_rules",
+    "inputs"
+  ],
+  "title": "BiomarkerReproductionCase",
+  "type": "object"
+}

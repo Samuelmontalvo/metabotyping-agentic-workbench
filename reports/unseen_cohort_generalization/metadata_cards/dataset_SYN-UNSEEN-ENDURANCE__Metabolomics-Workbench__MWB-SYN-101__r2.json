@@ -1,0 +1,29 @@
+{
+  "accession": "MWB-SYN-101",
+  "assay_platform": "targeted LC-MS",
+  "biospecimen_timing": "fasting baseline and 24 hours after interval training",
+  "data_availability": "public",
+  "documented_absent_modalities": [
+    "genetics",
+    "diet"
+  ],
+  "has_codebook": true,
+  "has_data_files": true,
+  "has_metadata": true,
+  "mirage_flags": [],
+  "modalities": [
+    "metabolomics",
+    "exercise",
+    "cpet",
+    "body_composition"
+  ],
+  "provenance": {
+    "row_key": "SYN-UNSEEN-ENDURANCE::Metabolomics Workbench::MWB-SYN-101::row-2",
+    "source": "bundle:SYN-UNSEEN-COHORT-BUNDLE-V1/repository_records.csv",
+    "source_row_number": 2
+  },
+  "repository": "Metabolomics Workbench",
+  "sample_matrix": "serum",
+  "sample_size": 96,
+  "study_id": "SYN-UNSEEN-ENDURANCE"
+}

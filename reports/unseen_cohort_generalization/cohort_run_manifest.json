@@ -1,0 +1,90 @@
+{
+  "bundle_id": "SYN-UNSEEN-COHORT-BUNDLE-V1",
+  "generated_timestamp_included": false,
+  "inputs": [
+    {
+      "path": "manifest.json",
+      "role": "bundle_manifest",
+      "sha256": "ab163f12bb7ff25ada073254c34ea0eb97a947d2d9d6725a5cf7f081b8ef2a67"
+    },
+    {
+      "path": "publications.csv",
+      "role": "publications",
+      "row_count": 2,
+      "sha256": "e24e7c9bf665f5cbefe08c698fc571682404ff4550d12c17e9a1a08dd66d7225"
+    },
+    {
+      "path": "repository_records.csv",
+      "role": "repository_records",
+      "row_count": 2,
+      "sha256": "7019ede34091c05ff36fae60990ed1fb60bd77b3027209e0830e36e82330a169"
+    },
+    {
+      "path": "variable_dictionary.csv",
+      "role": "variable_dictionary",
+      "row_count": 7,
+      "sha256": "b1b4e458673c4edc0f6a230b8f9d788d91563feb8a2c19132502bd99bebaa6e4"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "study_cards.json",
+      "sha256": "bdbc90b33253ec68def332b29fea770899539fa6ec58d97c323db69074e3a04f"
+    },
+    {
+      "path": "dataset_cards.json",
+      "sha256": "43b10cdc5f6d42c0ff87c1297bddc6e2007b8e88249e1050c8b640cab0f427fc"
+    },
+    {
+      "path": "variable_cards.json",
+      "sha256": "cba62533d07ab30080e8a29be604b03b4ddf91a821c89a54487091a2a52d1148"
+    },
+    {
+      "path": "variable_inventory.csv",
+      "sha256": "3c67f66c4556c527970656c04b8b99d108e88abfdd80d3ada05e4b5c418e1f1a"
+    },
+    {
+      "path": "crosswalk.json",
+      "sha256": "268fb0e46fb12781128dd31b20f413abb7e82dbd1fc107ecb4d802b63c09aaa9"
+    },
+    {
+      "path": "crosswalk.csv",
+      "sha256": "b9185444f2c9963dee339e989f0a28e284d7b8d6146dcc40e1f67606de15dd4c"
+    },
+    {
+      "path": "quality_scores.json",
+      "sha256": "f5ffec877211ce112344f8fc04b38a38af345d0dc58c2aae2747ee347cdfe941"
+    },
+    {
+      "path": "motrpac_alignment.json",
+      "sha256": "159cc67c78801fb035810cf91b41d557951b787bc916b40fbf17a96b85c54e9e"
+    },
+    {
+      "path": "cohort_generalization_result.json",
+      "sha256": "2bbdb779b2aad133af3277cff92e228e924848a06c58d0d81f04b6e3737a3755"
+    },
+    {
+      "path": "cohort_generalization_report.md",
+      "sha256": "ba292444e62f1d8debacb0f7ebebde5aacbf51c3c32c674b856c1661785e0a94"
+    },
+    {
+      "path": "metadata_cards/dataset_SYN-UNSEEN-ACTIVITY__Metabolomics-Workbench__MWB-SYN-102__r3.json",
+      "sha256": "c72ea303edcf23e5b04d0d6fa6a965f2730bf15aa79739d1610cfc901fd64600"
+    },
+    {
+      "path": "metadata_cards/dataset_SYN-UNSEEN-ENDURANCE__Metabolomics-Workbench__MWB-SYN-101__r2.json",
+      "sha256": "6c82ab0b0c382febd4fbe485413b8f16be5a0784816296a0551943f2d527f824"
+    },
+    {
+      "path": "metadata_cards/study_SYN-UNSEEN-ACTIVITY.json",
+      "sha256": "ecb889d07af87a07807e16ce7054318080af0b4815acd0984af8a3d8d48ff32c"
+    },
+    {
+      "path": "metadata_cards/study_SYN-UNSEEN-ENDURANCE.json",
+      "sha256": "5a1f5324751ce65a4040e049fd905c7806690ccc7c1c9ade21384683bc2888da"
+    }
+  ],
+  "portable_provenance": true,
+  "rule_set_version": "1.0",
+  "schema_version": "1.0"
+}

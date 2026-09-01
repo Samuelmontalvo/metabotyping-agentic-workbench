@@ -6,7 +6,7 @@
   "properties": {
     "study_id": { "type": "string" },
     "title": { "type": "string" },
-    "human": { "type": "boolean" },
+    "human": { "type": ["boolean", "null"] },
     "modalities": { "type": "array", "items": { "type": "string" } },
     "repository_accession": { "type": "string" },
     "repository_accessions": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },

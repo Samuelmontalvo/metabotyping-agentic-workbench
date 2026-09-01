@@ -1,0 +1,132 @@
+{
+  "baseline": {
+    "denominator": 24,
+    "denominator_definition": "all_scored_test_samples",
+    "method": "training_majority_class; ties_choose_negative_label",
+    "numerator": 12,
+    "predicted_label": "0",
+    "undefined_reason": null,
+    "value": 0.5
+  },
+  "classifier_version": "1.0.0",
+  "clinically_validated": false,
+  "confusion_matrix": {
+    "false_negative": {
+      "count": 0,
+      "denominator": 12,
+      "denominator_definition": "scored_observed_positive"
+    },
+    "false_positive": {
+      "count": 0,
+      "denominator": 12,
+      "denominator_definition": "scored_observed_negative"
+    },
+    "true_negative": {
+      "count": 12,
+      "denominator": 12,
+      "denominator_definition": "scored_observed_negative"
+    },
+    "true_positive": {
+      "count": 12,
+      "denominator": 12,
+      "denominator_definition": "scored_observed_positive"
+    }
+  },
+  "evaluation_status": "synthetic_only_not_clinically_validated",
+  "limitations": [
+    "All records and labels are synthetic.",
+    "Performance does not establish medication exposure in humans.",
+    "The model has not been clinically validated or calibrated.",
+    "Test labels are used only after scoring to compute evaluation metrics."
+  ],
+  "metrics": {
+    "abstention_rate": {
+      "denominator": 24,
+      "denominator_definition": "all_test_samples",
+      "numerator": 0,
+      "undefined_reason": null,
+      "value": 0.0
+    },
+    "accuracy": {
+      "denominator": 24,
+      "denominator_definition": "all_scored_test_samples",
+      "numerator": 24,
+      "undefined_reason": null,
+      "value": 1.0
+    },
+    "auroc": {
+      "concordant_pairs": 144,
+      "negative_count": 12,
+      "pair_denominator": 144,
+      "positive_count": 12,
+      "ranking_score": "log_odds",
+      "tie_handling": "half_credit",
+      "tied_pairs": 0,
+      "undefined_reason": null,
+      "value": 1.0
+    },
+    "balanced_accuracy": {
+      "component_count": 2,
+      "components": [
+        "sensitivity",
+        "specificity"
+      ],
+      "undefined_reason": null,
+      "value": 1.0
+    },
+    "f1_score": {
+      "denominator": 24,
+      "denominator_definition": "two_tp_plus_fp_plus_fn",
+      "numerator": 24,
+      "undefined_reason": null,
+      "value": 1.0
+    },
+    "positive_precision": {
+      "denominator": 12,
+      "denominator_definition": "scored_predicted_positive",
+      "numerator": 12,
+      "undefined_reason": null,
+      "value": 1.0
+    },
+    "positive_recall": {
+      "denominator": 12,
+      "denominator_definition": "scored_observed_positive",
+      "numerator": 12,
+      "undefined_reason": null,
+      "value": 1.0
+    },
+    "scored_coverage": {
+      "denominator": 24,
+      "denominator_definition": "all_test_samples",
+      "numerator": 24,
+      "undefined_reason": null,
+      "value": 1.0
+    },
+    "sensitivity": {
+      "denominator": 12,
+      "denominator_definition": "scored_observed_positive",
+      "numerator": 12,
+      "undefined_reason": null,
+      "value": 1.0
+    },
+    "specificity": {
+      "denominator": 12,
+      "denominator_definition": "scored_observed_negative",
+      "numerator": 12,
+      "undefined_reason": null,
+      "value": 1.0
+    }
+  },
+  "sample_counts": {
+    "abstained": 0,
+    "abstained_by_observed_class": {
+      "0": 0,
+      "1": 0
+    },
+    "scored": 24,
+    "test_total": 24
+  },
+  "schema_version": "1.0.0",
+  "synthetic_data": true,
+  "target_column": "statin_exposure"
+}

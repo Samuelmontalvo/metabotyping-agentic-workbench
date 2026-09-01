@@ -8,6 +8,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+from .cohort_bundle import run_cohort_bundle
 from .discovery.criteria import define_inclusion_criteria
 from .discovery.gene_metabolite_evidence import build_gene_metabolite_evidence
 from .discovery.literature import load_publications
@@ -21,6 +22,9 @@ from .discovery.literature_review import (
 from .discovery.recommender import build_recommendations
 from .discovery.repositories import load_repository_records, repository_by_study
 from .evaluation.benchmark import benchmark as run_benchmark
+from .evaluation.biomarker_reproduction import evaluate_biomarker_reproduction
+from .evaluation.harmonization_reference import compare_harmonization_reference
+from .evaluation.medication_classifier import run_medication_classifier
 from .evaluation.motrpac_alignment import align_motrpac as run_motrpac_alignment
 from .evaluation.quality_scoring import score_quality as run_quality_scoring
 from .extraction.metadata_cards import extract_metadata_cards
@@ -101,12 +105,35 @@ def discover_command(criteria: str = "data/extracted/criteria.json", out: str = 
     return recommendations
 
 
-def extract_metadata_command(records: str, out: str = "data/extracted") -> None:
+def extract_metadata_command(
+    records: str,
+    out: str = "data/extracted",
+    publications: str | None = None,
+    require_publication_match: bool = False,
+) -> None:
     records_path = Path(records)
-    publications_path = records_path.with_name("mock_publications.csv")
-    if not publications_path.exists():
-        publications_path = _examples_dir() / "mock_publications.csv"
-    extract_metadata_cards(records_path, out, publications_path)
+    publications_path: Path | None
+    if publications is not None:
+        publications_path = Path(publications)
+    else:
+        # Sibling discovery is portable for a self-contained cohort bundle.
+        # Never fall back to the repository's pilot publications: doing so can
+        # attach synthetic human/modality evidence to an unrelated unseen
+        # dataset that happens to reuse a study identifier.
+        sibling_candidates = (
+            records_path.with_name("publications.csv"),
+            records_path.with_name("mock_publications.csv"),
+        )
+        publications_path = next(
+            (candidate for candidate in sibling_candidates if candidate.is_file()),
+            None,
+        )
+    extract_metadata_cards(
+        records_path,
+        out,
+        publications_path,
+        require_publication_match=require_publication_match,
+    )
 
 
 def build_crosswalk_command(variables: str, out: str = "data/extracted") -> None:
@@ -139,6 +166,49 @@ def benchmark_command(predicted: str = "data/extracted", gold: str = "data/examp
     return run_benchmark(predicted, gold, out)
 
 
+def evaluate_biomarker_reproduction_command(
+    out: str,
+    case: str = "data/live/biomarker_reproduction/lacphe_li_2022",
+) -> Any:
+    return evaluate_biomarker_reproduction(case, out)
+
+
+def compare_hardik_harmonization_command(
+    predicted: str = "data/extracted/crosswalk.csv",
+    reference: str = "data/external/hardik_harmonization_results.csv",
+    out: str = "reports/hardik_harmonization_comparison",
+) -> Any:
+    predicted_path = Path(predicted)
+    reference_path = Path(reference)
+    return compare_harmonization_reference(
+        predicted_path,
+        reference_path,
+        out,
+        predicted_declared_path=(
+            predicted_path.name if predicted_path.is_absolute() else predicted_path
+        ),
+        reference_declared_path=(
+            reference_path.name if reference_path.is_absolute() else reference_path
+        ),
+    )
+
+
+def evaluate_medication_classifier_command(
+    out: str,
+    train: str = "data/examples/medication_classifier/train.csv",
+    test: str = "data/examples/medication_classifier/test.csv",
+    feature_catalog: str = "data/examples/medication_classifier/feature_catalog.json",
+    split_manifest: str = "data/examples/medication_classifier/split_manifest.json",
+) -> Any:
+    return run_medication_classifier(
+        train,
+        test,
+        feature_catalog,
+        split_manifest,
+        out,
+    )
+
+
 def route_sources_command(
     lanes: str,
     identifiers: str = "",
@@ -151,6 +221,10 @@ def route_sources_command(
     ]
     plan = build_retrieval_plan(lane_values, identifier_values, require_open=require_open)
     return write_json(out, plan)
+
+
+def run_cohort_bundle_command(bundle: str, out: str) -> Any:
+    return run_cohort_bundle(bundle, out)
 
 
 def live_intake_metabolomics_workbench_command(
@@ -480,8 +554,13 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
     def typer_extract_metadata(
         records: str = typer.Option(..., "--records"),
         out: str = typer.Option("data/extracted", "--out"),
+        publications: str | None = typer.Option(None, "--publications"),
+        require_publication_match: bool = typer.Option(
+            False,
+            "--require-publication-match",
+        ),
     ) -> None:
-        extract_metadata_command(records, out)
+        extract_metadata_command(records, out, publications, require_publication_match)
 
     @app.command("build-crosswalk")
     def typer_build_crosswalk(
@@ -526,6 +605,58 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
     ) -> None:
         benchmark_command(predicted, gold, out)
 
+    @app.command("evaluate-biomarker-reproduction")
+    def typer_evaluate_biomarker_reproduction(
+        case: str = typer.Option(
+            "data/live/biomarker_reproduction/lacphe_li_2022",
+            "--case",
+        ),
+        out: str = typer.Option(..., "--out"),
+    ) -> None:
+        evaluate_biomarker_reproduction_command(out=out, case=case)
+
+    @app.command("compare-hardik-harmonization")
+    def typer_compare_hardik_harmonization(
+        predicted: str = typer.Option("data/extracted/crosswalk.csv", "--predicted"),
+        reference: str = typer.Option(
+            "data/external/hardik_harmonization_results.csv",
+            "--reference",
+        ),
+        out: str = typer.Option(
+            "reports/hardik_harmonization_comparison",
+            "--out",
+        ),
+    ) -> None:
+        compare_hardik_harmonization_command(predicted, reference, out)
+
+    @app.command("evaluate-medication-classifier")
+    def typer_evaluate_medication_classifier(
+        train: str = typer.Option(
+            "data/examples/medication_classifier/train.csv",
+            "--train",
+        ),
+        test: str = typer.Option(
+            "data/examples/medication_classifier/test.csv",
+            "--test",
+        ),
+        feature_catalog: str = typer.Option(
+            "data/examples/medication_classifier/feature_catalog.json",
+            "--feature-catalog",
+        ),
+        split_manifest: str = typer.Option(
+            "data/examples/medication_classifier/split_manifest.json",
+            "--split-manifest",
+        ),
+        out: str = typer.Option(..., "--out"),
+    ) -> None:
+        evaluate_medication_classifier_command(
+            out=out,
+            train=train,
+            test=test,
+            feature_catalog=feature_catalog,
+            split_manifest=split_manifest,
+        )
+
     @app.command("route-sources")
     def typer_route_sources(
         lanes: str = typer.Option(..., "--lanes"),
@@ -538,6 +669,13 @@ if HAS_TYPER:  # pragma: no cover - this path depends on optional Typer
     @app.command("run-pilot")
     def typer_run_pilot(out: str = typer.Option("reports", "--out")) -> None:
         run_pilot_command(out)
+
+    @app.command("run-cohort-bundle")
+    def typer_run_cohort_bundle(
+        bundle: str = typer.Option(..., "--bundle"),
+        out: str = typer.Option(..., "--out"),
+    ) -> None:
+        run_cohort_bundle_command(bundle, out)
 
     @app.command("live-intake-metabolomics-workbench")
     def typer_live_intake_metabolomics_workbench(
@@ -726,6 +864,8 @@ def build_parser() -> argparse.ArgumentParser:
     p = subparsers.add_parser("extract-metadata")
     p.add_argument("--records", required=True)
     p.add_argument("--out", default="data/extracted")
+    p.add_argument("--publications", default=None)
+    p.add_argument("--require-publication-match", action="store_true")
 
     p = subparsers.add_parser("build-crosswalk")
     p.add_argument("--variables", required=True)
@@ -752,6 +892,40 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--gold", default="data/examples")
     p.add_argument("--out", default="reports")
 
+    p = subparsers.add_parser("evaluate-biomarker-reproduction")
+    p.add_argument(
+        "--case",
+        default="data/live/biomarker_reproduction/lacphe_li_2022",
+    )
+    p.add_argument("--out", required=True)
+
+    p = subparsers.add_parser("compare-hardik-harmonization")
+    p.add_argument("--predicted", default="data/extracted/crosswalk.csv")
+    p.add_argument(
+        "--reference",
+        default="data/external/hardik_harmonization_results.csv",
+    )
+    p.add_argument("--out", default="reports/hardik_harmonization_comparison")
+
+    p = subparsers.add_parser("evaluate-medication-classifier")
+    p.add_argument(
+        "--train",
+        default="data/examples/medication_classifier/train.csv",
+    )
+    p.add_argument(
+        "--test",
+        default="data/examples/medication_classifier/test.csv",
+    )
+    p.add_argument(
+        "--feature-catalog",
+        default="data/examples/medication_classifier/feature_catalog.json",
+    )
+    p.add_argument(
+        "--split-manifest",
+        default="data/examples/medication_classifier/split_manifest.json",
+    )
+    p.add_argument("--out", required=True)
+
     p = subparsers.add_parser("route-sources")
     p.add_argument("--lanes", required=True)
     p.add_argument("--identifiers", default="")
@@ -760,6 +934,10 @@ def build_parser() -> argparse.ArgumentParser:
 
     p = subparsers.add_parser("run-pilot")
     p.add_argument("--out", default="reports")
+
+    p = subparsers.add_parser("run-cohort-bundle")
+    p.add_argument("--bundle", required=True)
+    p.add_argument("--out", required=True)
 
     p = subparsers.add_parser("live-intake-metabolomics-workbench")
     p.add_argument("--study-id", default="ST001789")
@@ -856,7 +1034,12 @@ def _argparse_main(argv: list[str] | None = None) -> None:
     elif args.command == "discover":
         discover_command(args.criteria, args.out)
     elif args.command == "extract-metadata":
-        extract_metadata_command(args.records, args.out)
+        extract_metadata_command(
+            args.records,
+            args.out,
+            args.publications,
+            args.require_publication_match,
+        )
     elif args.command == "build-crosswalk":
         build_crosswalk_command(args.variables, args.out)
     elif args.command == "review-crosswalk":
@@ -869,6 +1052,22 @@ def _argparse_main(argv: list[str] | None = None) -> None:
         align_motrpac_command(args.metadata, args.out)
     elif args.command == "benchmark":
         benchmark_command(args.predicted, args.gold, args.out)
+    elif args.command == "evaluate-biomarker-reproduction":
+        evaluate_biomarker_reproduction_command(out=args.out, case=args.case)
+    elif args.command == "compare-hardik-harmonization":
+        compare_hardik_harmonization_command(
+            args.predicted,
+            args.reference,
+            args.out,
+        )
+    elif args.command == "evaluate-medication-classifier":
+        evaluate_medication_classifier_command(
+            out=args.out,
+            train=args.train,
+            test=args.test,
+            feature_catalog=args.feature_catalog,
+            split_manifest=args.split_manifest,
+        )
     elif args.command == "route-sources":
         route_sources_command(
             args.lanes,
@@ -878,6 +1077,8 @@ def _argparse_main(argv: list[str] | None = None) -> None:
         )
     elif args.command == "run-pilot":
         run_pilot_command(args.out)
+    elif args.command == "run-cohort-bundle":
+        run_cohort_bundle_command(args.bundle, args.out)
     elif args.command == "live-intake-metabolomics-workbench":
         live_intake_metabolomics_workbench_command(
             study_id=args.study_id,

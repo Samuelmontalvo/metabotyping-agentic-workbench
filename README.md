@@ -6,12 +6,15 @@ harmonization review, dataset-readiness scoring, MoTrPAC-style analysis plots
 and metadata-readiness assessment, and benchmarking.
 
 The repository is designed for both Codex and Claude Code. The current worktree contains
-22 canonical paired agent roles and 24 paired skill contracts for both runtimes:
+23 canonical paired agent roles and 25 paired skill contracts for both runtimes:
 
 - Codex: `AGENTS.md`, `.agents/skills/*/SKILL.md`, `.codex/agents/*.toml`
 - Claude Code: `CLAUDE.md`, `.claude/skills/*/SKILL.md`, `.claude/agents/*.md`, `.claude/commands/*.md`
 
-The core MVP and its tests use synthetic fixtures and require no network access or API keys. Optional public-source commands are explicitly separate from the offline workflow.
+The core MVP uses synthetic fixtures and requires no network access or API keys.
+The focused Goal 1 regression reads only checksum-bound public artifacts already
+cached in `data/live/`; optional live-retrieval commands remain explicitly
+separate from the offline workflow.
 
 Four canonical roles are advisory scientific reviewers for study
 design/population context, exercise-phenotype harmonization, biospecimen
@@ -51,7 +54,7 @@ and no configuration file to edit. What matters is which directory you open.
 **Claude Code.** Open this repository root as the working directory. Claude Code
 discovers `.claude/skills/*/SKILL.md` and `.claude/agents/*.md` automatically and
 reads `CLAUDE.md` as project memory. Confirm with `/agents` and `/skills`; you
-should see 24 agent files (22 canonical roles plus 2 deprecated aliases) and 24
+should see 25 agent files (23 canonical roles plus 2 deprecated aliases) and 25
 skills. Invoke a skill by name with `/<skill-name>`, or just describe the task and
 let the dispatcher route it. Eight advisory and critic agents declare
 `tools: Read, Grep, Glob, Bash` so they are not dispatched holding `Write` or
@@ -88,6 +91,43 @@ metabo-agent run-pilot --out reports
 ```
 
 `route-sources` writes a deterministic retrieval plan. It labels native, optional-plugin, planned, restricted, and standards-reference sources; it does not query those sources or establish metabolite identity.
+
+The Lawrence-comments evaluation workflows are explicit, isolated commands. The
+biomarker case, cold medication benchmark, and cohort bundle require a new output
+directory so a run cannot silently reuse stale artifacts:
+
+```bash
+PYTHONPATH=src .venv/bin/python -m metabotyping_agentic.cli \
+  evaluate-biomarker-reproduction \
+  --case data/live/biomarker_reproduction/lacphe_li_2022 \
+  --out /private/tmp/lawrence-lacphe-directional-check
+
+PYTHONPATH=src .venv/bin/python -m metabotyping_agentic.cli \
+  evaluate-medication-classifier --out /private/tmp/lawrence-medication-evaluation
+
+PYTHONPATH=src .venv/bin/python -m metabotyping_agentic.cli \
+  run-cohort-bundle --bundle data/examples/unseen_cohort \
+  --out /private/tmp/lawrence-unseen-cohort
+
+PYTHONPATH=src .venv/bin/python -m metabotyping_agentic.cli \
+  compare-hardik-harmonization \
+  --reference data/external/hardik_harmonization_results.csv \
+  --out /private/tmp/lawrence-hardik-comparison
+```
+
+The biomarker command performs only a post-hoc, repository-derived
+Collectionpoint After-versus-Before directional check in cached ST003662. It
+does not rerun the paper's datasets or causal analysis, establish cohort
+independence, or verify that the repository labels are exercise timing because
+no raw factor/codebook snapshot is bound. The medication result is a labeled,
+cohort-disjoint **synthetic statin benchmark**, not a clinical medication
+detector. The cohort bundle demonstrates
+portability of the declared file/schema interface to a held-out synthetic
+fixture, not external validity in an independent human cohort. The Hardik comparison emits
+`blocked_missing_reference` with null metrics until the named reference CSV is
+provided; it never fabricates or imputes curator decisions. See
+[`docs/lawrence_comments_evaluation.md`](docs/lawrence_comments_evaluation.md) for
+the action-item ledger and remaining evidence gaps.
 
 Build the synthetic assay/platform harmonization plan and its separate accepted, review-required, non-combinable, and provenance-audit artifacts:
 
@@ -302,7 +342,14 @@ Run the stricter behavioral scientific-readiness gate:
 PYTHONPATH=src .venv/bin/python scripts/evaluate_scientific_readiness.py
 ```
 
-This command runs the complete offline regression suite and groups tests by scientific-risk domain. It exits nonzero for any failure, error, skip, expected failure, unexpected success, or empty required gate. Its scope is deliberately synthetic and local: passing does not establish external validity on real cohorts, assay platforms, or live database connectors. Results are tracked in the [scientific readiness report](docs/scientific_readiness_report.md) and [machine-readable readiness results](docs/scientific_readiness_results.json).
+This command runs the complete offline regression suite and groups tests by
+scientific-risk domain. It exits nonzero for any failure, error, skip, expected
+failure, unexpected success, empty required gate, or discovered test module with
+no gate owner. Its scope is mostly synthetic plus checksum-bound cached public
+artifacts: passing does not establish external validity on independent cohorts,
+assay platforms, or live database connectors. Results are tracked in the
+[scientific readiness report](docs/scientific_readiness_report.md) and
+[machine-readable readiness results](docs/scientific_readiness_results.json).
 
 ## Agent-name migration
 
@@ -325,7 +372,9 @@ or treated as aliases. Consumers should migrate to the canonical names before
 - Domain-review packets have advisory-only authority, require human adjudication, and contain no executable actions.
 - Low-confidence harmonization is never converted into deterministic ETL.
 - `VO2max` and `VO2peak` are treated as related but not automatically equivalent.
-- Synthetic fixtures avoid participant-level data.
+- Synthetic fixtures contain no real participant data. Some evaluation fixtures
+  intentionally include invented sample-level rows so split and leakage controls
+  can be tested.
 - Mirage detection flags studies that look relevant but lack data, metadata, accessions, or codebooks.
 - Serialized inclusion criteria control discovery eligibility and scoring.
 - Generated study, dataset, variable, recommendation, and alignment artifacts are checked against JSON Schemas before they are written.
@@ -348,6 +397,15 @@ or treated as aliases. Consumers should migrate to the canonical names before
 - RefMet effect enrichment is within-stratum feature-row over-representation that reuses source FDR calls. Current effect tables lack source-carried RefMet IDs and the local snapshot lacks a declared release, so name-resolved identity-dependent rows remain review-required.
 - Literature retrieval covers Europe PMC, PubMed, Crossref and bioRxiv/medRxiv bibliographic records only. It does not read full text, so data availability statements, methods-level assay identity, and reported effect sizes are not extracted; screening flags from title/abstract text are inference, and PubMed E-utilities blocks some shared network egresses, which is recorded as an availability gap rather than an empty result.
 - Real-world multi-platform external validation and a head-to-head benchmark against named agent systems are still required. See `docs/metabolomics_agent_capability_review.md` for the release gates and evidence-based comparison.
+- The medication classifier has only a deterministic, cold, cohort-disjoint
+  synthetic benchmark. It has not been trained or tested on human cohorts and is
+  not suitable for clinical inference.
+- The unseen-cohort runner validates a checksummed synthetic input contract and
+  routes uncertain mappings to review. It does not establish performance on an
+  external human cohort.
+- Harmonization comparison against Hardik's decisions remains blocked until the
+  same-universe reference file is supplied; the comparator deliberately reports
+  null metrics while that evidence is absent.
 
 ## Release status
 
@@ -398,6 +456,14 @@ The pilot and the focused workflows above write:
 - `reports/benchmark_disagreements.csv`
 - `reports/benchmark_report.md`
 - `reports/benchmark_manifest.json`
+- `reports/medication_classifier/{metrics.json,model.json,model_card.md,predictions.csv,run_manifest.json}`
+- `reports/unseen_cohort_generalization/cohort_generalization_report.md`
+- `reports/unseen_cohort_generalization/cohort_generalization_result.json`
+- `reports/hardik_harmonization_comparison/harmonization_reference_report.md`
+- `reports/hardik_harmonization_comparison/harmonization_reference_comparison.json`
+- `reports_live/biomarker_reproduction/lacphe_li_2022/report.md`
+- `reports_live/biomarker_reproduction/lacphe_li_2022/result.json`
+- `reports_live/biomarker_reproduction/lacphe_li_2022/manifest.json`
 - `reports/aim2_assay_harmonization_plan.json`
 - `reports/synthetic_motrpac_plot_suite/plot_bundle_manifest.json`
 - `data/extracted/metadata_cards/*.json`

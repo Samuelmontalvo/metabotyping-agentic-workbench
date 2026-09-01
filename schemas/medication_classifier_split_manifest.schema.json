@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MedicationClassifierSplitManifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "split_id",
+    "status",
+    "target_column",
+    "artifacts",
+    "constraints"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "split_id": { "type": "string", "minLength": 1 },
+    "status": { "const": "synthetic_only_not_clinically_validated" },
+    "target_column": { "const": "statin_exposure" },
+    "artifacts": {
+      "type": "object",
+      "required": ["feature_catalog", "train", "test"],
+      "properties": {
+        "feature_catalog": {
+          "allOf": [
+            { "$ref": "#/$defs/digest" },
+            {
+              "properties": {
+                "path": { "const": "feature_catalog.json" }
+              }
+            }
+          ]
+        },
+        "train": {
+          "allOf": [
+            { "$ref": "#/$defs/datasetArtifact" },
+            {
+              "properties": {
+                "path": { "const": "train.csv" },
+                "cohort_ids": { "minItems": 2 }
+              }
+            }
+          ]
+        },
+        "test": {
+          "allOf": [
+            { "$ref": "#/$defs/datasetArtifact" },
+            {
+              "properties": {
+                "path": { "const": "test.csv" }
+              }
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "constraints": {
+      "type": "object",
+      "required": [
+        "sample_id_disjoint",
+        "cohort_id_disjoint",
+        "declared_feature_vectors_disjoint",
+        "test_labels_excluded_from_model_fitting",
+        "test_labels_excluded_from_scoring"
+      ],
+      "properties": {
+        "sample_id_disjoint": { "const": true },
+        "cohort_id_disjoint": { "const": true },
+        "declared_feature_vectors_disjoint": { "const": true },
+        "test_labels_excluded_from_model_fitting": { "const": true },
+        "test_labels_excluded_from_scoring": { "const": true }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "digest": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*[/\\\\]).+$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "datasetArtifact": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256",
+        "sample_count",
+        "cohort_ids",
+        "class_counts"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*[/\\\\]).+$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "sample_count": { "type": "integer", "minimum": 1 },
+        "cohort_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "class_counts": {
+          "type": "object",
+          "required": ["0", "1"],
+          "properties": {
+            "0": { "type": "integer", "minimum": 0 },
+            "1": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

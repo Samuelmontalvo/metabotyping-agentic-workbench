@@ -1,0 +1,3 @@
+study_id,repository,accession,public_status,has_metadata,has_codebook,has_data_files,assay_platform,sample_matrix,biospecimen_timing,sample_size,modalities,documented_absent_modalities
+SYN-UNSEEN-ENDURANCE,Metabolomics Workbench,MWB-SYN-101,public,true,true,true,targeted LC-MS,serum,fasting baseline and 24 hours after interval training,96,metabolomics;exercise;cpet;body_composition,genetics;diet
+SYN-UNSEEN-ACTIVITY,Metabolomics Workbench,MWB-SYN-102,public,true,true,true,untargeted LC-MS,plasma,fasting draw after 14-day activity monitoring,144,metabolomics;actigraphy;body_composition;diet,genetics;cpet

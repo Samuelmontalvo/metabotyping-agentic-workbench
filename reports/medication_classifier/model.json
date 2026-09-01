@@ -1,0 +1,88 @@
+{
+  "classifier_version": "1.0.0",
+  "clinically_validated": false,
+  "decision_threshold": 0.5,
+  "feature_allowlist": [
+    "ldl_particle_signal",
+    "cholesteryl_ester_signal",
+    "mevalonate_pathway_proxy",
+    "apo_b_proxy",
+    "triglyceride_proxy",
+    "neutral_reference_signal"
+  ],
+  "minimum_feature_count": 4,
+  "model_type": "closed_form_diagonal_lda",
+  "negative_label": "0",
+  "parameters": {
+    "class_priors": {
+      "0": 0.5,
+      "1": 0.5
+    },
+    "coefficients": {
+      "apo_b_proxy": -4.708368641488,
+      "cholesteryl_ester_signal": -6.74601721258,
+      "ldl_particle_signal": -7.456344720456,
+      "mevalonate_pathway_proxy": -9.468736169994,
+      "neutral_reference_signal": 0.0,
+      "triglyceride_proxy": -1.705294020802
+    },
+    "intercept": 0.0,
+    "standardized_centroids": {
+      "0": {
+        "apo_b_proxy": 2.354184320744,
+        "cholesteryl_ester_signal": 3.37300860629,
+        "ldl_particle_signal": 3.728172360228,
+        "mevalonate_pathway_proxy": 4.734368084997,
+        "neutral_reference_signal": 0.0,
+        "triglyceride_proxy": 0.852647010401
+      },
+      "1": {
+        "apo_b_proxy": -2.354184320744,
+        "cholesteryl_ester_signal": -3.37300860629,
+        "ldl_particle_signal": -3.728172360228,
+        "mevalonate_pathway_proxy": -4.734368084997,
+        "neutral_reference_signal": 0.0,
+        "triglyceride_proxy": -0.852647010401
+      }
+    }
+  },
+  "positive_label": "1",
+  "preprocessing": {
+    "center": {
+      "apo_b_proxy": 0.59225,
+      "cholesteryl_ester_signal": 0.703666666667,
+      "ldl_particle_signal": 0.85025,
+      "mevalonate_pathway_proxy": 0.796,
+      "neutral_reference_signal": 0.502666666667,
+      "triglyceride_proxy": 0.643125
+    },
+    "fit_scope": "training_data_only",
+    "missing_value_policy": "never_zero_fill; abstain_below_minimum_coverage",
+    "scale": {
+      "apo_b_proxy": 0.089202870884,
+      "cholesteryl_ester_signal": 0.074117806736,
+      "ldl_particle_signal": 0.093879779737,
+      "mevalonate_pathway_proxy": 0.063366429186,
+      "neutral_reference_signal": 0.140209367257,
+      "triglyceride_proxy": 0.117281827978
+    },
+    "variance_floor": 1e-12
+  },
+  "schema_version": "1.0.0",
+  "target_column": "statin_exposure",
+  "training_provenance": {
+    "class_counts": {
+      "0": 24,
+      "1": 24
+    },
+    "cohort_ids": [
+      "SYN_TRAIN_ALPHA",
+      "SYN_TRAIN_BETA"
+    ],
+    "feature_catalog_sha256": "6c3e024ac3cda6d98377693834c012e6a64161f8dc1d971d5f55de772e909a01",
+    "sample_count": 48,
+    "split_id": "synthetic_statin_cold_split_v1",
+    "train_sha256": "2f2c2ce597ed15014a1972997c289881f05741fb7d7dfa0c55bdb578d1db8170"
+  },
+  "validation_status": "synthetic_only_not_clinically_validated"
+}
