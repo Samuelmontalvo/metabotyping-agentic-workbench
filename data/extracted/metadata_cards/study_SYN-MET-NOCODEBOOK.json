@@ -9,6 +9,7 @@
   ],
   "notes": "Metabolomics available but variable dictionary missing",
   "provenance": {
+    "publication_evidence": "source_provided",
     "repository_row_keys": [
       "SYN-MET-NOCODEBOOK::Metabolomics Workbench::MWB-SYN-006::row-7"
     ],

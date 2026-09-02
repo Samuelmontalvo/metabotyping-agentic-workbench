@@ -350,8 +350,8 @@
     "transform": "identity"
   },
   {
-    "confidence": 0.88,
-    "evidence": "Matched sex via name_or_label_synonym. Source variable is a synonym or related label. Unit is compatible. Modality is compatible. Timing is reported.",
+    "confidence": 0.78,
+    "evidence": "Matched sex via name_or_label_synonym. Source variable is a synonym or related label. Unit is compatible. Modality is compatible. Timing is reported. Gender and sex are distinct constructs; confirm whether the source variable recorded biological sex or gender identity.",
     "proposed_common_unit": "category",
     "proposed_common_variable": "sex",
     "review_status": "requires_human_review",

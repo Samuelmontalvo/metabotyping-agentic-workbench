@@ -13,6 +13,7 @@
       "Metabolomics assay platform is reported.",
       "CPET phenotype is documented for comparison planning."
     ],
+    "scope_status": "in_scope_human",
     "study_design_rigor": 1.0,
     "study_id": "SYN-METEX-GEN",
     "temporal_alignment": 0.8,
@@ -42,6 +43,7 @@
     "rationale": [
       "Metabolomics assay platform is reported."
     ],
+    "scope_status": "in_scope_human",
     "study_design_rigor": 1.0,
     "study_id": "SYN-ACTI-MET",
     "temporal_alignment": 0.8,
@@ -71,6 +73,7 @@
     "rationale": [
       "Metabolomics assay platform is reported."
     ],
+    "scope_status": "in_scope_human",
     "study_design_rigor": 0.8,
     "study_id": "SYN-OMICS-GEN",
     "temporal_alignment": 0.35,
@@ -102,6 +105,7 @@
       "Biospecimen timing is not sufficiently documented.",
       "CPET phenotype is documented for comparison planning."
     ],
+    "scope_status": "in_scope_human",
     "study_design_rigor": 0.9,
     "study_id": "SYN-EXER-NODATA",
     "temporal_alignment": 0.35,
@@ -127,10 +131,12 @@
     "harmonization_feasibility": 0.85,
     "metabolomics_quality": 1.0,
     "metadata_completeness": 1.0,
-    "overall_score": 0.688,
+    "overall_score": null,
     "rationale": [
+      "Study participants are documented as non-human; the readiness scale is defined for human MoTrPAC-style comparison planning, so no overall score is reported. Subscores are retained for transparency.",
       "Metabolomics assay platform is reported."
     ],
+    "scope_status": "out_of_scope_non_human",
     "study_design_rigor": 0.7,
     "study_id": "SYN-ANIMAL-MET",
     "temporal_alignment": 0.8,
@@ -161,6 +167,7 @@
       "Variable dictionary/codebook missing or incomplete.",
       "Metabolomics assay platform is reported."
     ],
+    "scope_status": "in_scope_human",
     "study_design_rigor": 0.7,
     "study_id": "SYN-MET-NOCODEBOOK",
     "temporal_alignment": 0.35,
@@ -191,6 +198,7 @@
       "Metabolomics assay platform is reported.",
       "CPET phenotype is documented for comparison planning."
     ],
+    "scope_status": "in_scope_human",
     "study_design_rigor": 1.0,
     "study_id": "SYN-CPET-RICH",
     "temporal_alignment": 0.8,
@@ -221,6 +229,7 @@
       "Metabolomics assay platform is reported.",
       "CPET phenotype is documented for comparison planning."
     ],
+    "scope_status": "in_scope_human",
     "study_design_rigor": 1.0,
     "study_id": "SYN-MOTRPAC-LIKE",
     "temporal_alignment": 0.8,
@@ -250,6 +259,7 @@
     "rationale": [
       "Metabolomics assay platform is reported."
     ],
+    "scope_status": "in_scope_human",
     "study_design_rigor": 0.8,
     "study_id": "SYN-DIET-BODY",
     "temporal_alignment": 0.35,
@@ -279,6 +289,7 @@
     "rationale": [
       "Metabolomics assay platform is reported."
     ],
+    "scope_status": "in_scope_human",
     "study_design_rigor": 0.8,
     "study_id": "SYN-RESTRICTED-META",
     "temporal_alignment": 0.35,

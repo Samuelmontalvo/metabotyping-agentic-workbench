@@ -19,10 +19,17 @@ from ..models import (
     BenchmarkResult,
 )
 from ..schemas import project_schema_path, validate_or_raise
+from .quality_scoring import RULE_SET_VERSION as SCORING_RULE_SET_VERSION
+from .quality_scoring import SCOPE_OUT_OF_SCOPE_NON_HUMAN, SCOPE_STATUSES
 
 MANIFEST_VERSION = "1.0.0"
-RULE_SET_VERSION = "0.2.0"
+# Benchmark rules. 0.3.0: scope-aware quality comparison. A gold study declared
+# out of scope is compared on scope_status, not on a number; the numeric
+# tolerance metric is defined over gold studies not declared out of scope.
+RULE_SET_VERSION = "0.3.0"
 QUALITY_SCORE_TOLERANCE = Decimal("0.15")
+SCOPE_NOT_DECLARED = "not_declared"
+ACCEPTED_SCOPE_STATUSES = set(SCOPE_STATUSES) | {SCOPE_NOT_DECLARED}
 CONFIDENCE_LEVEL = 0.95
 WILSON_Z_95 = 1.959963984540054
 VALID_REVIEW_STATUSES = {"accepted", "rejected", "requires_human_review"}
@@ -30,8 +37,10 @@ MISSING_MAPPING = "not_mapped"
 CASE_OUTCOME_PRECEDENCE = [
     "missing_prediction",
     "unexpected_prediction",
+    "scope_status_mismatch",
     "common_variable_mismatch",
     "review_status_mismatch",
+    "quality_score_not_reported",
     "quality_score_outside_tolerance",
     "unsafe_auto_accept",
 ]
@@ -46,6 +55,7 @@ METRIC_NAMES = [
     "review_capture_rate",
     "review_status_accuracy",
     "quality_score_agreement_within_0.15",
+    "scope_status_accuracy",
 ]
 
 RESULT_FIELDNAMES = ["metric_name", "value", "details"]
@@ -74,6 +84,8 @@ DISAGREEMENT_FIELDNAMES = [
     "predicted_review_status",
     "gold_overall_score",
     "predicted_overall_score",
+    "gold_scope_status",
+    "predicted_scope_status",
     "absolute_difference",
     "within_tolerance",
 ]
@@ -81,6 +93,16 @@ DISAGREEMENT_FIELDNAMES = [
 
 class BenchmarkInputError(ValueError):
     """Raised before output when a benchmark input violates its contract."""
+
+
+@dataclass(frozen=True)
+class QualityEntry:
+    """One study's quality evidence: a score that may be withheld, and its scope."""
+
+    overall_score: Decimal | None
+    scope_status: str
+
+
 
 
 @dataclass(frozen=True)
@@ -331,7 +353,19 @@ def _decimal_score(value: Any, path: Path, row_number: int | str) -> Decimal:
     return score
 
 
-def _read_predicted_quality(path: Path) -> tuple[dict[str, Decimal], list[str]]:
+def _read_scope_status(value: Any, path: Path, row_number: int | str) -> str:
+    text = "" if value is None else str(value).strip()
+    if not text:
+        return SCOPE_NOT_DECLARED
+    if text not in ACCEPTED_SCOPE_STATUSES:
+        raise BenchmarkInputError(
+            f"{path.name}: row {row_number} scope_status {text!r} is not one of "
+            f"{sorted(ACCEPTED_SCOPE_STATUSES)}"
+        )
+    return text
+
+
+def _read_predicted_quality(path: Path) -> tuple[dict[str, QualityEntry], list[str]]:
     try:
         value = read_json(path)
     except ValueError as exc:
@@ -341,7 +375,7 @@ def _read_predicted_quality(path: Path) -> tuple[dict[str, Decimal], list[str]]:
             f"{path.name}: expected a JSON array of quality-score rows"
         )
 
-    scores: dict[str, Decimal] = {}
+    scores: dict[str, QualityEntry] = {}
     seen_rows: dict[str, int] = {}
     columns: set[str] = set()
     for index, row in enumerate(value, start=1):
@@ -364,11 +398,24 @@ def _read_predicted_quality(path: Path) -> tuple[dict[str, Decimal], list[str]]:
                 f"at rows {seen_rows[study_id]} and {index}"
             )
         seen_rows[study_id] = index
-        scores[study_id] = _decimal_score(row["overall_score"], path, index)
+        scope_status = _read_scope_status(row.get("scope_status"), path, index)
+        if row["overall_score"] is None:
+            # A withheld score is legitimate only for a declared out-of-scope
+            # study; anything else is a missing number, not a scope decision.
+            if scope_status != SCOPE_OUT_OF_SCOPE_NON_HUMAN:
+                raise BenchmarkInputError(
+                    f"{path.name}: row {index} overall_score is null but scope_status is "
+                    f"{scope_status!r}; only an out_of_scope_non_human row may withhold it"
+                )
+            scores[study_id] = QualityEntry(None, scope_status)
+        else:
+            scores[study_id] = QualityEntry(
+                _decimal_score(row["overall_score"], path, index), scope_status
+            )
     return scores, sorted(columns)
 
 
-def _read_gold_quality(path: Path) -> tuple[dict[str, Decimal], list[str]]:
+def _read_gold_quality(path: Path) -> tuple[dict[str, QualityEntry], list[str]]:
     fieldnames, rows = _read_csv_strict(path)
     required_columns = {"study_id", "overall_score"}
     missing_columns = sorted(required_columns - set(fieldnames))
@@ -377,18 +424,29 @@ def _read_gold_quality(path: Path) -> tuple[dict[str, Decimal], list[str]]:
             f"{path.name}: missing required columns: {', '.join(missing_columns)}"
         )
 
-    scores: dict[str, Decimal] = {}
+    scores: dict[str, QualityEntry] = {}
     seen_rows: dict[str, int] = {}
     for row_number, row in enumerate(rows, start=2):
         study_id = _required_text(row, "study_id", path, row_number)
-        score_text = _required_text(row, "overall_score", path, row_number)
+        scope_status = _read_scope_status(row.get("scope_status"), path, row_number)
+        score_text = (row.get("overall_score") or "").strip()
         if study_id in scores:
             raise BenchmarkInputError(
                 f"{path.name}: duplicate quality-score study_id {study_id!r} "
                 f"at rows {seen_rows[study_id]} and {row_number}"
             )
         seen_rows[study_id] = row_number
-        scores[study_id] = _decimal_score(score_text, path, row_number)
+        if not score_text:
+            if scope_status != SCOPE_OUT_OF_SCOPE_NON_HUMAN:
+                raise BenchmarkInputError(
+                    f"{path.name}: row {row_number} overall_score is empty but scope_status "
+                    f"is {scope_status!r}; only an out_of_scope_non_human row may omit it"
+                )
+            scores[study_id] = QualityEntry(None, scope_status)
+        else:
+            scores[study_id] = QualityEntry(
+                _decimal_score(score_text, path, row_number), scope_status
+            )
     return scores, fieldnames
 
 
@@ -541,9 +599,20 @@ def _mapping_case_results(
     return cases
 
 
+def _quality_payload(entry: QualityEntry | None) -> dict[str, Any] | None:
+    if entry is None:
+        return None
+    return {
+        "overall_score": (
+            float(entry.overall_score) if entry.overall_score is not None else None
+        ),
+        "scope_status": entry.scope_status,
+    }
+
+
 def _quality_case_results(
-    predicted_scores: dict[str, Decimal],
-    gold_scores: dict[str, Decimal],
+    predicted_scores: dict[str, QualityEntry],
+    gold_scores: dict[str, QualityEntry],
 ) -> list[BenchmarkCaseResult]:
     cases: list[BenchmarkCaseResult] = []
     for study_id in sorted(set(predicted_scores) | set(gold_scores)):
@@ -558,10 +627,23 @@ def _quality_case_results(
         elif gold is None:
             reason_codes.append("unexpected_prediction")
         else:
-            absolute_difference = abs(predicted - gold)
-            within_tolerance = absolute_difference <= QUALITY_SCORE_TOLERANCE
-            if not within_tolerance:
-                reason_codes.append("quality_score_outside_tolerance")
+            if (
+                gold.scope_status != SCOPE_NOT_DECLARED
+                and predicted.scope_status != SCOPE_NOT_DECLARED
+                and gold.scope_status != predicted.scope_status
+            ):
+                reason_codes.append("scope_status_mismatch")
+            if gold.scope_status == SCOPE_OUT_OF_SCOPE_NON_HUMAN:
+                # The expert declared the study outside the scale; the scope
+                # comparison above is the whole case and no number is compared.
+                pass
+            elif predicted.overall_score is None:
+                reason_codes.append("quality_score_not_reported")
+            else:
+                absolute_difference = abs(predicted.overall_score - gold.overall_score)
+                within_tolerance = absolute_difference <= QUALITY_SCORE_TOLERANCE
+                if not within_tolerance:
+                    reason_codes.append("quality_score_outside_tolerance")
 
         ordered_reason_codes = [
             code for code in CASE_OUTCOME_PRECEDENCE if code in reason_codes
@@ -576,16 +658,8 @@ def _quality_case_results(
                     else "correct"
                 ),
                 reason_codes=ordered_reason_codes,
-                gold=(
-                    {"overall_score": float(gold)}
-                    if gold is not None
-                    else None
-                ),
-                predicted=(
-                    {"overall_score": float(predicted)}
-                    if predicted is not None
-                    else None
-                ),
+                gold=_quality_payload(gold),
+                predicted=_quality_payload(predicted),
                 absolute_difference=(
                     float(absolute_difference)
                     if absolute_difference is not None
@@ -616,8 +690,10 @@ def _disagreement_rows(cases: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "predicted_common_variable": predicted.get("common_variable", ""),
                 "gold_review_status": gold.get("review_status", ""),
                 "predicted_review_status": predicted.get("review_status", ""),
-                "gold_overall_score": gold.get("overall_score", ""),
-                "predicted_overall_score": predicted.get("overall_score", ""),
+                "gold_overall_score": _blank_if_none(gold.get("overall_score")),
+                "predicted_overall_score": _blank_if_none(predicted.get("overall_score")),
+                "gold_scope_status": gold.get("scope_status", ""),
+                "predicted_scope_status": predicted.get("scope_status", ""),
                 "absolute_difference": (
                     case["absolute_difference"]
                     if case.get("absolute_difference") is not None
@@ -631,6 +707,10 @@ def _disagreement_rows(cases: list[dict[str, Any]]) -> list[dict[str, Any]]:
             }
         )
     return rows
+
+
+def _blank_if_none(value: Any) -> Any:
+    return "" if value is None else value
 
 
 def _sha256(path: Path) -> str:
@@ -658,8 +738,8 @@ def _artifact_digest(
 def _compute_metrics(
     predicted_rows: list[dict[str, str]],
     gold_rows: list[dict[str, str]],
-    predicted_quality: dict[str, Decimal],
-    gold_quality: dict[str, Decimal],
+    predicted_quality: dict[str, QualityEntry],
+    gold_quality: dict[str, QualityEntry],
     *,
     quality_inputs_present: bool,
 ) -> list[BenchmarkResult]:
@@ -723,13 +803,31 @@ def _compute_metrics(
         == gold_row["common_variable"]
     )
 
+    gold_numeric = {
+        study_id: entry
+        for study_id, entry in gold_quality.items()
+        if entry.scope_status != SCOPE_OUT_OF_SCOPE_NON_HUMAN
+    }
     quality_hits = sum(
         1
-        for study_id, gold_score in gold_quality.items()
+        for study_id, gold_entry in gold_numeric.items()
         if study_id in predicted_quality
-        and abs(predicted_quality[study_id] - gold_score) <= QUALITY_SCORE_TOLERANCE
+        and predicted_quality[study_id].overall_score is not None
+        and abs(predicted_quality[study_id].overall_score - gold_entry.overall_score)
+        <= QUALITY_SCORE_TOLERANCE
     )
-    quality_matched = len(set(predicted_quality) & set(gold_quality))
+    quality_matched = len(set(predicted_quality) & set(gold_numeric))
+    gold_scoped = {
+        study_id: entry
+        for study_id, entry in gold_quality.items()
+        if entry.scope_status != SCOPE_NOT_DECLARED
+    }
+    scope_hits = sum(
+        1
+        for study_id, gold_entry in gold_scoped.items()
+        if study_id in predicted_quality
+        and predicted_quality[study_id].scope_status == gold_entry.scope_status
+    )
 
     f1_details: dict[str, Any] = {
         "numerator": candidate_f1_numerator,
@@ -756,15 +854,17 @@ def _compute_metrics(
     quality_result = _proportion_result(
         "quality_score_agreement_within_0.15",
         quality_hits,
-        len(gold_quality),
+        len(gold_numeric),
         (
-            "Gold quality-score studies with a prediction within an inclusive "
-            "Decimal tolerance of 0.15, divided by all gold quality-score studies; "
-            "missing predictions are failures."
+            "Gold quality-score studies not declared out of scope with a reported "
+            "prediction within an inclusive Decimal tolerance of 0.15, divided by all "
+            "gold quality-score studies not declared out of scope; missing or "
+            "withheld predictions are failures."
         ),
         legacy_details={
             "within_tolerance": quality_hits,
-            "compared": len(gold_quality),
+            "compared": len(gold_numeric),
+            "out_of_scope_excluded": len(gold_quality) - len(gold_numeric),
             "matched_predictions": quality_matched,
             "tolerance": 0.15,
             "tolerance_decimal": str(QUALITY_SCORE_TOLERANCE),
@@ -773,6 +873,26 @@ def _compute_metrics(
     )
     if not quality_inputs_present:
         quality_result.details["undefined_reason"] = "quality_inputs_not_provided"
+
+    scope_result = _proportion_result(
+        "scope_status_accuracy",
+        scope_hits,
+        len(gold_scoped),
+        (
+            "Gold quality-score studies with a declared scope status whose predicted "
+            "scope status matches exactly, divided by all gold quality-score studies "
+            "with a declared scope status; missing predictions are failures."
+        ),
+        legacy_details={
+            "declared_in_gold": len(gold_scoped),
+            "matched_predictions": len(set(predicted_quality) & set(gold_scoped)),
+            "quality_inputs_present": quality_inputs_present,
+        },
+    )
+    if not quality_inputs_present:
+        scope_result.details["undefined_reason"] = "quality_inputs_not_provided"
+    elif gold_quality and not gold_scoped:
+        scope_result.details["undefined_reason"] = "scope_status_not_declared_in_gold"
 
     return [
         _proportion_result(
@@ -874,6 +994,7 @@ def _compute_metrics(
             legacy_details={"correct": status_correct, "compared": len(gold_by_entity)},
         ),
         quality_result,
+        scope_result,
     ]
 
 
@@ -885,7 +1006,7 @@ def benchmark(
     """Run a strict, deterministic benchmark and write its review artifacts.
 
     All source artifacts are validated before any output is written. The function
-    deliberately returns only the stable list of nine aggregate metrics; case-level
+    deliberately returns only the stable list of ten aggregate metrics; case-level
     evidence, disagreements, provenance, and the report are written under ``out_dir``.
     """
 
@@ -1048,7 +1169,7 @@ def benchmark(
     ]
     manifest = BenchmarkManifest(
         manifest_version=MANIFEST_VERSION,
-        rule_set_version=RULE_SET_VERSION,
+        rule_set_version=SCORING_RULE_SET_VERSION,
         benchmark_rule_set_version=RULE_SET_VERSION,
         software_version=__version__,
         parameters={
@@ -1057,7 +1178,8 @@ def benchmark(
             "confidence_level": CONFIDENCE_LEVEL,
             "confidence_interval_method": "wilson_score",
             "mapping_entity_key": ["source_study", "source_variable"],
-            "quality_metric_denominator": "all_gold_studies",
+            "quality_metric_denominator": "gold_studies_not_declared_out_of_scope",
+            "scope_metric_denominator": "gold_studies_with_declared_scope_status",
             "quality_inputs_present": quality_inputs_present,
             "case_outcome_precedence": CASE_OUTCOME_PRECEDENCE,
         },

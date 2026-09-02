@@ -9,6 +9,7 @@
   ],
   "notes": "Direct match with actigraphy and metabolomics",
   "provenance": {
+    "publication_evidence": "source_provided",
     "repository_row_keys": [
       "SYN-ACTI-MET::Metabolomics Workbench::MWB-SYN-002::row-3"
     ],

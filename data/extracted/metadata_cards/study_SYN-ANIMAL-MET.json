@@ -8,6 +8,7 @@
   ],
   "notes": "Animal-only exclusion",
   "provenance": {
+    "publication_evidence": "source_provided",
     "repository_row_keys": [
       "SYN-ANIMAL-MET::Metabolomics Workbench::MWB-SYN-005::row-6"
     ],

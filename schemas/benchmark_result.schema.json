@@ -15,7 +15,8 @@
         "unsafe_auto_accept_rate",
         "review_capture_rate",
         "review_status_accuracy",
-        "quality_score_agreement_within_0.15"
+        "quality_score_agreement_within_0.15",
+        "scope_status_accuracy"
       ]
     },
     "value": {

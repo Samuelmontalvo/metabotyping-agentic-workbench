@@ -2,7 +2,14 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "QualityScore",
   "type": "object",
-  "required": ["study_id", "study_design_rigor", "metadata_completeness", "metabolomics_quality", "overall_score"],
+  "required": [
+    "study_id",
+    "study_design_rigor",
+    "metadata_completeness",
+    "metabolomics_quality",
+    "overall_score",
+    "scope_status"
+  ],
   "properties": {
     "study_id": { "type": "string" },
     "study_design_rigor": { "type": "number", "minimum": 0, "maximum": 1 },
@@ -15,9 +22,22 @@
     "diet_quality": { "type": "number", "minimum": 0, "maximum": 1 },
     "temporal_alignment": { "type": "number", "minimum": 0, "maximum": 1 },
     "harmonization_feasibility": { "type": "number", "minimum": 0, "maximum": 1 },
-    "overall_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "overall_score": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+    "scope_status": {
+      "type": "string",
+      "enum": ["in_scope_human", "out_of_scope_non_human", "human_status_unknown"]
+    },
     "weights": { "type": "object" },
     "rationale": { "type": "array", "items": { "type": "string" } }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "scope_status": { "const": "out_of_scope_non_human" } },
+        "required": ["scope_status"]
+      },
+      "then": { "properties": { "overall_score": { "type": "null" } } },
+      "else": { "properties": { "overall_score": { "type": "number" } } }
+    }
+  ]
 }
-

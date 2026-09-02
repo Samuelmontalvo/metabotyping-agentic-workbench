@@ -1,9 +1,9 @@
 {
-  "benchmark_rule_set_version": "0.2.0",
+  "benchmark_rule_set_version": "0.3.0",
   "case_counts": {
-    "agreements": 34,
-    "correct": 34,
-    "disagreements": 2,
+    "agreements": 35,
+    "correct": 35,
+    "disagreements": 1,
     "mapping": 26,
     "quality": 10,
     "total": 36
@@ -28,7 +28,7 @@
       "path": "crosswalk.csv",
       "role": "predicted_crosswalk",
       "row_count": 26,
-      "sha256": "41a4cc2840a2bc2fe5e931721d5917a32236591a257836abb0f8fae4c3eaab3a",
+      "sha256": "f6fe8339cd33bfdba90650dbb9d90b91dd1d339ae8aa39e3f57e6459f95acea2",
       "state": "present"
     },
     {
@@ -43,6 +43,7 @@
         "metadata_completeness",
         "overall_score",
         "rationale",
+        "scope_status",
         "study_design_rigor",
         "study_id",
         "temporal_alignment",
@@ -51,7 +52,7 @@
       "path": "quality_scores.json",
       "role": "predicted_quality_scores",
       "row_count": 10,
-      "sha256": "cb7bd2b24d813b09e9bc2db752d170b2b5b381e029af400efb7a2720f80ebb8f",
+      "sha256": "a3cb9698f70cc5cf216baa3e15f867b20c035e084fa6358e62df2adb6ce66abc",
       "state": "present"
     },
     {
@@ -70,12 +71,13 @@
     {
       "columns": [
         "study_id",
-        "overall_score"
+        "overall_score",
+        "scope_status"
       ],
       "path": "expert_quality_scores.csv",
       "role": "gold_quality_scores",
       "row_count": 10,
-      "sha256": "fcc3c8e94432d16d25a359b4c86ad2b7f4c31c1546d7e841ec7b5f5896977c65",
+      "sha256": "56a597e6537332daddf4ab5ab6ac3729a42e736d2825fc8230ae89d3c2d508df",
       "state": "present"
     }
   ],
@@ -89,7 +91,8 @@
     "unsafe_auto_accept_rate",
     "review_capture_rate",
     "review_status_accuracy",
-    "quality_score_agreement_within_0.15"
+    "quality_score_agreement_within_0.15",
+    "scope_status_accuracy"
   ],
   "outputs": [
     {
@@ -100,8 +103,8 @@
       ],
       "path": "benchmark_results.json",
       "role": "benchmark_results",
-      "row_count": 9,
-      "sha256": "5c28cedcf6422c3506635ebbf8a77e2cce875a828ba376d0b1f5018338297719",
+      "row_count": 10,
+      "sha256": "726396c26b07086b278a0ab20e006c00d545774d0d2d5b345073f458ca081110",
       "state": "present"
     },
     {
@@ -120,7 +123,7 @@
       "path": "benchmark_case_results.json",
       "role": "benchmark_case_results",
       "row_count": 36,
-      "sha256": "ef2cc4f795c0a1b8cdba2a91ea1d09affcd3feba99584a6c32947ece5228c51a",
+      "sha256": "5507abd98af7922dc1d9278a1ee836ae33c910d956e3dde30477d6fbe5a973df",
       "state": "present"
     },
     {
@@ -137,13 +140,15 @@
         "predicted_review_status",
         "gold_overall_score",
         "predicted_overall_score",
+        "gold_scope_status",
+        "predicted_scope_status",
         "absolute_difference",
         "within_tolerance"
       ],
       "path": "benchmark_disagreements.csv",
       "role": "benchmark_disagreements",
-      "row_count": 2,
-      "sha256": "cbc5fcb3ccbb1be10f5abf0036697592ced40a8839f80855f0b21e6946a4df54",
+      "row_count": 1,
+      "sha256": "88d33723ed14fdf6f2d7ad7981b056ce278724c6a45ba51f425aef3fb19f148a",
       "state": "present"
     },
     {
@@ -151,7 +156,7 @@
       "path": "benchmark_report.md",
       "role": "benchmark_report",
       "row_count": null,
-      "sha256": "4deacdbc75be9dbc01caadb0c1da8667e73ae9efcf2ad0f8e6089e9b50ba5338",
+      "sha256": "9b2c0c83b3bf218f28a24ef02173c0d3b79f21cec3ced8b6237590bc5e1c831e",
       "state": "present"
     }
   ],
@@ -159,8 +164,10 @@
     "case_outcome_precedence": [
       "missing_prediction",
       "unexpected_prediction",
+      "scope_status_mismatch",
       "common_variable_mismatch",
       "review_status_mismatch",
+      "quality_score_not_reported",
       "quality_score_outside_tolerance",
       "unsafe_auto_accept"
     ],
@@ -171,10 +178,11 @@
       "source_variable"
     ],
     "quality_inputs_present": true,
-    "quality_metric_denominator": "all_gold_studies",
+    "quality_metric_denominator": "gold_studies_not_declared_out_of_scope",
     "quality_score_tolerance": "0.15",
-    "quality_score_tolerance_comparison": "inclusive"
+    "quality_score_tolerance_comparison": "inclusive",
+    "scope_metric_denominator": "gold_studies_with_declared_scope_status"
   },
-  "rule_set_version": "0.2.0",
+  "rule_set_version": "0.3.0",
   "software_version": "0.2.1"
 }

@@ -12,6 +12,7 @@
   ],
   "notes": "Direct match with exercise metabolomics genetics CPET and diet",
   "provenance": {
+    "publication_evidence": "source_provided",
     "repository_row_keys": [
       "SYN-METEX-GEN::Metabolomics Workbench::MWB-SYN-001::row-2"
     ],

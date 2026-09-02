@@ -10,6 +10,7 @@
   ],
   "notes": "Restricted data with metadata only",
   "provenance": {
+    "publication_evidence": "source_provided",
     "repository_row_keys": [
       "SYN-RESTRICTED-META::dbGaP::DBGAP-SYN-010::row-11"
     ],

@@ -16,8 +16,8 @@
   ],
   "properties": {
     "manifest_version": { "const": "1.0.0" },
-    "rule_set_version": { "const": "0.2.0" },
-    "benchmark_rule_set_version": { "const": "0.2.0" },
+    "rule_set_version": { "const": "0.3.0" },
+    "benchmark_rule_set_version": { "const": "0.3.0" },
     "software_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+" },
     "parameters": {
       "type": "object",
@@ -28,6 +28,7 @@
         "confidence_interval_method",
         "mapping_entity_key",
         "quality_metric_denominator",
+        "scope_metric_denominator",
         "quality_inputs_present",
         "case_outcome_precedence"
       ],
@@ -45,16 +46,19 @@
           ],
           "items": false
         },
-        "quality_metric_denominator": { "const": "all_gold_studies" },
+        "quality_metric_denominator": { "const": "gold_studies_not_declared_out_of_scope" },
+        "scope_metric_denominator": { "const": "gold_studies_with_declared_scope_status" },
         "quality_inputs_present": { "type": "boolean" },
         "case_outcome_precedence": {
           "type": "array",
-          "minItems": 6,
+          "minItems": 8,
           "prefixItems": [
             { "const": "missing_prediction" },
             { "const": "unexpected_prediction" },
+            { "const": "scope_status_mismatch" },
             { "const": "common_variable_mismatch" },
             { "const": "review_status_mismatch" },
+            { "const": "quality_score_not_reported" },
             { "const": "quality_score_outside_tolerance" },
             { "const": "unsafe_auto_accept" }
           ],
@@ -65,7 +69,7 @@
     },
     "metric_names": {
       "type": "array",
-      "minItems": 9,
+      "minItems": 10,
       "prefixItems": [
         { "const": "candidate_precision" },
         { "const": "candidate_recall" },
@@ -75,7 +79,8 @@
         { "const": "unsafe_auto_accept_rate" },
         { "const": "review_capture_rate" },
         { "const": "review_status_accuracy" },
-        { "const": "quality_score_agreement_within_0.15" }
+        { "const": "quality_score_agreement_within_0.15" },
+        { "const": "scope_status_accuracy" }
       ],
       "items": false
     },

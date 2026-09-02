@@ -11,6 +11,7 @@ Use the `.claude/skills/*/SKILL.md` workflows and `.claude/agents/*.md` subagent
 - Escalate uncertain mappings to human review.
 - Do not generate deterministic ETL for unapproved mappings.
 - Treat missing repository metadata/codebooks as scientific risk, not a formatting issue.
+- The readiness scale is human-only: a study documented as non-human gets `scope_status=out_of_scope_non_human` and no overall score; an undocumented human status is flagged `human_status_unknown`, never silently scored as human. Scoring and benchmark rule sets are versioned (`quality_scoring.RULE_SET_VERSION`, `benchmark.RULE_SET_VERSION`) and move only when a rule changes.
 
 ## Live Ingestion Mode (supported)
 
@@ -55,6 +56,15 @@ coverage scan; the skip is recorded in provenance so a partial run cannot be rea
 
 A metabolite absent from a source feature space is recorded as a coverage gap. Never substitute a
 synthetic row, a nearby analyte, or a precursor for the queried metabolite.
+
+One volcano is one contrast in one multiple-testing family. Sex-stratified source tables (MoTrPAC
+pass1b-06 timewise) render one figure per sex, per-platform FDR families (MoTrPAC human DA tables)
+are labeled as overlays rather than a study-wide adjustment, feature identity is the (source label,
+RefMet name) pair rather than the RefMet name alone, and `prepare_volcano_data` rejects a duplicate
+feature id within a contrast. `scripts/render_exercise_studies_refmet_volcanoes.py` and
+`scripts/screen_mw_exercise_study_titles.py` are the offline renderers for `reports_live/exercise_studies/`;
+a keyword-retrieved study list is not an exercise-study catalog until each title is screened and
+routed to review.
 
 ### Literature lane
 

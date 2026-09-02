@@ -13,6 +13,7 @@
       "Metabolomics assay platform is reported.",
       "CPET phenotype is documented for comparison planning."
     ],
+    "scope_status": "in_scope_human",
     "study_design_rigor": 0.9,
     "study_id": "SYN-UNSEEN-ENDURANCE",
     "temporal_alignment": 0.8,
@@ -42,6 +43,7 @@
     "rationale": [
       "Metabolomics assay platform is reported."
     ],
+    "scope_status": "in_scope_human",
     "study_design_rigor": 1.0,
     "study_id": "SYN-UNSEEN-ACTIVITY",
     "temporal_alignment": 0.8,

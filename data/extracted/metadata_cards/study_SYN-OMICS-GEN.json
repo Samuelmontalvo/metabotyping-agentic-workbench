@@ -11,6 +11,7 @@
   ],
   "notes": "Complementary genetics and diet metadata without exercise",
   "provenance": {
+    "publication_evidence": "source_provided",
     "repository_row_keys": [
       "SYN-OMICS-GEN::dbGaP::DBGAP-SYN-003::row-4"
     ],

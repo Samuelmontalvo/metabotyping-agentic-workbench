@@ -28,9 +28,11 @@
         "correct",
         "missing_prediction",
         "unexpected_prediction",
+        "scope_status_mismatch",
         "common_variable_mismatch",
         "review_status_mismatch",
         "unsafe_auto_accept",
+        "quality_score_not_reported",
         "quality_score_outside_tolerance"
       ]
     },
@@ -42,9 +44,11 @@
         "enum": [
           "missing_prediction",
           "unexpected_prediction",
+          "scope_status_mismatch",
           "common_variable_mismatch",
           "review_status_mismatch",
           "unsafe_auto_accept",
+          "quality_score_not_reported",
           "quality_score_outside_tolerance"
         ]
       }

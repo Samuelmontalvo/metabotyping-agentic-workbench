@@ -200,6 +200,18 @@ python3 scripts/render_lacphe_figures.py
 python3 scripts/render_lacphe_report.py
 ```
 
+The cached exercise-study volcano tables (`ST004303`, MoTrPAC human endurance
+post-versus-pre, MoTrPAC rat pass1b-06 8-week) can be re-rendered offline as
+RefMet-super_class-colored volcanoes, one figure per contrast and per sex
+stratum, with a manifest that records FDR scope, excluded internal standards,
+and provenance status; the keyword-retrieved study list beside them is screened
+by title with every row routed to review:
+
+```bash
+PYTHONPATH=src python3 scripts/render_exercise_studies_refmet_volcanoes.py
+python3 scripts/screen_mw_exercise_study_titles.py
+```
+
 To go the other way — from a gene to the compounds, reactions, and studies that are
 *annotated* to it — use the gene-centric lane, which wraps MetGENE and the
 Metabolomics Workbench compound, gene/protein, moverz, and exactmass REST contexts:
@@ -379,6 +391,7 @@ or treated as aliases. Consumers should migrate to the canonical names before
 - Serialized inclusion criteria control discovery eligibility and scoring.
 - Generated study, dataset, variable, recommendation, and alignment artifacts are checked against JSON Schemas before they are written.
 - MoTrPAC alignment distinguishes documented modality absence from unknown evidence and applies human-participant evidence as a hard gate.
+- Dataset-readiness scoring carries a `scope_status`: a study documented as non-human receives no overall score (subscores stay visible), an undocumented human status is flagged rather than scored down, and the benchmark compares scope before numbers.
 - Source routing is explicitly separate from source execution and chemical identity resolution.
 - Multiple repository records for one study are preserved; singular indexing fails rather than silently dropping a record.
 - Reported metabolite names never authorize automatic identity merging.
@@ -386,8 +399,14 @@ or treated as aliases. Consumers should migrate to the canonical names before
 - Raw assay values pool only after exact-identity, quantitative-scale, unit, matrix/method, QA/QC, and provenance gates pass.
 - Relative abundance and feature intensity remain study/platform specific; any cross-study synthesis is limited to compatible effect estimates.
 - Cross-dataset heatmaps require accepted canonical mappings, and pathway/class displays are labeled descriptive unless a separate inferential analysis exists.
+- One volcano is one contrast in one multiple-testing family: sex strata and per-platform FDR families are never pooled into a single feature set, and a duplicate feature id within a contrast is rejected rather than plotted twice.
 
 ## Current scientific limitations
+
+- Dataset-readiness subscores credit a modality whether or not any data files or
+  codebook exist, so a study with no usable assets can still score in the 0.4s;
+  the scope gate (0.3.0) does not address this, and an availability gate is
+  proposed in `docs/scientific_review_2026-09-01.md`.
 
 - The multi-database registry is broader than the native adapter set. MetaboLights, ChEBI, HMDB, PubChem, Reactome, PRIDE, and many other sources are optional-plugin or planned capabilities, not offline executed retrievals.
 - Chemical reconciliation does not yet perform complete ontology- and structure-backed resolution across databases, salts, tautomers, adducts, stereoisomers, positional isomers, and lipid resolution levels.
@@ -432,8 +451,10 @@ Known limitations at 0.2.1, stated so they are not discovered later:
   source owner are still outstanding. Treat it as exposed.
 - Each live lane has exactly one worked example, so generalisation to other
   studies' factor conventions is untested. The Metabolomics Workbench timepoint
-  classifier infers "pre-exercise" from a bare `pre` or `:b` substring and has no
-  test coverage.
+  classifier recognises its fallback tokens (`pre`, `baseline`, `b`, `time 0`/`r2`,
+  `time 60`/`r3`) only on token boundaries and is now tested against the
+  substrings that previously misclassified, but it still cannot verify that a
+  label means exercise timing.
 - Reproducibility is verified on CPython 3.11 (arm64), 3.12 (x86_64) and 3.14
   (arm64). Figure binaries depend on the matplotlib version and are not
   byte-reproducible across matplotlib releases.
@@ -464,6 +485,7 @@ The pilot and the focused workflows above write:
 - `reports_live/biomarker_reproduction/lacphe_li_2022/report.md`
 - `reports_live/biomarker_reproduction/lacphe_li_2022/result.json`
 - `reports_live/biomarker_reproduction/lacphe_li_2022/manifest.json`
+- `reports_live/exercise_studies/{manifest.json,*_volcano_refmet_superclass.{png,csv},mw_exercise_studies_screened.csv,mw_exercise_studies_screening.json}`
 - `reports/aim2_assay_harmonization_plan.json`
 - `reports/synthetic_motrpac_plot_suite/plot_bundle_manifest.json`
 - `data/extracted/metadata_cards/*.json`
