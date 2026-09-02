@@ -74,6 +74,12 @@ class MetabolomicsPlottingTests(unittest.TestCase):
         )
         self.assertTrue(all(row["fdr_test_count"] == 6 for row in computed))
 
+    def test_volcano_rejects_duplicate_feature_ids_within_contrast(self):
+        contrast = self.contrasts[0]
+        rows = [row for row in self.effects if row["contrast_id"] == contrast.contrast_id]
+        with self.assertRaisesRegex(PlotValidationError, "Duplicate feature_id"):
+            prepare_volcano_data(rows + [dict(rows[0])], contrast)
+
     def test_contrast_requires_complete_orientation_and_adjustment_scope(self):
         with self.assertRaises(PlotValidationError):
             ContrastMetadata(
@@ -104,7 +110,11 @@ class MetabolomicsPlottingTests(unittest.TestCase):
         self.assertIsNone(gated["heatmap_value"])
         self.assertTrue(gated["cross_dataset_view"])
 
-        duplicate = self.effects + [dict(self.effects[0])]
+        # A second source feature that resolves to the same canonical id and contrast
+        # is a heatmap-cell collision; an identical feature_id is caught earlier by
+        # the volcano guard, which is tested separately.
+        same_canonical = dict(self.effects[0], feature_id=self.effects[0]["feature_id"] + "_alt")
+        duplicate = self.effects + [same_canonical]
         with self.assertRaisesRegex(PlotValidationError, "Duplicate heatmap cell"):
             prepare_effect_heatmap_data(duplicate, self.contrasts)
 

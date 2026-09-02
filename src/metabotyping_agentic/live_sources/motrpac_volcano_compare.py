@@ -102,9 +102,29 @@ def normalize_metabolite_name(value: str | None) -> str:
     return key if len(key) >= 3 else ""
 
 
+# Fallback timepoint tokens are matched on alphanumeric-token boundaries only.
+# A bare substring test classified ``Diagnosis:prediabetes``, ``Treatment:prednisone``
+# and ``Sample source:Blood`` (via ``:b``) as pre-exercise samples and ``CTR2`` as a
+# time-0 sample, which can pair samples into a contrast that the study never ran.
+_MW_TIMEPOINT_PRE_FALLBACK = re.compile(
+    r"(?<![a-z0-9])(?:pre[-_ ]?(?:exercise|ex|training)|pre|baseline|before|b)(?![a-z0-9])"
+)
+_MW_TIMEPOINT_TIME60_FALLBACK = re.compile(r"(?<![a-z0-9])(?:time[-_ ]?60|r3)(?![a-z0-9.])")
+_MW_TIMEPOINT_TIME0_FALLBACK = re.compile(r"(?<![a-z0-9])(?:time[-_ ]?0|r2)(?![a-z0-9.])")
+
+
 def classify_mw_timepoint(factors: str) -> str:
-    normalized = str(factors or "").lower()
-    time_match = re.search(r"(?:^|\|)\s*time\s*:\s*([^|]+)", str(factors or ""), flags=re.IGNORECASE)
+    """Classify one MW factor string or sample ID as ``pre``, ``time_<x>`` or ``unknown``.
+
+    An explicit ``Time:`` factor is authoritative. The fallback conventions
+    (``pre``/``baseline``/``before``/``b`` for the pre sample, ``time 0``/``r2``
+    and ``time 60``/``r3`` for the post samples) are recognized only as whole
+    tokens. Nothing here verifies that a label means exercise timing; that
+    remains a review question recorded in provenance.
+    """
+    text = str(factors or "")
+    normalized = text.lower()
+    time_match = re.search(r"(?:^|\|)\s*time\s*:\s*([^|]+)", text, flags=re.IGNORECASE)
     if time_match:
         raw_time = time_match.group(1).strip()
         compact_time = re.sub(r"[^a-z0-9]+", "", raw_time.lower())
@@ -112,11 +132,11 @@ def classify_mw_timepoint(factors: str) -> str:
             return "pre"
         if compact_time not in {"", "blank", "qc", "unknown"}:
             return "time_" + compact_time
-    if "time 60" in normalized or "time_60" in normalized or "r3" in normalized:
+    if _MW_TIMEPOINT_TIME60_FALLBACK.search(normalized):
         return "time_60"
-    if "time 0" in normalized or "time_0" in normalized or "r2" in normalized:
+    if _MW_TIMEPOINT_TIME0_FALLBACK.search(normalized):
         return "time_0"
-    if "pre" in normalized or ":b" in normalized:
+    if _MW_TIMEPOINT_PRE_FALLBACK.search(normalized):
         return "pre"
     return "unknown"
 
