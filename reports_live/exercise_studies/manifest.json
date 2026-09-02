@@ -1,0 +1,260 @@
+{
+  "renderer": "scripts/render_exercise_studies_refmet_volcanoes.py",
+  "refmet_source": {
+    "path": "data/live/refmet_annotations.csv",
+    "sha256": "c9faa02c6091ebce3b8f6a9a7feca5c9af4e41dffcea556391d49e042f0d1cca",
+    "provenance_record": "data/live/refmet_annotations_provenance.json",
+    "release": "not_recorded"
+  },
+  "figure_rule": "one figure = one contrast in one multiple-testing family; sex strata and platform families are never pooled into a single feature set",
+  "figures": [
+    {
+      "slug": "ST004303_human",
+      "source_csv": "data/live/volcano_human_ST004303.csv",
+      "source_csv_sha256": "40baffe7751b78e4ead7fca339d5dc004b6ab35e90f2b5a35acbd5d01af8a9a0",
+      "figure": "reports_live/exercise_studies/ST004303_human_volcano_refmet_superclass.png",
+      "backing_csv": "reports_live/exercise_studies/ST004303_human_volcano_refmet_superclass.csv",
+      "contrast": {
+        "contrast_id": "ST004303_4P_vs_1P_paired_arms_pooled",
+        "numerator_label": "4P (later timepoint; read as post-exercise)",
+        "denominator_label": "1P (first timepoint; read as pre-exercise)",
+        "effect_scale": "log2fc",
+        "fdr_method": "benjamini_hochberg",
+        "fdr_scope": "within_study_all_266_paired_tested_features_scan_lane_bh",
+        "source_study_id": "ST004303",
+        "source_dataset_id": "ST004303_human_plasma_paired_ttest",
+        "alpha": 0.05,
+        "effect_threshold": 0.0,
+        "effect_column": "log2fc",
+        "p_value_column": "p_value",
+        "fdr_column": "fdr",
+        "feature_id_column": "feature_id",
+        "tissue": "blood",
+        "omics": "metabolomics",
+        "assay": "paired t-test on log2 abundance (scripts/volcano_compare.py)",
+        "platform": "not_reported",
+        "exercise_group": "",
+        "sex": "",
+        "display_order": 0,
+        "direction_statement": "positive log2fc = 4P (later timepoint; read as post-exercise) higher than 1P (first timepoint; read as pre-exercise); negative = lower",
+        "fdr_statement": "selection uses fdr <= 0.05; benjamini_hochberg adjustment over within_study_all_266_paired_tested_features_scan_lane_bh; p_value is unadjusted"
+      },
+      "stratum": null,
+      "n_source_rows_in_table": 266,
+      "n_rows_in_stratum": 266,
+      "n_internal_standard_rows_excluded": 0,
+      "n_features_plotted": 266,
+      "n_unclassified_no_refmet_match": 30,
+      "n_platforms_overlaid": 1,
+      "platforms": [
+        "not_reported"
+      ],
+      "fdr_source": [
+        "provided"
+      ],
+      "feature_id_rule": "source label ('metabolite' column, with platform suffix where the source carries one) plus ' [refmet: <name>]' when the RefMet name differs; rows whose source label is NA use the RefMet name with an explicit '[source metabolite label NA]' tag. The (source label, RefMet name) pair is the unique per-stratum identity in every cached table; neither column alone is.",
+      "refmet_match_method": "exact casefolded match of refmet_name, then metabolite, against the 'name' column of data/live/refmet_annotations.csv; no synonym or structure resolution",
+      "provenance": {
+        "status": "recorded",
+        "record": "data/live/volcano_provenance.json (human_mw block, requests list)",
+        "release_date": "2025-11-12",
+        "license": "CC BY 4.0"
+      },
+      "caveats": [
+        "The paired contrast pools the MIE and SIE exercise-intensity arms as retrieved; no arm-stratified estimate is shown.",
+        "1P/4P are read as pre/post from the MW 'Time' factor; the timing interpretation is not verified against the study protocol.",
+        "Features with fewer than three complete pairs were dropped upstream and the per-feature pair count is not carried in the cached table."
+      ]
+    },
+    {
+      "slug": "motrpac_human_endur_post",
+      "source_csv": "data/live/volcano_motrpac_human_plasma_endur_post.csv",
+      "source_csv_sha256": "15b1fd4edc2de02fd4a63999ed3db783fee1fafd1407c6bdd273c395c82ffbbe",
+      "figure": "reports_live/exercise_studies/motrpac_human_endur_post_volcano_refmet_superclass.png",
+      "backing_csv": "reports_live/exercise_studies/motrpac_human_endur_post_volcano_refmet_superclass.csv",
+      "contrast": {
+        "contrast_id": "motrpac_human_precovid_endur_post_3.5_4hr_vs_pre",
+        "numerator_label": "ADU endurance post-exercise 3.5-4 h",
+        "denominator_label": "ADU endurance pre-exercise",
+        "effect_scale": "log2fc",
+        "fdr_method": "benjamini_hochberg",
+        "fdr_scope": "within_each_platform_da_table_as_released_by_motrpac_v1.3_dream_acute",
+        "source_study_id": "MoTrPAC_human_precovid_sed_adu",
+        "source_dataset_id": "motrpac_human_plasma_endur_post",
+        "alpha": 0.05,
+        "effect_threshold": 0.0,
+        "effect_column": "log2fc",
+        "p_value_column": "p_value",
+        "fdr_column": "fdr",
+        "feature_id_column": "feature_id",
+        "tissue": "blood",
+        "omics": "metabolomics",
+        "assay": "not_reported",
+        "platform": "11 targeted and untargeted platform DA tables overlaid; see manifest",
+        "exercise_group": "EE",
+        "sex": "",
+        "display_order": 0,
+        "direction_statement": "positive log2fc = ADU endurance post-exercise 3.5-4 h higher than ADU endurance pre-exercise; negative = lower",
+        "fdr_statement": "selection uses fdr <= 0.05; benjamini_hochberg adjustment over within_each_platform_da_table_as_released_by_motrpac_v1.3_dream_acute; p_value is unadjusted"
+      },
+      "stratum": null,
+      "n_source_rows_in_table": 1657,
+      "n_rows_in_stratum": 1657,
+      "n_internal_standard_rows_excluded": 0,
+      "n_features_plotted": 1657,
+      "n_unclassified_no_refmet_match": 988,
+      "n_platforms_overlaid": 11,
+      "platforms": [
+        "metab-t-amines",
+        "metab-t-conv",
+        "metab-t-imm-crt",
+        "metab-t-oxylipneg",
+        "metab-t-tca",
+        "metab-u-hilicpos",
+        "metab-u-ionpneg",
+        "metab-u-lrpneg",
+        "metab-u-lrppos",
+        "metab-u-rpneg",
+        "metab-u-rppos"
+      ],
+      "fdr_source": [
+        "provided"
+      ],
+      "feature_id_rule": "source label ('metabolite' column, with platform suffix where the source carries one) plus ' [refmet: <name>]' when the RefMet name differs; rows whose source label is NA use the RefMet name with an explicit '[source metabolite label NA]' tag. The (source label, RefMet name) pair is the unique per-stratum identity in every cached table; neither column alone is.",
+      "refmet_match_method": "exact casefolded match of refmet_name, then metabolite, against the 'name' column of data/live/refmet_annotations.csv; no synonym or structure resolution",
+      "provenance": {
+        "status": "recorded",
+        "record": "data/live/volcano_provenance.json (motrpac block, 11 signed-url requests)",
+        "release": "human-precovid-sed-adu v1.3 dream-acute DA tables"
+      },
+      "caveats": [
+        "Eleven platform DA tables are overlaid; each carries its own per-platform BH adjustment, so the y-axis is not one study-wide FDR family.",
+        "The same RefMet name measured on several platforms appears once per platform (feature_id carries the platform suffix); these are separate measurements, not replicates of one identity."
+      ]
+    },
+    {
+      "slug": "motrpac_pass1b06_8w_female",
+      "source_csv": "data/live/volcano_motrpac_pass1b06_plasma_8w.csv",
+      "source_csv_sha256": "058903d58e9863244ac8cf18d1318a8029489e1c4ece4f970154f283d899f7d8",
+      "figure": "reports_live/exercise_studies/motrpac_pass1b06_8w_female_volcano_refmet_superclass.png",
+      "backing_csv": "reports_live/exercise_studies/motrpac_pass1b06_8w_female_volcano_refmet_superclass.csv",
+      "contrast": {
+        "contrast_id": "motrpac_pass1b06_plasma_8w_trained_vs_sedentary_female",
+        "numerator_label": "8-week endurance-trained (female)",
+        "denominator_label": "sex-matched sedentary control (female)",
+        "effect_scale": "log2fc",
+        "fdr_method": "benjamini_hochberg",
+        "fdr_scope": "within_female_stratum_pass1b06_plasma_8w_timewise_da_as_released",
+        "source_study_id": "MoTrPAC_pass1b06_rat",
+        "source_dataset_id": "motrpac_pass1b06_plasma_8w",
+        "alpha": 0.05,
+        "effect_threshold": 0.0,
+        "effect_column": "log2fc",
+        "p_value_column": "p_value",
+        "fdr_column": "fdr",
+        "feature_id_column": "feature_id",
+        "tissue": "blood",
+        "omics": "metabolomics",
+        "assay": "not_reported",
+        "platform": "not_reported",
+        "exercise_group": "",
+        "sex": "female",
+        "display_order": 0,
+        "direction_statement": "positive log2fc = 8-week endurance-trained (female) higher than sex-matched sedentary control (female); negative = lower",
+        "fdr_statement": "selection uses fdr <= 0.05; benjamini_hochberg adjustment over within_female_stratum_pass1b06_plasma_8w_timewise_da_as_released; p_value is unadjusted"
+      },
+      "stratum": {
+        "column": "sex",
+        "value": "female"
+      },
+      "n_source_rows_in_table": 2154,
+      "n_rows_in_stratum": 1077,
+      "n_internal_standard_rows_excluded": 21,
+      "n_features_plotted": 1056,
+      "n_unclassified_no_refmet_match": 756,
+      "n_platforms_overlaid": 1,
+      "platforms": [
+        "not_reported"
+      ],
+      "fdr_source": [
+        "provided"
+      ],
+      "feature_id_rule": "source label ('metabolite' column, with platform suffix where the source carries one) plus ' [refmet: <name>]' when the RefMet name differs; rows whose source label is NA use the RefMet name with an explicit '[source metabolite label NA]' tag. The (source label, RefMet name) pair is the unique per-stratum identity in every cached table; neither column alone is.",
+      "refmet_match_method": "exact casefolded match of refmet_name, then metabolite, against the 'name' column of data/live/refmet_annotations.csv; no synonym or structure resolution",
+      "provenance": {
+        "status": "retrieval_provenance_not_recorded",
+        "detail": "data/live/volcano_provenance.json covers the human mode only; the rat table was committed in afb5eb9 (2026-08-18) with no request log. The producing code path is scripts/volcano_compare.py::fetch_motrpac_rat_volcano (search_public metabolomics_timewise, study pass1b06, tissue plasma, comparison_group 8w)."
+      },
+      "caveats": [
+        "Rat training adaptation (8 weeks) versus sedentary control is not an acute exercise bout and is not comparable to the human post-versus-pre contrasts.",
+        "Retrieval provenance for this table is not recorded; treat the release version as unverified."
+      ]
+    },
+    {
+      "slug": "motrpac_pass1b06_8w_male",
+      "source_csv": "data/live/volcano_motrpac_pass1b06_plasma_8w.csv",
+      "source_csv_sha256": "058903d58e9863244ac8cf18d1318a8029489e1c4ece4f970154f283d899f7d8",
+      "figure": "reports_live/exercise_studies/motrpac_pass1b06_8w_male_volcano_refmet_superclass.png",
+      "backing_csv": "reports_live/exercise_studies/motrpac_pass1b06_8w_male_volcano_refmet_superclass.csv",
+      "contrast": {
+        "contrast_id": "motrpac_pass1b06_plasma_8w_trained_vs_sedentary_male",
+        "numerator_label": "8-week endurance-trained (male)",
+        "denominator_label": "sex-matched sedentary control (male)",
+        "effect_scale": "log2fc",
+        "fdr_method": "benjamini_hochberg",
+        "fdr_scope": "within_male_stratum_pass1b06_plasma_8w_timewise_da_as_released",
+        "source_study_id": "MoTrPAC_pass1b06_rat",
+        "source_dataset_id": "motrpac_pass1b06_plasma_8w",
+        "alpha": 0.05,
+        "effect_threshold": 0.0,
+        "effect_column": "log2fc",
+        "p_value_column": "p_value",
+        "fdr_column": "fdr",
+        "feature_id_column": "feature_id",
+        "tissue": "blood",
+        "omics": "metabolomics",
+        "assay": "not_reported",
+        "platform": "not_reported",
+        "exercise_group": "",
+        "sex": "male",
+        "display_order": 0,
+        "direction_statement": "positive log2fc = 8-week endurance-trained (male) higher than sex-matched sedentary control (male); negative = lower",
+        "fdr_statement": "selection uses fdr <= 0.05; benjamini_hochberg adjustment over within_male_stratum_pass1b06_plasma_8w_timewise_da_as_released; p_value is unadjusted"
+      },
+      "stratum": {
+        "column": "sex",
+        "value": "male"
+      },
+      "n_source_rows_in_table": 2154,
+      "n_rows_in_stratum": 1077,
+      "n_internal_standard_rows_excluded": 21,
+      "n_features_plotted": 1056,
+      "n_unclassified_no_refmet_match": 756,
+      "n_platforms_overlaid": 1,
+      "platforms": [
+        "not_reported"
+      ],
+      "fdr_source": [
+        "provided"
+      ],
+      "feature_id_rule": "source label ('metabolite' column, with platform suffix where the source carries one) plus ' [refmet: <name>]' when the RefMet name differs; rows whose source label is NA use the RefMet name with an explicit '[source metabolite label NA]' tag. The (source label, RefMet name) pair is the unique per-stratum identity in every cached table; neither column alone is.",
+      "refmet_match_method": "exact casefolded match of refmet_name, then metabolite, against the 'name' column of data/live/refmet_annotations.csv; no synonym or structure resolution",
+      "provenance": {
+        "status": "retrieval_provenance_not_recorded",
+        "detail": "data/live/volcano_provenance.json covers the human mode only; the rat table was committed in afb5eb9 (2026-08-18) with no request log. The producing code path is scripts/volcano_compare.py::fetch_motrpac_rat_volcano (search_public metabolomics_timewise, study pass1b06, tissue plasma, comparison_group 8w)."
+      },
+      "caveats": [
+        "Rat training adaptation (8 weeks) versus sedentary control is not an acute exercise bout and is not comparable to the human post-versus-pre contrasts.",
+        "Retrieval provenance for this table is not recorded; treat the release version as unverified."
+      ]
+    }
+  ],
+  "coverage_gaps": [
+    {
+      "study_id": "ST003807",
+      "status": "registered_repository_record_no_fetched_stats_table",
+      "note": "data/live/repository_records.csv lists ST003807 as a public exercise study with data files present, but no volcano/differential-abundance table has been fetched into data/live/ for it. No plot was generated; this is an availability gap in what has been retrieved, not evidence the study lacks data."
+    }
+  ],
+  "study_list_screening": "mw_exercise_studies.csv is a keyword-retrieved candidate list with no recorded query; see mw_exercise_studies_screening.json from scripts/screen_mw_exercise_study_titles.py"
+}

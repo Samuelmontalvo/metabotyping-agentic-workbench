@@ -1,0 +1,67 @@
+study_id,title,species,title_inference_class,exercise_terms_matched,ambiguous_phrases_matched,retrieval_sweep_match,evidence_basis,review_status
+ST000385,Investigation of metabolomic blood biomarkers for detection of adenocarcinoma lung cancer (training set),Homo sapiens,title_ambiguous_term_only,,training_set_ml,True,title_text_only,requires_human_review
+ST000387,Changes in the metabalome and lipidome in response to exercise training,Homo sapiens,title_supports_exercise_context,exercise;training,,True,title_text_only,requires_human_review
+ST000488,"Sleep apnea and cardiovascular metabiltes carnitine, tma, tmao, betain, choline in plasma",Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST000489,Sleep apnea and cardiovascular samples plasma acyl carnitine panel,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST000490,Sleep apnea and cardiovascular samples nueromodulators panel,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST000491,Sleep apnea and cardiovascular samples amino acid metabolites,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST000492,Sleep apnea and cardiovascular samples ceramide concentrations,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST000493,"Sleep apnea and cardiovascular samples SCFA, short chain fatty acids panel",Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST000659,Changes in metabolites and lipid mediators associated with supervised exercise training for peripheral,Homo sapiens,title_supports_exercise_context,exercise;training,,True,title_text_only,requires_human_review
+ST000762,Plasma Nucleotide/adenosine concentrations in patiens with scleroderma depending on exercise,Homo sapiens,title_supports_exercise_context,exercise,,True,title_text_only,requires_human_review
+ST000777,Metabolic Adaptations to Chronic and Acute Exercise in Overweight Adults (ATX-Study) preliminary data,Homo sapiens,title_supports_exercise_context,exercise,,True,title_text_only,requires_human_review
+ST000842,Muscle and plasma before and after exercise,Homo sapiens,title_supports_exercise_context,exercise,,True,title_text_only,requires_human_review
+ST000888,Lyme Disease Biosignature Training (95 MFs),Homo sapiens,title_ambiguous_term_only,,biosignature_training_ml,True,title_text_only,requires_human_review
+ST001068,The proteomic and metabolomic characterization of exercise-induced sweat (part -I),Homo sapiens,title_supports_exercise_context,exercise;exercise_induced,,True,title_text_only,requires_human_review
+ST001070,The global proteomic characterization of exercise-induced sweat - (part II),Homo sapiens,title_supports_exercise_context,exercise;exercise_induced,,True,title_text_only,requires_human_review
+ST001072,The in-gel proteomic characterization of exercise-induced sweat - (part III),Homo sapiens,title_supports_exercise_context,exercise;exercise_induced,,True,title_text_only,requires_human_review
+ST001246,TFPa/HADHA is required for fatty acid beta-oxidation and cardiolipin re-modeling in human cardiomyocytes (part-I),Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST001251,"The effects of a training program encompassing cold exposure, breathing exercises, and meditation on plasma metabomics during experimental human endotoxemia",Homo sapiens,title_supports_exercise_context,training,breathing_exercises,True,title_text_only,requires_human_review
+ST001364,Core Functional Nodes and Sex-Specific Pathways in Human Ischemic and Dilated Cardiomyopathy,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST001730,Mitochondrial ATP fuels ABC transporter-mediated drug efflux in cancer chemoresistance,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST001731,Mitochondrial ATP fuels ABC transporter-mediated drug efflux in cancer chemoresistance (part-II),Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST001732,Mitochondrial ATP fuels ABC transporter-mediated drug efflux in cancer chemoresistance (part-III),Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST001780,Comparative analysis of metabolomic profiles in cerebrospinal fluid before and after endurance exercise,Homo sapiens,title_supports_exercise_context,exercise;endurance,,True,title_text_only,requires_human_review
+ST001789,Acute metabolomic changes of plasma in response to endurance exercise,Homo sapiens,title_supports_exercise_context,exercise;endurance,,True,title_text_only,requires_human_review
+ST001886,Untargeted metabolomics of hypertrophic cardiomyopathy (part I),Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST001887,Untargeted lipidomics of hypertrophic cardiomyopathy (part II),Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST001893,Involvement of Mieap in Cardiolipin metabolism (part I),Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST001907,Training-induced bioenergetic improvement in human skeletal muscle is associated with non-stoichiometric changes in the mitochondrial proteome without reorganisation of respiratory chain content,Homo sapiens,title_supports_exercise_context,training;training_induced,,True,title_text_only,requires_human_review
+ST002044,An observational study of cardiovascular patients in India,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST002114,Involvement of Mieap in Cardiolipin metabolism (part I-revised),Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST002183,Individualized exercise intervention for people with multiple myeloma improves quality of life in a randomized controlled trial,Homo sapiens,title_supports_exercise_context,exercise,,True,title_text_only,requires_human_review
+ST002185,Lipidomic characterization of Jurkat-derived T cell line in which the chaperonin complex CCT has been partially silenced,Homo sapiens,title_no_exercise_term,,,False,title_text_only,requires_human_review
+ST002576,Role of environmental toxicants in obesity-related cardiovascular disease: Plasma untargeted LC-HRMS analysis (part 1 of 3),Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST002716,"Ventricle-specific myocardial protein and metabolite characterisation in healthy humans, with differential regulation in end-stage cardiomyopathies (Part 1)",Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST002717,"Ventricle-specific myocardial protein and metabolite characterisation in healthy humans, with differential regulation in end-stage cardiomyopathies (Part 2)",Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST002797,Fetal metabolic adaptations to cardiovascular stress in twin-twin transfusion syndrome,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST002871,Role of environmental toxicants in obesity-related cardiovascular disease- Part 2 GC-MS analysis of plasma,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST003031,Early time-restricted eating improves markers of cardiometabolic health but has no impact on nutrient absorption in healthy adults,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST003139,Endothelial-Dependent Vascular Reactivity After Cardiopulmonary Bypass is Associated with Unique Metabolomic Signatures,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST003274,Metabolomics analysis within healthy donors and end-stage heart failure with a focus on ischaemic cardiomyopathy with diabetes,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST003275,Lipidomics analysis within healthy donors and end-stage heart failure with a focus on ischaemic cardiomyopathy with diabetes,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST003415,Role of environmental toxicants in obesity-related cardiovascular disease- Part 3 GC-MS analysis of adipose tissue,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST003559,Metabolomics and N-methyl-arginine uptake in control (siNTC) and cationic amino acid transporter knockdown HEK293 cells.,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST003632,Dysregulated Lipid Metabolism in African American Women Who Experienced Cardiometabolic Complications of Pregnancy,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST003662,Metabolome trajectory of exercise physiology- a comprehensive study of healthy male and female athletes,Homo sapiens,title_supports_exercise_context,exercise;athlete,,True,title_text_only,requires_human_review
+ST003686,Characterization of the transpulmonary metabolome at the intersection of pulmonary vascular disease and exercise,Homo sapiens,title_supports_exercise_context,exercise,,True,title_text_only,requires_human_review
+ST003710,Integrating Metagenomics and Metabolomics to Study the Gut Microbiome and Host Relationships in Sports Across Different Energy Systems,Homo sapiens,title_supports_exercise_context,sport,,True,title_text_only,requires_human_review
+ST003791,Associations between lipoprotein subclasses and cardiovascular health in ageing,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST003806,Selective Influence of Hemp Fiber Ingestion on Post-Exercise Gut Permeability: A Metabolomics-Based Analysis,Homo sapiens,title_supports_exercise_context,exercise;post_exercise,,True,title_text_only,requires_human_review
+ST003807,A lipidomic exploration of the effects of high-intensity interval exercise in healthy men after metformin intake,Homo sapiens,title_supports_exercise_context,exercise;hiit_or_interval,,True,title_text_only,requires_human_review
+ST003929,Imidazole propionate is a driver and therapeutic target in atherosclerosis (study 1),Homo sapiens,title_no_exercise_term,,,False,title_text_only,requires_human_review
+ST004015,SLC45A4 encodes a peroxisomal putrescine transporter that promotes GABA de novo synthesis,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST004054,Machine learning identifies SLC25A45 as necessary for transport of mitochondrial methylated amino acids and carnitine synthesis,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST004135,The SLC1A1/EAAT3 Dicarboxylic Amino Acid Transporter is an Epigenetically Dysregulated Nutrient Carrier that Sustains Oncogenic Metabolic Programs,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST004275,Cardiometabolic and molecular adaptations to 6-month intermittent fasting in middle-aged men and women with overweight: secondary outcomes of a randomized controlled trial,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST004303,Exercise intensity modulates the human plasma secretome and interorgan communication,Homo sapiens,title_supports_exercise_context,exercise,,True,title_text_only,requires_human_review
+ST004323,Human Hearts intrinsically increase cardiomyocyte mitosis following myocardial infarction,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST004410,Uncoupling de novo pyrimidine biosynthesis from mitochondrial electron transport by ectopic expression of cytosolic DHODH,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST004411,Uncoupling de novo pyrimidine biosynthesis from mitochondrial electron transport by ectopic expression of cytosolic DHODH (tracing experiments),Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST004547,"Understanding the role of gut microbiome in the relationship between environment, S. mansoni infection and Cardiovascular risk.",Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST004571,Metabolomic signatures of Cardiovascular Disease Patients in High-Altitude Environments,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST004582,"Cysteine boosts fitness to hypoxia by promoting sulphur and carbon metabolism reprograming, in ovarian cancer",Homo sapiens,title_ambiguous_term_only,,fitness_biological_sense,True,title_text_only,requires_human_review
+ST004750,Cardiolipin Remodeling during Osteogenic Differentiation of Human Adipose-Derived Stem Cells,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST004885,Identification of Plasma Metabolites Prognostic of Acute Kidney Injury after Cardiac Surgery with Cardiopulmonary Bypass,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST005032,Exploring cardiometabolic markers in adverse pregnancy outcomes: insights from the GROWell study,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review
+ST005080,Untargeted metabolomic profiling identifies N-lactoyl amino acids as transporter substrates of human MCT6 in vitro.,Homo sapiens,title_no_exercise_term,,,True,title_text_only,requires_human_review

@@ -1,0 +1,54 @@
+{
+  "input": {
+    "path": "reports_live/exercise_studies/mw_exercise_studies.csv",
+    "sha256": "b93732dbc969aec6da44fa8a4dc93d85d9bfd19ea0c3831ddb7d592220188fe7",
+    "rows": 66,
+    "provenance_status": "retrieval_query_and_endpoint_not_recorded",
+    "retrieval_hypothesis": {
+      "pattern": "exercis|train|fitness|sport|athlet|cardio",
+      "titles_matching": 64,
+      "titles_not_matching": [
+        "ST002185",
+        "ST003929"
+      ],
+      "note": "Most input titles match this sweep and no title in data/live/mw_human_candidates.csv matches it without being in the list; the titles that do not match show the retrieval also read text beyond the title. This is an inference about how the list was produced, not a recorded query."
+    }
+  },
+  "outputs": {
+    "screened_csv": "reports_live/exercise_studies/mw_exercise_studies_screened.csv"
+  },
+  "class_counts": {
+    "title_ambiguous_term_only": 3,
+    "title_no_exercise_term": 44,
+    "title_supports_exercise_context": 19
+  },
+  "patterns": {
+    "ambiguous_phrases": {
+      "training_set_ml": "\\btraining\\s*set\\b",
+      "biosignature_training_ml": "\\bbiosignature\\s+training\\b",
+      "fitness_biological_sense": "\\bfitness\\s+to\\s+hypoxia\\b",
+      "breathing_exercises": "\\bbreathing\\s+exercises?\\b"
+    },
+    "exercise_terms": {
+      "exercise": "\\bexercis(?:e|es|ed|ing)\\b",
+      "post_exercise": "\\bpost[- ]exercise\\b",
+      "exercise_induced": "\\bexercise[- ]induced\\b",
+      "training": "\\btraining\\b",
+      "training_induced": "\\btraining[- ]induced\\b",
+      "athlete": "\\bathlet\\w*",
+      "sport": "\\bsports?\\b",
+      "endurance": "\\bendurance\\b",
+      "hiit_or_interval": "\\bhiit\\b|\\bhigh[- ]intensity\\s+interval\\b",
+      "physical_activity": "\\bphysical\\s+activity\\b",
+      "cardiorespiratory_fitness": "\\bcardiorespiratory\\s+fitness\\b",
+      "marathon_running_cycling": "\\bmarathon\\b|\\brunning\\b|\\bcycling\\b",
+      "resistance_training": "\\bresistance\\s+training\\b"
+    }
+  },
+  "evidence_basis": "title_text_only",
+  "interpretation_limits": [
+    "A title term is inference about study context; it does not establish an exercise intervention, a sampled timepoint, or a blood-derived matrix.",
+    "A study with no exercise term in its title may still contain an exercise arm; absence here is a screening outcome, not evidence of absence.",
+    "Every row is routed to human review; nothing in this file is an inclusion decision."
+  ]
+}
