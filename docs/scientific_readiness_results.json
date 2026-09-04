@@ -3,11 +3,12 @@
     "error": 0,
     "expected_failure": 0,
     "failed": 0,
-    "passed": 295,
+    "passed": 337,
     "skipped": 0,
     "unexpected_success": 0
   },
   "discovered_modules": [
+    "test_analysis_linalg",
     "test_assay_harmonization",
     "test_benchmark",
     "test_biomarker_reproduction",
@@ -382,6 +383,27 @@
       "purpose": "Validates that only allowlisted live-ingestion modules import a network client, that offline pilot modules stay offline, and that the documented allowlist matches the enforced one.",
       "status": "pass",
       "tests": 4
+    },
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
+        "passed": 42,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_analysis_linalg"
+      ],
+      "name": "deterministic_multivariate_statistics",
+      "observed_modules": [
+        "test_analysis_linalg"
+      ],
+      "purpose": "Validates that the stdlib analysis numerics are byte-reproducible: that the eigensolver converges on a norm-consistent criterion rather than stopping near the square root of machine epsilon, that its threshold phase cannot report success having applied no rotation, that eigenvector signs and permutation streams do not depend on input row or column order or on the interpreter, that a degenerate eigenvalue subspace is reported rather than given an invented convention, and that a published float carries no negative zero and no non-finite value.",
+      "status": "pass",
+      "tests": 42
     }
   ],
   "independent_external_validation": false,
@@ -394,7 +416,7 @@
   "nonpassing_tests": [],
   "schema_version": "1.0",
   "strict_release_gate_status": "pass",
-  "tests_run": 295,
+  "tests_run": 337,
   "unmapped_modules": [],
   "unmapped_nonpassing_tests": [],
   "validation_scope": "offline deterministic repository regression tests over synthetic fixtures and checksum-bound cached public artifacts"
