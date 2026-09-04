@@ -89,6 +89,74 @@ committed pilot artifacts and the documented command.
   output with and without `pydantic` installed (the `_compat` fallback), so the
   gap was a regeneration omission, not an environment effect.
 
+### Added — deterministic analysis numerics
+
+First slice of an offline analysis package (`src/metabotyping_agentic/analysis/`)
+for multivariate statistics and effect-size synthesis. Foundations only: special
+functions, reproducibility primitives, and linear algebra. Nothing is wired into
+`run-pilot` yet, so no committed artifact changes.
+
+- **`analysis/special_functions.py` is now the canonical home for the
+  incomplete beta.** `_betacf` and `regularized_beta` moved out of
+  `live_sources/motrpac_volcano_compare.py`, which is on the network-boundary
+  allowlist, and the live module re-exports them. The dependency direction is
+  now allowlisted-to-offline, so an offline analysis never loads a module that
+  opens a socket. The moved arithmetic is bit-identical, verified by exact float
+  equality on 180 grid points spanning both continued-fraction branches and on
+  400 paired-t inputs. Added alongside it: `regularized_gamma_p`/`_q` for the
+  chi-square tail, `student_t_sf`/`student_t_quantile`, `chi_square_sf`,
+  `f_distribution_sf`/`_quantile`, `regularized_beta_inverse`, `normal_cdf`,
+  `normal_quantile_two_sided`, and exact-integer `mann_whitney_exact_counts`.
+  The one-way ANOVA tail is expressed through `regularized_beta`, so the t and F
+  tails share one continued fraction. Every root-find runs a fixed 200-step
+  bisection rather than exiting on a tolerance, so the iteration count is a
+  versioned constant instead of a function of the input.
+- **`analysis/determinism.py` centralizes what breaks byte reproducibility.**
+  `published()` rounds every artifact-bound float to ten decimal digits and
+  normalizes `-0.0`, whose `repr` differs from `0.0` and would otherwise change
+  committed bytes for a value of zero. Ten digits leaves three digits of margin
+  over the x86_64-versus-arm64 libm disagreement already recorded in
+  `scripts/run_metabolite_effect_search.py`. Permutation tests draw from a fully
+  specified MMIX linear congruential generator with rejection sampling, because
+  the Mersenne Twister stream and `random.shuffle`'s internals are CPython
+  implementation details rather than a stability contract. Cost ceilings are
+  declared here so an oversized request is refused with an ordered remediation
+  instead of hanging a pilot run.
+- **`analysis/linalg.py` computes eigendecompositions by cyclic Jacobi**, using
+  only the five operations IEEE-754 requires to be correctly rounded. It avoids
+  `math.hypot` (not correctly-rounded-mandated, and its CPython accuracy has
+  changed) and the Wilkinson shift's sign branches, where inputs differing in
+  the last bit can take different paths. `gram_matrix` makes the p-much-greater-
+  than-n case tractable: a 5000-by-5000 covariance matrix is roughly 1.6 GB of
+  Python floats and about a day of sweeps, while the n-by-n Gram route gives the
+  same spectrum in seconds. Eigenvector signs are canonicalized on the *loading*
+  vector with ties broken by `feature_id`, because permuting sample rows permutes
+  a score vector's components while leaving a loading vector's indices untouched;
+  eigenvalues, loadings, and scores are consequently bit-identical under row and
+  column permutation. A degenerate eigenvalue subspace is reported as
+  `degenerate_subspace_rotation_arbitrary` rather than given an invented
+  convention.
+- **Three defects were found and fixed during implementation**, each now carrying
+  a regression test that names it. The convergence test compared the off-diagonal
+  *sum of squares* against a bound scaled by the Frobenius *norm*; the units
+  disagree, so sweeps stopped near the square root of machine epsilon and
+  published eigenvalues carried a relative error near 1e-10 instead of 3e-16.
+  The Rutishauser threshold was derived from a norm rather than from the sum of
+  absolute off-diagonals, making it large enough to skip every rotation. And the
+  "no progress this sweep means converged" rule fired during the threshold phase,
+  which skips rotations by design — together with the threshold defect, a matrix
+  with decades-apart column scales was returned undecomposed while reporting
+  success. Post-fix, relative reconstruction error is at most 3.4e-16 and
+  orthonormality error at most 1.2e-15 across sizes 5 to 60, including inputs
+  whose column scales span 1e-8 to 1e8.
+- **Four private helpers are now public**, with the private names retained as
+  aliases so no call site or test changes: `cohort_bundle.sha256_path` and
+  `safe_input_path`, and `plotting.metabolomics.hierarchy_value` and
+  `annotation_is_accepted`. The analysis package consumes these, and a
+  cross-package consumer should not reach for an underscore-prefixed symbol.
+- New readiness gate `deterministic_multivariate_statistics` owns
+  `tests/test_analysis_linalg.py` (42 tests).
+
 ### Known limitations
 
 - The dataset-readiness scorer still credits modality subscores regardless of

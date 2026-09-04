@@ -310,7 +310,9 @@ def _mapping_is_accepted(row: Mapping[str, Any]) -> bool:
     return _text(row.get("mapping_status")).lower() in ACCEPTED_MAPPING_STATUSES
 
 
-def _annotation_is_accepted(row: Mapping[str, Any]) -> bool:
+def annotation_is_accepted(row: Mapping[str, Any]) -> bool:
+    """Return whether a RefMet annotation row is accepted for hierarchy use."""
+
     status = _text(row.get("annotation_status")).lower()
     if status:
         return status in ACCEPTED_ANNOTATION_STATUSES
@@ -326,7 +328,7 @@ def _annotation_is_accepted(row: Mapping[str, Any]) -> bool:
     }
 
 
-def _hierarchy_value(row: Mapping[str, Any], level: str) -> str:
+def hierarchy_value(row: Mapping[str, Any], level: str) -> str:
     """Read one canonical RefMet level while rejecting conflicting aliases."""
 
     values = {
@@ -340,6 +342,12 @@ def _hierarchy_value(row: Mapping[str, Any], level: str) -> str:
             + ", ".join(sorted(values))
         )
     return next(iter(values), "")
+
+
+# Private aliases retained for existing call sites and tests. The public
+# names above are what the analysis package imports.
+_annotation_is_accepted = annotation_is_accepted
+_hierarchy_value = hierarchy_value
 
 
 def _normalise_contrasts(
