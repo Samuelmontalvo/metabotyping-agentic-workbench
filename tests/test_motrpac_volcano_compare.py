@@ -9,6 +9,7 @@ from metabotyping_agentic.cli import main
 from metabotyping_agentic.live_sources.motrpac_volcano_compare import (
     ambiguous_feature_key_count,
     bh_adjust,
+    classify_mw_timepoint,
     compute_mw_volcano_stats,
     derive_motrpac_between_group_contrasts,
     discover_motrpac_da_objects_from_bundle,
@@ -233,6 +234,32 @@ class MotrpacVolcanoCompareTests(unittest.TestCase):
         )
         output = subprocess.check_output([rscript, "-e", command], text=True)
         self.assertEqual(output.strip().split(), ["#d95f02", "#1b9e77", "#7570b3", "#5555ff", "#f95c6f"])
+
+    def test_mw_timepoint_fallback_tokens_respect_boundaries(self):
+        # An explicit Time factor is authoritative.
+        self.assertEqual(classify_mw_timepoint("Sample source:Blood | Time:1P"), "pre")
+        self.assertEqual(classify_mw_timepoint("Time:4P"), "time_4p")
+        # Documented fallback conventions (ST001789-style factors and sample IDs).
+        self.assertEqual(classify_mw_timepoint("Group:Pre"), "pre")
+        self.assertEqual(classify_mw_timepoint("Group:Time 0"), "time_0")
+        self.assertEqual(classify_mw_timepoint("Group:Time 60"), "time_60")
+        self.assertEqual(classify_mw_timepoint("Collection:pre_exercise"), "pre")
+        self.assertEqual(classify_mw_timepoint("P1_B"), "pre")
+        self.assertEqual(classify_mw_timepoint("P1_R2"), "time_0")
+        self.assertEqual(classify_mw_timepoint("P1_R3"), "time_60")
+        # Substrings that previously produced a timepoint the study never declared.
+        for text in [
+            "Diagnosis:prediabetes",
+            "Treatment:prednisone",
+            "Sample source:Blood | Group:Control",
+            "Pressure:high",
+            "CTR2_01",
+            "Group:R30",
+            "Time 05 min",
+            "",
+        ]:
+            with self.subTest(text=text):
+                self.assertEqual(classify_mw_timepoint(text), "unknown")
 
     def test_mw_paired_stats_and_bh_adjustment(self):
         rows = compute_mw_volcano_stats(_records(fixture_mw_data()), _records(fixture_factors()))

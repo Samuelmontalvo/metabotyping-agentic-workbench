@@ -126,6 +126,11 @@ GATES = (
         "Validates that only allowlisted live-ingestion modules import a network client, that offline pilot modules stay offline, and that the documented allowlist matches the enforced one.",
         ("test_network_boundary",),
     ),
+    Gate(
+        "deterministic_multivariate_statistics",
+        "Validates that the stdlib analysis numerics are byte-reproducible: that the eigensolver converges on a norm-consistent criterion rather than stopping near the square root of machine epsilon, that its threshold phase cannot report success having applied no rotation, that eigenvector signs and permutation streams do not depend on input row or column order or on the interpreter, that a degenerate eigenvalue subspace is reported rather than given an invented convention, and that a published float carries no negative zero and no non-finite value.",
+        ("test_analysis_linalg",),
+    ),
 )
 
 CONFIGURED_MODULES = tuple(module for gate in GATES for module in gate.modules)

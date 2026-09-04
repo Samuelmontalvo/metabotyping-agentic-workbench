@@ -13,6 +13,7 @@
     ],
     "notes": "Direct match with exercise metabolomics genetics CPET and diet",
     "provenance": {
+      "publication_evidence": "source_provided",
       "repository_row_keys": [
         "SYN-METEX-GEN::Metabolomics Workbench::MWB-SYN-001::row-2"
       ],
@@ -41,6 +42,7 @@
     ],
     "notes": "Direct match with actigraphy and metabolomics",
     "provenance": {
+      "publication_evidence": "source_provided",
       "repository_row_keys": [
         "SYN-ACTI-MET::Metabolomics Workbench::MWB-SYN-002::row-3"
       ],
@@ -71,6 +73,7 @@
     ],
     "notes": "Complementary genetics and diet metadata without exercise",
     "provenance": {
+      "publication_evidence": "source_provided",
       "repository_row_keys": [
         "SYN-OMICS-GEN::dbGaP::DBGAP-SYN-003::row-4"
       ],
@@ -107,6 +110,7 @@
     ],
     "notes": "Looks relevant but lacks deposited repository data",
     "provenance": {
+      "publication_evidence": "source_provided",
       "repository_row_keys": [
         "SYN-EXER-NODATA::unknown::not_available::row-5"
       ],
@@ -132,6 +136,7 @@
     ],
     "notes": "Animal-only exclusion",
     "provenance": {
+      "publication_evidence": "source_provided",
       "repository_row_keys": [
         "SYN-ANIMAL-MET::Metabolomics Workbench::MWB-SYN-005::row-6"
       ],
@@ -160,6 +165,7 @@
     ],
     "notes": "Metabolomics available but variable dictionary missing",
     "provenance": {
+      "publication_evidence": "source_provided",
       "repository_row_keys": [
         "SYN-MET-NOCODEBOOK::Metabolomics Workbench::MWB-SYN-006::row-7"
       ],
@@ -189,6 +195,7 @@
     ],
     "notes": "CPET rich direct match",
     "provenance": {
+      "publication_evidence": "source_provided",
       "repository_row_keys": [
         "SYN-CPET-RICH::Metabolomics Workbench::MWB-SYN-007::row-8"
       ],
@@ -221,6 +228,7 @@
     ],
     "notes": "Best synthetic MoTrPAC-style alignment",
     "provenance": {
+      "publication_evidence": "source_provided",
       "repository_row_keys": [
         "SYN-MOTRPAC-LIKE::Metabolomics Workbench::MWB-SYN-008::row-9"
       ],
@@ -249,6 +257,7 @@
     ],
     "notes": "Enrichment candidate for diet and body composition",
     "provenance": {
+      "publication_evidence": "source_provided",
       "repository_row_keys": [
         "SYN-DIET-BODY::Metabolomics Workbench::MWB-SYN-009::row-10"
       ],
@@ -278,6 +287,7 @@
     ],
     "notes": "Restricted data with metadata only",
     "provenance": {
+      "publication_evidence": "source_provided",
       "repository_row_keys": [
         "SYN-RESTRICTED-META::dbGaP::DBGAP-SYN-010::row-11"
       ],

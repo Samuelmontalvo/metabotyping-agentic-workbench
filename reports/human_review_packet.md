@@ -15,7 +15,7 @@
 | SYN-CPET-RICH | total_lean_mass | lean_mass | 0.88 | Human review required because confidence or metadata completeness is insufficient. |
 | SYN-DIET-BODY | body_mass_index | bmi | 0.88 | Human review required because confidence or metadata completeness is insufficient. |
 | SYN-DIET-BODY | dxa_lean_mass | lean_mass | 0.88 | Human review required because confidence or metadata completeness is insufficient. |
-| SYN-RESTRICTED-META | gender | sex | 0.88 | Human review required because confidence or metadata completeness is insufficient. |
+| SYN-RESTRICTED-META | gender | sex | 0.78 | Confirm whether the source variable records biological sex or gender identity; the two are distinct constructs and are not interchangeable. |
 | SYN-MET-NOCODEBOOK | metab_feature_001 | not_mapped | 0.2 | Rejected by deterministic guardrail; only override with documented expert rationale. |
 | SYN-DIET-BODY | diet_score | not_mapped | 0.2 | Rejected by deterministic guardrail; only override with documented expert rationale. |
 

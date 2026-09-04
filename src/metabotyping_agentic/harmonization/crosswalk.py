@@ -41,6 +41,25 @@ COMMON_UNITS = {
     "fat_mass": "kg",
 }
 
+# Deterministic unit transforms, keyed by common variable because a
+# molar-to-mass factor is analyte specific: 18.0182 mg/dL per mmol/L is
+# glucose's factor and would be wrong for any other mg/dL target.
+UNIT_CONVERSIONS: dict[tuple[str, str, str], str] = {
+    ("fasting_glucose", "mmol/l", "mg/dl"): "multiply_by_18.0182",
+}
+
+# Source names that reach a common variable through a synonym list but name a
+# different construct. The mapping stays proposable, but the evidence must say
+# what a reviewer has to confirm before treating the two as the same variable.
+CONSTRUCT_CAVEATS: dict[str, dict[str, str]] = {
+    "sex": {
+        "gender": (
+            "Gender and sex are distinct constructs; confirm whether the source "
+            "variable recorded biological sex or gender identity."
+        ),
+    },
+}
+
 EXPECTED_MODALITY = {
     "vo2max": {"cpet", "exercise"},
     "steps_per_day": {"actigraphy", "physical_activity"},
@@ -98,16 +117,16 @@ def common_variable_for(card: VariableCard) -> tuple[str, str]:
     return "not_mapped", "no_supported_synonym"
 
 
-def choose_transform(source_unit: str, common_unit: str) -> tuple[str, bool]:
+def choose_transform(common: str, source_unit: str, common_unit: str) -> tuple[str, bool]:
     source = source_unit.strip().lower()
     target = common_unit.strip().lower()
     if source in {"", "unknown", "not_reported"} or target in {"", "unknown"}:
         return "not_available", False
-    if source == target.lower():
+    if source == target:
         return "identity", True
-    glucose_pairs = {("mmol/l", "mg/dl"), ("mmol/l", "mg/dl")}
-    if (source, target) in glucose_pairs:
-        return "multiply_by_18.0182", True
+    conversion = UNIT_CONVERSIONS.get((common, source, target))
+    if conversion is not None:
+        return conversion, True
     return "unit_conversion_requires_review", False
 
 
@@ -134,7 +153,7 @@ def score_mapping(card: VariableCard) -> VariableMapping:
         )
 
     common_unit = COMMON_UNITS[common]
-    transform, unit_ok = choose_transform(source_unit, common_unit)
+    transform, unit_ok = choose_transform(common, source_unit, common_unit)
     modality_ok = source_modality in EXPECTED_MODALITY.get(common, {source_modality})
     timing_ok = source_timing.lower() not in {"", "unknown", "not_reported"}
     exact_name = normalize_name(card.source_variable) == common
@@ -169,6 +188,12 @@ def score_mapping(card: VariableCard) -> VariableMapping:
     if common == "vo2max" and normalize_name(card.source_variable) in {"vo2peak", "peak_vo2"}:
         confidence = min(confidence, 0.78)
         evidence.append("VO2peak and VO2max are not accepted as equivalent without protocol evidence.")
+    construct_caveat = CONSTRUCT_CAVEATS.get(common, {}).get(normalize_name(card.source_variable))
+    if construct_caveat is None:
+        construct_caveat = CONSTRUCT_CAVEATS.get(common, {}).get(normalize_name(card.label))
+    if construct_caveat is not None:
+        confidence = min(confidence, 0.78)
+        evidence.append(construct_caveat)
 
     confidence = max(0.0, min(round(confidence, 2), 0.99))
     if not modality_ok:

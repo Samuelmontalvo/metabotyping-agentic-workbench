@@ -10,6 +10,7 @@
   ],
   "notes": "CPET rich direct match",
   "provenance": {
+    "publication_evidence": "source_provided",
     "repository_row_keys": [
       "SYN-CPET-RICH::Metabolomics Workbench::MWB-SYN-007::row-8"
     ],

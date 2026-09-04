@@ -99,23 +99,30 @@ def write_mapping_inputs(
 def write_quality_inputs(
     predicted_dir: Path,
     gold_dir: Path,
-    predicted_scores: list[tuple[str, str | float]],
+    predicted_scores: list[tuple[str, str | float | None]],
     gold_scores: list[tuple[str, str | float]],
+    *,
+    predicted_scopes: dict[str, str] | None = None,
+    gold_scopes: dict[str, str] | None = None,
 ) -> None:
-    write_json(
-        predicted_dir / "quality_scores.json",
-        [
-            {"study_id": study_id, "overall_score": score}
-            for study_id, score in predicted_scores
-        ],
-    )
+    predicted_rows = []
+    for study_id, score in predicted_scores:
+        row = {"study_id": study_id, "overall_score": score}
+        if predicted_scopes and study_id in predicted_scopes:
+            row["scope_status"] = predicted_scopes[study_id]
+        predicted_rows.append(row)
+    write_json(predicted_dir / "quality_scores.json", predicted_rows)
+    fieldnames = ["study_id", "overall_score"]
+    gold_rows = []
+    for study_id, score in gold_scores:
+        row = {"study_id": study_id, "overall_score": score}
+        if gold_scopes is not None:
+            row["scope_status"] = gold_scopes.get(study_id, "")
+        gold_rows.append(row)
+    if gold_scopes is not None:
+        fieldnames.append("scope_status")
     write_csv_rows(
-        gold_dir / "expert_quality_scores.csv",
-        [
-            {"study_id": study_id, "overall_score": score}
-            for study_id, score in gold_scores
-        ],
-        fieldnames=["study_id", "overall_score"],
+        gold_dir / "expert_quality_scores.csv", gold_rows, fieldnames=fieldnames
     )
 
 
@@ -306,6 +313,103 @@ class BenchmarkTests(unittest.TestCase):
                 ("quality", study_id, None)
                 for study_id in ("Q2", "Q3", "Q4")
             ],
+        )
+
+    def test_scope_status_gates_the_numeric_quality_comparison(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            predicted_dir, gold_dir, out_dir = write_mapping_inputs(
+                root, [predicted_mapping("A", "accepted")], [gold_mapping("A", "accepted")]
+            )
+            write_quality_inputs(
+                predicted_dir,
+                gold_dir,
+                [("A", "0.80"), ("B", None), ("C", "0.50"), ("D", None)],
+                [("A", "0.75"), ("B", "0.20"), ("C", "0.30"), ("D", "0.40")],
+                predicted_scopes={
+                    "A": "in_scope_human",
+                    "B": "out_of_scope_non_human",
+                    "C": "in_scope_human",
+                    "D": "out_of_scope_non_human",
+                },
+                gold_scopes={
+                    "A": "in_scope_human",
+                    "B": "out_of_scope_non_human",
+                    "C": "out_of_scope_non_human",
+                },
+            )
+            results = benchmark(predicted_dir, gold_dir, out_dir)
+            cases = read_json(out_dir / "benchmark_case_results.json")
+            manifest = read_json(out_dir / "benchmark_manifest.json")
+
+        details = {result.metric_name: result.details for result in results}
+        values = {result.metric_name: result.value for result in results}
+        # Numeric agreement is defined over gold studies not declared out of
+        # scope: A (within 0.05) and D (undeclared, prediction withheld) -> 1/2.
+        self.assertEqual(values["quality_score_agreement_within_0.15"], 0.5)
+        self.assertEqual(details["quality_score_agreement_within_0.15"]["denominator"], 2)
+        self.assertEqual(
+            details["quality_score_agreement_within_0.15"]["out_of_scope_excluded"], 2
+        )
+        # Scope accuracy is defined over gold studies with a declared scope: A, B, C.
+        self.assertEqual(values["scope_status_accuracy"], 0.667)
+        self.assertEqual(details["scope_status_accuracy"]["denominator"], 3)
+
+        by_study = {case["source_study"]: case for case in cases if case["case_type"] == "quality"}
+        self.assertEqual(by_study["A"]["outcome"], "correct")
+        self.assertEqual(by_study["B"]["outcome"], "correct")
+        self.assertIsNone(by_study["B"]["within_tolerance"])
+        self.assertIsNone(by_study["B"]["predicted"]["overall_score"])
+        self.assertEqual(by_study["C"]["reason_codes"], ["scope_status_mismatch"])
+        self.assertIsNone(by_study["C"]["within_tolerance"])
+        self.assertEqual(by_study["D"]["reason_codes"], ["quality_score_not_reported"])
+        self.assertEqual(
+            manifest["parameters"]["quality_metric_denominator"],
+            "gold_studies_not_declared_out_of_scope",
+        )
+
+    def test_withheld_score_without_out_of_scope_declaration_fails_closed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            predicted_dir, gold_dir, out_dir = write_mapping_inputs(
+                root, [predicted_mapping("A", "accepted")], [gold_mapping("A", "accepted")]
+            )
+            write_quality_inputs(predicted_dir, gold_dir, [("Q1", None)], [("Q1", "0.5")])
+            with self.assertRaisesRegex(BenchmarkInputError, "only an out_of_scope_non_human"):
+                benchmark(predicted_dir, gold_dir, out_dir)
+            self.assertFalse((out_dir / "benchmark_results.json").exists())
+
+            write_quality_inputs(
+                predicted_dir,
+                gold_dir,
+                [("Q1", "0.5")],
+                [("Q1", "")],
+                gold_scopes={"Q1": "in_scope_human"},
+            )
+            with self.assertRaisesRegex(BenchmarkInputError, "only an out_of_scope_non_human"):
+                benchmark(predicted_dir, gold_dir, out_dir)
+
+            write_quality_inputs(
+                predicted_dir, gold_dir, [("Q1", "0.5")], [("Q1", "0.5")],
+                gold_scopes={"Q1": "not_a_scope"},
+            )
+            with self.assertRaisesRegex(BenchmarkInputError, "scope_status"):
+                benchmark(predicted_dir, gold_dir, out_dir)
+
+    def test_undeclared_gold_scope_keeps_legacy_numeric_comparison(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            predicted_dir, gold_dir, out_dir = write_mapping_inputs(
+                root, [predicted_mapping("A", "accepted")], [gold_mapping("A", "accepted")]
+            )
+            write_quality_inputs(predicted_dir, gold_dir, [("Q1", "0.60")], [("Q1", "0.50")])
+            results = benchmark(predicted_dir, gold_dir, out_dir)
+        by_name = {result.metric_name: result for result in results}
+        self.assertEqual(by_name["quality_score_agreement_within_0.15"].value, 1.0)
+        self.assertIsNone(by_name["scope_status_accuracy"].value)
+        self.assertEqual(
+            by_name["scope_status_accuracy"].details["undefined_reason"],
+            "scope_status_not_declared_in_gold",
         )
 
     def test_zero_denominators_are_null_and_one_sided_empty_is_defined(self):
@@ -804,7 +908,8 @@ class BenchmarkTests(unittest.TestCase):
             self.assertEqual(manifest["manifest_version"], "1.0.0")
             # The rule-set version is pinned deliberately: it must only move when
             # the scoring rules change, independently of the package release.
-            self.assertEqual(manifest["benchmark_rule_set_version"], "0.2.0")
+            self.assertEqual(manifest["benchmark_rule_set_version"], "0.3.0")
+            self.assertEqual(manifest["rule_set_version"], "0.3.0")
             # The software version tracks the package, so a release bump does not
             # look like a benchmark regression.
             self.assertEqual(manifest["software_version"], metabotyping_agentic.__version__)
@@ -896,7 +1001,7 @@ class BenchmarkTests(unittest.TestCase):
             ],
             METRIC_NAMES,
         )
-        self.assertEqual(properties["metric_names"]["minItems"], 9)
+        self.assertEqual(properties["metric_names"]["minItems"], 10)
         self.assertEqual(properties["inputs"]["minItems"], 4)
         self.assertEqual(properties["outputs"]["minItems"], 4)
         self.assertEqual(
@@ -925,7 +1030,11 @@ class BenchmarkTests(unittest.TestCase):
             ) as handle:
                 disagreements = list(csv.DictReader(handle))
         values = [result.value for result in results]
-        self.assertEqual(values, [1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.8])
+        # Scoring rule set 0.3.0: the documented non-human fixture is compared on
+        # scope, not on a number, so the numeric denominator is 9 and the only
+        # remaining numeric disagreement is the no-data mirage (see the review
+        # document's availability-gate proposal).
+        self.assertEqual(values, [1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.889, 1.0])
         by_name = {result.metric_name: result.details for result in results}
         expected_counts = {
             "candidate_precision": (24, 24),
@@ -935,12 +1044,16 @@ class BenchmarkTests(unittest.TestCase):
             "unsafe_auto_accept_rate": (0, 12),
             "review_capture_rate": (12, 12),
             "review_status_accuracy": (26, 26),
-            "quality_score_agreement_within_0.15": (8, 10),
+            "quality_score_agreement_within_0.15": (8, 9),
+            "scope_status_accuracy": (10, 10),
         }
         for metric_name, (numerator, denominator) in expected_counts.items():
             with self.subTest(metric_name=metric_name):
                 self.assertEqual(by_name[metric_name]["numerator"], numerator)
                 self.assertEqual(by_name[metric_name]["denominator"], denominator)
+        self.assertEqual(
+            by_name["quality_score_agreement_within_0.15"]["out_of_scope_excluded"], 1
+        )
         quality_disagreements = [
             row
             for row in disagreements
@@ -948,7 +1061,10 @@ class BenchmarkTests(unittest.TestCase):
         ]
         self.assertEqual(
             {row["source_study"] for row in quality_disagreements},
-            {"SYN-ANIMAL-MET", "SYN-EXER-NODATA"},
+            {"SYN-EXER-NODATA"},
+        )
+        self.assertNotIn(
+            "SYN-ANIMAL-MET", {row["source_study"] for row in disagreements}
         )
 
 

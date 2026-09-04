@@ -3,11 +3,12 @@
     "error": 0,
     "expected_failure": 0,
     "failed": 0,
-    "passed": 282,
+    "passed": 337,
     "skipped": 0,
     "unexpected_success": 0
   },
   "discovered_modules": [
+    "test_analysis_linalg",
     "test_assay_harmonization",
     "test_benchmark",
     "test_biomarker_reproduction",
@@ -66,7 +67,7 @@
         "error": 0,
         "expected_failure": 0,
         "failed": 0,
-        "passed": 10,
+        "passed": 11,
         "skipped": 0,
         "unexpected_success": 0
       },
@@ -86,7 +87,7 @@
       ],
       "purpose": "Validates stable core-model serialization, inclusion criteria, repository-aware recommendation rules, and mirage detection.",
       "status": "pass",
-      "tests": 10
+      "tests": 11
     },
     {
       "counts": {
@@ -120,7 +121,7 @@
         "error": 0,
         "expected_failure": 0,
         "failed": 0,
-        "passed": 12,
+        "passed": 14,
         "skipped": 0,
         "unexpected_success": 0
       },
@@ -136,14 +137,14 @@
       ],
       "purpose": "Keeps uncertain mappings or annotations review-gated and validates effect-search multiplicity semantics.",
       "status": "pass",
-      "tests": 12
+      "tests": 14
     },
     {
       "counts": {
         "error": 0,
         "expected_failure": 0,
         "failed": 0,
-        "passed": 7,
+        "passed": 12,
         "skipped": 0,
         "unexpected_success": 0
       },
@@ -159,14 +160,14 @@
       ],
       "purpose": "Validates deterministic dataset-readiness scoring and evidence-aware MoTrPAC metadata-alignment gates.",
       "status": "pass",
-      "tests": 7
+      "tests": 12
     },
     {
       "counts": {
         "error": 0,
         "expected_failure": 0,
         "failed": 0,
-        "passed": 24,
+        "passed": 26,
         "skipped": 0,
         "unexpected_success": 0
       },
@@ -182,7 +183,7 @@
       ],
       "purpose": "Validates MoTrPAC contrast/FDR semantics, release and coverage gates, hierarchy views, deterministic exports, and optional renderers.",
       "status": "pass",
-      "tests": 24
+      "tests": 26
     },
     {
       "counts": {
@@ -210,7 +211,7 @@
         "error": 0,
         "expected_failure": 0,
         "failed": 0,
-        "passed": 30,
+        "passed": 33,
         "skipped": 0,
         "unexpected_success": 0
       },
@@ -232,7 +233,7 @@
       ],
       "purpose": "Validates explicit benchmark denominators, independent-reference universe checks, CLI parity and isolation, provenance, and byte-reproducible pilot outputs.",
       "status": "pass",
-      "tests": 30
+      "tests": 33
     },
     {
       "counts": {
@@ -382,6 +383,27 @@
       "purpose": "Validates that only allowlisted live-ingestion modules import a network client, that offline pilot modules stay offline, and that the documented allowlist matches the enforced one.",
       "status": "pass",
       "tests": 4
+    },
+    {
+      "counts": {
+        "error": 0,
+        "expected_failure": 0,
+        "failed": 0,
+        "passed": 42,
+        "skipped": 0,
+        "unexpected_success": 0
+      },
+      "missing_modules": [],
+      "modules": [
+        "test_analysis_linalg"
+      ],
+      "name": "deterministic_multivariate_statistics",
+      "observed_modules": [
+        "test_analysis_linalg"
+      ],
+      "purpose": "Validates that the stdlib analysis numerics are byte-reproducible: that the eigensolver converges on a norm-consistent criterion rather than stopping near the square root of machine epsilon, that its threshold phase cannot report success having applied no rotation, that eigenvector signs and permutation streams do not depend on input row or column order or on the interpreter, that a degenerate eigenvalue subspace is reported rather than given an invented convention, and that a published float carries no negative zero and no non-finite value.",
+      "status": "pass",
+      "tests": 42
     }
   ],
   "independent_external_validation": false,
@@ -394,7 +416,7 @@
   "nonpassing_tests": [],
   "schema_version": "1.0",
   "strict_release_gate_status": "pass",
-  "tests_run": 282,
+  "tests_run": 337,
   "unmapped_modules": [],
   "unmapped_nonpassing_tests": [],
   "validation_scope": "offline deterministic repository regression tests over synthetic fixtures and checksum-bound cached public artifacts"

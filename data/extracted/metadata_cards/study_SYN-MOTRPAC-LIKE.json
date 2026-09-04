@@ -13,6 +13,7 @@
   ],
   "notes": "Best synthetic MoTrPAC-style alignment",
   "provenance": {
+    "publication_evidence": "source_provided",
     "repository_row_keys": [
       "SYN-MOTRPAC-LIKE::Metabolomics Workbench::MWB-SYN-008::row-9"
     ],

@@ -16,6 +16,10 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
+# The incomplete beta lives in the offline analysis package so a statistical
+# routine is never reachable only through a module that opens a socket. It is
+# re-exported here because callers of this module import it by name.
+from ..analysis.special_functions import regularized_beta
 from ..io import ensure_dir, read_text, write_csv_rows, write_json, write_text
 
 MW_BASE_URL = "https://www.metabolomicsworkbench.org/rest"
@@ -102,9 +106,29 @@ def normalize_metabolite_name(value: str | None) -> str:
     return key if len(key) >= 3 else ""
 
 
+# Fallback timepoint tokens are matched on alphanumeric-token boundaries only.
+# A bare substring test classified ``Diagnosis:prediabetes``, ``Treatment:prednisone``
+# and ``Sample source:Blood`` (via ``:b``) as pre-exercise samples and ``CTR2`` as a
+# time-0 sample, which can pair samples into a contrast that the study never ran.
+_MW_TIMEPOINT_PRE_FALLBACK = re.compile(
+    r"(?<![a-z0-9])(?:pre[-_ ]?(?:exercise|ex|training)|pre|baseline|before|b)(?![a-z0-9])"
+)
+_MW_TIMEPOINT_TIME60_FALLBACK = re.compile(r"(?<![a-z0-9])(?:time[-_ ]?60|r3)(?![a-z0-9.])")
+_MW_TIMEPOINT_TIME0_FALLBACK = re.compile(r"(?<![a-z0-9])(?:time[-_ ]?0|r2)(?![a-z0-9.])")
+
+
 def classify_mw_timepoint(factors: str) -> str:
-    normalized = str(factors or "").lower()
-    time_match = re.search(r"(?:^|\|)\s*time\s*:\s*([^|]+)", str(factors or ""), flags=re.IGNORECASE)
+    """Classify one MW factor string or sample ID as ``pre``, ``time_<x>`` or ``unknown``.
+
+    An explicit ``Time:`` factor is authoritative. The fallback conventions
+    (``pre``/``baseline``/``before``/``b`` for the pre sample, ``time 0``/``r2``
+    and ``time 60``/``r3`` for the post samples) are recognized only as whole
+    tokens. Nothing here verifies that a label means exercise timing; that
+    remains a review question recorded in provenance.
+    """
+    text = str(factors or "")
+    normalized = text.lower()
+    time_match = re.search(r"(?:^|\|)\s*time\s*:\s*([^|]+)", text, flags=re.IGNORECASE)
     if time_match:
         raw_time = time_match.group(1).strip()
         compact_time = re.sub(r"[^a-z0-9]+", "", raw_time.lower())
@@ -112,11 +136,11 @@ def classify_mw_timepoint(factors: str) -> str:
             return "pre"
         if compact_time not in {"", "blank", "qc", "unknown"}:
             return "time_" + compact_time
-    if "time 60" in normalized or "time_60" in normalized or "r3" in normalized:
+    if _MW_TIMEPOINT_TIME60_FALLBACK.search(normalized):
         return "time_60"
-    if "time 0" in normalized or "time_0" in normalized or "r2" in normalized:
+    if _MW_TIMEPOINT_TIME0_FALLBACK.search(normalized):
         return "time_0"
-    if "pre" in normalized or ":b" in normalized:
+    if _MW_TIMEPOINT_PRE_FALLBACK.search(normalized):
         return "pre"
     return "unknown"
 
@@ -410,62 +434,6 @@ def _to_float(value: Any) -> float | None:
 
 def _mean(values: list[float]) -> float:
     return sum(values) / len(values)
-
-
-def _betacf(a: float, b: float, x: float) -> float:
-    max_iter = 200
-    eps = 3e-14
-    fpmin = 1e-300
-    qab = a + b
-    qap = a + 1.0
-    qam = a - 1.0
-    c = 1.0
-    d = 1.0 - qab * x / qap
-    if abs(d) < fpmin:
-        d = fpmin
-    d = 1.0 / d
-    h = d
-    for m in range(1, max_iter + 1):
-        m2 = 2 * m
-        aa = m * (b - m) * x / ((qam + m2) * (a + m2))
-        d = 1.0 + aa * d
-        if abs(d) < fpmin:
-            d = fpmin
-        c = 1.0 + aa / c
-        if abs(c) < fpmin:
-            c = fpmin
-        d = 1.0 / d
-        h *= d * c
-        aa = -(a + m) * (qab + m) * x / ((a + m2) * (qap + m2))
-        d = 1.0 + aa * d
-        if abs(d) < fpmin:
-            d = fpmin
-        c = 1.0 + aa / c
-        if abs(c) < fpmin:
-            c = fpmin
-        d = 1.0 / d
-        delta = d * c
-        h *= delta
-        if abs(delta - 1.0) < eps:
-            break
-    return h
-
-
-def regularized_beta(x: float, a: float, b: float) -> float:
-    if x <= 0:
-        return 0.0
-    if x >= 1:
-        return 1.0
-    bt = math.exp(
-        math.lgamma(a + b)
-        - math.lgamma(a)
-        - math.lgamma(b)
-        + a * math.log(x)
-        + b * math.log1p(-x)
-    )
-    if x < (a + 1.0) / (a + b + 2.0):
-        return bt * _betacf(a, b, x) / a
-    return 1.0 - bt * _betacf(b, a, 1.0 - x) / b
 
 
 def paired_ttest_p_value(differences: list[float]) -> float:

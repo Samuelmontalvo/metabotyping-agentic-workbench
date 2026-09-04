@@ -81,16 +81,23 @@ def render_human_review_packet(review_dir: str | Path, out_dir: str | Path) -> P
 
 
 def render_evaluation_report(scores: list[QualityScore], out_dir: str | Path) -> Path:
-    rows = [to_plain(score) for score in scores]
+    rows = []
+    for score in scores:
+        row = to_plain(score)
+        if row.get("overall_score") is None:
+            row["overall_score"] = "not reported (out of scope)"
+        rows.append(row)
     text = f"""# Aim 3 Evaluation Report
 
 ## Dataset-Readiness Scores
 
-{markdown_table(rows, ["study_id", "overall_score", "study_design_rigor", "metadata_completeness", "metabolomics_quality", "harmonization_feasibility"])}
+{markdown_table(rows, ["study_id", "scope_status", "overall_score", "study_design_rigor", "metadata_completeness", "metabolomics_quality", "harmonization_feasibility"])}
 
 ## Interpretation
 
 Scores are transparent, metadata-backed rule-based subscores from 0 to 1. They are curation and harmonization triage signals, not validated judgments of overall study quality, risk of bias, assay validity, or biological evidence strength.
+
+The scale is defined for human MoTrPAC-style comparison planning. A study documented as non-human is out of scope and receives no overall score (its subscores stay visible); a study whose human-participant status is not documented keeps a triage score and is flagged `human_status_unknown`, because undocumented is not documented absent.
 """
     return write_text(Path(out_dir) / "aim3_evaluation_report.md", text)
 
@@ -197,6 +204,8 @@ def render_benchmark_report(
                 "predicted_review_status",
                 "",
             ),
+            "gold_scope_status": row.get("gold_scope_status", ""),
+            "predicted_scope_status": row.get("predicted_scope_status", ""),
         }
         for row in disagreements
     ]
@@ -231,13 +240,14 @@ Wilson score intervals are 95% intervals for direct proportions. Candidate F1 is
 
 ## Disagreements
 
-{markdown_table(disagreement_rows, ["case_type", "source_study", "source_variable", "reason_codes", "gold", "predicted", "gold_review_status", "predicted_review_status"])}
+{markdown_table(disagreement_rows, ["case_type", "source_study", "source_variable", "reason_codes", "gold", "predicted", "gold_review_status", "predicted_review_status", "gold_scope_status", "predicted_scope_status"])}
 
 Disagreements are review artifacts rather than automatic scientific adjudications. A case's `outcome` is its first reason under the manifest's fixed precedence; `reason_codes` retains every applicable classification. The complete flattened evidence is in `benchmark_disagreements.csv`; the full mapping and quality unions are in `benchmark_case_results.json`.
 
 ## Provenance
 
 - Manifest version: {metadata.get("manifest_version", "not available")}
+- Scoring rule-set version: {metadata.get("rule_set_version", "not available")}
 - Benchmark rule-set version: {metadata.get("benchmark_rule_set_version", "not available")}
 - Software version: {metadata.get("software_version", "not available")}
 - Quality-score tolerance: {metadata.get("quality_score_tolerance", "not available")} (inclusive)

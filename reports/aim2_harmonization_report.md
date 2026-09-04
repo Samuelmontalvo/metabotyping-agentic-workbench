@@ -44,7 +44,7 @@
 | SYN-CPET-RICH | total_lean_mass | lean_mass | 0.88 | Matched lean_mass via name_or_label_synonym. Source variable is a synonym or related label. Unit is compatible. Modality is compatible. Timing is reported. |
 | SYN-DIET-BODY | body_mass_index | bmi | 0.88 | Matched bmi via name_or_label_synonym. Source variable is a synonym or related label. Unit is compatible. Modality is compatible. Timing is reported. |
 | SYN-DIET-BODY | dxa_lean_mass | lean_mass | 0.88 | Matched lean_mass via name_or_label_synonym. Source variable is a synonym or related label. Unit is compatible. Modality is compatible. Timing is reported. |
-| SYN-RESTRICTED-META | gender | sex | 0.88 | Matched sex via name_or_label_synonym. Source variable is a synonym or related label. Unit is compatible. Modality is compatible. Timing is reported. |
+| SYN-RESTRICTED-META | gender | sex | 0.78 | Matched sex via name_or_label_synonym. Source variable is a synonym or related label. Unit is compatible. Modality is compatible. Timing is reported. Gender and sex are distinct constructs; confirm whether the source variable recorded biological sex or gender identity. |
 
 
 ## Rejected Mappings
@@ -101,5 +101,5 @@
 | SYN-CPET-RICH | total_lean_mass | lean_mass | Human review required because confidence or metadata completeness is insufficient. |
 | SYN-DIET-BODY | body_mass_index | bmi | Human review required because confidence or metadata completeness is insufficient. |
 | SYN-DIET-BODY | dxa_lean_mass | lean_mass | Human review required because confidence or metadata completeness is insufficient. |
-| SYN-RESTRICTED-META | gender | sex | Human review required because confidence or metadata completeness is insufficient. |
+| SYN-RESTRICTED-META | gender | sex | Confirm whether the source variable records biological sex or gender identity; the two are distinct constructs and are not interchangeable. |
 

@@ -310,7 +310,9 @@ def _mapping_is_accepted(row: Mapping[str, Any]) -> bool:
     return _text(row.get("mapping_status")).lower() in ACCEPTED_MAPPING_STATUSES
 
 
-def _annotation_is_accepted(row: Mapping[str, Any]) -> bool:
+def annotation_is_accepted(row: Mapping[str, Any]) -> bool:
+    """Return whether a RefMet annotation row is accepted for hierarchy use."""
+
     status = _text(row.get("annotation_status")).lower()
     if status:
         return status in ACCEPTED_ANNOTATION_STATUSES
@@ -326,7 +328,7 @@ def _annotation_is_accepted(row: Mapping[str, Any]) -> bool:
     }
 
 
-def _hierarchy_value(row: Mapping[str, Any], level: str) -> str:
+def hierarchy_value(row: Mapping[str, Any], level: str) -> str:
     """Read one canonical RefMet level while rejecting conflicting aliases."""
 
     values = {
@@ -340,6 +342,12 @@ def _hierarchy_value(row: Mapping[str, Any], level: str) -> str:
             + ", ".join(sorted(values))
         )
     return next(iter(values), "")
+
+
+# Private aliases retained for existing call sites and tests. The public
+# names above are what the analysis package imports.
+_annotation_is_accepted = annotation_is_accepted
+_hierarchy_value = hierarchy_value
 
 
 def _normalise_contrasts(
@@ -371,7 +379,9 @@ def prepare_volcano_data(
     If *all* adjusted values are absent and the declared adjustment is
     Benjamini-Hochberg, FDR is computed over exactly the supplied rows.  Partial
     adjusted-value columns are never filled because mixing adjustment scopes is
-    unsafe.
+    unsafe.  A feature identifier may appear only once per contrast: duplicate
+    rows are usually a second platform, sex stratum, or isomer that belongs in
+    its own facet, and plotting them together double-counts the feature.
     """
 
     raw_rows = [dict(row) for row in rows]
@@ -400,6 +410,7 @@ def prepare_volcano_data(
         fdr_source = "provided_partial_no_imputation"
 
     prepared: list[dict[str, Any]] = []
+    seen_feature_ids: set[str] = set()
     for input_order, (row, p_value, fdr) in enumerate(
         zip(raw_rows, p_values, supplied_fdr, strict=True), start=1
     ):
@@ -409,6 +420,13 @@ def prepare_volcano_data(
                 f"Every volcano row requires {metadata.feature_id_column!r}; "
                 f"row {input_order} is blank."
             )
+        if feature_id in seen_feature_ids:
+            raise PlotValidationError(
+                f"Duplicate feature_id {feature_id!r} within contrast "
+                f"{metadata.contrast_id!r}; facet by assay/platform, sex, or stratum, "
+                "or disambiguate features before plotting."
+            )
+        seen_feature_ids.add(feature_id)
         row_contrast = _text(row.get("contrast_id"))
         if row_contrast and row_contrast != metadata.contrast_id:
             raise PlotValidationError(

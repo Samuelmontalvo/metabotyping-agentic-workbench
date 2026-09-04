@@ -17,6 +17,7 @@
   ],
   "notes": "Looks relevant but lacks deposited repository data",
   "provenance": {
+    "publication_evidence": "source_provided",
     "repository_row_keys": [
       "SYN-EXER-NODATA::unknown::not_available::row-5"
     ],

@@ -1,3 +1,2 @@
-case_type,source_study,source_variable,common_variable,outcome,reason_codes,gold_common_variable,predicted_common_variable,gold_review_status,predicted_review_status,gold_overall_score,predicted_overall_score,absolute_difference,within_tolerance
-quality,SYN-ANIMAL-MET,,,quality_score_outside_tolerance,quality_score_outside_tolerance,,,,,0.2,0.688,0.488,False
-quality,SYN-EXER-NODATA,,,quality_score_outside_tolerance,quality_score_outside_tolerance,,,,,0.33,0.484,0.154,False
+case_type,source_study,source_variable,common_variable,outcome,reason_codes,gold_common_variable,predicted_common_variable,gold_review_status,predicted_review_status,gold_overall_score,predicted_overall_score,gold_scope_status,predicted_scope_status,absolute_difference,within_tolerance
+quality,SYN-EXER-NODATA,,,quality_score_outside_tolerance,quality_score_outside_tolerance,,,,,0.33,0.484,in_scope_human,in_scope_human,0.154,False

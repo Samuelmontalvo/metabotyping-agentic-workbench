@@ -20,6 +20,42 @@ class DiscoveryRecommenderTests(unittest.TestCase):
         excluded = {item.study_id for item in recommendations if item.recommendation_class == "excluded"}
         self.assertIn("SYN-ANIMAL-MET", excluded)
 
+    def test_not_reported_repository_metadata_earns_no_completeness_credit(self):
+        publication = PublicationRecord(
+            study_id="SYN-UNREPORTED",
+            title="Human plasma exercise metabolomics",
+            human=True,
+            exercise=True,
+            metabolomics=True,
+            repository_accession="OTHER-SYN-001",
+        )
+
+        def repository(assay_platform: str, biospecimen_timing: str) -> RepositoryRecord:
+            return RepositoryRecord(
+                study_id="SYN-UNREPORTED",
+                repository="Other repository",
+                accession="OTHER-SYN-001",
+                has_metadata=True,
+                has_codebook=True,
+                has_data_files=True,
+                sample_matrix="plasma",
+                assay_platform=assay_platform,
+                biospecimen_timing=biospecimen_timing,
+                sample_size=30,
+            )
+
+        reported = build_recommendations(
+            [publication], {"SYN-UNREPORTED": repository("LC-MS", "baseline")}
+        )[0]
+        for value in ("unknown", "not_reported", ""):
+            with self.subTest(value=value):
+                unreported = build_recommendations(
+                    [publication], {"SYN-UNREPORTED": repository(value, value)}
+                )[0]
+                self.assertAlmostEqual(reported.score - unreported.score, 0.02, places=6)
+                self.assertIn("unclear_assay_platform", unreported.mirage_flags)
+                self.assertIn("unclear_biospecimen_timing", unreported.mirage_flags)
+
     def test_metabolomics_workbench_non_blood_derived_matrix_is_excluded(self):
         publication = PublicationRecord(
             study_id="MW-MUSCLE-ONLY",

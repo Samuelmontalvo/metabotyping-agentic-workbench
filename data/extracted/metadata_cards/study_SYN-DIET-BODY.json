@@ -9,6 +9,7 @@
   ],
   "notes": "Enrichment candidate for diet and body composition",
   "provenance": {
+    "publication_evidence": "source_provided",
     "repository_row_keys": [
       "SYN-DIET-BODY::Metabolomics Workbench::MWB-SYN-009::row-10"
     ],

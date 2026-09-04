@@ -2,6 +2,170 @@
 
 Notable changes to this project. Versions follow [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+Scientific review of 2026-09-01 (`docs/scientific_review_2026-09-01.md`). No
+benchmark metric changed; the fixes below correct defects in how evidence was
+labeled, paired, or plotted, and close the reproducibility gap between the
+committed pilot artifacts and the documented command.
+
+### Fixed — scientific labeling and pairing
+
+- **The MoTrPAC rat pass1b-06 volcano pooled the male and female strata into one
+  plot.** The source table is sex-stratified (1077 rows per sex, every RefMet
+  name twice), so the single figure double-counted every feature and its
+  contrast id claimed "male". `scripts/render_exercise_studies_refmet_volcanoes.py`
+  now renders one figure per sex, labels the contrast as 8-week trained versus
+  sex-matched sedentary control, excludes the 21 internal-standard rows per sex
+  from the biological volcano, and records that the table has no retrieval
+  provenance record.
+- **The MoTrPAC human volcano declared a study-wide FDR scope over eleven
+  platform DA tables** whose `adj_p_value` was adjusted per platform. The scope
+  is now recorded as per-platform and the figure is labeled as an overlay of
+  eleven test families.
+- **Volcano feature ids used the RefMet name**, which isomers, repeat features
+  and multi-platform measurements share (10 duplicates in ST004303, 226 in the
+  MoTrPAC human table, and one source label reported under two RefMet lipid
+  names within one rat sex). Feature identity is now the (source label, RefMet
+  name) pair, and `prepare_volcano_data` rejects a duplicate feature id within a
+  contrast instead of plotting it twice.
+- **`classify_mw_timepoint` matched bare substrings**, so `Diagnosis:prediabetes`,
+  `Treatment:prednisone` and `Sample source:Blood` (via `:b`) classified as
+  pre-exercise samples and `CTR2` as a time-0 sample — enough to pair samples
+  into a contrast the study never ran. Fallback tokens are now matched on
+  alphanumeric-token boundaries, with the first test coverage for the function.
+- **`mw_exercise_studies.csv` presented a keyword sweep as an exercise-study list.**
+  Of its 66 titles, 44 contain no exercise term (sleep-apnea, cardiolipin,
+  cardiomyocyte and cardiomyopathy studies retrieved by "cardio"), 3 match only
+  an ambiguous phrase ("training set", "biosignature training", "fitness to
+  hypoxia"), and 19 support an exercise context. `scripts/screen_mw_exercise_study_titles.py`
+  writes the per-title screen with every row routed to human review and records
+  that the list has no retrieval query or endpoint on file.
+- **Unit conversions were not analyte-specific.** `choose_transform` applied the
+  glucose molar-mass factor (18.0182) to any mmol/L to mg/dL pair; it is now
+  keyed by common variable, so a non-glucose analyte with that unit pair routes
+  to review instead of being converted with the wrong factor.
+- **`gender` reached `sex` as a plain synonym.** The mapping stays proposable but
+  is capped at 0.78 with an explicit construct caveat, and the review packet
+  now asks whether the source recorded biological sex or gender identity rather
+  than citing "insufficient confidence".
+- A `not_reported` assay platform was described as "reported" in the quality
+  rationale and earned repository-completeness credit in the recommender; both
+  now use one unreported-value set.
+
+### Changed — scoring rule set 0.3.0, benchmark rule set 0.3.0
+
+- **The dataset-readiness scorer now has a scope gate.** The scale is defined
+  for human MoTrPAC-style comparison planning, but a documented non-human study
+  (`SYN-ANIMAL-MET`, rat muscle) scored 0.688 — above a 1200-participant human
+  cohort — while the recommender excluded the same study as out of scope.
+  `QualityScore` gains `scope_status` (`in_scope_human`,
+  `out_of_scope_non_human`, `human_status_unknown`) from the study card's
+  three-valued `human` evidence; a documented non-human study's
+  `overall_score` is withheld (`null`) with its subscores kept visible, and an
+  undocumented human status keeps a triage score but is flagged rather than
+  scored down — the same documented-absent / not-documented distinction the
+  mirage detector and MoTrPAC alignment already draw. Rows are validated against
+  `schemas/quality_score.schema.json` before they are written.
+- **The benchmark compares scope before numbers.** `expert_quality_scores.csv`
+  gains a `scope_status` column (the expert's 0.20 for the rat study encoded
+  exactly this judgement); `quality_score_agreement_within_0.15` is now defined
+  over gold studies not declared out of scope (8/9 = 0.889, previously 8/10),
+  and a tenth metric, `scope_status_accuracy`, reports 10/10. A withheld
+  prediction is accepted only for a row declared out of scope; any other null
+  fails closed. New case reason codes `scope_status_mismatch` and
+  `quality_score_not_reported`; the manifest schema pins both rule-set versions
+  at 0.3.0. The one remaining numeric disagreement is the no-data mirage
+  (`SYN-EXER-NODATA` 0.484 vs 0.33), which the availability-gate proposal in the
+  review document addresses and this release does not.
+
+### Fixed — reproducibility
+
+- **Committed `data/extracted/` did not match `run-pilot`.** The ten study cards
+  lacked the `publication_evidence` provenance key the code has emitted since
+  the initial import, and ten unsuffixed `dataset_SYN-*.json` cards from the
+  initial import were never produced by the current code. Regenerated with the
+  documented command and removed the legacy cards. Verified byte-identical
+  output with and without `pydantic` installed (the `_compat` fallback), so the
+  gap was a regeneration omission, not an environment effect.
+
+### Added — deterministic analysis numerics
+
+First slice of an offline analysis package (`src/metabotyping_agentic/analysis/`)
+for multivariate statistics and effect-size synthesis. Foundations only: special
+functions, reproducibility primitives, and linear algebra. Nothing is wired into
+`run-pilot` yet, so no committed artifact changes.
+
+- **`analysis/special_functions.py` is now the canonical home for the
+  incomplete beta.** `_betacf` and `regularized_beta` moved out of
+  `live_sources/motrpac_volcano_compare.py`, which is on the network-boundary
+  allowlist, and the live module re-exports them. The dependency direction is
+  now allowlisted-to-offline, so an offline analysis never loads a module that
+  opens a socket. The moved arithmetic is bit-identical, verified by exact float
+  equality on 180 grid points spanning both continued-fraction branches and on
+  400 paired-t inputs. Added alongside it: `regularized_gamma_p`/`_q` for the
+  chi-square tail, `student_t_sf`/`student_t_quantile`, `chi_square_sf`,
+  `f_distribution_sf`/`_quantile`, `regularized_beta_inverse`, `normal_cdf`,
+  `normal_quantile_two_sided`, and exact-integer `mann_whitney_exact_counts`.
+  The one-way ANOVA tail is expressed through `regularized_beta`, so the t and F
+  tails share one continued fraction. Every root-find runs a fixed 200-step
+  bisection rather than exiting on a tolerance, so the iteration count is a
+  versioned constant instead of a function of the input.
+- **`analysis/determinism.py` centralizes what breaks byte reproducibility.**
+  `published()` rounds every artifact-bound float to ten decimal digits and
+  normalizes `-0.0`, whose `repr` differs from `0.0` and would otherwise change
+  committed bytes for a value of zero. Ten digits leaves three digits of margin
+  over the x86_64-versus-arm64 libm disagreement already recorded in
+  `scripts/run_metabolite_effect_search.py`. Permutation tests draw from a fully
+  specified MMIX linear congruential generator with rejection sampling, because
+  the Mersenne Twister stream and `random.shuffle`'s internals are CPython
+  implementation details rather than a stability contract. Cost ceilings are
+  declared here so an oversized request is refused with an ordered remediation
+  instead of hanging a pilot run.
+- **`analysis/linalg.py` computes eigendecompositions by cyclic Jacobi**, using
+  only the five operations IEEE-754 requires to be correctly rounded. It avoids
+  `math.hypot` (not correctly-rounded-mandated, and its CPython accuracy has
+  changed) and the Wilkinson shift's sign branches, where inputs differing in
+  the last bit can take different paths. `gram_matrix` makes the p-much-greater-
+  than-n case tractable: a 5000-by-5000 covariance matrix is roughly 1.6 GB of
+  Python floats and about a day of sweeps, while the n-by-n Gram route gives the
+  same spectrum in seconds. Eigenvector signs are canonicalized on the *loading*
+  vector with ties broken by `feature_id`, because permuting sample rows permutes
+  a score vector's components while leaving a loading vector's indices untouched;
+  eigenvalues, loadings, and scores are consequently bit-identical under row and
+  column permutation. A degenerate eigenvalue subspace is reported as
+  `degenerate_subspace_rotation_arbitrary` rather than given an invented
+  convention.
+- **Three defects were found and fixed during implementation**, each now carrying
+  a regression test that names it. The convergence test compared the off-diagonal
+  *sum of squares* against a bound scaled by the Frobenius *norm*; the units
+  disagree, so sweeps stopped near the square root of machine epsilon and
+  published eigenvalues carried a relative error near 1e-10 instead of 3e-16.
+  The Rutishauser threshold was derived from a norm rather than from the sum of
+  absolute off-diagonals, making it large enough to skip every rotation. And the
+  "no progress this sweep means converged" rule fired during the threshold phase,
+  which skips rotations by design — together with the threshold defect, a matrix
+  with decades-apart column scales was returned undecomposed while reporting
+  success. Post-fix, relative reconstruction error is at most 3.4e-16 and
+  orthonormality error at most 1.2e-15 across sizes 5 to 60, including inputs
+  whose column scales span 1e-8 to 1e8.
+- **Four private helpers are now public**, with the private names retained as
+  aliases so no call site or test changes: `cohort_bundle.sha256_path` and
+  `safe_input_path`, and `plotting.metabolomics.hierarchy_value` and
+  `annotation_is_accepted`. The analysis package consumes these, and a
+  cross-package consumer should not reach for an underscore-prefixed symbol.
+- New readiness gate `deterministic_multivariate_statistics` owns
+  `tests/test_analysis_linalg.py` (42 tests).
+
+### Known limitations
+
+- The dataset-readiness scorer still credits modality subscores regardless of
+  data availability, which is why the no-data mirage (`SYN-EXER-NODATA` 0.484
+  vs expert 0.33) remains the one numeric benchmark disagreement. An
+  availability gate is proposed, not applied, in the review document.
+- The rat pass1b-06 volcano table and 25 of 29 `data/live` provenance files
+  still carry no retrieval record or licence field respectively.
+
 ## [0.2.1] — 2026-08-24
 
 First release intended for use outside the authoring group. No scientific

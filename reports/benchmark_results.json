@@ -139,22 +139,41 @@
   {
     "details": {
       "applicability": "applicable",
-      "compared": 10,
-      "definition": "Gold quality-score studies with a prediction within an inclusive Decimal tolerance of 0.15, divided by all gold quality-score studies; missing predictions are failures.",
-      "denominator": 10,
-      "matched_predictions": 10,
+      "compared": 9,
+      "definition": "Gold quality-score studies not declared out of scope with a reported prediction within an inclusive Decimal tolerance of 0.15, divided by all gold quality-score studies not declared out of scope; missing or withheld predictions are failures.",
+      "denominator": 9,
+      "matched_predictions": 9,
       "numerator": 8,
+      "out_of_scope_excluded": 1,
       "quality_inputs_present": true,
       "tolerance": 0.15,
       "tolerance_decimal": "0.15",
       "undefined_reason": null,
       "wilson_95_interval": {
-        "lower": 0.490162,
-        "upper": 0.943318
+        "lower": 0.565,
+        "upper": 0.980109
       },
       "within_tolerance": 8
     },
     "metric_name": "quality_score_agreement_within_0.15",
-    "value": 0.8
+    "value": 0.889
+  },
+  {
+    "details": {
+      "applicability": "applicable",
+      "declared_in_gold": 10,
+      "definition": "Gold quality-score studies with a declared scope status whose predicted scope status matches exactly, divided by all gold quality-score studies with a declared scope status; missing predictions are failures.",
+      "denominator": 10,
+      "matched_predictions": 10,
+      "numerator": 10,
+      "quality_inputs_present": true,
+      "undefined_reason": null,
+      "wilson_95_interval": {
+        "lower": 0.722467,
+        "upper": 1.0
+      }
+    },
+    "metric_name": "scope_status_accuracy",
+    "value": 1.0
   }
 ]

@@ -53,7 +53,7 @@
     },
     {
       "path": "quality_scores.json",
-      "sha256": "f5ffec877211ce112344f8fc04b38a38af345d0dc58c2aae2747ee347cdfe941"
+      "sha256": "c73dbc21a8e5012f919c602343aa41251238a4e0977c0579c491764f86869d3f"
     },
     {
       "path": "motrpac_alignment.json",

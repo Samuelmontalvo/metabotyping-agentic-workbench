@@ -53,7 +53,9 @@ class CohortBundleError(ValueError):
     """Raised before output when a cohort bundle violates its contract."""
 
 
-def _sha256(path: Path) -> str:
+def sha256_path(path: Path) -> str:
+    """Return the SHA-256 digest of a file, read in chunks."""
+
     digest = hashlib.sha256()
     with path.open("rb") as handle:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
@@ -61,7 +63,13 @@ def _sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def _safe_input_path(bundle_dir: Path, declared_path: str) -> Path:
+def safe_input_path(bundle_dir: Path, declared_path: str) -> Path:
+    """Resolve a declared relative input path, refusing any escape from the bundle.
+
+    Rejects absolute paths, ``..`` segments, empty paths, and symlinks that
+    resolve outside ``bundle_dir``.
+    """
+
     relative = Path(str(declared_path))
     if relative.is_absolute() or ".." in relative.parts or not relative.parts:
         raise CohortBundleError(
@@ -78,6 +86,13 @@ def _safe_input_path(bundle_dir: Path, declared_path: str) -> Path:
             f"Declared bundle input escapes the bundle through a symlink: {declared_path}"
         ) from exc
     return path
+
+
+# Private aliases retained for existing call sites and tests. The public
+# names above are what the analysis package imports, so a cross-package
+# consumer never reaches for an underscore-prefixed symbol.
+_sha256 = sha256_path
+_safe_input_path = safe_input_path
 
 
 def _reject_duplicate_json_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:

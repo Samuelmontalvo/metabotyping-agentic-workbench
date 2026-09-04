@@ -188,7 +188,11 @@ class QualityScore(WorkbenchModel):
     diet_quality: float
     temporal_alignment: float
     harmonization_feasibility: float
-    overall_score: float
+    # The readiness scale is defined for human MoTrPAC-style comparison
+    # planning. A study documented as non-human is out of scope and carries no
+    # overall score; the subscores stay visible so the decision is auditable.
+    overall_score: float | None
+    scope_status: str
     weights: dict[str, float] = Field(default_factory=dict)
     rationale: list[str] = Field(default_factory=list)
 

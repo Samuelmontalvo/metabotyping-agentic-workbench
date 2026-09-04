@@ -472,11 +472,13 @@
     "case_type": "quality",
     "common_variable": null,
     "gold": {
-      "overall_score": 0.73
+      "overall_score": 0.73,
+      "scope_status": "in_scope_human"
     },
     "outcome": "correct",
     "predicted": {
-      "overall_score": 0.772
+      "overall_score": 0.772,
+      "scope_status": "in_scope_human"
     },
     "reason_codes": [],
     "source_study": "SYN-ACTI-MET",
@@ -484,33 +486,35 @@
     "within_tolerance": true
   },
   {
-    "absolute_difference": 0.488,
+    "absolute_difference": null,
     "case_type": "quality",
     "common_variable": null,
     "gold": {
-      "overall_score": 0.2
+      "overall_score": 0.2,
+      "scope_status": "out_of_scope_non_human"
     },
-    "outcome": "quality_score_outside_tolerance",
+    "outcome": "correct",
     "predicted": {
-      "overall_score": 0.688
+      "overall_score": null,
+      "scope_status": "out_of_scope_non_human"
     },
-    "reason_codes": [
-      "quality_score_outside_tolerance"
-    ],
+    "reason_codes": [],
     "source_study": "SYN-ANIMAL-MET",
     "source_variable": null,
-    "within_tolerance": false
+    "within_tolerance": null
   },
   {
     "absolute_difference": 0.038,
     "case_type": "quality",
     "common_variable": null,
     "gold": {
-      "overall_score": 0.78
+      "overall_score": 0.78,
+      "scope_status": "in_scope_human"
     },
     "outcome": "correct",
     "predicted": {
-      "overall_score": 0.818
+      "overall_score": 0.818,
+      "scope_status": "in_scope_human"
     },
     "reason_codes": [],
     "source_study": "SYN-CPET-RICH",
@@ -522,11 +526,13 @@
     "case_type": "quality",
     "common_variable": null,
     "gold": {
-      "overall_score": 0.66
+      "overall_score": 0.66,
+      "scope_status": "in_scope_human"
     },
     "outcome": "correct",
     "predicted": {
-      "overall_score": 0.66
+      "overall_score": 0.66,
+      "scope_status": "in_scope_human"
     },
     "reason_codes": [],
     "source_study": "SYN-DIET-BODY",
@@ -538,11 +544,13 @@
     "case_type": "quality",
     "common_variable": null,
     "gold": {
-      "overall_score": 0.33
+      "overall_score": 0.33,
+      "scope_status": "in_scope_human"
     },
     "outcome": "quality_score_outside_tolerance",
     "predicted": {
-      "overall_score": 0.484
+      "overall_score": 0.484,
+      "scope_status": "in_scope_human"
     },
     "reason_codes": [
       "quality_score_outside_tolerance"
@@ -556,11 +564,13 @@
     "case_type": "quality",
     "common_variable": null,
     "gold": {
-      "overall_score": 0.45
+      "overall_score": 0.45,
+      "scope_status": "in_scope_human"
     },
     "outcome": "correct",
     "predicted": {
-      "overall_score": 0.546
+      "overall_score": 0.546,
+      "scope_status": "in_scope_human"
     },
     "reason_codes": [],
     "source_study": "SYN-MET-NOCODEBOOK",
@@ -572,11 +582,13 @@
     "case_type": "quality",
     "common_variable": null,
     "gold": {
-      "overall_score": 0.86
+      "overall_score": 0.86,
+      "scope_status": "in_scope_human"
     },
     "outcome": "correct",
     "predicted": {
-      "overall_score": 0.885
+      "overall_score": 0.885,
+      "scope_status": "in_scope_human"
     },
     "reason_codes": [],
     "source_study": "SYN-METEX-GEN",
@@ -588,11 +600,13 @@
     "case_type": "quality",
     "common_variable": null,
     "gold": {
-      "overall_score": 0.93
+      "overall_score": 0.93,
+      "scope_status": "in_scope_human"
     },
     "outcome": "correct",
     "predicted": {
-      "overall_score": 0.9
+      "overall_score": 0.9,
+      "scope_status": "in_scope_human"
     },
     "reason_codes": [],
     "source_study": "SYN-MOTRPAC-LIKE",
@@ -604,11 +618,13 @@
     "case_type": "quality",
     "common_variable": null,
     "gold": {
-      "overall_score": 0.64
+      "overall_score": 0.64,
+      "scope_status": "in_scope_human"
     },
     "outcome": "correct",
     "predicted": {
-      "overall_score": 0.629
+      "overall_score": 0.629,
+      "scope_status": "in_scope_human"
     },
     "reason_codes": [],
     "source_study": "SYN-OMICS-GEN",
@@ -620,11 +636,13 @@
     "case_type": "quality",
     "common_variable": null,
     "gold": {
-      "overall_score": 0.58
+      "overall_score": 0.58,
+      "scope_status": "in_scope_human"
     },
     "outcome": "correct",
     "predicted": {
-      "overall_score": 0.606
+      "overall_score": 0.606,
+      "scope_status": "in_scope_human"
     },
     "reason_codes": [],
     "source_study": "SYN-RESTRICTED-META",

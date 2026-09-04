@@ -15,7 +15,7 @@ from ..sample_matrix import (
     is_metabolomics_workbench_repository,
     looks_like_metabolomics_workbench_accession,
 )
-from .mirage_detector import detect_mirage_flags, is_mirage
+from .mirage_detector import UNKNOWN_VALUES, detect_mirage_flags, is_mirage
 
 DEFAULT_PREFERRED_TERMS = {
     "exercise",
@@ -145,9 +145,9 @@ def score_publication(
             score += 0.02
         if repository.sample_size is not None:
             score += 0.02
-        if repository.assay_platform != "unknown":
+        if repository.assay_platform not in UNKNOWN_VALUES:
             score += 0.01
-        if repository.biospecimen_timing != "unknown":
+        if repository.biospecimen_timing not in UNKNOWN_VALUES:
             score += 0.01
 
     score = min(round(score, 3), 1.0)
